@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     // CONSTANTES
     private const float SPEED_MOV = 5f;
     private const float JUMP_FORCE = 15f;
+    private const float DASH_FORCE = 100f;
 
     // ATRIBUTOS PERSONAJE
     [SerializeField] private float HP = 100f;
@@ -39,9 +40,11 @@ public class PlayerController : MonoBehaviour
             return (hit != null);
         }
     }
-    
+
+    public bool dashing = false;
+
     /* Flag que devuelve True si el personaje está en el aire. */
-    private bool onAir
+    public bool onAir
     {
         get { return _rigidbody2D.velocity.y != 0 /*&& !grounded*/; }
     }
@@ -61,13 +64,24 @@ public class PlayerController : MonoBehaviour
     void Moverse()
     {
         // HORIZONTAL
-        _rigidbody2D.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * SPEED_MOV * MovSpeed, _rigidbody2D.velocity.y);
+        
+        if(Input.GetAxisRaw("Horizontal") == 1) transform.localScale = new Vector2(1, transform.localScale.y); // mira a la derecha
+        else if (Input.GetAxisRaw("Horizontal") == -1) transform.localScale = new Vector2(-1, transform.localScale.y); // mira a la izquerda
+        _rigidbody2D.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * SPEED_MOV * MovSpeed, _rigidbody2D.velocity.y); // desplazamiento del personaje
+
 
         // SALTO
-
-        if (Input.GetKeyDown(KeyCode.W) && grounded)
+        if (Input.GetKeyDown(KeyCode.W) && grounded) // comprueba que puede saltar
         {
-            _rigidbody2D.AddForce(Vector2.up * JUMP_FORCE * Mathf.Sqrt(JumpCap), ForceMode2D.Impulse);
+            _rigidbody2D.AddForce(Vector2.up * JUMP_FORCE * Mathf.Sqrt(JumpCap), ForceMode2D.Impulse); // impulsa al personaje hacia arriba
+        }
+
+
+        // EVASION
+        if(/*Input.GetKeyDown(KeyCode.LeftShift)*/ Input.GetAxis("Dash") == 1 && !dashing) // comprueba que puede dashear
+        {
+            _rigidbody2D.AddForce(new Vector2(transform.localScale.x, 0) * DASH_FORCE, ForceMode2D.Impulse); // impulsa hacia donde mire el personaje para dashear.
+            dashing = true;
         }
     }
 
