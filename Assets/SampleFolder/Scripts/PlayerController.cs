@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     // CONSTANTES
-    private const float SPEED_MOV = 7f;
+    private const float SPEED_MOV = 5f;
     private const float JUMP_FORCE = 15f;
 
     // ATRIBUTOS PERSONAJE
@@ -18,16 +18,38 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float JumpCap = 1f;
 
     // REFERENCIAS
-    private Rigidbody2D _Rigidbody2D;
+    private Rigidbody2D _rigidbody2D;
+    private BoxCollider2D _boxCollider2D;
 
+
+    private (Vector2, Vector2) getGroundCheckCorners()
+    {
+        Vector3 max = _boxCollider2D.bounds.max;
+        Vector3 min = _boxCollider2D.bounds.min;
+        Vector2 corner1 = new Vector2(max.x, min.y - 0.1f);
+        Vector2 corner2 = new Vector2(min.x, min.y - 0.1f);
+        return (corner1, corner2);
+    }
+    public bool grounded
+    {
+        get
+        {
+            var (corner1, corner2) = getGroundCheckCorners();
+            Collider2D hit = Physics2D.OverlapArea(corner1, corner2);
+            return (hit != null);
+        }
+    }
+    
+    /* Flag que devuelve True si el personaje está en el aire. */
     private bool onAir
     {
-        get { return _Rigidbody2D.velocity.y != 0; }
+        get { return _rigidbody2D.velocity.y != 0 /*&& !grounded*/; }
     }
 
     void Start()
     {
-        _Rigidbody2D = GetComponent<Rigidbody2D>();
+        _rigidbody2D = GetComponent<Rigidbody2D>();
+        _boxCollider2D = GetComponent<BoxCollider2D>();
     }
 
 
@@ -39,10 +61,14 @@ public class PlayerController : MonoBehaviour
     void Moverse()
     {
         // HORIZONTAL
-        _Rigidbody2D.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * SPEED_MOV * MovSpeed, _Rigidbody2D.velocity.y);
+        _rigidbody2D.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * SPEED_MOV * MovSpeed, _rigidbody2D.velocity.y);
 
         // SALTO
-        if(Input.GetAxisRaw("Jump") == 1 && !onAir) 
-            _Rigidbody2D.AddForce(Vector2.up * JUMP_FORCE * Mathf.Sqrt(JumpCap), ForceMode2D.Impulse);
+
+        if (Input.GetKeyDown(KeyCode.W) && grounded)
+        {
+            _rigidbody2D.AddForce(Vector2.up * JUMP_FORCE * Mathf.Sqrt(JumpCap), ForceMode2D.Impulse);
+        }
     }
+
 }
