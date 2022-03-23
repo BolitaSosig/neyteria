@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     // CONSTANTES
-    private const float SPEED_MOV = 5f;
-    private const float JUMP_FORCE = 10f;
+    private const float SPEED_MOV = 7f;
+    private const float JUMP_FORCE = 15f;
 
     // ATRIBUTOS PERSONAJE
     [SerializeField] private float HP = 100f;
@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
     void Moverse()
     {
         // HORIZONTAL
-        transform.position += new Vector3(Input.GetAxis("Horizontal") * Time.deltaTime * SPEED_MOV * MovSpeed, 0, 0);
+        _Rigidbody2D.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * SPEED_MOV * MovSpeed, _Rigidbody2D.velocity.y);
 
         // SALTO
         if(Input.GetAxisRaw("Jump") == 1 && !onAir) 
