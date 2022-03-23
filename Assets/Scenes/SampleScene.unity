@@ -217,8 +217,8 @@ GameObject:
   - component: {fileID: 1652074147}
   - component: {fileID: 1652074146}
   - component: {fileID: 1652074145}
-  - component: {fileID: 1652074148}
   - component: {fileID: 1652074149}
+  - component: {fileID: 1652074148}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -312,8 +312,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &1652074148
-CircleCollider2D:
+--- !u!61 &1652074148
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -325,9 +325,19 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.008448064}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Size: {x: 0.7634518, y: 0.7803484}
+  m_EdgeRadius: 0
 --- !u!114 &1652074149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,6 +350,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b300d0ac469c2d4fa09964ba410b1cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HP: 100
+  Stamina: 100
+  Attack: 1
+  Defense: 1
+  Weight: 1
   MovSpeed: 1
   JumpCap: 1
 --- !u!1 &1923915732
