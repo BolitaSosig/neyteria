@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     // CONSTANTES
     private const float SPEED_MOV = 5f;
     private const float JUMP_FORCE = 15f;
-    private const float DASH_FORCE = 100f;
+    private const float DASH_FORCE = 12f;
 
     // ATRIBUTOS PERSONAJE
     [SerializeField] private float HP = 100f;
@@ -41,7 +41,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public bool dashing = false;
+    public bool canDash {
+        get { return Input.GetAxisRaw("Dash") == 1; }
+    }
 
     /* Flag que devuelve True si el personaje está en el aire. */
     public bool onAir
@@ -76,12 +78,11 @@ public class PlayerController : MonoBehaviour
             _rigidbody2D.AddForce(Vector2.up * JUMP_FORCE * Mathf.Sqrt(JumpCap), ForceMode2D.Impulse); // impulsa al personaje hacia arriba
         }
 
-
+        Debug.Log(Input.GetAxisRaw("Dash"));
         // EVASION
-        if(/*Input.GetKeyDown(KeyCode.LeftShift)*/ Input.GetAxis("Dash") == 1 && !dashing) // comprueba que puede dashear
+        if(/*Input.GetKeyDown(KeyCode.LeftShift)*/ Input.GetAxisRaw("Dash") == 1 /*&& canDash*/) // comprueba que puede dashear
         {
             _rigidbody2D.AddForce(new Vector2(transform.localScale.x, 0) * DASH_FORCE, ForceMode2D.Impulse); // impulsa hacia donde mire el personaje para dashear.
-            dashing = true;
         }
     }
 
