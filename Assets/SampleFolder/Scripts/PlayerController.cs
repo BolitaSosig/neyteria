@@ -83,6 +83,8 @@ public class PlayerController : MonoBehaviour
             _rigidbody2D.AddForce(Vector2.up * JUMP_FORCE * Mathf.Sqrt(JumpCap), ForceMode2D.Impulse); // impulsa al personaje hacia arriba
         }
 
+        _animator.SetBool("on_air", !grounded);
+
 
         ////// EVASION //////
         if (/*Input.GetKeyDown(KeyCode.LeftShift)*/ Input.GetAxisRaw("Dash") == 1 /*&& canDash*/) // comprueba que puede dashear
