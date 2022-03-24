@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     // REFERENCIAS
     private Rigidbody2D _rigidbody2D;
     private BoxCollider2D _boxCollider2D;
+    private Animator _animator;
 
 
     private (Vector2, Vector2) getGroundCheckCorners()
@@ -55,6 +56,7 @@ public class PlayerController : MonoBehaviour
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _boxCollider2D = GetComponent<BoxCollider2D>();
+        _animator = GetComponent<Animator>();
     }
 
 
@@ -65,22 +67,25 @@ public class PlayerController : MonoBehaviour
 
     void Moverse()
     {
-        // HORIZONTAL
-        
-        if(Input.GetAxisRaw("Horizontal") == 1) transform.localScale = new Vector2(1, transform.localScale.y); // mira a la derecha
-        else if (Input.GetAxisRaw("Horizontal") == -1) transform.localScale = new Vector2(-1, transform.localScale.y); // mira a la izquerda
+        ////// HORIZONTAL //////
+        if(Input.GetAxisRaw("Horizontal") == 1) 
+            transform.localScale = new Vector2(1, transform.localScale.y); // mira a la derecha
+        else if (Input.GetAxisRaw("Horizontal") == -1) 
+            transform.localScale = new Vector2(-1, transform.localScale.y); // mira a la izquerda
+
         _rigidbody2D.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * SPEED_MOV * MovSpeed, _rigidbody2D.velocity.y); // desplazamiento del personaje
+        _animator.SetFloat("velocity_x", Mathf.Abs(_rigidbody2D.velocity.x)); // establece velocity_x en el animator
 
 
-        // SALTO
+        ////// SALTO //////
         if (Input.GetKeyDown(KeyCode.W) && grounded) // comprueba que puede saltar
         {
             _rigidbody2D.AddForce(Vector2.up * JUMP_FORCE * Mathf.Sqrt(JumpCap), ForceMode2D.Impulse); // impulsa al personaje hacia arriba
         }
 
-        Debug.Log(Input.GetAxisRaw("Dash"));
-        // EVASION
-        if(/*Input.GetKeyDown(KeyCode.LeftShift)*/ Input.GetAxisRaw("Dash") == 1 /*&& canDash*/) // comprueba que puede dashear
+
+        ////// EVASION //////
+        if (/*Input.GetKeyDown(KeyCode.LeftShift)*/ Input.GetAxisRaw("Dash") == 1 /*&& canDash*/) // comprueba que puede dashear
         {
             _rigidbody2D.AddForce(new Vector2(transform.localScale.x, 0) * DASH_FORCE, ForceMode2D.Impulse); // impulsa hacia donde mire el personaje para dashear.
         }
