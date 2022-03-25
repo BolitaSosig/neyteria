@@ -43,7 +43,8 @@ public class PlayerController : MonoBehaviour
     }
 
     public bool canDash {
-        get { return Input.GetAxisRaw("Dash") == 1; }
+        get { return _animator.GetBool("can_dash"); }
+        set { _animator.SetBool("can_dash", value); }
     }
 
     /* Flag que devuelve True si el personaje está en el aire. */
@@ -87,9 +88,10 @@ public class PlayerController : MonoBehaviour
 
 
         ////// EVASION //////
-        if (/*Input.GetKeyDown(KeyCode.LeftShift)*/ Input.GetAxisRaw("Dash") == 1 /*&& canDash*/) // comprueba que puede dashear
+        if (/*Input.GetKeyDown(KeyCode.LeftShift)*/ Input.GetAxisRaw("Dash") == 1 && canDash) // comprueba que puede dashear
         {
             _rigidbody2D.AddForce(new Vector2(transform.localScale.x, 0) * DASH_FORCE, ForceMode2D.Impulse); // impulsa hacia donde mire el personaje para dashear.
+            canDash = false;
         }
     }
 
