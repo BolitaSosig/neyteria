@@ -28,12 +28,12 @@ public class MenuPpal : MonoBehaviour
     void Update()
     {
         //Esto es para que gire la imagen de cargando
-        if (asyncLoad != null) {
+        //if (asyncLoad != null) {
             
             rotationEuler += Vector3.forward * 15 * Time.deltaTime;     //Incrementa 15 grados cada vez
             transform.rotation = Quaternion.Euler(rotationEuler);
             ImagenCargando.rectTransform.Rotate(transform.rotation.eulerAngles);
-        }
+        //}
     }
 
     public void EmpezarJuego()
