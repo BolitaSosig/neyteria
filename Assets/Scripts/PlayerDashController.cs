@@ -20,6 +20,7 @@ public class PlayerDashController : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.SetBool("can_dash", true);
+        animator.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

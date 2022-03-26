@@ -1914,7 +1914,7 @@ GameObject:
   - component: {fileID: 1652074150}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2050,6 +2050,8 @@ MonoBehaviour:
   Weight: 1
   MovSpeed: 1
   JumpCap: 1
+  DashRange: 0.5
+  Inmune: 0
 --- !u!95 &1652074150
 Animator:
   serializedVersion: 3
@@ -2436,7 +2438,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 100
   Stamina: 100
-  Attack: 1
+  Attack: 4
   Defense: 1
   Weight: 1
   MovSpeed: 1

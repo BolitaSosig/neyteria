@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     private const float SPEED_MOV = 5f;
     private const float JUMP_FORCE = 15f;
     private const float DASH_FORCE = 12f;
+    private const float DMG_CD = 1f;
 
     // ATRIBUTOS PERSONAJE
     [SerializeField] private float HP = 100f;
@@ -66,6 +67,10 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Moverse();
+
+        // test damage
+        if (Input.GetKeyDown(KeyCode.K))
+            GetDamage(5f);
     }
 
     void Moverse()
@@ -94,8 +99,19 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift) /*Input.GetAxisRaw("Dash") == 1*/ && canDash) // comprueba que puede dashear
         {
             //_rigidbody2D.AddForce(new Vector2(transform.localScale.x, 0) * DASH_FORCE, ForceMode2D.Impulse); // impulsa hacia donde mire el personaje para dashear.
-            _rigidbody2D.velocity = new Vector2(DASH_FORCE * transform.localScale.x, 0);
+            _rigidbody2D.velocity = new Vector2(DASH_FORCE * transform.localScale.x, _rigidbody2D.velocity.y);
             canDash = false;
+        }
+    }
+
+
+    public void GetDamage(float dmg)
+    {
+        if (!Inmune)
+        {
+            HP = Mathf.Max(0, HP - dmg);
+            Inmune = true;
+            //#### FALTA AÑADIR TEMPORIZADOR DE DMG_CD SEGUNDOS ####//
         }
     }
 

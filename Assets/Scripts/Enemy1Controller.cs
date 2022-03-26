@@ -11,7 +11,7 @@ public class Enemy1Controller : MonoBehaviour
     // ATRIBUTOS PERSONAJE
     [SerializeField] private float HP = 100f;
     [SerializeField] private float Stamina = 100f;
-    [SerializeField] private float Attack = 1f;
+    [SerializeField] private float Attack = 4f;
     [SerializeField] private float Defense = 1f;
     [SerializeField] private float Weight = 1f;
     [SerializeField] private float MovSpeed = 1f;
@@ -86,4 +86,14 @@ public class Enemy1Controller : MonoBehaviour
 
     }
 
+    void DoDamage(GameObject player)
+    {
+        player.GetComponent<PlayerController>().GetDamage(Attack);
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag.Equals("Player"))
+            DoDamage(collision.gameObject);
+    }
 }
