@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float Weight = 1f;
     [SerializeField] private float MovSpeed = 1f;
     [SerializeField] private float JumpCap = 1f;
+    [SerializeField] private float DashRange = 0.5f;
+    [SerializeField] private bool Inmune = false;
 
     // REFERENCIAS
     private Rigidbody2D _rigidbody2D;
@@ -74,7 +76,8 @@ public class PlayerController : MonoBehaviour
         else if (Input.GetAxisRaw("Horizontal") == -1) 
             transform.localScale = new Vector2(-1, transform.localScale.y); // mira a la izquerda
 
-        _rigidbody2D.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * SPEED_MOV * MovSpeed, _rigidbody2D.velocity.y); // desplazamiento del personaje
+        if(canDash)
+            _rigidbody2D.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * SPEED_MOV * MovSpeed, _rigidbody2D.velocity.y); // desplazamiento del personaje
         _animator.SetFloat("velocity_x", Mathf.Abs(_rigidbody2D.velocity.x)); // establece velocity_x en el animator
 
 
@@ -88,9 +91,10 @@ public class PlayerController : MonoBehaviour
 
 
         ////// EVASION //////
-        if (/*Input.GetKeyDown(KeyCode.LeftShift)*/ Input.GetAxisRaw("Dash") == 1 && canDash) // comprueba que puede dashear
+        if (Input.GetKeyDown(KeyCode.LeftShift) /*Input.GetAxisRaw("Dash") == 1*/ && canDash) // comprueba que puede dashear
         {
-            _rigidbody2D.AddForce(new Vector2(transform.localScale.x, 0) * DASH_FORCE, ForceMode2D.Impulse); // impulsa hacia donde mire el personaje para dashear.
+            //_rigidbody2D.AddForce(new Vector2(transform.localScale.x, 0) * DASH_FORCE, ForceMode2D.Impulse); // impulsa hacia donde mire el personaje para dashear.
+            _rigidbody2D.velocity = new Vector2(DASH_FORCE * transform.localScale.x, 0);
             canDash = false;
         }
     }
