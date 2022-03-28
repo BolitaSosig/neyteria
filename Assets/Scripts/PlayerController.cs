@@ -11,15 +11,18 @@ public class PlayerController : MonoBehaviour
     private const float DMG_CD = 1f;
 
     // ATRIBUTOS PERSONAJE
-    [SerializeField] private float HP = 100f;
-    [SerializeField] private float Stamina = 100f;
-    [SerializeField] private float Attack = 1f;
-    [SerializeField] private float Defense = 1f;
-    [SerializeField] private float Weight = 1f;
-    [SerializeField] private float MovSpeed = 1f;
-    [SerializeField] private float JumpCap = 1f;
-    [SerializeField] private float DashRange = 0.5f;
-    [SerializeField] private bool Inmune = false;
+    [SerializeField] public float HP = 100f;                    // Puntos de salud reales
+    [SerializeField] public float MaxHP = 100f;                 // Puntos de salud máximos
+    [SerializeField] public float Stamina = 100f;               // Puntos de resistencia reales
+    [SerializeField] public float MaxStamina = 100f;            // Puntos de resistencia máxima
+    [SerializeField] public float Attack = 1f;                  // Ataque
+    [SerializeField] public float Defense = 1f;                 // Defensa
+    [SerializeField] public float Weight = 1f;                  // Peso
+    [SerializeField] public float MovSpeed = 1f;                // Velocidad con la que se desplaza el personaje
+    [SerializeField] public float JumpCap = 1f;                 // Altura que se alcanza con el salto
+    [SerializeField] public float DashRange = 0.5f;             // Intervalo de invulnerabilidad al evadir
+    [SerializeField] public float gastoDash = 25f;              // Gasto de resistencia al evadir
+    [SerializeField] public bool Inmune = false;                // Inmortal
 
     // REFERENCIAS
     private Rigidbody2D _rigidbody2D;
@@ -46,7 +49,7 @@ public class PlayerController : MonoBehaviour
     }
 
     public bool canDash {
-        get { return _animator.GetBool("can_dash"); }
+        get { return _animator.GetBool("can_dash") && Stamina >= gastoDash; }
         set { _animator.SetBool("can_dash", value); }
     }
 
@@ -75,35 +78,47 @@ public class PlayerController : MonoBehaviour
 
     void Moverse()
     {
-        ////// HORIZONTAL //////
-        if(Input.GetAxisRaw("Horizontal") == 1) 
+        Walk();
+        Jump();
+        Dash();
+        RecuperacionStamina();
+    }
+
+    ////// HORIZONTAL //////
+    void Walk()
+    {
+        if (Input.GetAxisRaw("Horizontal") == 1)
             transform.localScale = new Vector2(1, transform.localScale.y); // mira a la derecha
-        else if (Input.GetAxisRaw("Horizontal") == -1) 
+        else if (Input.GetAxisRaw("Horizontal") == -1)
             transform.localScale = new Vector2(-1, transform.localScale.y); // mira a la izquerda
 
-        if(canDash)
+        if (canDash)
             _rigidbody2D.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * SPEED_MOV * MovSpeed, _rigidbody2D.velocity.y); // desplazamiento del personaje
         _animator.SetFloat("velocity_x", Mathf.Abs(_rigidbody2D.velocity.x)); // establece velocity_x en el animator
+    }
 
-
-        ////// SALTO //////
+    ////// SALTO //////
+    void Jump()
+    {
         if (Input.GetKeyDown(KeyCode.W) && grounded) // comprueba que puede saltar
         {
             _rigidbody2D.AddForce(Vector2.up * JUMP_FORCE * Mathf.Sqrt(JumpCap), ForceMode2D.Impulse); // impulsa al personaje hacia arriba
         }
 
         _animator.SetBool("on_air", !grounded);
+    }
 
-
-        ////// EVASION //////
+    ////// EVASION //////
+    void Dash()
+    {
         if (Input.GetKeyDown(KeyCode.LeftShift) /*Input.GetAxisRaw("Dash") == 1*/ && canDash) // comprueba que puede dashear
         {
             //_rigidbody2D.AddForce(new Vector2(transform.localScale.x, 0) * DASH_FORCE, ForceMode2D.Impulse); // impulsa hacia donde mire el personaje para dashear.
             _rigidbody2D.velocity = new Vector2(DASH_FORCE * transform.localScale.x, _rigidbody2D.velocity.y);
             canDash = false;
+            Stamina = Mathf.Max(0, Stamina - gastoDash); // consume resistencia al evadir
         }
     }
-
 
     public void GetDamage(float dmg)
     {
@@ -112,6 +127,14 @@ public class PlayerController : MonoBehaviour
             HP = Mathf.Max(0, HP - dmg);
             Inmune = true;
             //#### FALTA AÑADIR TEMPORIZADOR DE DMG_CD SEGUNDOS ####//
+        }
+    }
+
+    void RecuperacionStamina()
+    {
+        if(Stamina < MaxStamina)
+        {
+            Stamina = Mathf.Min(MaxStamina, Stamina + 0.1f);
         }
     }
 
