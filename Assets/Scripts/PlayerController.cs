@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     private const float JUMP_FORCE = 15f;
     private const float DASH_FORCE = 12f;
     private const float DMG_CD = 1f;
+    private const float STAMINA_REC_SPEED_PER_SEC = 25f;
 
     // ATRIBUTOS PERSONAJE
     [SerializeField] public float HP = 100f;                    // Puntos de salud reales
@@ -22,6 +23,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public float JumpCap = 1f;                 // Altura que se alcanza con el salto
     [SerializeField] public float DashRange = 0.5f;             // Intervalo de invulnerabilidad al evadir
     [SerializeField] public float gastoDash = 25f;              // Gasto de resistencia al evadir
+    [SerializeField] public float StaminaVelRec = 1f;           // Velocidad con la que se recupera la resistencia
     [SerializeField] public bool Inmune = false;                // Inmortal
 
     // REFERENCIAS
@@ -81,7 +83,6 @@ public class PlayerController : MonoBehaviour
         Walk();
         Jump();
         Dash();
-        RecuperacionStamina();
     }
 
     ////// HORIZONTAL //////
@@ -92,7 +93,7 @@ public class PlayerController : MonoBehaviour
         else if (Input.GetAxisRaw("Horizontal") == -1)
             transform.localScale = new Vector2(-1, transform.localScale.y); // mira a la izquerda
 
-        if (canDash)
+        if (canDash || onAir)
             _rigidbody2D.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * SPEED_MOV * MovSpeed, _rigidbody2D.velocity.y); // desplazamiento del personaje
         _animator.SetFloat("velocity_x", Mathf.Abs(_rigidbody2D.velocity.x)); // establece velocity_x en el animator
     }
@@ -116,7 +117,7 @@ public class PlayerController : MonoBehaviour
             //_rigidbody2D.AddForce(new Vector2(transform.localScale.x, 0) * DASH_FORCE, ForceMode2D.Impulse); // impulsa hacia donde mire el personaje para dashear.
             _rigidbody2D.velocity = new Vector2(DASH_FORCE * transform.localScale.x, _rigidbody2D.velocity.y);
             canDash = false;
-            Stamina = Mathf.Max(0, Stamina - gastoDash); // consume resistencia al evadir
+            StartCoroutine(GastarStamina(gastoDash)); // consume resistencia al evadir
         }
     }
 
@@ -130,12 +131,20 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void RecuperacionStamina()
+    IEnumerator RecuperacionStamina()
     {
-        if(Stamina < MaxStamina)
+        while (Stamina < MaxStamina)
         {
             Stamina = Mathf.Min(MaxStamina, Stamina + 0.1f);
+            yield return new WaitForSecondsRealtime(0.1f / STAMINA_REC_SPEED_PER_SEC);
         }
+    }
+
+    IEnumerator GastarStamina(float cant)
+    {
+        Stamina = Mathf.Max(0, Stamina - cant);
+        yield return new WaitForSeconds(0.5f);
+        StartCoroutine(RecuperacionStamina());
     }
 
 }
