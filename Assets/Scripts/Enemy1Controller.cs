@@ -7,6 +7,7 @@ public class Enemy1Controller : MonoBehaviour
     // CONSTANTES
     private const float SPEED_MOV = 2f;
     private const float JUMP_FORCE = 15f;
+    private float DISTANCIA_EN_SEGUNDOS = 3f;
 
     // ATRIBUTOS PERSONAJE
     [SerializeField] private float HP = 100f;
@@ -18,6 +19,9 @@ public class Enemy1Controller : MonoBehaviour
     [SerializeField] private float JumpCap = 1f;
     [SerializeField] private float mov_x = 0f;
     [SerializeField] private int cont_mov_x = 0;
+
+    private float distReco = 0f;
+    private bool moving = false;
 
     // REFERENCIAS
     private Rigidbody2D _rigidbody2D;
@@ -63,14 +67,32 @@ public class Enemy1Controller : MonoBehaviour
 
     void Update()
     {
-        Moverse();
+        StartCoroutine(Moverse());
     }
 
-    void Moverse()
+    IEnumerator Moverse()
     {
+        if(!moving)
+        {
+            moving = true;
+            float cont = 0;
+            while (cont < DISTANCIA_EN_SEGUNDOS * 10)
+            {
+                _rigidbody2D.velocity = new Vector2(Mathf.Sign(transform.localScale.x) * SPEED_MOV * MovSpeed, _rigidbody2D.velocity.y); // desplazamiento del personaje
+                _animator.SetFloat("velocity_x", Mathf.Abs(_rigidbody2D.velocity.x)); // establece velocity_x en el animator*/
+                cont++;
+                yield return new WaitForSecondsRealtime(0.1f);
+            }
+            transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
+            moving = false;
+        }
         
 
-        if (cont_mov_x > 50) {
+
+
+
+
+        /*if (cont_mov_x > 50) {
             cont_mov_x = 0;
             mov_x = Random.Range(-0.25f, 0.25f);
             if (mov_x > 0.1) { mov_x = 1; } else if (mov_x < -0.1) { mov_x = -1; } else { mov_x = 0; }
@@ -82,7 +104,7 @@ public class Enemy1Controller : MonoBehaviour
             transform.localScale = new Vector2(mov_x, transform.localScale.y);
 
         _rigidbody2D.velocity = new Vector2(mov_x * SPEED_MOV * MovSpeed, _rigidbody2D.velocity.y); // desplazamiento del personaje
-        _animator.SetFloat("velocity_x", Mathf.Abs(_rigidbody2D.velocity.x)); // establece velocity_x en el animator
+        _animator.SetFloat("velocity_x", Mathf.Abs(_rigidbody2D.velocity.x)); // establece velocity_x en el animator*/
 
     }
 
