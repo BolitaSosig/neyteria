@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public float DashRange = 1f;               // Intervalo de invulnerabilidad al evadir
     [SerializeField] public float gastoDash = 25f;              // Gasto de resistencia al evadir
     [SerializeField] public float StaminaVelRec = 1f;           // Velocidad con la que se recupera la resistencia
+    [SerializeField] public float dmgReduc = 0f;                // Reducción del daño recibido
     [SerializeField] public bool Inmune = false;                // Inmortal
 
     // REFERENCIAS
@@ -132,10 +133,15 @@ public class PlayerController : MonoBehaviour
         {
             HP = Mathf.Max(0, HP - dmg);
             Inmune = true;
-            //#### FALTA AÑADIR TEMPORIZADOR DE DMG_CD SEGUNDOS ####//
+
             yield return new WaitForSecondsRealtime(DMG_CD);
             Inmune = false;
         }
+    }
+
+    public void GetDamageByEnemy(float ataqEnemigo)
+    {
+        StartCoroutine(GetDamage(5 * ataqEnemigo / Mathf.Sqrt(Defense) * (1 - dmgReduc)));
     }
 
     IEnumerator RecuperacionStamina()
