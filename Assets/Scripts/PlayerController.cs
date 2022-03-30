@@ -8,8 +8,9 @@ public class PlayerController : MonoBehaviour
     private const float SPEED_MOV = 5f;
     private const float JUMP_FORCE = 15f;
     private const float DASH_FORCE = 12f;
-    private const float DMG_CD = 1f;
-    private const float STAMINA_REC_SPEED_PER_SEC = 25f;
+    private const float DMG_CD = 0.5f;
+    private const float DASH_RANGE = 0.1f;
+    private const float STAMINA_REC_SPEED = 30f;
 
     // ATRIBUTOS PERSONAJE
     [SerializeField] public float HP = 100f;                    // Puntos de salud reales
@@ -21,7 +22,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public float Weight = 1f;                  // Peso
     [SerializeField] public float MovSpeed = 1f;                // Velocidad con la que se desplaza el personaje
     [SerializeField] public float JumpCap = 1f;                 // Altura que se alcanza con el salto
-    [SerializeField] public float DashRange = 0.5f;             // Intervalo de invulnerabilidad al evadir
+    [SerializeField] public float DashRange = 1f;               // Intervalo de invulnerabilidad al evadir
     [SerializeField] public float gastoDash = 25f;              // Gasto de resistencia al evadir
     [SerializeField] public float StaminaVelRec = 1f;           // Velocidad con la que se recupera la resistencia
     [SerializeField] public bool Inmune = false;                // Inmortal
@@ -31,6 +32,10 @@ public class PlayerController : MonoBehaviour
     private BoxCollider2D _boxCollider2D;
     private Animator _animator;
 
+    // AUXILIARES
+
+    // FLAGS
+    private bool staminaIsUsed = false;
 
     private (Vector2, Vector2) getGroundCheckCorners()
     {
@@ -121,29 +126,33 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void GetDamage(float dmg)
+    public IEnumerator GetDamage(float dmg)
     {
         if (!Inmune)
         {
             HP = Mathf.Max(0, HP - dmg);
             Inmune = true;
             //#### FALTA AÑADIR TEMPORIZADOR DE DMG_CD SEGUNDOS ####//
+            yield return new WaitForSecondsRealtime(DMG_CD);
+            Inmune = false;
         }
     }
 
     IEnumerator RecuperacionStamina()
     {
-        while (Stamina < MaxStamina)
+        while (Stamina < MaxStamina && !staminaIsUsed)
         {
-            Stamina = Mathf.Min(MaxStamina, Stamina + 0.1f);
-            yield return new WaitForSecondsRealtime(0.1f / STAMINA_REC_SPEED_PER_SEC);
+            Stamina = Mathf.Min(MaxStamina, Stamina + Time.fixedDeltaTime * STAMINA_REC_SPEED);
+            yield return new WaitForSecondsRealtime(Time.fixedDeltaTime);
         }
     }
 
     IEnumerator GastarStamina(float cant)
     {
+        staminaIsUsed = true;
         Stamina = Mathf.Max(0, Stamina - cant);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSecondsRealtime(0.5f);
+        staminaIsUsed = false;
         StartCoroutine(RecuperacionStamina());
     }
 

@@ -88,7 +88,7 @@ public class Enemy1Controller : MonoBehaviour
 
     void DoDamage(GameObject player)
     {
-        player.GetComponent<PlayerController>().GetDamage(Attack);
+        StartCoroutine(player.GetComponent<PlayerController>().GetDamage(Attack));
     }
 
     private void OnCollisionStay2D(Collision2D collision)
