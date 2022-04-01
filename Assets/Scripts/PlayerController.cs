@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rigidbody2D;
     private BoxCollider2D _boxCollider2D;
     private Animator _animator;
+    [SerializeField] public Modulo[] Modulos = new Modulo[3];
 
     // AUXILIARES
 
@@ -72,6 +73,8 @@ public class PlayerController : MonoBehaviour
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _boxCollider2D = GetComponent<BoxCollider2D>();
         _animator = GetComponent<Animator>();
+
+        Modulos[1] = new Modulo(0,0,0,0);
     }
 
 
@@ -120,13 +123,14 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftShift) /*Input.GetAxisRaw("Dash") == 1*/ && canDash) // comprueba que puede dashear
         {
-            //_rigidbody2D.AddForce(new Vector2(transform.localScale.x, 0) * DASH_FORCE, ForceMode2D.Impulse); // impulsa hacia donde mire el personaje para dashear.
+            int shortDash = _rigidbody2D.velocity.x == 0 ? 1 : 0; // 1 si dashea mientras se esta moviendo, 0 si está quieto
             _rigidbody2D.velocity = new Vector2(DASH_FORCE * transform.localScale.x, _rigidbody2D.velocity.y);
             canDash = false;
-            StartCoroutine(GastarStamina(gastoDash)); // consume resistencia al evadir
+            StartCoroutine(GastarStamina(gastoDash - 0.35f * gastoDash * shortDash)); // consume resistencia al evadir
         }
     }
 
+    ////// RECIBE DAÑO //////
     public IEnumerator GetDamage(float dmg)
     {
         if (!Inmune)
@@ -139,6 +143,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    ////// RECIBE DAÑO POR UN ENEMIGO //////
     public void GetDamageByEnemy(float ataqEnemigo)
     {
         StartCoroutine(GetDamage(5 * ataqEnemigo / Mathf.Sqrt(Defense) * (1 - dmgReduc)));

@@ -86,25 +86,6 @@ public class Enemy1Controller : MonoBehaviour
             transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
             moving = false;
         }
-        
-
-
-
-
-
-        /*if (cont_mov_x > 50) {
-            cont_mov_x = 0;
-            mov_x = Random.Range(-0.25f, 0.25f);
-            if (mov_x > 0.1) { mov_x = 1; } else if (mov_x < -0.1) { mov_x = -1; } else { mov_x = 0; }
-        }
-        else { cont_mov_x++; }
-
-        ////// HORIZONTAL //////
-        if(mov_x == 1 || mov_x == -1)
-            transform.localScale = new Vector2(mov_x, transform.localScale.y);
-
-        _rigidbody2D.velocity = new Vector2(mov_x * SPEED_MOV * MovSpeed, _rigidbody2D.velocity.y); // desplazamiento del personaje
-        _animator.SetFloat("velocity_x", Mathf.Abs(_rigidbody2D.velocity.x)); // establece velocity_x en el animator*/
 
     }
 
