@@ -32,7 +32,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rigidbody2D;
     private BoxCollider2D _boxCollider2D;
     private Animator _animator;
-    [SerializeField] public Modulo[] Modulos = new Modulo[3];
+    [SerializeField] public int[] Modulos = new int[3];
+    private GameObject _GLOBAL;
 
     // AUXILIARES
 
@@ -73,14 +74,16 @@ public class PlayerController : MonoBehaviour
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _boxCollider2D = GetComponent<BoxCollider2D>();
         _animator = GetComponent<Animator>();
+        _GLOBAL = GameObject.Find("GLOBAL");
 
-        Modulos[1] = new Modulo(0,0,0,0);
+        Modulos[0] = 1;
     }
 
 
     void Update()
     {
         Moverse();
+        UseModulo();
 
         // test damage
         if (Input.GetKeyDown(KeyCode.K))
@@ -167,4 +170,15 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(RecuperacionStamina());
     }
 
+
+    void UseModulo()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+            _GLOBAL.GetComponent<Modulo>().Enable(1);
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+            _GLOBAL.GetComponent<Modulo>().Enable(2);
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+            _GLOBAL.GetComponent<Modulo>().Enable(3);
+
+    }
 }
