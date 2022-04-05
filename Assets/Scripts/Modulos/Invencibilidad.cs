@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Vigor : MonoBehaviour
+public class Invencibilidad : MonoBehaviour
 {
     private PlayerController player;
     public float cd = 0;
-    public int slot = 3;
-    public const int ID = 3;
+    public int slot = 2;
+    public const int ID = 2;
     public const int Slots = 1;
     public const float Duracion = 7f;
     public const float TdE = 45f;
@@ -25,10 +25,10 @@ public class Vigor : MonoBehaviour
 
     public IEnumerator Skill()
     {
-        player.staminaDecrease = false;
+        player.Inmune = true;
         StartCoroutine(Cooldown());
         yield return new WaitForSecondsRealtime(Duracion);
-        player.staminaDecrease = true;
+        player.Inmune = false;
     }
     public IEnumerator Cooldown()
     {

@@ -13,20 +13,11 @@ public class Modulo : MonoBehaviour
     void Start()
     {
         ID[0] = 1;
-        EquipModule(ID[0], 0);
+        EquipModule(ID[0], 0); // Supersalto
+        ID[1] = 2;
+        EquipModule(ID[1], 1); // Invencibilidad
         ID[2] = 3;
-        EquipModule(ID[2], 2);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    public void Enable(int slot)
-    {
-
+        EquipModule(ID[2], 2); // Vigor
     }
 
     void EquipModule(int id, int slot)
@@ -35,10 +26,13 @@ public class Modulo : MonoBehaviour
         System.Type type = null;
         switch (id)
         {
-            case 1: // SUPER SALTO
+            case 1:
                 type = typeof(Supersalto);
                 break;
-            case 3: // VIGOR
+            case 2:
+                type = typeof(Invencibilidad);
+                break;
+            case 3:
                 type = typeof(Vigor);
                 break;
         }
