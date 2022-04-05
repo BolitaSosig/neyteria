@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Supersalto : MonoBehaviour
+public class Vigor : MonoBehaviour
 {
     private PlayerController player;
     public float cd = 0;
-    public int slot = 1;
-    public const int ID = 1;
+    public int slot = 2;
+    public const int ID = 3;
     public const int Slots = 1;
-    public const float Duracion = 15f;
-    public const float TdE = 30f;
+    public const float Duracion = 7f;
+    public const float TdE = 45f;
 
     void Start()
     {
@@ -25,10 +25,10 @@ public class Supersalto : MonoBehaviour
 
     public IEnumerator Skill()
     {
-        player.JumpCap += 0.5f;
+        player.staminaDecrease = false;
         StartCoroutine(Cooldown());
         yield return new WaitForSecondsRealtime(Duracion);
-        player.JumpCap -= 0.5f;
+        player.staminaDecrease = true;
     }
     public IEnumerator Cooldown()
     {

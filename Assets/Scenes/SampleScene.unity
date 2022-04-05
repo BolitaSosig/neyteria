@@ -6178,6 +6178,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1652074149}
+  ID_1: 1
+  CD_1: 0
+  ID_2: 0
+  CD_2: 0
+  ID_3: 0
+  CD_3: 0
 --- !u!4 &2079871515
 Transform:
   m_ObjectHideFlags: 0

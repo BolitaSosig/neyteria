@@ -5,59 +5,49 @@ using UnityEngine;
 public class Modulo : MonoBehaviour
 {
     [SerializeField] protected PlayerController player;
-    [SerializeField] protected static int ID = 0;
-    [SerializeField] protected static int Slots = 0;
-    [SerializeField] protected static float Duracion = 0;
-    [SerializeField] protected static float TdE = 0;
 
-    private Modulo[] Modulos;
-
-    public Modulo(int id, int slots, float duracion, float tde)
-    {
-        ID = id;
-        Slots = slots;
-        Duracion = duracion;
-        TdE = tde;
-    }
+    public int[] ID = new int[3];
+    public float[] CD = new float[3];
 
     // Start is called before the first frame update
     void Start()
     {
-        Modulos = new Modulo[2];
+        ID[0] = 1;
+        EquipModule(ID[0], 0);
+        ID[2] = 3;
+        EquipModule(ID[2], 2);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    public void Enable(int id)
+    public void Enable(int slot)
     {
+
+    }
+
+    void EquipModule(int id, int slot)
+    {
+        GameObject obj = player.gameObject;
+        System.Type type = null;
         switch (id)
         {
             case 1: // SUPER SALTO
-                if(Supersalto.cd == 0) StartCoroutine(SupersaltoSkill());
+                type = typeof(Supersalto);
+                break;
+            case 3: // VIGOR
+                type = typeof(Vigor);
                 break;
         }
-    }
 
-    IEnumerator SupersaltoSkill()
-    {
-        player.JumpCap *= 1.5f;
-        StartCoroutine(Cooldown(Supersalto.cd, Supersalto.TdE));
-        yield return new WaitForSecondsRealtime(Supersalto.Duracion);
-        player.JumpCap /= 1.5f;
-    }
-
-    static IEnumerator Cooldown(float cd, float TdE)
-    {
-        cd = TdE;
-        while (cd > 0)
+        if (obj.GetComponent(type) == null)
         {
-            cd -= 0.1f;
-            yield return new WaitForSeconds(0.1f);
+            obj.AddComponent(type);
+            player.Modulos[slot] = obj.GetComponent(type);
         }
-        cd = 0;
     }
+
 }

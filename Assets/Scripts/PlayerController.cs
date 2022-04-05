@@ -26,19 +26,21 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public float gastoDash = 25f;              // Gasto de resistencia al evadir
     [SerializeField] public float StaminaVelRec = 1f;           // Velocidad con la que se recupera la resistencia
     [SerializeField] public float dmgReduc = 0f;                // Reducción del daño recibido
-    [SerializeField] public bool Inmune = false;                // Inmortal
 
     // REFERENCIAS
     private Rigidbody2D _rigidbody2D;
     private BoxCollider2D _boxCollider2D;
     private Animator _animator;
-    [SerializeField] public int[] Modulos = new int[3];
+    [SerializeField] public Component[] Modulos = new Component[3];
     private GameObject _GLOBAL;
+    
 
     // AUXILIARES
 
     // FLAGS
-    private bool staminaIsUsed = false;
+    public bool staminaIsUsed = false;
+    [SerializeField] public bool Inmune = false;                // Inmortal
+    public bool staminaDecrease = true;
 
     private (Vector2, Vector2) getGroundCheckCorners()
     {
@@ -75,8 +77,6 @@ public class PlayerController : MonoBehaviour
         _boxCollider2D = GetComponent<BoxCollider2D>();
         _animator = GetComponent<Animator>();
         _GLOBAL = GameObject.Find("GLOBAL");
-
-        Modulos[0] = 1;
     }
 
 
@@ -163,22 +163,24 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator GastarStamina(float cant)
     {
-        staminaIsUsed = true;
-        Stamina = Mathf.Max(0, Stamina - cant);
-        yield return new WaitForSecondsRealtime(0.5f);
-        staminaIsUsed = false;
-        StartCoroutine(RecuperacionStamina());
+        if (staminaDecrease)
+        {
+            staminaIsUsed = true;
+            Stamina = Mathf.Max(0, Stamina - cant);
+            yield return new WaitForSecondsRealtime(0.5f);
+            staminaIsUsed = false;
+            StartCoroutine(RecuperacionStamina());
+        }
     }
 
 
     void UseModulo()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
-            _GLOBAL.GetComponent<Modulo>().Enable(1);
+            Modulos[0].GetType().GetMethod("Launch").Invoke(Modulos[0], new object[] { });
         else if (Input.GetKeyDown(KeyCode.Alpha2))
-            _GLOBAL.GetComponent<Modulo>().Enable(2);
+            Modulos[1].GetType().GetMethod("Launch").Invoke(Modulos[1], new object[] { });
         else if (Input.GetKeyDown(KeyCode.Alpha3))
-            _GLOBAL.GetComponent<Modulo>().Enable(3);
-
+            Modulos[2].GetType().GetMethod("Launch").Invoke(Modulos[2], new object[] { });
     }
 }
