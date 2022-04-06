@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GUIController : MonoBehaviour
@@ -9,6 +10,7 @@ public class GUIController : MonoBehaviour
     [SerializeField] private GameObject healthBarRelleno;
     [SerializeField] private GameObject staminaBar;
     [SerializeField] private GameObject staminaBarRelleno;
+    [SerializeField] private TextMeshProUGUI[] moduloCD = new TextMeshProUGUI[3];
 
     //Escala de HealtBar y su relleno
     float HBscaleY;
@@ -45,6 +47,7 @@ public class GUIController : MonoBehaviour
     {
         UpdateHealthBar();
         UpdateStaminaBar();
+        UpdateModulosTimings();
     }
 
     void UpdateHealthBar()
@@ -57,5 +60,22 @@ public class GUIController : MonoBehaviour
     {
         staminaBar.transform.localScale = new Vector2(SBscaleX * (player.MaxStamina / 100f), SBscaleY);
         staminaBarRelleno.transform.localScale = new Vector2(SBRscaleX * (player.Stamina / 100f), SBRscaleY);
+    }
+
+    void UpdateModulosTimings()
+    {
+        for(int i = 0; i < 3; i++)
+        {
+            if (player.Modulos[i] != null)
+            {
+                float cd = (float)player.Modulos[i].GetType().GetField("cd").GetValue(player.Modulos[i]);
+                if (cd <= 0) moduloCD[i].text = "";
+                else
+                {
+                    moduloCD[i].text = cd.ToString();
+                    moduloCD[i].text = moduloCD[i].text.Substring(0, moduloCD[i].text.IndexOf(",") + 2);
+                }
+            }
+        }    
     }
 }
