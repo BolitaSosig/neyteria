@@ -6312,7 +6312,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3548789625186189090, guid: 9da5d85b0aefcda44ac442bb30c1b8f1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 3548789625186189090, guid: 9da5d85b0aefcda44ac442bb30c1b8f1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6342,6 +6342,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3548789625186189091, guid: 9da5d85b0aefcda44ac442bb30c1b8f1, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3548789625186189091, guid: 9da5d85b0aefcda44ac442bb30c1b8f1, type: 3}
+      propertyPath: m_Color.g
+      value: 0.4078431
+      objectReference: {fileID: 0}
+    - target: {fileID: 3548789625186189091, guid: 9da5d85b0aefcda44ac442bb30c1b8f1, type: 3}
+      propertyPath: m_Color.r
+      value: 0.6692658
+      objectReference: {fileID: 0}
+    - target: {fileID: 3548789625186189100, guid: 9da5d85b0aefcda44ac442bb30c1b8f1, type: 3}
+      propertyPath: m_Size.x
+      value: 11.827858
+      objectReference: {fileID: 0}
+    - target: {fileID: 3548789625186189100, guid: 9da5d85b0aefcda44ac442bb30c1b8f1, type: 3}
+      propertyPath: m_Size.y
+      value: 1.6883068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3548789625186189100, guid: 9da5d85b0aefcda44ac442bb30c1b8f1, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.027950287
+      objectReference: {fileID: 0}
+    - target: {fileID: 3548789625186189100, guid: 9da5d85b0aefcda44ac442bb30c1b8f1, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.44007206
+      objectReference: {fileID: 0}
     - target: {fileID: 3548789625186189102, guid: 9da5d85b0aefcda44ac442bb30c1b8f1, type: 3}
       propertyPath: m_Name
       value: main_lev_buildA_18
@@ -6359,6 +6387,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: main_lev_buildA_5
       objectReference: {fileID: 0}
+    - target: {fileID: 5028965769765543726, guid: 37d9f21e81436c04fb8367816b3cacd8, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5028965769765543726, guid: 37d9f21e81436c04fb8367816b3cacd8, type: 3}
+      propertyPath: m_Color.g
+      value: 0.4078431
+      objectReference: {fileID: 0}
+    - target: {fileID: 5028965769765543726, guid: 37d9f21e81436c04fb8367816b3cacd8, type: 3}
+      propertyPath: m_Color.r
+      value: 0.6692658
+      objectReference: {fileID: 0}
     - target: {fileID: 5028965769765543727, guid: 37d9f21e81436c04fb8367816b3cacd8, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -6373,7 +6413,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5028965769765543727, guid: 37d9f21e81436c04fb8367816b3cacd8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 5028965769765543727, guid: 37d9f21e81436c04fb8367816b3cacd8, type: 3}
       propertyPath: m_LocalRotation.w
