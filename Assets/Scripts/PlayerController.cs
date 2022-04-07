@@ -100,10 +100,14 @@ public class PlayerController : MonoBehaviour
     ////// HORIZONTAL //////
     void Walk()
     {
-        if (Input.GetAxisRaw("Horizontal") == 1)
+        /*if (Input.GetAxisRaw("Horizontal") == 1)
             transform.localScale = new Vector2(1, transform.localScale.y); // mira a la derecha
         else if (Input.GetAxisRaw("Horizontal") == -1)
-            transform.localScale = new Vector2(-1, transform.localScale.y); // mira a la izquerda
+            transform.localScale = new Vector2(-1, transform.localScale.y); // mira a la izquerda*/
+
+        //Mi versión reducida y optimizada (funciona cuando el escalado es distinto de 1)
+        if (Input.GetAxisRaw("Horizontal") == 1 && transform.localScale.x < 0 || Input.GetAxisRaw("Horizontal") == -1 && transform.localScale.x > 0)
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z); // cambia de direccion
 
         if (canDash || onAir)
             _rigidbody2D.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * SPEED_MOV * MovSpeed, _rigidbody2D.velocity.y); // desplazamiento del personaje
