@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     // CONSTANTES
-    private const float SPEED_MOV = 5f;
-    private const float JUMP_FORCE = 15f;
+    private const float SPEED_MOV = 8f;
+    private const float JUMP_FORCE = 18f;
     private const float DASH_FORCE = 12f;
     private const float DMG_CD = 0.5f;
     private const float DASH_RANGE = 0.1f;
