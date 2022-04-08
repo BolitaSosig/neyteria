@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     // CONSTANTES
     private const float SPEED_MOV = 8f;
-    private const float JUMP_FORCE = 18f;
+    private const float JUMP_FORCE = 19f;
     private const float DASH_FORCE = 12f;
     private const float DMG_CD = 0.5f;
     private const float DASH_RANGE = 0.1f;
@@ -46,8 +46,8 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 max = _boxCollider2D.bounds.max;
         Vector3 min = _boxCollider2D.bounds.min;
-        Vector2 corner1 = new Vector2(max.x, min.y - 0.1f);
-        Vector2 corner2 = new Vector2(min.x, min.y - 0.1f);
+        Vector2 corner1 = new Vector2(max.x - 0.05f, min.y - 0.05f);
+        Vector2 corner2 = new Vector2(min.x + 0.05f, min.y - 0.05f);
         return (corner1, corner2);
     }
     public bool grounded

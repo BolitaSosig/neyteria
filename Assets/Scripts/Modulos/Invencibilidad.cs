@@ -9,7 +9,7 @@ public class Invencibilidad : MonoBehaviour
     public int slot = 2;
     public const int ID = 2;
     public const int Slots = 1;
-    public const float Duracion = 7f;
+    public const float Duracion = 7f; 
     public const float TdE = 45f;
 
     void Start()
