@@ -30,7 +30,7 @@ public class MenuPpal : MonoBehaviour
         //Esto es para que gire la imagen de cargando
         //if (asyncLoad != null) {
             
-            rotationEuler += Vector3.forward * 15 * Time.deltaTime;     //Incrementa 15 grados cada vez
+            rotationEuler -= Vector3.forward * 1 * Time.deltaTime;     //Incrementa 15 grados cada vez
             transform.rotation = Quaternion.Euler(rotationEuler);
             ImagenCargando.rectTransform.Rotate(transform.rotation.eulerAngles);
         //}
@@ -39,8 +39,8 @@ public class MenuPpal : MonoBehaviour
     public void EmpezarJuego()
     {
         //SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);
-
-       asyncLoad = SceneManager.LoadSceneAsync("SampleScene", LoadSceneMode.Single);
+        StartCoroutine(WaitCoroutine());
+        //asyncLoad = SceneManager.LoadSceneAsync("Nivel1-1", LoadSceneMode.Single);
 
     }
 
@@ -61,5 +61,19 @@ public class MenuPpal : MonoBehaviour
     public void fCreditosAPpal() { EventSystem.current.SetSelectedGameObject(PpalFirstButton); }
 
     public void ActivatedButton() { soundController.PlaySound2(); soundController.InvertDisableOnce(); }
+
+    IEnumerator WaitCoroutine()
+    {
+        //Print the time of when the function is first called.
+        Debug.Log("Started Coroutine at timestamp : " + Time.time);
+
+        //yield on a new YieldInstruction that waits for 3 seconds.
+        yield return new WaitForSeconds(3);
+
+        //After we have waited 3 seconds print the time again.
+        Debug.Log("Finished Coroutine at timestamp : " + Time.time);
+
+        asyncLoad = SceneManager.LoadSceneAsync("Nivel1-1", LoadSceneMode.Single);
+    }
 
 }
