@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GUIController : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class GUIController : MonoBehaviour
     [SerializeField] private GameObject staminaBar;
     [SerializeField] private GameObject staminaBarRelleno;
     [SerializeField] private TextMeshProUGUI[] moduloCD = new TextMeshProUGUI[3];
+    [SerializeField] public Image[] moduloCB = new Image[3];
 
     //Escala de HealtBar y su relleno
     float HBscaleY;
@@ -64,16 +66,28 @@ public class GUIController : MonoBehaviour
 
     void UpdateModulosTimings()
     {
+        
         for(int i = 0; i < 3; i++)
         {
             if (player.Modulos[i] != null)
             {
                 float cd = (float)player.Modulos[i].GetType().GetField("cd").GetValue(player.Modulos[i]);
-                if (cd <= 0) moduloCD[i].text = "";
+                float Duracion = (float)player.Modulos[i].GetType().GetField("Duracion").GetValue(player.Modulos[i]);
+                float TdE = (float)player.Modulos[i].GetType().GetField("TdE").GetValue(player.Modulos[i]);
+                if (cd <= 0) { moduloCD[i].text = ""; moduloCB[i].fillAmount = 1; moduloCB[i].enabled = false; }
                 else
                 {
-                    moduloCD[i].text = cd.ToString();
-                    moduloCD[i].text = moduloCD[i].text.Substring(0, moduloCD[i].text.IndexOf(",") + 2);
+                    if (moduloCB[i].fillAmount == 0) {
+                        moduloCB[i].enabled = false;
+                        moduloCD[i].text = cd.ToString();
+                        moduloCD[i].text = moduloCD[i].text.Substring(0, moduloCD[i].text.IndexOf(",") + 2);
+                    } else
+                    {
+                        moduloCB[i].enabled = true;
+                        moduloCB[i].fillAmount = (cd - TdE + Duracion) /Duracion;
+                        Debug.Log((cd - TdE + Duracion) / Duracion);
+                    }
+
                 }
             }
         }    
