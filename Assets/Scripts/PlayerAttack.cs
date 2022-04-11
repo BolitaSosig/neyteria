@@ -18,9 +18,14 @@ public class PlayerAttack : MonoBehaviour
         //Sword
         private Transform _swordTransform;
         public LayerMask enemyLayers;
-        public float swordRange = 15f;
+        public float swordRange = 0.5f;
         public float swordRate = 0.3f;
         public float swordLastTime = 0;
+
+        //Maza
+        public float mazeRange = 0.7f;
+        public float mazedRate = 1f;
+        public float mazeLastTime = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +40,7 @@ public class PlayerAttack : MonoBehaviour
     {
         GunAttack();
         SwordAttack();
+        MazeAttack();
     }
 
     void GunAttack()
@@ -62,6 +68,24 @@ public class PlayerAttack : MonoBehaviour
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(_swordTransform.position, swordRange, enemyLayers);
 
             foreach(Collider2D enemy in hitEnemies)
+            {
+                Debug.Log("We hit " + enemy.name);
+            }
+
+            Debug.Log("golpe con la espada");
+
+            swordLastTime = Time.time + swordRate;
+        }
+    }
+
+    void MazeAttack()
+    {
+
+        if (Input.GetButtonDown("Fire1") && Time.time > swordLastTime)
+        {
+            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(_swordTransform.position, swordRange, enemyLayers);
+
+            foreach (Collider2D enemy in hitEnemies)
             {
                 Debug.Log("We hit " + enemy.name);
             }
