@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
     private Animator _animator;
     [SerializeField] public Component[] Modulos = new Component[3];
     private GameObject _GLOBAL;
+    private SceneController _sceneController;
     
 
     // AUXILIARES
@@ -186,5 +187,13 @@ public class PlayerController : MonoBehaviour
             Modulos[1].GetType().GetMethod("Launch").Invoke(Modulos[1], new object[] { });
         else if (Input.GetKeyDown(KeyCode.Alpha3))
             Modulos[2].GetType().GetMethod("Launch").Invoke(Modulos[2], new object[] { });
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("ZoneLoader")) // regiones de carga de escenas
+        {
+            _sceneController.LoadLevel(collision.name);
+        }
     }
 }
