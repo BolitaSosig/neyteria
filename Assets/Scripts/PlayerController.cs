@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
     private Animator _animator;
     [SerializeField] public Component[] Modulos = new Component[3];
     private GameObject _GLOBAL;
-    [SerializeField] private SceneController _sceneController;
+    private SceneController _sceneController;
     
 
     // AUXILIARES
@@ -191,7 +191,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("ZoneLoader")) // regiones de carga de escenas
+        if(collision.CompareTag("ZoneLoader")) // regiones de carga de escenas
         {
             _sceneController.LoadLevel(collision.name);
         }
