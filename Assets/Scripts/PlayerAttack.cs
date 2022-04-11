@@ -56,6 +56,11 @@ public class PlayerAttack : MonoBehaviour
             newBullet.GetComponent<Rigidbody2D>().velocity = new Vector2(transform.localScale.x * shootForce, newBullet.GetComponent<Rigidbody2D>().velocity.y);
             Destroy(newBullet, 2);
 
+            /* int lado = 0;
+            if (transform.localScale.x > 0) { lado = 1; } else { lado = -1; }
+            newBullet.transform.Rotate( new Vector3(0, 0, newBullet.transform.rotation.z * 90 * -lado) );
+            newBullet.GetComponent<Rigidbody2D>().velocity = new Vector2(lado * shootForce, newBullet.GetComponent<Rigidbody2D>().velocity.y);*/
+
             shootLastTime = Time.time + shootRate;
         }
 

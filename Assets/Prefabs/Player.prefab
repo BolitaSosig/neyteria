@@ -104,6 +104,7 @@ GameObject:
   - component: {fileID: 7232537792695838311}
   - component: {fileID: 7232537792695838310}
   - component: {fileID: 7232537792695838308}
+  - component: {fileID: 7939270272959203814}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -278,3 +279,28 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7939270272959203814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7232537792695838306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfd2d5a77bd9698479dd4cbcf5dcb016, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 8451858909790069766, guid: f54218b34e09ac746a824df05014b4d6, type: 3}
+  shootForce: 15
+  shootRate: 0.5
+  shootLastTime: 0
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  swordRange: 0.5
+  swordRate: 0.3
+  swordLastTime: 0
+  mazeRange: 0.7
+  mazedRate: 1
+  mazeLastTime: 0
