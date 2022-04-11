@@ -17,11 +17,11 @@ public class BulletScript : MonoBehaviour
         {
             Debug.Log("colision con Player"); return;   
         }
-        if (other.CompareTag("Enemy"))
+        /*if (other.CompareTag("Enemy"))
         {
             //other.gameObject.GetComponent<EnemyController>().TakeDamage;
             Debug.Log("colision con Enemy"); Destroy(gameObject);
-        }
+        }*/
         else {
             Debug.Log("colision con algo"); Destroy(gameObject);
         }
