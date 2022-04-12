@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
+    [SerializeField] bool attacking = false;
+    [SerializeField] bool switchingWeapon = false;
 
     //Referencias
     private Animator _animator;
@@ -19,20 +21,17 @@ public class PlayerAttack : MonoBehaviour
     public GameObject bullet;
     public float shootForce = 15f;
     public float shootRate = 0.5f;
-    public float shootLastTime = 0;
 
     //Sword
     private Transform _swordTransform;
     public LayerMask enemyLayers;
     public float swordRange = 0.5f;
     public float swordRate = 0.4f;
-    public float swordLastTime = 0;
 
     //Maza
     private Transform _mazeTransform;
     public float mazeRange = 0.8f;
     public float mazeRate = 1f;
-    public float mazeLastTime = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -47,7 +46,7 @@ public class PlayerAttack : MonoBehaviour
         _sword = GameObject.Find("pivote-sword");
         _maze = GameObject.Find("pivote-maze");
 
-        UpdateSeleccionado();
+        StartCoroutine(UpdateSeleccionado());
     }
 
     // Update is called once per frame
@@ -56,12 +55,12 @@ public class PlayerAttack : MonoBehaviour
         GunAttack();
         SwordAttack();
         MazeAttack();
-        if (Input.GetKeyDown(KeyCode.Q)) UpdateSeleccionado();
+        if (Input.GetKeyDown(KeyCode.Q) && !switchingWeapon) StartCoroutine(UpdateSeleccionado());
     }
 
     void GunAttack()
     {
-        if (seleccionado == 0 && Input.GetButtonDown("Fire1") && Time.time > shootLastTime)
+        if (seleccionado == 0 && Input.GetButtonDown("Fire1") && !attacking)
         {
             _animator.SetTrigger("gunAttack");
             Debug.Log("Se crea bullet");
@@ -71,12 +70,7 @@ public class PlayerAttack : MonoBehaviour
             newBullet.GetComponent<Rigidbody2D>().velocity = new Vector2(transform.localScale.x * shootForce, newBullet.GetComponent<Rigidbody2D>().velocity.y);
             Destroy(newBullet, 2);
 
-            /* int lado = 0;
-            if (transform.localScale.x > 0) { lado = 1; } else { lado = -1; }
-            newBullet.transform.Rotate( new Vector3(0, 0, newBullet.transform.rotation.z * 90 * -lado) );
-            newBullet.GetComponent<Rigidbody2D>().velocity = new Vector2(lado * shootForce, newBullet.GetComponent<Rigidbody2D>().velocity.y);*/
-
-            shootLastTime = Time.time + shootRate;
+            StartCoroutine(Cooldown(shootRate));
         }
 
     }
@@ -84,8 +78,7 @@ public class PlayerAttack : MonoBehaviour
 
     void SwordAttack()
     {
-
-        if (seleccionado == 1 && Input.GetButtonDown("Fire1") && Time.time > swordLastTime)
+        if (seleccionado == 1 && Input.GetButtonDown("Fire1") && !attacking)
         {
 
             _animator.SetTrigger("swordAttack");
@@ -98,15 +91,14 @@ public class PlayerAttack : MonoBehaviour
 
             Debug.Log("golpe con la espada");
 
-            swordLastTime = Time.time + swordRate;
-
+            StartCoroutine(Cooldown(swordRate));
         }
     }
 
     void MazeAttack()
     {
 
-        if (seleccionado == 2 && Input.GetButtonDown("Fire1") && Time.time > mazeLastTime)
+        if (seleccionado == 2 && Input.GetButtonDown("Fire1") && !attacking)
         {
             _animator.SetTrigger("mazeAttack");
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(_mazeTransform.position, mazeRange, enemyLayers);
@@ -118,7 +110,7 @@ public class PlayerAttack : MonoBehaviour
 
             Debug.Log("golpe con la espada");
 
-            mazeLastTime = Time.time + mazeRate;
+            StartCoroutine(Cooldown(mazeRate));
         }
     }
 
@@ -131,16 +123,24 @@ public class PlayerAttack : MonoBehaviour
 
     }
 
-    void UpdateSeleccionado()
+    IEnumerator UpdateSeleccionado()
     {
-        seleccionado = (seleccionado + 1) % 3;
+        switchingWeapon = true;
+        seleccionado = (seleccionado + 1) % 3; // seleciona siguiente indice arma
         if (seleccionado == 0) { _gun.SetActive(true); _sword.SetActive(false); _maze.SetActive(false); }
         else if (seleccionado == 1) { _gun.SetActive(false); _sword.SetActive(true); _maze.SetActive(false); }
         else /*(seleccionado == 2)*/ { _gun.SetActive(false); _sword.SetActive(false); _maze.SetActive(true); }
 
+        yield return new WaitForSecondsRealtime(1f);
+        switchingWeapon = false;
     }
 
-
+    IEnumerator Cooldown(float segundos)
+    {
+        attacking = true;
+        yield return new WaitForSecondsRealtime(segundos);
+        attacking = false;
+    }
 
 
 
