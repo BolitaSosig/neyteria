@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy1Controller : MonoBehaviour
 {
@@ -10,7 +11,8 @@ public class Enemy1Controller : MonoBehaviour
     private float DISTANCIA_EN_SEGUNDOS = 3f;
 
     // ATRIBUTOS PERSONAJE
-    [SerializeField] private float HP = 100f;
+    [SerializeField] private float HP = 50f;
+    [SerializeField] private float MaxHP = 100f;
     [SerializeField] private float Stamina = 100f;
     [SerializeField] private float Attack = 4f;
     [SerializeField] private float Defense = 1f;
@@ -27,6 +29,11 @@ public class Enemy1Controller : MonoBehaviour
     private Rigidbody2D _rigidbody2D;
     private BoxCollider2D _boxCollider2D;
     private Animator _animator;
+
+    [SerializeField] private SpriteRenderer _spriteRenderer;
+    [SerializeField] public GameObject healthBarEnemy;
+    [SerializeField] public Transform pivotHealthBarEnemy;
+    [SerializeField] private float distancia = 0f;
 
 
     private (Vector2, Vector2) getGroundCheckCorners()
@@ -62,12 +69,16 @@ public class Enemy1Controller : MonoBehaviour
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _boxCollider2D = GetComponent<BoxCollider2D>();
         _animator = GetComponent<Animator>();
+        _spriteRenderer = healthBarEnemy.GetComponent<SpriteRenderer>();
+
+        distancia = Mathf.Abs(pivotHealthBarEnemy.position.x - healthBarEnemy.transform.position.x); //Esto es para calcular la posicion de la barra de vida
     }
 
 
     void Update()
     {
         StartCoroutine(Moverse());
+        HealthBarUpdate();
     }
 
     IEnumerator Moverse()
@@ -83,6 +94,11 @@ public class Enemy1Controller : MonoBehaviour
                 cont++;
                 yield return new WaitForSecondsRealtime(0.1f);
             }
+
+            _rigidbody2D.velocity = new Vector2(0, _rigidbody2D.velocity.y); // quieto el personaje
+            _animator.SetFloat("velocity_x", Mathf.Abs(_rigidbody2D.velocity.x)); // establece velocity_x en el animator*/
+            yield return new WaitForSecondsRealtime(1f);
+
             transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
             moving = false;
         }
@@ -98,5 +114,12 @@ public class Enemy1Controller : MonoBehaviour
     {
         if(collision.gameObject.tag.Equals("Player"))
             DoDamage(collision.gameObject);
+    }
+
+    private void HealthBarUpdate()
+    {        
+        _spriteRenderer.size = new Vector2(HP / MaxHP, _spriteRenderer.size.y); // Calculamos la posición de la barra de vida
+        healthBarEnemy.transform.position = new Vector3(pivotHealthBarEnemy.position.x + transform.localScale.x * distancia * _spriteRenderer.size.x , healthBarEnemy.transform.position.y, healthBarEnemy.transform.position.z);
+
     }
 }
