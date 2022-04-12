@@ -74,6 +74,7 @@ public class MenuPpal : MonoBehaviour
         Debug.Log("Finished Coroutine at timestamp : " + Time.time);
 
         asyncLoad = SceneManager.LoadSceneAsync("Nivel1-1", LoadSceneMode.Single);
+        asyncLoad = SceneManager.LoadSceneAsync("GLOBAL", LoadSceneMode.Additive);
     }
 
 }

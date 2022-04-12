@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MenuV2.unity
     guid: 765566ae6c88a654994fd37e8b3a66b5
   - enabled: 1
+    path: Assets/Scenes/GLOBAL.unity
+    guid: 41d252321fc87e74a884a0528b274f66
+  - enabled: 1
     path: Assets/Scenes/RestZone.unity
     guid: fb1f8a0b1067af94b89e3a01063a34fc
   - enabled: 1
