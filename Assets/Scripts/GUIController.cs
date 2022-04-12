@@ -13,6 +13,7 @@ public class GUIController : MonoBehaviour
     [SerializeField] private GameObject staminaBarRelleno;
     [SerializeField] private TextMeshProUGUI[] moduloCD = new TextMeshProUGUI[3];
     [SerializeField] public Image[] moduloCB = new Image[3];
+    [SerializeField] public RawImage[] moduloSprite = new RawImage[3];
 
     //Escala de HealtBar y su relleno
     float HBscaleY;
@@ -74,11 +75,12 @@ public class GUIController : MonoBehaviour
                 float cd = (float)player.Modulos[i].GetType().GetField("cd").GetValue(player.Modulos[i]);
                 float Duracion = (float)player.Modulos[i].GetType().GetField("Duracion").GetValue(player.Modulos[i]);
                 float TdE = (float)player.Modulos[i].GetType().GetField("TdE").GetValue(player.Modulos[i]);
-                if (cd <= 0) { moduloCD[i].text = ""; moduloCB[i].fillAmount = 1; moduloCB[i].enabled = false; }
+                if (cd <= 0) { moduloCD[i].text = ""; moduloCB[i].fillAmount = 1; moduloCB[i].enabled = false; moduloSprite[i].color = Color.white; }
                 else
                 {
                     if (moduloCB[i].fillAmount == 0) {
                         moduloCB[i].enabled = false;
+                        moduloSprite[i].color = Color.black;
                         moduloCD[i].text = cd.ToString();
                         moduloCD[i].text = moduloCD[i].text.Substring(0, moduloCD[i].text.IndexOf(",") + 2);
                     } else
