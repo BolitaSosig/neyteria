@@ -22,7 +22,7 @@ public class BulletScript : MonoBehaviour
             //other.gameObject.GetComponent<EnemyController>().TakeDamage;
             Debug.Log("colision con Enemy"); Destroy(gameObject);
         }*/
-        else
+        else if(!other.CompareTag("ZoneLoader"))
         {
             Debug.Log("colision con algo"); Destroy(gameObject);
         }
