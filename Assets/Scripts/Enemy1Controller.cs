@@ -30,6 +30,7 @@ public class Enemy1Controller : MonoBehaviour
     private BoxCollider2D _boxCollider2D;
     private Animator _animator;
 
+    // Barra de vida
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] public GameObject healthBarEnemy;
     [SerializeField] public Transform pivotHealthBarEnemy;
@@ -120,6 +121,23 @@ public class Enemy1Controller : MonoBehaviour
     {        
         _spriteRenderer.size = new Vector2(HP / MaxHP, _spriteRenderer.size.y); // Calculamos la posición de la barra de vida
         healthBarEnemy.transform.position = new Vector3(pivotHealthBarEnemy.position.x + transform.localScale.x * distancia * _spriteRenderer.size.x , healthBarEnemy.transform.position.y, healthBarEnemy.transform.position.z);
-
     }
+
+    public IEnumerator Die()
+    {
+        _animator.SetTrigger("dead");
+        yield return new WaitForSecondsRealtime(0.5f);
+        Destroy(gameObject);
+         
+    }
+
+    ////// RECIBE DAÑO //////
+    public void GetDamage(float dmg)
+    {
+        HP = Mathf.Max(0, HP - dmg);
+        if (HP <= 0) StartCoroutine(Die());
+    }
+
+
+
 }

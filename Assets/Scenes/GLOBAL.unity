@@ -340,7 +340,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 135853694}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 464.00363, y: -1.4130677, z: 18.464005}
+  m_LocalPosition: {x: -6.42, y: 7.24, z: 18.464005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 294819061}
@@ -1719,6 +1719,10 @@ PrefabInstance:
       propertyPath: _sceneController
       value: 
       objectReference: {fileID: 1174612726}
+    - target: {fileID: 7939270272959203814, guid: 0019507ed1bf00840b40e13df6f3cd8f, type: 3}
+      propertyPath: enemyLayers.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0019507ed1bf00840b40e13df6f3cd8f, type: 3}
 --- !u!1 &1557532840

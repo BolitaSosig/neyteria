@@ -7,6 +7,11 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] bool attacking = false;
     [SerializeField] bool switchingWeapon = false;
 
+    //Daños de las armas
+    public int gunDMG = 20;
+    public int swordDMG = 35;
+    public int mazeDMG = 50;
+
     //Referencias
     private Animator _animator;
 
@@ -68,6 +73,7 @@ public class PlayerAttack : MonoBehaviour
             newBullet = Instantiate(bullet, _shootTransform.position, _shootTransform.rotation);
             //newBullet.GetComponent<Rigidbody2D>().AddForce(_shootTransform.right * shootForce);
             newBullet.GetComponent<Rigidbody2D>().velocity = new Vector2(transform.localScale.x * shootForce, newBullet.GetComponent<Rigidbody2D>().velocity.y);
+            newBullet.GetComponent<BulletScript>().gunDMG = gunDMG;
             Destroy(newBullet, 2);
 
             StartCoroutine(Cooldown(shootRate));
@@ -87,6 +93,7 @@ public class PlayerAttack : MonoBehaviour
             foreach (Collider2D enemy in hitEnemies)
             {
                 Debug.Log("We hit " + enemy.name);
+                enemy.GetComponent<Enemy1Controller>().GetDamage(swordDMG);
             }
 
             Debug.Log("golpe con la espada");
@@ -106,6 +113,7 @@ public class PlayerAttack : MonoBehaviour
             foreach (Collider2D enemy in hitEnemies)
             {
                 Debug.Log("We hit " + enemy.name);
+                enemy.GetComponent<Enemy1Controller>().GetDamage(mazeDMG);
             }
 
             Debug.Log("golpe con la espada");
