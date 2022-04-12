@@ -1,0 +1,660 @@
+fileFormatVersion: 2
+guid: 691451c88db9e7a4e9986bb702cfe39f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4629382209804347024
+    second: armas varias sci-fi_0
+  - first:
+      213: 738139924720456049
+    second: armas varias sci-fi_1
+  - first:
+      213: -8579344152373157613
+    second: armas varias sci-fi_2
+  - first:
+      213: 3875345644817597703
+    second: armas varias sci-fi_3
+  - first:
+      213: -3080630170993938847
+    second: armas varias sci-fi_4
+  - first:
+      213: 7054798761043587207
+    second: armas varias sci-fi_5
+  - first:
+      213: 3249217005028126042
+    second: armas varias sci-fi_6
+  - first:
+      213: -4977446442456353458
+    second: armas varias sci-fi_7
+  - first:
+      213: 7879186649654443644
+    second: armas varias sci-fi_8
+  - first:
+      213: 7499536755107040924
+    second: armas varias sci-fi_9
+  - first:
+      213: 2565511083419795544
+    second: armas varias sci-fi_10
+  - first:
+      213: 3905130978452304921
+    second: armas varias sci-fi_11
+  - first:
+      213: -4006840173311762397
+    second: armas varias sci-fi_12
+  - first:
+      213: -3296958430901995337
+    second: armas varias sci-fi_13
+  - first:
+      213: 7608736178266380540
+    second: armas varias sci-fi_14
+  - first:
+      213: 790245732894767284
+    second: armas varias sci-fi_15
+  - first:
+      213: 997766605855574314
+    second: armas varias sci-fi_16
+  - first:
+      213: 1960767762804815712
+    second: armas varias sci-fi_17
+  - first:
+      213: 789039994413014559
+    second: armas varias sci-fi_18
+  - first:
+      213: -6867358869354756940
+    second: armas varias sci-fi_19
+  - first:
+      213: -1801978734118256094
+    second: armas varias sci-fi_20
+  - first:
+      213: -52634485984783196
+    second: armas varias sci-fi_21
+  - first:
+      213: -4573934031994037688
+    second: armas varias sci-fi_22
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 65
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: armas varias sci-fi_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 340
+        width: 64
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 096a6e0a79ede3040800000000000000
+      internalID: 4629382209804347024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armas varias sci-fi_1
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 404
+        width: 103
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1711f77c9566e3a00800000000000000
+      internalID: 738139924720456049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armas varias sci-fi_2
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 492
+        width: 48
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31129ffd2fb00f880800000000000000
+      internalID: -8579344152373157613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armas varias sci-fi_3
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 452
+        width: 47
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 705c53dd45ef7c530800000000000000
+      internalID: 3875345644817597703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armas varias sci-fi_4
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 444
+        width: 56
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16e2e8d6e276f35d0800000000000000
+      internalID: -3080630170993938847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armas varias sci-fi_5
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 469
+        width: 56
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7807ed1681ea7e160800000000000000
+      internalID: 7054798761043587207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armas varias sci-fi_6
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 436
+        width: 152
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5d2cd6a6a9871d20800000000000000
+      internalID: 3249217005028126042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armas varias sci-fi_7
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 396
+        width: 144
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e457bdc05de8ceab0800000000000000
+      internalID: -4977446442456353458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armas varias sci-fi_8
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 396
+        width: 72
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7e37ab138e785d60800000000000000
+      internalID: 7879186649654443644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armas varias sci-fi_9
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 356
+        width: 142
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9e042cc1f4b31860800000000000000
+      internalID: 7499536755107040924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armas varias sci-fi_10
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 364
+        width: 48
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 850809adcb68a9320800000000000000
+      internalID: 2565511083419795544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armas varias sci-fi_11
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 324
+        width: 101
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 914f5044fefc13630800000000000000
+      internalID: 3905130978452304921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armas varias sci-fi_12
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 308
+        width: 71
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 320ecfd6718d468c0800000000000000
+      internalID: -4006840173311762397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armas varias sci-fi_13
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 260
+        width: 136
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b87bde66c9de32d0800000000000000
+      internalID: -3296958430901995337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armas varias sci-fi_14
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 268
+        width: 106
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf81b37cd39a79960800000000000000
+      internalID: 7608736178266380540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armas varias sci-fi_15
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 260
+        width: 181
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b8f572ae4487fa00800000000000000
+      internalID: 790245732894767284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armas varias sci-fi_16
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 228
+        width: 101
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a29c4ce0177c8dd00800000000000000
+      internalID: 997766605855574314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armas varias sci-fi_17
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 212
+        width: 179
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 067b40544eb063b10800000000000000
+      internalID: 1960767762804815712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armas varias sci-fi_18
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 196
+        width: 152
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1e5094c1bb33fa00800000000000000
+      internalID: 789039994413014559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armas varias sci-fi_19
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 140
+        width: 190
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b44bfe3e7d32b0a0800000000000000
+      internalID: -6867358869354756940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armas varias sci-fi_20
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 156
+        width: 112
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 222c21c73e51ef6e0800000000000000
+      internalID: -1801978734118256094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armas varias sci-fi_21
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 84
+        width: 200
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a411ffb631054ff0800000000000000
+      internalID: -52634485984783196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armas varias sci-fi_22
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 84
+        width: 120
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84adcec4b3f1680c0800000000000000
+      internalID: -4573934031994037688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
