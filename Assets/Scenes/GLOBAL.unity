@@ -1663,33 +1663,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 294819061}
     m_Modifications:
-    - target: {fileID: 315987712, guid: 0019507ed1bf00840b40e13df6f3cd8f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1735890982, guid: 0019507ed1bf00840b40e13df6f3cd8f, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2080692562, guid: 0019507ed1bf00840b40e13df6f3cd8f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7232537792695838305, guid: 0019507ed1bf00840b40e13df6f3cd8f, type: 3}
       propertyPath: m_RootOrder
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7232537792695838305, guid: 0019507ed1bf00840b40e13df6f3cd8f, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7232537792695838305, guid: 0019507ed1bf00840b40e13df6f3cd8f, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7232537792695838305, guid: 0019507ed1bf00840b40e13df6f3cd8f, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7232537792695838305, guid: 0019507ed1bf00840b40e13df6f3cd8f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1734,34 +1710,6 @@ PrefabInstance:
     - target: {fileID: 7232537792695838306, guid: 0019507ed1bf00840b40e13df6f3cd8f, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7232537792695838307, guid: 0019507ed1bf00840b40e13df6f3cd8f, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7232537792695838310, guid: 0019507ed1bf00840b40e13df6f3cd8f, type: 3}
-      propertyPath: m_Size.x
-      value: 0.46092927
-      objectReference: {fileID: 0}
-    - target: {fileID: 7232537792695838310, guid: 0019507ed1bf00840b40e13df6f3cd8f, type: 3}
-      propertyPath: m_Size.y
-      value: 1.2642221
-      objectReference: {fileID: 0}
-    - target: {fileID: 7232537792695838310, guid: 0019507ed1bf00840b40e13df6f3cd8f, type: 3}
-      propertyPath: m_Offset.x
-      value: -0.0134087205
-      objectReference: {fileID: 0}
-    - target: {fileID: 7232537792695838310, guid: 0019507ed1bf00840b40e13df6f3cd8f, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.20437956
-      objectReference: {fileID: 0}
-    - target: {fileID: 7232537792695838311, guid: 0019507ed1bf00840b40e13df6f3cd8f, type: 3}
-      propertyPath: JumpCap
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7232537792695838311, guid: 0019507ed1bf00840b40e13df6f3cd8f, type: 3}
-      propertyPath: MovSpeed
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7232537792695838311, guid: 0019507ed1bf00840b40e13df6f3cd8f, type: 3}
       propertyPath: _sceneController

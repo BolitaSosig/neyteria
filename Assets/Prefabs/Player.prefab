@@ -558,7 +558,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.011125505, y: -0.10375562}
+  m_Offset: {x: -0.0134087205, y: -0.20437956}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -569,7 +569,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.41186082, y: 0.9035017}
+  m_Size: {x: 0.46092927, y: 1.2642221}
   m_EdgeRadius: 0
 --- !u!95 &7232537792695838308
 Animator:
@@ -602,17 +602,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfd2d5a77bd9698479dd4cbcf5dcb016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attacking: 0
+  switchingWeapon: 0
   seleccionado: 2
   bullet: {fileID: 8451858909790069766, guid: f54218b34e09ac746a824df05014b4d6, type: 3}
   shootForce: 25
   shootRate: 0.5
-  shootLastTime: 0
   enemyLayers:
     serializedVersion: 2
     m_Bits: 0
   swordRange: 0.8
   swordRate: 0.6
-  swordLastTime: 0
   mazeRange: 1.1
   mazeRate: 1
-  mazeLastTime: 0
