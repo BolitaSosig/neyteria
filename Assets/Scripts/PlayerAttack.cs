@@ -68,7 +68,6 @@ public class PlayerAttack : MonoBehaviour
         if (seleccionado == 0 && Input.GetButtonDown("Fire1") && !attacking)
         {
             _animator.SetTrigger("gunAttack");
-            Debug.Log("Se crea bullet");
             GameObject newBullet;
             newBullet = Instantiate(bullet, _shootTransform.position, _shootTransform.rotation);
             //newBullet.GetComponent<Rigidbody2D>().AddForce(_shootTransform.right * shootForce);
@@ -92,11 +91,8 @@ public class PlayerAttack : MonoBehaviour
 
             foreach (Collider2D enemy in hitEnemies)
             {
-                Debug.Log("We hit " + enemy.name);
                 enemy.GetComponent<Enemy1Controller>().GetDamage(swordDMG);
             }
-
-            Debug.Log("golpe con la espada");
 
             StartCoroutine(Cooldown(swordRate));
         }
@@ -112,11 +108,9 @@ public class PlayerAttack : MonoBehaviour
 
             foreach (Collider2D enemy in hitEnemies)
             {
-                Debug.Log("We hit " + enemy.name);
                 enemy.GetComponent<Enemy1Controller>().GetDamage(mazeDMG);
             }
 
-            Debug.Log("golpe con la espada");
 
             StartCoroutine(Cooldown(mazeRate));
         }

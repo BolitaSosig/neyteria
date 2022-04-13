@@ -409,9 +409,9 @@ GameObject:
   - component: {fileID: 7232537792695838305}
   - component: {fileID: 7232537792695838304}
   - component: {fileID: 7232537792695838307}
-  - component: {fileID: 7232537792695838311}
   - component: {fileID: 7232537792695838310}
   - component: {fileID: 7232537792695838308}
+  - component: {fileID: 7232537792695838311}
   - component: {fileID: 7939270272959203814}
   m_Layer: 0
   m_Name: Player
@@ -512,39 +512,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &7232537792695838311
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7232537792695838306}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b300d0ac469c2d4fa09964ba410b1cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HP: 100
-  MaxHP: 100
-  Stamina: 100
-  MaxStamina: 100
-  Attack: 1
-  Defense: 1
-  Weight: 1
-  MovSpeed: 1
-  JumpCap: 1
-  DashRange: 0.5
-  gastoDash: 25
-  StaminaVelRec: 1
-  dmgReduc: 0
-  Modulos:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  _sceneController: {fileID: 0}
-  staminaIsUsed: 0
-  Inmune: 0
-  staminaDecrease: 1
 --- !u!61 &7232537792695838310
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -590,6 +557,40 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7232537792695838311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7232537792695838306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b300d0ac469c2d4fa09964ba410b1cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 100
+  MaxHP: 100
+  Stamina: 100
+  MaxStamina: 100
+  Attack: 1
+  Defense: 1
+  Weight: 1
+  MovSpeed: 1
+  JumpCap: 1
+  DashRange: 0.5
+  gastoDash: 25
+  StaminaVelRec: 1
+  dmgReduc: 0
+  Modulos:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _sceneController: {fileID: 0}
+  staminaIsUsed: 0
+  Inmune: 0
+  staminaDecrease: 1
+  noCD: 0
 --- !u!114 &7939270272959203814
 MonoBehaviour:
   m_ObjectHideFlags: 0

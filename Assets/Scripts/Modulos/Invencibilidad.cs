@@ -28,6 +28,7 @@ public class Invencibilidad : MonoBehaviour
         player.Inmune = true;
         StartCoroutine(Cooldown());
         yield return new WaitForSecondsRealtime(Duracion);
+        if (player.noCD) cd = 0;
         player.Inmune = false;
     }
     public IEnumerator Cooldown()

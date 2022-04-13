@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     // CONSTANTES
     private const float SPEED_MOV = 8f;
-    private const float JUMP_FORCE = 19f;
+    private const float JUMP_FORCE = 22f;
     private const float DASH_FORCE = 12f;
     private const float DMG_CD = 0.5f;
     private const float DASH_RANGE = 0.1f;
@@ -42,6 +42,8 @@ public class PlayerController : MonoBehaviour
     public bool staminaIsUsed = false;
     [SerializeField] public bool Inmune = false;                // Inmortal
     public bool staminaDecrease = true;
+    public bool noCD = false;
+    public bool dashOnAir = false;
 
     private (Vector2, Vector2) getGroundCheckCorners()
     {
@@ -69,7 +71,7 @@ public class PlayerController : MonoBehaviour
     /* Flag que devuelve True si el personaje está en el aire. */
     public bool onAir
     {
-        get { return _rigidbody2D.velocity.y != 0 /*&& !grounded*/; }
+        get { return /* _rigidbody2D.velocity.y != 0 */!grounded; }
     }
 
     void Start()
@@ -89,23 +91,19 @@ public class PlayerController : MonoBehaviour
         // test damage
         if (Input.GetKeyDown(KeyCode.K))
             GetDamage(5f);
+        Debug.Log(canDash);
     }
 
     void Moverse()
     {
-        Walk();
-        Jump();
         Dash();
+        Walk(); 
+        Jump();
     }
 
     ////// HORIZONTAL //////
     void Walk()
     {
-        /*if (Input.GetAxisRaw("Horizontal") == 1)
-            transform.localScale = new Vector2(1, transform.localScale.y); // mira a la derecha
-        else if (Input.GetAxisRaw("Horizontal") == -1)
-            transform.localScale = new Vector2(-1, transform.localScale.y); // mira a la izquerda*/
-
         //Mi versión reducida y optimizada (funciona cuando el escalado es distinto de 1)
         if (Input.GetAxisRaw("Horizontal") == 1 && transform.localScale.x < 0 || Input.GetAxisRaw("Horizontal") == -1 && transform.localScale.x > 0)
             transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z); // cambia de direccion
@@ -132,7 +130,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift) /*Input.GetAxisRaw("Dash") == 1*/ && canDash) // comprueba que puede dashear
         {
             int shortDash = _rigidbody2D.velocity.x == 0 ? 1 : 0; // 1 si dashea mientras se esta moviendo, 0 si está quieto
-            _rigidbody2D.velocity = new Vector2(DASH_FORCE * transform.localScale.x, _rigidbody2D.velocity.y);
+            _rigidbody2D.velocity = new Vector2(DASH_FORCE * transform.localScale.x, 0);
             canDash = false;
             StartCoroutine(GastarStamina(gastoDash - 0.35f * gastoDash * shortDash)); // consume resistencia al evadir
         }
@@ -161,7 +159,7 @@ public class PlayerController : MonoBehaviour
     {
         while (Stamina < MaxStamina && !staminaIsUsed)
         {
-            Stamina = Mathf.Min(MaxStamina, Stamina + Time.fixedDeltaTime * STAMINA_REC_SPEED);
+            Stamina = Mathf.Min(MaxStamina, Stamina + Time.fixedDeltaTime * STAMINA_REC_SPEED * StaminaVelRec);
             yield return new WaitForSecondsRealtime(Time.fixedDeltaTime);
         }
     }
@@ -181,12 +179,15 @@ public class PlayerController : MonoBehaviour
 
     void UseModulo()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-            Modulos[0].GetType().GetMethod("Launch").Invoke(Modulos[0], new object[] { });
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
-            Modulos[1].GetType().GetMethod("Launch").Invoke(Modulos[1], new object[] { });
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
-            Modulos[2].GetType().GetMethod("Launch").Invoke(Modulos[2], new object[] { });
+        int indx = -1;
+        if (Input.GetKeyDown(KeyCode.Alpha1)) indx = 0;
+        else if (Input.GetKeyDown(KeyCode.Alpha2)) indx = 1;
+        else if (Input.GetKeyDown(KeyCode.Alpha3)) indx = 2;
+        
+        if(indx >= 0 && indx <= 2)
+        {
+            Modulos[indx].GetType().GetMethod("Launch").Invoke(Modulos[indx], new object[] { });
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

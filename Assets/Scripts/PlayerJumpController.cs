@@ -7,7 +7,7 @@ public class PlayerJumpController : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.SetBool("can_dash", false);  // ¿puede evadir mientras salta?
+        animator.SetBool("can_dash", animator.gameObject.GetComponent<PlayerController>().dashOnAir);  // ¿puede evadir mientras salta?
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

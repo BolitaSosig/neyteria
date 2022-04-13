@@ -28,6 +28,7 @@ public class Vigor : MonoBehaviour
         player.staminaDecrease = false;
         StartCoroutine(Cooldown());
         yield return new WaitForSecondsRealtime(Duracion);
+        if (player.noCD) cd = 0;
         player.staminaDecrease = true;
     }
     public IEnumerator Cooldown()

@@ -28,6 +28,7 @@ public class Supersalto : MonoBehaviour
         player.JumpCap += 0.5f;
         StartCoroutine(Cooldown());
         yield return new WaitForSecondsRealtime(Duracion);
+        if (player.noCD) cd = 0;
         player.JumpCap -= 0.5f;
     }
     public IEnumerator Cooldown()
