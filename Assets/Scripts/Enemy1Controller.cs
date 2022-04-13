@@ -120,7 +120,10 @@ public class Enemy1Controller : MonoBehaviour
     private void HealthBarUpdate()
     {        
         _spriteRenderer.size = new Vector2(HP / MaxHP, _spriteRenderer.size.y); // Calculamos la posición de la barra de vida
-        healthBarEnemy.transform.position = new Vector3(pivotHealthBarEnemy.position.x + transform.localScale.x * distancia * _spriteRenderer.size.x , healthBarEnemy.transform.position.y, healthBarEnemy.transform.position.z);
+        healthBarEnemy.transform.position = new Vector3(
+            pivotHealthBarEnemy.position.x + transform.localScale.x * distancia * _spriteRenderer.size.x ,
+            healthBarEnemy.transform.position.y,
+            healthBarEnemy.transform.position.z);
     }
 
     public IEnumerator Die()

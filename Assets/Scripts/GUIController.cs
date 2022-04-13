@@ -80,7 +80,7 @@ public class GUIController : MonoBehaviour
                 {
                     if (moduloCB[i].fillAmount == 0) {
                         moduloCB[i].enabled = false;
-                        moduloSprite[i].color = Color.black;
+                        moduloSprite[i].color = new Color(0.3f,0.3f,0.3f);
                         moduloCD[i].text = cd.ToString();
                         moduloCD[i].text = moduloCD[i].text.Substring(0, moduloCD[i].text.IndexOf(",") + 2);
                     } else

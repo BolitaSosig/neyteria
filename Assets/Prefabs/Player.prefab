@@ -604,6 +604,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attacking: 0
   switchingWeapon: 0
+  gunDMG: 20
+  swordDMG: 35
+  mazeDMG: 50
   seleccionado: 2
   bullet: {fileID: 8451858909790069766, guid: f54218b34e09ac746a824df05014b4d6, type: 3}
   shootForce: 25
@@ -611,7 +614,7 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 0
-  swordRange: 0.8
+  swordRange: 1
   swordRate: 0.6
-  mazeRange: 1.1
+  mazeRange: 1.5
   mazeRate: 1
