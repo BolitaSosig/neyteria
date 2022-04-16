@@ -7,6 +7,7 @@ public class Supersalto : MonoBehaviour
     private PlayerController player;
     public float cd = 0;
     public int slot = 1;
+    public int lvl = 1;
     public const int ID = 1;
     public const int Slots = 1;
     public const float Duracion = 15f;
@@ -25,11 +26,11 @@ public class Supersalto : MonoBehaviour
 
     public IEnumerator Skill()
     {
-        player.JumpCap += 0.5f;
+        player.JumpCap += 0.5f + 0.25f * (lvl - 1);
         StartCoroutine(Cooldown());
         yield return new WaitForSecondsRealtime(Duracion);
         if (player.noCD) cd = 0;
-        player.JumpCap -= 0.5f;
+        player.JumpCap -= 0.5f + 0.25f * (lvl - 1);
     }
     public IEnumerator Cooldown()
     {

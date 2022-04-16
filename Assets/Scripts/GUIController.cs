@@ -87,7 +87,6 @@ public class GUIController : MonoBehaviour
                     {
                         moduloCB[i].enabled = true;
                         moduloCB[i].fillAmount = (cd - TdE + Duracion) /Duracion;
-                        Debug.Log((cd - TdE + Duracion) / Duracion);
                     }
 
                 }

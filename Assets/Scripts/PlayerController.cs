@@ -80,6 +80,13 @@ public class PlayerController : MonoBehaviour
         _boxCollider2D = GetComponent<BoxCollider2D>();
         _animator = GetComponent<Animator>();
         _GLOBAL = GameObject.Find("GLOBAL");
+
+        gameObject.AddComponent(typeof(Supersalto));
+        Modulos[0] = gameObject.GetComponent(typeof(Supersalto));
+        gameObject.AddComponent(typeof(Invencibilidad));
+        Modulos[1] = gameObject.GetComponent(typeof(Invencibilidad));
+        gameObject.AddComponent(typeof(Rumarh));
+        Modulos[2] = gameObject.GetComponent(typeof(Rumarh));
     }
 
 
@@ -91,7 +98,6 @@ public class PlayerController : MonoBehaviour
         // test damage
         if (Input.GetKeyDown(KeyCode.K))
             GetDamage(5f);
-        Debug.Log(canDash);
     }
 
     void Moverse()
