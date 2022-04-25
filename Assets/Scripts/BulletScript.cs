@@ -17,22 +17,25 @@ public class BulletScript : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("colision con Player"); return;
+           // Debug.Log("colision con Player"); return;
         }
         else if (other.CompareTag("Enemy"))
         {
             //other.gameObject.GetComponent<EnemyController>().TakeDamage;
             other.GetComponent<Enemy1Controller>().GetDamage(gunDMG);
 
-            Debug.Log("colision con Enemy"); Destroy(gameObject);
+            //Debug.Log("colision con Enemy"); 
+            Destroy(gameObject);
         }
         else if(!other.CompareTag("ZoneLoader"))
         {
-            Debug.Log("colision con algo"); Destroy(gameObject);
+            //Debug.Log("colision con algo"); 
+            Destroy(gameObject);
         }
         else
         {
-            Debug.Log("colision con algo"); Destroy(gameObject);
+            //Debug.Log("colision con algo"); 
+            Destroy(gameObject);
         }
     }
 }
