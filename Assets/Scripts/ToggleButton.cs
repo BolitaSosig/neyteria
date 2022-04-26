@@ -41,15 +41,22 @@ public class ToggleButton : MonoBehaviour
     {
         _activated = true;
         gameObject.GetComponent<Animator>().SetBool("trigger", _activated);
-        StartCoroutine(Cinematica());
+
+        Tilemap tm = _togglePlatform.GetComponent<Tilemap>();
+        if(tm != null)
+            StartCoroutine(Cinematica(tm));
+        else
+        {
+            SpriteRenderer sr = _togglePlatform.GetComponent<SpriteRenderer>();
+            StartCoroutine(Cinematica(sr));
+        }
         //gameObject.GetComponent<Animator>().Play("togglebutton");
     }
 
-    IEnumerator Cinematica()
+    IEnumerator Cinematica(Tilemap tm)
     {
         _player.GetComponent<PlayerController>().canMove = false;
 
-        Tilemap tm = _togglePlatform.GetComponent<Tilemap>();
         tm.color = new Color(tm.color.r, tm.color.g, tm.color.b, 0f);
 
         _camera.m_Follow = _togglePlatform.transform;
@@ -58,6 +65,26 @@ public class ToggleButton : MonoBehaviour
         while(tm.color.a < 1)
         {
             tm.color += new Color(0, 0, 0, 0.1f);
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        _camera.m_Follow = _player.transform;
+        _player.GetComponent<PlayerController>().canMove = true;
+        _spriteRenderer.sprite = _endFrame;
+    }
+
+    IEnumerator Cinematica(SpriteRenderer sr)
+    {
+        _player.GetComponent<PlayerController>().canMove = false;
+
+        sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 0f);
+
+        _camera.m_Follow = _togglePlatform.transform;
+        _togglePlatform.SetActive(true);
+        yield return new WaitForSeconds(1);
+        while (sr.color.a < 1)
+        {
+            sr.color += new Color(0, 0, 0, 0.1f);
             yield return new WaitForSeconds(0.1f);
         }
 
