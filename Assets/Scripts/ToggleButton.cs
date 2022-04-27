@@ -9,7 +9,7 @@ public class ToggleButton : MonoBehaviour
     [SerializeField] private GameObject _togglePlatform;
     private GameObject _player;
     [SerializeField] private Sprite _endFrame;
-    private CinemachineVirtualCamera _camera;
+    private CameraController _camera;
     private SpriteRenderer _spriteRenderer;
     public bool _activated = false;
 
@@ -17,7 +17,7 @@ public class ToggleButton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _camera = GameObject.FindObjectOfType<CinemachineVirtualCamera>();
+        _camera = GameObject.FindObjectOfType<CameraController>();
         _player = GameObject.Find("Player");
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
@@ -25,10 +25,7 @@ public class ToggleButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //gameObject.GetComponent<Animator>().SetBool("isToggled", _activated);
-        /*if(_activated)
-            gameObject.GetComponent<SpriteRenderer>().sprite = _endFrame;*/
-        Debug.Log(_spriteRenderer.sprite.name);
+        
     }
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -44,52 +41,15 @@ public class ToggleButton : MonoBehaviour
 
         Tilemap tm = _togglePlatform.GetComponent<Tilemap>();
         if(tm != null)
-            StartCoroutine(Cinematica(tm));
+            StartCoroutine(_camera.CinematicaInterruptor(_player, _togglePlatform, tm));
         else
         {
             SpriteRenderer sr = _togglePlatform.GetComponent<SpriteRenderer>();
-            StartCoroutine(Cinematica(sr));
+            StartCoroutine(_camera.CinematicaInterruptor(_player, _togglePlatform, tm));
         }
         //gameObject.GetComponent<Animator>().Play("togglebutton");
     }
 
-    IEnumerator Cinematica(Tilemap tm)
-    {
-        _player.GetComponent<PlayerController>().canMove = false;
 
-        tm.color = new Color(tm.color.r, tm.color.g, tm.color.b, 0f);
-
-        _camera.m_Follow = _togglePlatform.transform;
-        _togglePlatform.SetActive(true);
-        yield return new WaitForSeconds(1);
-        while(tm.color.a < 1)
-        {
-            tm.color += new Color(0, 0, 0, 0.1f);
-            yield return new WaitForSeconds(0.1f);
-        }
-
-        _camera.m_Follow = _player.transform;
-        _player.GetComponent<PlayerController>().canMove = true;
-        _spriteRenderer.sprite = _endFrame;
-    }
-
-    IEnumerator Cinematica(SpriteRenderer sr)
-    {
-        _player.GetComponent<PlayerController>().canMove = false;
-
-        sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 0f);
-
-        _camera.m_Follow = _togglePlatform.transform;
-        _togglePlatform.SetActive(true);
-        yield return new WaitForSeconds(1);
-        while (sr.color.a < 1)
-        {
-            sr.color += new Color(0, 0, 0, 0.1f);
-            yield return new WaitForSeconds(0.1f);
-        }
-
-        _camera.m_Follow = _player.transform;
-        _player.GetComponent<PlayerController>().canMove = true;
-        _spriteRenderer.sprite = _endFrame;
-    }
+    
 }

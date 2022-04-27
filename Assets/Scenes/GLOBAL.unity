@@ -1598,7 +1598,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1351634712}
+  - component: {fileID: 1351634713}
   - component: {fileID: 1351634711}
+  - component: {fileID: 1351634714}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -1656,6 +1658,40 @@ Transform:
   m_Father: {fileID: 294819061}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1351634713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351634710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f46a9225a3cc6b148a7c951958e69b99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PLAYER_STAY_SIZE: 5
+  PLAYER_MOV_SIZE: 6.5
+  CINEMATIC_SIZE: 6.5
+--- !u!95 &1351634714
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351634710}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c835c81a728c1bb4ea52b39211362839, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1484414868
 PrefabInstance:
   m_ObjectHideFlags: 0
