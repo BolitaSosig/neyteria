@@ -116,6 +116,7 @@ public class Enemy1Controller : MonoBehaviour
         if(collision.gameObject.tag.Equals("Player"))
             DoDamage(collision.gameObject);
     }
+    
 
     private void HealthBarUpdate()
     {        
