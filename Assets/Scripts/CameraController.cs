@@ -42,7 +42,7 @@ public class CameraController : MonoBehaviour
             StartCoroutine(ResizeGrow(CINEMATIC_SIZE, 0.08f));
     }
 
-    IEnumerator ResizeGrow(float size, float speed)
+    public IEnumerator ResizeGrow(float size, float speed)
     {
         resizing = true;
         float var = size - _cam.m_Lens.OrthographicSize;

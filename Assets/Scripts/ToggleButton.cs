@@ -15,6 +15,14 @@ public class ToggleButton : MonoBehaviour
     public bool _activated = false;
     public bool isTimed = false;
     public float segundos = 0;
+    [SerializeField] public bool Activated { 
+        get { return _activated; }
+        set
+        {
+            _activated = value;
+            GetComponent<Animator>().SetBool("isToggled", _activated);
+        }
+    }
 
 
     // Start is called before the first frame update
@@ -33,14 +41,14 @@ public class ToggleButton : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (!_activated && collision.gameObject.CompareTag("Player") && Input.GetKey(KeyCode.Space))
+        if (!Activated && collision.gameObject.CompareTag("Player") && Input.GetKey(KeyCode.Space))
             Toggle();
     }
 
     void Toggle()
     {
-        _activated = true;
-        gameObject.GetComponent<Animator>().SetBool("trigger", _activated);
+        Activated = true;
+        gameObject.GetComponent<Animator>().SetBool("trigger", Activated);
 
         Tilemap tm = _togglePlatform.GetComponent<Tilemap>();
         if (tm != null)
@@ -70,9 +78,9 @@ public class ToggleButton : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
 
-        tm.color -= new Color(tm.color.r, tm.color.g, tm.color.b, 0);
+        tm.color = new Color(tm.color.r, tm.color.g, tm.color.b, 0);
         _togglePlatform.SetActive(false);
-        _activated = false;
+        Activated = false;
     }
     IEnumerator Timing(SpriteRenderer sr)
     {
@@ -86,6 +94,6 @@ public class ToggleButton : MonoBehaviour
 
         sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 0);
         _togglePlatform.SetActive(false);
-        _activated = false;
+        Activated = false;
     }
 }
