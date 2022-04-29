@@ -33,12 +33,13 @@ public class Enemy1Controller : MonoBehaviour
     private Rigidbody2D _rigidbody2D;
     private BoxCollider2D _boxCollider2D;
     private Animator _animator;
+    [SerializeField] private TextMeshProUGUI _levelText;
+    [SerializeField] private Transform _canvasTranform;
 
     // Barra de vida
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] public GameObject healthBarEnemy;
     [SerializeField] public Transform pivotHealthBarEnemy;
-    [SerializeField] public TextMeshProUGUI levelText;
     [SerializeField] private float distancia = 0f;
 
     public float baseHP;
@@ -128,6 +129,7 @@ public class Enemy1Controller : MonoBehaviour
             yield return new WaitForSecondsRealtime(1f);
 
             transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
+            _canvasTranform.localScale = new Vector2(-_canvasTranform.localScale.x, _canvasTranform.localScale.y);
             moving = false;
         }
 
@@ -156,7 +158,7 @@ public class Enemy1Controller : MonoBehaviour
 
     private void LevelTextUpdate()
     {
-        levelText.text = "Nivel " + _nivel;
+        _levelText.text = "Nivel " + _nivel;
     }
 
     public IEnumerator Die()
