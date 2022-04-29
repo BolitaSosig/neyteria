@@ -8,6 +8,9 @@ public class GLOBAL : MonoBehaviour
     public GameObject player;
     public int d = 0;
 
+    // ENEMIGO
+    public static float AUMENTO_NV = 0.99f;
+
     // Start is called before the first frame update
     void Start()
     {

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Enemy1Controller : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class Enemy1Controller : MonoBehaviour
     private float DISTANCIA_EN_SEGUNDOS = 3f;
 
     // ATRIBUTOS PERSONAJE
+    [SerializeField] private int _nivel = 1;
+    private int _oldNivel = 0;
     [SerializeField] private float HP = 50f;
     [SerializeField] private float MaxHP = 100f;
     [SerializeField] private float Stamina = 100f;
@@ -18,6 +21,7 @@ public class Enemy1Controller : MonoBehaviour
     [SerializeField] private float Defense = 1f;
     [SerializeField] private float Weight = 1f;
     [SerializeField] private float MovSpeed = 1f;
+    [SerializeField] private float AttSpeed = 1f;
     [SerializeField] private float JumpCap = 1f;
     [SerializeField] private float mov_x = 0f;
     [SerializeField] private int cont_mov_x = 0;
@@ -34,8 +38,29 @@ public class Enemy1Controller : MonoBehaviour
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] public GameObject healthBarEnemy;
     [SerializeField] public Transform pivotHealthBarEnemy;
+    [SerializeField] public TextMeshProUGUI levelText;
     [SerializeField] private float distancia = 0f;
 
+    public float baseHP;
+    public float baseAttack;
+    public float baseDefense;
+    public float baseMovSpeed;
+    public float baseAttSpeed;
+
+    public bool levelHasChanged
+    {
+        get { return _nivel != _oldNivel; }
+    }
+
+    public int Nivel
+    {
+        set
+        {
+            _oldNivel = value;
+            UpdateStats();
+            LevelTextUpdate();
+        }
+    }
 
     private (Vector2, Vector2) getGroundCheckCorners()
     {
@@ -78,6 +103,8 @@ public class Enemy1Controller : MonoBehaviour
 
     void Update()
     {
+        if (levelHasChanged)
+            Nivel = _nivel;
         StartCoroutine(Moverse());
         HealthBarUpdate();
     }
@@ -88,7 +115,7 @@ public class Enemy1Controller : MonoBehaviour
         {
             moving = true;
             float cont = 0;
-            while (cont < DISTANCIA_EN_SEGUNDOS * 10)
+            while (cont < DISTANCIA_EN_SEGUNDOS * 10f/MovSpeed)
             {
                 _rigidbody2D.velocity = new Vector2(Mathf.Sign(transform.localScale.x) * SPEED_MOV * MovSpeed, _rigidbody2D.velocity.y); // desplazamiento del personaje
                 _animator.SetFloat("velocity_x", Mathf.Abs(_rigidbody2D.velocity.x)); // establece velocity_x en el animator*/
@@ -127,6 +154,11 @@ public class Enemy1Controller : MonoBehaviour
             healthBarEnemy.transform.position.z);
     }
 
+    private void LevelTextUpdate()
+    {
+        levelText.text = "Nivel " + _nivel;
+    }
+
     public IEnumerator Die()
     {
         _animator.SetTrigger("dead");
@@ -142,6 +174,16 @@ public class Enemy1Controller : MonoBehaviour
         if (HP <= 0) StartCoroutine(Die());
     }
 
-
+    void UpdateStats()
+    {
+        float var = (100 + (_nivel * (_nivel - 1) * GLOBAL.AUMENTO_NV) / 4) / 100f;
+        float oldMHP = MaxHP;
+        MaxHP = baseHP * var;
+        HP = HP / oldMHP * MaxHP;
+        Attack = baseAttack * var;
+        Defense = baseDefense * var;
+        MovSpeed = baseMovSpeed * (0.99f + _nivel / 100f);
+        AttSpeed = baseAttSpeed * (0.99f + _nivel / 100f);
+    }
 
 }
