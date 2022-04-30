@@ -23,6 +23,7 @@ public class Enemy1Controller : MonoBehaviour
     [SerializeField] private float MovSpeed = 1f;
     [SerializeField] private float AttSpeed = 1f;
     [SerializeField] private float JumpCap = 1f;
+    [SerializeField] private float dmgReduc = 0f;
     [SerializeField] private float mov_x = 0f;
     [SerializeField] private int cont_mov_x = 0;
 
@@ -164,6 +165,11 @@ public class Enemy1Controller : MonoBehaviour
     {
         HP = Mathf.Max(0, HP - dmg);
         if (HP <= 0) StartCoroutine(Die());
+    }
+
+    public void GetDamageByPlayer(float attack)
+    {
+        GetDamage(5 * attack / Mathf.Sqrt(Defense) * (1 - dmgReduc));
     }
 
     void UpdateStats()

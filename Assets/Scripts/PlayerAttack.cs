@@ -7,13 +7,9 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] bool attacking = false;
     [SerializeField] bool switchingWeapon = false;
 
-    //Daños de las armas
-    public int gunDMG = 20;
-    public int swordDMG = 35;
-    public int mazeDMG = 50;
-
     //Referencias
     private Animator _animator;
+    private PlayerController _playerController;
 
     //Selector
     public int seleccionado = 2; //0 es pistola, 1 es espada, y 2 es maza
@@ -42,6 +38,7 @@ public class PlayerAttack : MonoBehaviour
     void Start()
     {
         _animator = GetComponent<Animator>();
+        _playerController = GetComponent<PlayerController>();
 
         _shootTransform = GameObject.Find("ShootTransform").transform;
         _swordTransform = GameObject.Find("SwordTransform").transform;
@@ -72,7 +69,7 @@ public class PlayerAttack : MonoBehaviour
             newBullet = Instantiate(bullet, _shootTransform.position, _shootTransform.rotation);
             //newBullet.GetComponent<Rigidbody2D>().AddForce(_shootTransform.right * shootForce);
             newBullet.GetComponent<Rigidbody2D>().velocity = new Vector2(transform.localScale.x * shootForce, newBullet.GetComponent<Rigidbody2D>().velocity.y);
-            newBullet.GetComponent<BulletScript>().gunDMG = gunDMG;
+            newBullet.GetComponent<BulletScript>().gunDMG = _playerController.Attack;
             Destroy(newBullet, 2);
 
             StartCoroutine(Cooldown(shootRate));
@@ -93,7 +90,7 @@ public class PlayerAttack : MonoBehaviour
             {
                 //enemy.GetComponent<Enemy1Controller>().GetDamage(swordDMG);
                 //Debug.Log("colision con Enemy");
-                enemy.SendMessage("GetDamage", swordDMG);
+                enemy.SendMessage("GetDamage", _playerController.Attack);
             }
 
             StartCoroutine(Cooldown(swordRate));
@@ -112,7 +109,7 @@ public class PlayerAttack : MonoBehaviour
             {
                 //enemy.GetComponent<Enemy1Controller>().GetDamage(mazeDMG);
                 //Debug.Log("colision con Enemy");
-                enemy.SendMessage("GetDamage", mazeDMG);
+                enemy.SendMessage("GetDamage", _playerController.Attack);
             }
 
 

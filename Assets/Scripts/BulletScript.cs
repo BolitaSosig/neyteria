@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
-    public int gunDMG = 10;
+    private float BULLET_DMG = 1.3f;
+
+    public float gunDMG = 1f;
 
     private GameObject objetoColisionado;
     // Start is called before the first frame update
@@ -17,7 +19,7 @@ public class BulletScript : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-           // Debug.Log("colision con Player"); return;
+            // Debug.Log("colision con Player"); return;
         }
         else if (other.CompareTag("Enemy"))
         {
@@ -25,9 +27,9 @@ public class BulletScript : MonoBehaviour
             //Debug.Log(other.GetComponent<Enemy1Controller>());
 
             //other.GetComponent<Enemy1Controller>().GetDamage(gunDMG);
-            other.SendMessage("GetDamage", gunDMG);
+            other.SendMessage("GetDamage", gunDMG * BULLET_DMG);
 
-            Debug.Log("colision con Enemy"); 
+            //Debug.Log("colision con Enemy"); 
             Destroy(gameObject);
         }
         else if(!other.CompareTag("ZoneLoader"))
