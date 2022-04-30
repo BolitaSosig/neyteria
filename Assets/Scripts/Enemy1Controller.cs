@@ -37,10 +37,7 @@ public class Enemy1Controller : MonoBehaviour
     [SerializeField] private Transform _canvasTranform;
 
     // Barra de vida
-    [SerializeField] private SpriteRenderer _spriteRenderer;
-    [SerializeField] public GameObject healthBarEnemy;
-    [SerializeField] public Transform pivotHealthBarEnemy;
-    [SerializeField] private float distancia = 0f;
+    [SerializeField] public Transform healthBarEnemy;
 
     public float baseHP;
     public float baseAttack;
@@ -96,9 +93,6 @@ public class Enemy1Controller : MonoBehaviour
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _boxCollider2D = GetComponent<BoxCollider2D>();
         _animator = GetComponent<Animator>();
-        _spriteRenderer = healthBarEnemy.GetComponent<SpriteRenderer>();
-
-        distancia = Mathf.Abs(pivotHealthBarEnemy.position.x - healthBarEnemy.transform.position.x); //Esto es para calcular la posicion de la barra de vida
     }
 
 
@@ -148,12 +142,8 @@ public class Enemy1Controller : MonoBehaviour
     
 
     private void HealthBarUpdate()
-    {        
-        _spriteRenderer.size = new Vector2(HP / MaxHP, _spriteRenderer.size.y); // Calculamos la posición de la barra de vida
-        healthBarEnemy.transform.position = new Vector3(
-            pivotHealthBarEnemy.position.x + transform.localScale.x * distancia * _spriteRenderer.size.x ,
-            healthBarEnemy.transform.position.y,
-            healthBarEnemy.transform.position.z);
+    {
+        healthBarEnemy.localScale = new Vector2(HP / MaxHP, healthBarEnemy.localScale.y);
     }
 
     private void LevelTextUpdate()
