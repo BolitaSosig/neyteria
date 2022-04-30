@@ -276,7 +276,6 @@ GameObject:
   - component: {fileID: 101921298}
   - component: {fileID: 101921300}
   - component: {fileID: 101921299}
-  - component: {fileID: 101921301}
   m_Layer: 0
   m_Name: Slider Volumen
   m_TagString: Untagged
@@ -357,7 +356,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 101921301}
+      - m_Target: {fileID: 1900514971}
         m_TargetAssemblyTypeName: VolumeManager, Assembly-CSharp
         m_MethodName: ChangeVolume
         m_Mode: 1
@@ -400,19 +399,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &101921301
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 101921296}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7da18f6ad5db7744bbba3d125ccea713, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  volumeSlider: {fileID: 101921298}
 --- !u!1 &125062625
 GameObject:
   m_ObjectHideFlags: 0
@@ -2423,7 +2409,6 @@ GameObject:
   - component: {fileID: 871900198}
   - component: {fileID: 871900200}
   - component: {fileID: 871900199}
-  - component: {fileID: 871900201}
   m_Layer: 0
   m_Name: Slider Brillo
   m_TagString: Untagged
@@ -2504,7 +2489,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 871900201}
+      - m_Target: {fileID: 1900514972}
         m_TargetAssemblyTypeName: BrightnessManager, Assembly-CSharp
         m_MethodName: ChangeBrightness
         m_Mode: 1
@@ -2547,20 +2532,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &871900201
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 871900196}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34123ff205e05fd4096313ae9c1ecc82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneLight: {fileID: 279181649}
-  brightnessSlider: {fileID: 871900198}
 --- !u!1 &884095223
 GameObject:
   m_ObjectHideFlags: 0
@@ -4668,6 +4639,8 @@ GameObject:
   - component: {fileID: 1900514968}
   - component: {fileID: 1900514970}
   - component: {fileID: 1900514969}
+  - component: {fileID: 1900514972}
+  - component: {fileID: 1900514971}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -4779,6 +4752,11 @@ MonoBehaviour:
   PpalFirstButton: {fileID: 1737678573}
   OpcionesFirstButton: {fileID: 871900196}
   CreditosFirstButton: {fileID: 253572705}
+  paginas:
+  - {fileID: 2052429792}
+  - {fileID: 1661111842}
+  - {fileID: 1834662132}
+  - {fileID: 1378694707}
   ImagenCargando: {fileID: 1375560584}
   progreso: 0
 --- !u!82 &1900514969
@@ -4892,6 +4870,33 @@ MonoBehaviour:
   disableOnce: 0
   aud1: {fileID: 8300000, guid: f7cacde4f8ccc9f41bf3bd14f06c24be, type: 3}
   aud2: {fileID: 8300000, guid: 2e887e4da0fd6b7498a0061c08fb1831, type: 3}
+--- !u!114 &1900514971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1900514963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7da18f6ad5db7744bbba3d125ccea713, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeSlider: {fileID: 101921298}
+--- !u!114 &1900514972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1900514963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34123ff205e05fd4096313ae9c1ecc82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneLight: {fileID: 279181649}
+  brightnessSlider: {fileID: 871900198}
 --- !u!1 &1971176074
 GameObject:
   m_ObjectHideFlags: 0
