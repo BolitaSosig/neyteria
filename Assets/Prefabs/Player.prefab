@@ -616,7 +616,7 @@ MonoBehaviour:
   shootRate: 0.5
   enemyLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   swordRange: 1
   swordRate: 0.6
   mazeRange: 1.5

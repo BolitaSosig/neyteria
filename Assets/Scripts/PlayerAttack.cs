@@ -91,7 +91,9 @@ public class PlayerAttack : MonoBehaviour
 
             foreach (Collider2D enemy in hitEnemies)
             {
-                enemy.GetComponent<Enemy1Controller>().GetDamage(swordDMG);
+                //enemy.GetComponent<Enemy1Controller>().GetDamage(swordDMG);
+                //Debug.Log("colision con Enemy");
+                enemy.SendMessage("GetDamage", swordDMG);
             }
 
             StartCoroutine(Cooldown(swordRate));
@@ -108,7 +110,9 @@ public class PlayerAttack : MonoBehaviour
 
             foreach (Collider2D enemy in hitEnemies)
             {
-                enemy.GetComponent<Enemy1Controller>().GetDamage(mazeDMG);
+                //enemy.GetComponent<Enemy1Controller>().GetDamage(mazeDMG);
+                //Debug.Log("colision con Enemy");
+                enemy.SendMessage("GetDamage", mazeDMG);
             }
 
 

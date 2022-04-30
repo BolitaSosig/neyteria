@@ -22,10 +22,12 @@ public class BulletScript : MonoBehaviour
         else if (other.CompareTag("Enemy"))
         {
             //other.gameObject.GetComponent<EnemyController>().TakeDamage;
-            Debug.Log(other.GetComponent<Enemy1Controller>());
-            other.GetComponent<Enemy1Controller>().GetDamage(gunDMG);
+            //Debug.Log(other.GetComponent<Enemy1Controller>());
 
-            //Debug.Log("colision con Enemy"); 
+            //other.GetComponent<Enemy1Controller>().GetDamage(gunDMG);
+            other.SendMessage("GetDamage", gunDMG);
+
+            Debug.Log("colision con Enemy"); 
             Destroy(gameObject);
         }
         else if(!other.CompareTag("ZoneLoader"))
