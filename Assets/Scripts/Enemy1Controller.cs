@@ -34,8 +34,10 @@ public class Enemy1Controller : MonoBehaviour
     private Rigidbody2D _rigidbody2D;
     private BoxCollider2D _boxCollider2D;
     private Animator _animator;
+    private SpriteRenderer _spriteRenderer;
     [SerializeField] private TextMeshProUGUI _levelText;
     [SerializeField] private Transform _canvasTranform;
+    [SerializeField] private GameObject _damageDealTMP;
 
     // Barra de vida
     [SerializeField] public Transform healthBarEnemy;
@@ -94,6 +96,7 @@ public class Enemy1Controller : MonoBehaviour
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _boxCollider2D = GetComponent<BoxCollider2D>();
         _animator = GetComponent<Animator>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
 
@@ -155,15 +158,17 @@ public class Enemy1Controller : MonoBehaviour
     public IEnumerator Die()
     {
         _animator.SetTrigger("dead");
+        _boxCollider2D.enabled = false;
+        _rigidbody2D.gravityScale = 0f;
         yield return new WaitForSecondsRealtime(0.5f);
         Destroy(gameObject);
-         
     }
 
     ////// RECIBE DAÑO //////
     public void GetDamage(float dmg)
     {
         HP = Mathf.Max(0, HP - dmg);
+        ShowDamageDeal(Mathf.RoundToInt(dmg));
         if (HP <= 0) StartCoroutine(Die());
     }
 
@@ -184,4 +189,9 @@ public class Enemy1Controller : MonoBehaviour
         AttSpeed = baseAttSpeed * (0.99f + _nivel / 100f);
     }
 
+    void ShowDamageDeal(int dmg)
+    {
+        _damageDealTMP.GetComponentInChildren<TextMeshPro>().text = dmg.ToString();
+        Instantiate(_damageDealTMP, transform.position, Quaternion.identity);
+    }
 }

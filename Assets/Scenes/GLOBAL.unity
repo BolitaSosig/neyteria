@@ -494,7 +494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b757c1ee1231c0f4d85014309ab60e18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPosition: {fileID: 0}
+  startPosition: {fileID: 135853694}
   player: {fileID: 207203763}
   d: 0
 --- !u!1 &308688308
@@ -1763,6 +1763,10 @@ PrefabInstance:
       propertyPath: _sceneController
       value: 
       objectReference: {fileID: 1174612726}
+    - target: {fileID: 7939270272959203814, guid: 0019507ed1bf00840b40e13df6f3cd8f, type: 3}
+      propertyPath: shootRate
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7939270272959203814, guid: 0019507ed1bf00840b40e13df6f3cd8f, type: 3}
       propertyPath: enemyLayers.m_Bits
       value: 512

@@ -61,8 +61,10 @@ MonoBehaviour:
   dmgReduc: 0
   mov_x: 0
   cont_mov_x: 0
+  _spriteRenderer: {fileID: 4274105038498637992}
   _levelText: {fileID: 1084794721244080582}
   _canvasTranform: {fileID: 6458302505504297276}
+  _damageDealTMP: {fileID: 1931263843719411576, guid: 9eb9ec5f41b3bb945bd9dfe9fedef7fe, type: 3}
   healthBarEnemy: {fileID: 757757706578032882}
   baseHP: 50
   baseAttack: 4
