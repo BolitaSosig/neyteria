@@ -14,7 +14,7 @@ public class Enemy1Controller : MonoBehaviour
     // ATRIBUTOS PERSONAJE
     [SerializeField] private int _nivel = 1;
     private int _oldNivel = 0;
-    [SerializeField] private float HP = 50f;
+    [SerializeReference] private float HP = 50f;
     [SerializeField] private float MaxHP = 100f;
     [SerializeField] private float Stamina = 100f;
     [SerializeField] private float Attack = 4f;

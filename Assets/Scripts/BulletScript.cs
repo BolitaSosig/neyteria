@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
-    private float BULLET_DMG = 1.3f;
+    private float BULLET_DMG = 1.75f;
 
     public float gunDMG = 1f;
 
@@ -27,7 +27,7 @@ public class BulletScript : MonoBehaviour
             //Debug.Log(other.GetComponent<Enemy1Controller>());
 
             //other.GetComponent<Enemy1Controller>().GetDamage(gunDMG);
-            other.SendMessage("GetDamage", gunDMG * BULLET_DMG);
+            other.SendMessage("GetDamageByPlayer", gunDMG * BULLET_DMG);
 
             //Debug.Log("colision con Enemy"); 
             Destroy(gameObject);

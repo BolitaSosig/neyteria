@@ -90,7 +90,7 @@ public class PlayerAttack : MonoBehaviour
             {
                 //enemy.GetComponent<Enemy1Controller>().GetDamage(swordDMG);
                 //Debug.Log("colision con Enemy");
-                enemy.SendMessage("GetDamage", _playerController.Attack);
+                enemy.SendMessage("GetDamageByPlayer", _playerController.Attack);
             }
 
             StartCoroutine(Cooldown(swordRate));
@@ -109,7 +109,7 @@ public class PlayerAttack : MonoBehaviour
             {
                 //enemy.GetComponent<Enemy1Controller>().GetDamage(mazeDMG);
                 //Debug.Log("colision con Enemy");
-                enemy.SendMessage("GetDamage", _playerController.Attack);
+                enemy.SendMessage("GetDamageByPlayer", _playerController.Attack);
             }
 
 

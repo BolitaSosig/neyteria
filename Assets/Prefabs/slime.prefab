@@ -58,15 +58,13 @@ MonoBehaviour:
   MovSpeed: 1
   AttSpeed: 1
   JumpCap: 1
+  dmgReduc: 0
   mov_x: 0
   cont_mov_x: 0
   _levelText: {fileID: 1084794721244080582}
   _canvasTranform: {fileID: 6458302505504297276}
-  _spriteRenderer: {fileID: 0}
   healthBarEnemy: {fileID: 757757706578032882}
-  pivotHealthBarEnemy: {fileID: 0}
-  distancia: 0
-  baseHP: 100
+  baseHP: 50
   baseAttack: 4
   baseDefense: 1
   baseMovSpeed: 1
