@@ -7,6 +7,10 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] bool attacking = false;
     [SerializeField] bool switchingWeapon = false;
 
+    [SerializeField] bool canAttack = true;
+
+    
+
     //Referencias
     private Animator _animator;
     private PlayerController _playerController;
@@ -54,10 +58,17 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GunAttack();
-        SwordAttack();
-        MazeAttack();
-        if (Input.GetKeyDown(KeyCode.Q) && !switchingWeapon) StartCoroutine(UpdateSeleccionado());
+        canAttack = _playerController.canMove;
+
+        if (canAttack)
+        {
+            GunAttack();
+            SwordAttack();
+            MazeAttack();
+            if (Input.GetKeyDown(KeyCode.Q) && !switchingWeapon) StartCoroutine(UpdateSeleccionado());
+        }
+        
+        
     }
 
     void GunAttack()

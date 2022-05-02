@@ -32,10 +32,10 @@ public class BulletScript : MonoBehaviour
             //Debug.Log("colision con Enemy"); 
             Destroy(gameObject);
         }
-        else if(!other.CompareTag("ZoneLoader"))
+        else if(other.CompareTag("ZoneLoader"))
         {
             //Debug.Log("colision con algo"); 
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
         else
         {

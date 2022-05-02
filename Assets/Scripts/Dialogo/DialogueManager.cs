@@ -8,6 +8,8 @@ public class DialogueManager : MonoBehaviour {
 	public Text nameText;
 	public Text dialogueText;
 
+	private PlayerController _playerController;
+
 	public Animator animator;
 
 	private Queue<string> sentences;
@@ -15,10 +17,13 @@ public class DialogueManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		sentences = new Queue<string>();
+		_playerController = GameObject.Find("Player").GetComponent<PlayerController>();
 	}
 
 	public void StartDialogue (Dialogue dialogue)
 	{
+		_playerController.canMove = false;
+
 		animator.SetBool("IsOpen", true);
 
 		nameText.text = dialogue.name;
@@ -59,6 +64,7 @@ public class DialogueManager : MonoBehaviour {
 	void EndDialogue()
 	{
 		animator.SetBool("IsOpen", false);
+		_playerController.canMove = true;
 	}
 
 }
