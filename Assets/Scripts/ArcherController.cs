@@ -115,7 +115,7 @@ public class ArcherController : MonoBehaviour
         _boxCollider2D = GetComponent<BoxCollider2D>();
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        //_weather = GameObject.Find("WeatherController").GetComponent<WeatherController>();
+        _weather = GameObject.Find("WeatherController").GetComponent<WeatherController>();
 
         target = GameObject.FindGameObjectWithTag("Player").transform;
     }
@@ -123,9 +123,9 @@ public class ArcherController : MonoBehaviour
 
     void Update()
     {
-        //CheckWeatherChange();
-        //if (levelHasChanged)
-            //Nivel = _nivel;
+        CheckWeatherChange();
+        if (levelHasChanged)
+            Nivel = _nivel;
         StartCoroutine(Moverse());
         HealthBarUpdate();
         CheckEnemy();
@@ -223,13 +223,13 @@ public class ArcherController : MonoBehaviour
             
             if (transform.position.x <= target.position.x)
             {
-                transform.localScale = new Vector2(-1, transform.localScale.y);
+                transform.localScale = new Vector2(-Mathf.Abs(transform.localScale.x), transform.localScale.y);
                 _canvasTranform.localScale = new Vector2(-1, _canvasTranform.localScale.y);
                 _rigidbody2D.velocity = new Vector2(2, _rigidbody2D.velocity.y);
             }
             else
             {
-                transform.localScale = new Vector2(1, transform.localScale.y);
+                transform.localScale = new Vector2(Mathf.Abs(transform.localScale.x), transform.localScale.y);
                 _canvasTranform.localScale = new Vector2(1, _canvasTranform.localScale.y);
                 _rigidbody2D.velocity = new Vector2(-2, _rigidbody2D.velocity.y);
             }
