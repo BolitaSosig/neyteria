@@ -126,7 +126,7 @@ public class ArcherController : MonoBehaviour
         //CheckWeatherChange();
         //if (levelHasChanged)
             //Nivel = _nivel;
-        //StartCoroutine(Moverse());
+        StartCoroutine(Moverse());
         HealthBarUpdate();
         CheckEnemy();
     }
@@ -211,7 +211,7 @@ public class ArcherController : MonoBehaviour
         // If inside the lookRadius
         if (distance <= lookRadius)
         {
-            StopCoroutine(Moverse()); //moving = false; //StopAllCoroutines();
+            //StopCoroutine(Moverse()); //moving = false; //StopAllCoroutines();
             if (Random.Range(0f, 10f) >= seDispara && !attacking) { StartCoroutine(DoAttack()); }
 
             //Debug.Log(distance);
@@ -234,7 +234,8 @@ public class ArcherController : MonoBehaviour
 
         else
         { //_rigidbody2D.velocity = new Vector2(0, _rigidbody2D.velocity.y);
-            StartCoroutine(Moverse()); }
+            //StartCoroutine(Moverse());
+        }
 
         _animator.SetFloat("velocity_x", Mathf.Abs(_rigidbody2D.velocity.x)); // establece velocity_x en el animator*/
         
