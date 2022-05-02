@@ -80,13 +80,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemigosNivel:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 4274105038498637994, guid: 7b036402091756f4db05e0b63ceec1d0, type: 3}
+  - {fileID: 4274105038498637994, guid: c5d00deb518a633498166c8cc43a1bf5, type: 3}
+  - {fileID: 4274105038498637994, guid: 7afe4bb56f6028f4699a5fd005fd10af, type: 3}
+  - {fileID: 4274105038498637994, guid: 9aa9587d97908ac45bd994d91f59e8a8, type: 3}
+  - {fileID: 4274105038498637994, guid: 749695e8263a6fc4a8cdaa63528f3d03, type: 3}
   _nivel: 20
-  HP: 50
+  HP: 100
   MaxHP: 100
   Stamina: 100
   Attack: 4
@@ -105,7 +105,7 @@ MonoBehaviour:
   healthBarEnemy: {fileID: 757757706578032882}
   _shootTransform: {fileID: 2130559013}
   projectile: {fileID: 8451858909790069766, guid: 2c712c579aa44114cb72a4be4fe34b37, type: 3}
-  swordRange: 2.73
+  swordRange: 4.73
   playerLayers:
     serializedVersion: 2
     m_Bits: 256
