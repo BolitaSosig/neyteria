@@ -190,10 +190,11 @@ public class ArcherController : MonoBehaviour
 
     public IEnumerator DoAttack()
     {
+        if (!attacking) {
         attacking = true;
 
         _animator.SetTrigger("attack");
-        yield return new WaitForSecondsRealtime(AttSpeed);
+        yield return new WaitForSecondsRealtime(0.5f);
         GameObject newBullet;
         newBullet = Instantiate(projectile, _shootTransform.position, _shootTransform.rotation);
         //newBullet.GetComponent<Rigidbody2D>().AddForce(_shootTransform.right * shootForce);
@@ -201,7 +202,10 @@ public class ArcherController : MonoBehaviour
         newBullet.GetComponent<ProjectileScript>().gunDMG = Attack;
         Destroy(newBullet, 2);
 
+        yield return new WaitForSecondsRealtime(AttSpeed - 0.5f);
+
         attacking = false;
+        }
     }
 
     public void CheckEnemy()
