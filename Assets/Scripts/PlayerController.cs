@@ -93,12 +93,9 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        CheckDeath();
         Moverse();
         UseModulo();
-
-        // test damage
-        if (Input.GetKeyDown(KeyCode.K))
-            GetDamage(5f);
     }
 
     void Moverse()
@@ -205,6 +202,14 @@ public class PlayerController : MonoBehaviour
         if (collision.CompareTag("ZoneLoader")) // regiones de carga de escenas
         {
             _sceneController.LoadLevel(collision.name);
+        }
+    }
+
+    void CheckDeath()
+    {
+        if(HP <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 }

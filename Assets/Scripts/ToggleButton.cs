@@ -43,8 +43,12 @@ public class ToggleButton : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !Activated && collision.gameObject.CompareTag("Player"))
-            Toggle();
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (!Activated && collision.gameObject.CompareTag("Player"))
+                Toggle();
+        }
+        
     }
 
     void Toggle()
