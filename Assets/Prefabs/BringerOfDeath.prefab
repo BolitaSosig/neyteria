@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2130559012}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.46, y: -3.54, z: 0}
+  m_LocalPosition: {x: 1.07, y: -3.37, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4274105038498637991}
@@ -50,7 +50,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4274105038498637991
 Transform:
   m_ObjectHideFlags: 0
@@ -196,6 +196,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e0cb443ec8c41f43b13ae63c21cd4b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemigosNivel:
+  - {fileID: 4274105038498637994, guid: 7b036402091756f4db05e0b63ceec1d0, type: 3}
+  - {fileID: 4274105038498637994, guid: c5d00deb518a633498166c8cc43a1bf5, type: 3}
+  - {fileID: 4274105038498637994, guid: 9aa9587d97908ac45bd994d91f59e8a8, type: 3}
+  - {fileID: 4274105038498637994, guid: 7afe4bb56f6028f4699a5fd005fd10af, type: 3}
+  - {fileID: 4274105038498637994, guid: 749695e8263a6fc4a8cdaa63528f3d03, type: 3}
   _nivel: 1
   HP: 50
   MaxHP: 100
@@ -216,7 +222,7 @@ MonoBehaviour:
   healthBarEnemy: {fileID: 757757706578032882}
   _shootTransform: {fileID: 2130559013}
   projectile: {fileID: 8451858909790069766, guid: 2c712c579aa44114cb72a4be4fe34b37, type: 3}
-  swordRange: 2.73
+  swordRange: 4.71
   playerLayers:
     serializedVersion: 2
     m_Bits: 256
