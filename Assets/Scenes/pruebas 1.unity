@@ -130,6 +130,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1617728809, guid: ae27c97fadec8114394e469be0cea19a, type: 3}
+      propertyPath: swordRange
+      value: 4.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 2130559013, guid: ae27c97fadec8114394e469be0cea19a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 2130559013, guid: ae27c97fadec8114394e469be0cea19a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.37
+      objectReference: {fileID: 0}
     - target: {fileID: 4274105038498637991, guid: ae27c97fadec8114394e469be0cea19a, type: 3}
       propertyPath: m_RootOrder
       value: 9

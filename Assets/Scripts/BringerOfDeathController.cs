@@ -222,11 +222,12 @@ public class BringerOfDeathController : MonoBehaviour
             _animator.SetTrigger("ability");
             yield return new WaitForSecondsRealtime(0.5f);
             GameObject newBullet;
-            newBullet = Instantiate(projectile, target.position, target.rotation);
+            //newBullet = Instantiate(projectile, target.position, target.rotation);
+            newBullet = Instantiate(projectile, new Vector3(target.position.x, target.position.y + 2, target.position.z), target.rotation);
             //newBullet.GetComponent<Rigidbody2D>().AddForce(_shootTransform.right * shootForce);
             newBullet.GetComponent<Rigidbody2D>().velocity = new Vector2(0, newBullet.GetComponent<Rigidbody2D>().velocity.y);
             newBullet.GetComponent<BringerOfDeathProjectile>().gunDMG = Attack;
-            Destroy(newBullet, 2);
+            Destroy(newBullet, 1.4f);
 
             yield return new WaitForSecondsRealtime(AttSpeed - 0.5f);
 

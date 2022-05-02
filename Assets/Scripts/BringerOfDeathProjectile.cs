@@ -25,9 +25,9 @@ public class BringerOfDeathProjectile : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             // Debug.Log("colision con Player"); return;
-            other.SendMessage("GetDamageByEnemy", gunDMG * BULLET_DMG); print("Daño a player realziado");
+            other.SendMessage("GetDamageByEnemy", gunDMG * BULLET_DMG); print("Daño a player realizado");
 
-            Debug.Log("colision con Player"); 
+            //Debug.Log("colision con Player"); 
             //Destroy(gameObject);
         }
         else if (other.CompareTag("Enemy"))
@@ -40,12 +40,12 @@ public class BringerOfDeathProjectile : MonoBehaviour
         else if (!other.CompareTag("ZoneLoader"))
         {
             //Debug.Log("colision con algo"); 
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
         else
         {
             //Debug.Log("colision con algo"); 
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
 
