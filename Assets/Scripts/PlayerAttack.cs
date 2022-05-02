@@ -141,9 +141,9 @@ public class PlayerAttack : MonoBehaviour
     {
         switchingWeapon = true;
         seleccionado = (seleccionado + 1) % 3; // seleciona siguiente indice arma
-        if (seleccionado == 0) { _gun.SetActive(true); _sword.SetActive(false); _maze.SetActive(false); }
-        else if (seleccionado == 1) { _gun.SetActive(false); _sword.SetActive(true); _maze.SetActive(false); }
-        else /*(seleccionado == 2)*/ { _gun.SetActive(false); _sword.SetActive(false); _maze.SetActive(true); }
+        if (seleccionado == 0) { _gun.SetActive(true); _sword.SetActive(false); _maze.SetActive(false); _playerController.Attack = 1f; }
+        else if (seleccionado == 1) { _gun.SetActive(false); _sword.SetActive(true); _maze.SetActive(false); _playerController.Attack = 3f; }
+        else /*(seleccionado == 2)*/ { _gun.SetActive(false); _sword.SetActive(false); _maze.SetActive(true); _playerController.Attack = 5f; }
 
         yield return new WaitForSecondsRealtime(1f);
         switchingWeapon = false;

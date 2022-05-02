@@ -39,11 +39,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4274105038498637991}
+  - component: {fileID: 1204358337}
   - component: {fileID: 4274105038498637992}
   - component: {fileID: 4274105038498637990}
   - component: {fileID: 4274105038498637993}
   - component: {fileID: 4274105038498637989}
-  - component: {fileID: 1204358337}
   m_Layer: 9
   m_Name: NightBorne
   m_TagString: Enemy
@@ -67,6 +67,46 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1204358337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4274105038498637994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa0c4e83adfcb0e4b9a19223d510ff3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _nivel: 1
+  HP: 50
+  MaxHP: 100
+  Stamina: 100
+  Attack: 4
+  Defense: 1
+  Weight: 1
+  MovSpeed: 1
+  AttSpeed: 1
+  JumpCap: 1
+  dmgReduc: 0
+  mov_x: 0
+  cont_mov_x: 0
+  _levelText: {fileID: 1084794721244080582}
+  _canvasTranform: {fileID: 6458302505504297276}
+  _damageDealTMP: {fileID: 1931263843719411576, guid: 9eb9ec5f41b3bb945bd9dfe9fedef7fe, type: 3}
+  _weather: {fileID: 0}
+  healthBarEnemy: {fileID: 757757706578032882}
+  _shootTransform: {fileID: 2130559013}
+  swordRange: 0.9
+  playerLayers:
+    serializedVersion: 2
+    m_Bits: 256
+  baseHP: 85
+  baseAttack: 5.5
+  baseDefense: 1.3
+  baseMovSpeed: 1.5
+  baseAttSpeed: 1.5
 --- !u!212 &4274105038498637992
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -184,46 +224,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1204358337
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4274105038498637994}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa0c4e83adfcb0e4b9a19223d510ff3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _nivel: 1
-  HP: 50
-  MaxHP: 100
-  Stamina: 100
-  Attack: 4
-  Defense: 1
-  Weight: 1
-  MovSpeed: 1
-  AttSpeed: 1
-  JumpCap: 1
-  dmgReduc: 0
-  mov_x: 0
-  cont_mov_x: 0
-  _levelText: {fileID: 1084794721244080582}
-  _canvasTranform: {fileID: 6458302505504297276}
-  _damageDealTMP: {fileID: 1931263843719411576, guid: 9eb9ec5f41b3bb945bd9dfe9fedef7fe, type: 3}
-  _weather: {fileID: 0}
-  healthBarEnemy: {fileID: 757757706578032882}
-  _shootTransform: {fileID: 2130559013}
-  swordRange: 0.9
-  playerLayers:
-    serializedVersion: 2
-    m_Bits: 256
-  baseHP: 50
-  baseAttack: 4
-  baseDefense: 1
-  baseMovSpeed: 1
-  baseAttSpeed: 1
 --- !u!1 &5624228668794474145
 GameObject:
   m_ObjectHideFlags: 0
