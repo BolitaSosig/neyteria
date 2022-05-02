@@ -135,11 +135,12 @@ public class ArcherController : MonoBehaviour
     {
         if(!moving)
         {
+            Debug.Log("moviendo");
             moving = true;
             float cont = 0;
             while (cont < DISTANCIA_EN_SEGUNDOS * 10f/MovSpeed)
             {
-                _rigidbody2D.velocity = new Vector2(Mathf.Sign(transform.localScale.x) * SPEED_MOV * MovSpeed, _rigidbody2D.velocity.y); // desplazamiento del personaje
+                _rigidbody2D.velocity = new Vector2(Mathf.Sign(-transform.localScale.x) * SPEED_MOV * MovSpeed, _rigidbody2D.velocity.y); // desplazamiento del personaje
                 _animator.SetFloat("velocity_x", Mathf.Abs(_rigidbody2D.velocity.x)); // establece velocity_x en el animator*/
                 cont++;
                 yield return new WaitForSecondsRealtime(0.1f);
@@ -210,9 +211,10 @@ public class ArcherController : MonoBehaviour
         // If inside the lookRadius
         if (distance <= lookRadius)
         {
+            StopCoroutine(Moverse()); //moving = false; //StopAllCoroutines();
             if (Random.Range(0f, 10f) >= seDispara && !attacking) { StartCoroutine(DoAttack()); }
 
-            Debug.Log(distance);
+            //Debug.Log(distance);
             // Move towards the target
             
             if (transform.position.x <= target.position.x)
@@ -231,7 +233,8 @@ public class ArcherController : MonoBehaviour
         }
 
         else
-        { _rigidbody2D.velocity = new Vector2(0, _rigidbody2D.velocity.y); }
+        { //_rigidbody2D.velocity = new Vector2(0, _rigidbody2D.velocity.y);
+            StartCoroutine(Moverse()); }
 
         _animator.SetFloat("velocity_x", Mathf.Abs(_rigidbody2D.velocity.x)); // establece velocity_x en el animator*/
         
