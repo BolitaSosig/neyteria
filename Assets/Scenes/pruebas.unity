@@ -615,10 +615,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2135378176}
     m_Modifications:
-    - target: {fileID: 8132035017236210480, guid: 03d217617034b944492db7930ebc7786, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 532c2f06e5c3ef347a63251414751fa1, type: 2}
     - target: {fileID: 8132035017236210492, guid: 03d217617034b944492db7930ebc7786, type: 3}
       propertyPath: m_Name
       value: DialogueBox
@@ -689,7 +685,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8132035017236210495, guid: 03d217617034b944492db7930ebc7786, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8132035017236210495, guid: 03d217617034b944492db7930ebc7786, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -711,14 +707,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 691276773}
-    - target: {fileID: 8132035017731193569, guid: 03d217617034b944492db7930ebc7786, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: DisplayNextSentence
-      objectReference: {fileID: 0}
-    - target: {fileID: 8132035017731193569, guid: 03d217617034b944492db7930ebc7786, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: DialogueManager, Assembly-CSharp
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03d217617034b944492db7930ebc7786, type: 3}
 --- !u!1001 &1323712614
