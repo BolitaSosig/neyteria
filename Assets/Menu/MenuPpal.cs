@@ -73,8 +73,9 @@ public class MenuPpal : MonoBehaviour
         //After we have waited 3 seconds print the time again.
         Debug.Log("Finished Coroutine at timestamp : " + Time.time);
 
-        asyncLoad = SceneManager.LoadSceneAsync("Nivel1-1", LoadSceneMode.Single);
-        asyncLoad = SceneManager.LoadSceneAsync("GLOBAL", LoadSceneMode.Additive);
+
+        asyncLoad = SceneManager.LoadSceneAsync("GLOBAL", LoadSceneMode.Single);
+        asyncLoad = SceneManager.LoadSceneAsync("Nivel1-1", LoadSceneMode.Additive);
     }
 
 }
