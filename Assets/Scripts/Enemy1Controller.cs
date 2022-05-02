@@ -38,15 +38,19 @@ public class Enemy1Controller : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _levelText;
     [SerializeField] private Transform _canvasTranform;
     [SerializeField] private GameObject _damageDealTMP;
+    [SerializeField] public WeatherController _weather;
 
     // Barra de vida
     [SerializeField] public Transform healthBarEnemy;
+
 
     public float baseHP;
     public float baseAttack;
     public float baseDefense;
     public float baseMovSpeed;
     public float baseAttSpeed;
+
+    private int _weatherVarNivel = 0;
 
     public bool levelHasChanged
     {
@@ -97,11 +101,13 @@ public class Enemy1Controller : MonoBehaviour
         _boxCollider2D = GetComponent<BoxCollider2D>();
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _weather = GameObject.Find("WeatherController").GetComponent<WeatherController>();
     }
 
 
     void Update()
     {
+        CheckWeatherChange();
         if (levelHasChanged)
             Nivel = _nivel;
         StartCoroutine(Moverse());
@@ -193,5 +199,59 @@ public class Enemy1Controller : MonoBehaviour
     {
         _damageDealTMP.GetComponentInChildren<TextMeshPro>().text = dmg.ToString();
         Instantiate(_damageDealTMP, transform.position, Quaternion.identity);
+    }
+
+    void CheckWeatherChange()
+    {
+        if(_weather.WeatherChanged)
+        {
+            switch((int)_weather._current)
+            {
+                case 0: // DAY
+                    _levelText.color = Color.white;
+                    SetStatsDay();
+                    break;
+                case 1: // NIGHT
+                    _levelText.color = new Color(1f, 0.67f, 0.11f); // Naranja
+                    SetStatsNight();
+                    break;
+                case 2: // STORM
+                    _levelText.color = Color.cyan;
+                    SetStatsStorm();
+                    break;
+                case 3: // ECLIPSE
+                    _levelText.color = Color.red;
+                    SetStatsEclipse();
+                    break;
+            }
+        }
+    }
+
+    void SetStatsDay()
+    {
+        _nivel = Mathf.Max(1, _nivel - _weatherVarNivel);
+        _weatherVarNivel = 0;
+    }
+    void SetStatsNight()
+    {
+        _nivel = _nivel - _weatherVarNivel + 5;
+        _weatherVarNivel = 5;
+    }
+    void SetStatsStorm()
+    {
+        if(_nivel - _weatherVarNivel - 5 < 1)
+        {
+            _weatherVarNivel = _nivel - 1;
+            _nivel = 1;
+        } else
+        {
+            _nivel = _nivel - _weatherVarNivel - 5;
+            _weatherVarNivel = -5;
+        }
+    }
+    void SetStatsEclipse()
+    {
+        _nivel = _nivel - _weatherVarNivel + 10;
+        _weatherVarNivel = 10;
     }
 }
