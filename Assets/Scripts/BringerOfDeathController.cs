@@ -12,6 +12,8 @@ public class BringerOfDeathController : MonoBehaviour
     private const float JUMP_FORCE = 15f;
     private float DISTANCIA_EN_SEGUNDOS = 3f;
 
+    public GameObject[] enemigosNivel = new GameObject[5];
+
     // ATRIBUTOS PERSONAJE
     [SerializeField] private int _nivel = 1;
     private int _oldNivel = 0;
@@ -56,6 +58,10 @@ public class BringerOfDeathController : MonoBehaviour
 
     float seDispara = 9.95f;
     bool attacking = false;
+
+
+    bool firstTimeMediaVida = true;
+    bool firstTimePocaVida = true;
 
 
 
@@ -116,7 +122,7 @@ public class BringerOfDeathController : MonoBehaviour
         _boxCollider2D = GetComponent<BoxCollider2D>();
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        //_weather = GameObject.Find("WeatherController").GetComponent<WeatherController>();
+        _weather = GameObject.Find("WeatherController").GetComponent<WeatherController>();
 
         target = GameObject.FindGameObjectWithTag("Player").transform;
     }
@@ -124,9 +130,9 @@ public class BringerOfDeathController : MonoBehaviour
 
     void Update()
     {
-        //CheckWeatherChange();
-        //if (levelHasChanged)
-            //Nivel = _nivel;
+        CheckWeatherChange();
+        if (levelHasChanged)
+            Nivel = _nivel;
         StartCoroutine(Moverse());
         HealthBarUpdate();
         CheckEnemy();
@@ -219,6 +225,8 @@ public class BringerOfDeathController : MonoBehaviour
         {
             attacking = true;
 
+            
+
             _animator.SetTrigger("ability");
             yield return new WaitForSecondsRealtime(0.5f);
             GameObject newBullet;
@@ -228,6 +236,14 @@ public class BringerOfDeathController : MonoBehaviour
             newBullet.GetComponent<Rigidbody2D>().velocity = new Vector2(0, newBullet.GetComponent<Rigidbody2D>().velocity.y);
             newBullet.GetComponent<BringerOfDeathProjectile>().gunDMG = Attack;
             Destroy(newBullet, 1.4f);
+
+            if (Random.Range(0f, 10f) >= 9)
+            {
+                InstantiateEnemy(Random.Range(0, 5), 1, new Vector3(target.position.x, target.position.y + 2, target.position.z), target.rotation);
+                /*GameObject newBullet;
+                newBullet = Instantiate(enemigosNivel[Random.Range(0,5)], new Vector3(target.position.x, target.position.y + 2, target.position.z), target.rotation);
+                newBullet.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);*/
+            }
 
             yield return new WaitForSecondsRealtime(AttSpeed - 0.5f);
 
@@ -273,12 +289,39 @@ public class BringerOfDeathController : MonoBehaviour
         
     }
 
+    void InstantiateEnemy(int idEnemigo, int nEnemigos ,Vector3 donde, Quaternion rotacion)
+    {
+        for (int i = 0; i < nEnemigos; i++){
+            GameObject newEnemy;
+            newEnemy = Instantiate(enemigosNivel[idEnemigo], donde, rotacion);
+            newEnemy.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+        }
+    }
+
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, lookRadius);
         Gizmos.color = Color.green;
         if (_shootTransform != null) Gizmos.DrawWireSphere(_shootTransform.position, swordRange);
+    }
+
+    void InvocarEnemigos1()
+    {
+        firstTimeMediaVida = false;
+
+        for (int i = 0; i < 2; i++) InstantiateEnemy(Random.Range(0, 5), 1, new Vector3(gameObject.transform.position.x + Random.Range(-4, 4), gameObject.transform.position.y + 10, gameObject.transform.position.z), gameObject.transform.rotation);
+
+        InstantiateEnemy(2, 1, new Vector3(gameObject.transform.position.x + Random.Range(-4,4), gameObject.transform.position.y + 10, gameObject.transform.position.z), gameObject.transform.rotation);
+    }
+
+    void InvocarEnemigos2()
+    {
+        firstTimePocaVida = false;
+
+        for (int i = 0; i < 2; i++) InstantiateEnemy(Random.Range(0, 4), 1, new Vector3(gameObject.transform.position.x + Random.Range(-4, 4), gameObject.transform.position.y + 10, gameObject.transform.position.z), gameObject.transform.rotation);
+
+        InstantiateEnemy(4, 2, new Vector3(gameObject.transform.position.x + Random.Range(-4, 4), gameObject.transform.position.y + 10, gameObject.transform.position.z), gameObject.transform.rotation);
     }
 
 
@@ -288,6 +331,8 @@ public class BringerOfDeathController : MonoBehaviour
         _animator.SetTrigger("hurt");
         HP = Mathf.Max(0, HP - dmg);
         ShowDamageDeal(Mathf.RoundToInt(dmg));
+        if (HP <= 50 && firstTimeMediaVida) { InvocarEnemigos1(); }
+        if (HP <= 20 && firstTimePocaVida) { InvocarEnemigos2(); }
         if (HP <= 0) StartCoroutine(Die());
     }
 

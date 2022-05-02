@@ -134,6 +134,26 @@ PrefabInstance:
       propertyPath: swordRange
       value: 4.71
       objectReference: {fileID: 0}
+    - target: {fileID: 1617728809, guid: ae27c97fadec8114394e469be0cea19a, type: 3}
+      propertyPath: enemigosNivel.Array.data[0]
+      value: 
+      objectReference: {fileID: 4274105038498637994, guid: 7b036402091756f4db05e0b63ceec1d0, type: 3}
+    - target: {fileID: 1617728809, guid: ae27c97fadec8114394e469be0cea19a, type: 3}
+      propertyPath: enemigosNivel.Array.data[1]
+      value: 
+      objectReference: {fileID: 4274105038498637994, guid: c5d00deb518a633498166c8cc43a1bf5, type: 3}
+    - target: {fileID: 1617728809, guid: ae27c97fadec8114394e469be0cea19a, type: 3}
+      propertyPath: enemigosNivel.Array.data[2]
+      value: 
+      objectReference: {fileID: 4274105038498637994, guid: 9aa9587d97908ac45bd994d91f59e8a8, type: 3}
+    - target: {fileID: 1617728809, guid: ae27c97fadec8114394e469be0cea19a, type: 3}
+      propertyPath: enemigosNivel.Array.data[3]
+      value: 
+      objectReference: {fileID: 4274105038498637994, guid: 7afe4bb56f6028f4699a5fd005fd10af, type: 3}
+    - target: {fileID: 1617728809, guid: ae27c97fadec8114394e469be0cea19a, type: 3}
+      propertyPath: enemigosNivel.Array.data[4]
+      value: 
+      objectReference: {fileID: 4274105038498637994, guid: 749695e8263a6fc4a8cdaa63528f3d03, type: 3}
     - target: {fileID: 2130559013, guid: ae27c97fadec8114394e469be0cea19a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.07
