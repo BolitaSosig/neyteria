@@ -14,7 +14,9 @@ public class ToggleButton : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     public bool _activated = false;
     public bool isTimed = false;
+    public bool spawnPlatform = true;
     public float segundos = 0;
+
     [SerializeField] public bool Activated { 
         get { return _activated; }
         set
@@ -41,7 +43,7 @@ public class ToggleButton : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (!Activated && collision.gameObject.CompareTag("Player") && Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !Activated && collision.gameObject.CompareTag("Player"))
             Toggle();
     }
 
@@ -53,7 +55,7 @@ public class ToggleButton : MonoBehaviour
         Tilemap tm = _togglePlatform.GetComponent<Tilemap>();
         if (tm != null)
         {
-            StartCoroutine(_camera.CinematicaInterruptor(_player, _togglePlatform, tm));
+            StartCoroutine(_camera.CinematicaInterruptor(_player, _togglePlatform, tm, spawnPlatform));
 
             if (isTimed)
                 StartCoroutine(Timing(tm));
@@ -61,7 +63,7 @@ public class ToggleButton : MonoBehaviour
         else
         {
             SpriteRenderer sr = _togglePlatform.GetComponent<SpriteRenderer>();
-            StartCoroutine(_camera.CinematicaInterruptor(_player, _togglePlatform, tm));
+            StartCoroutine(_camera.CinematicaInterruptor(_player, _togglePlatform, tm, spawnPlatform));
             if (isTimed)
                 StartCoroutine(Timing(sr));
         }

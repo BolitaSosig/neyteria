@@ -64,42 +64,73 @@ public class CameraController : MonoBehaviour
         resizing = false;
     }
 
-    public IEnumerator CinematicaInterruptor(GameObject player, GameObject togglePlatform, Tilemap tm)
+    public IEnumerator CinematicaInterruptor(GameObject player, GameObject togglePlatform, Tilemap tm, bool show)
     {
         cinematic = true;
         player.GetComponent<PlayerController>().canMove = false;
 
-        tm.color = new Color(tm.color.r, tm.color.g, tm.color.b, 0f);
+        if(show) { 
+            tm.color = new Color(tm.color.r, tm.color.g, tm.color.b, 0f);
 
-        _cam.m_Follow = togglePlatform.transform;
-        togglePlatform.SetActive(true);
-        yield return new WaitForSeconds(1);
-        while (tm.color.a < 1)
+            _cam.m_Follow = togglePlatform.transform;
+            togglePlatform.SetActive(true);
+            yield return new WaitForSeconds(1);
+            while (tm.color.a < 1)
+            {
+                tm.color += new Color(0, 0, 0, 0.1f);
+                yield return new WaitForSeconds(0.1f);
+            }
+        } else
         {
-            tm.color += new Color(0, 0, 0, 0.1f);
-            yield return new WaitForSeconds(0.1f);
+            tm.color = new Color(tm.color.r, tm.color.g, tm.color.b, 1f);
+
+            _cam.m_Follow = togglePlatform.transform;
+            yield return new WaitForSeconds(1);
+            while (tm.color.a > 0)
+            {
+                tm.color -= new Color(0, 0, 0, 0.1f);
+                yield return new WaitForSeconds(0.1f);
+            }
+            togglePlatform.SetActive(false);
         }
+        
 
         _cam.m_Follow = player.transform;
         player.GetComponent<PlayerController>().canMove = true;
         cinematic = false;
     }
 
-    IEnumerator CinematicaInterruptor(GameObject player, GameObject togglePlatform, SpriteRenderer sr)
+    IEnumerator CinematicaInterruptor(GameObject player, GameObject togglePlatform, SpriteRenderer sr, bool show)
     {
         cinematic = true;
         player.GetComponent<PlayerController>().canMove = false;
 
-        sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 0f);
-
-        _cam.m_Follow = togglePlatform.transform;
-        togglePlatform.SetActive(true);
-        yield return new WaitForSeconds(1);
-        while (sr.color.a < 1)
+        if(show)
         {
-            sr.color += new Color(0, 0, 0, 0.1f);
-            yield return new WaitForSeconds(0.1f);
+            sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 0f);
+
+            _cam.m_Follow = togglePlatform.transform;
+            togglePlatform.SetActive(true);
+            yield return new WaitForSeconds(1);
+            while (sr.color.a < 1)
+            {
+                sr.color += new Color(0, 0, 0, 0.1f);
+                yield return new WaitForSeconds(0.1f);
+            }
+        } else
+        {
+            sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 1f);
+
+            _cam.m_Follow = togglePlatform.transform;
+            yield return new WaitForSeconds(1);
+            while (sr.color.a > 0)
+            {
+                sr.color -= new Color(0, 0, 0, 0.1f);
+                yield return new WaitForSeconds(0.1f);
+            }
+            togglePlatform.SetActive(false);
         }
+        
 
         _cam.m_Follow = player.transform;
         player.GetComponent<PlayerController>().canMove = true;
