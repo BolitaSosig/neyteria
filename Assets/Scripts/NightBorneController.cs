@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.AI;
 using TMPro;
 
-public class ArcherController : MonoBehaviour
+public class NightBorneController : MonoBehaviour
 {
     // CONSTANTES
     private const float SPEED_MOV = 2f;
@@ -45,10 +45,10 @@ public class ArcherController : MonoBehaviour
     [SerializeField] public Transform healthBarEnemy;
 
 
-    //Arrow
+    //Attack
     public Transform _shootTransform;
-    public GameObject projectile;
-    public float shootForce = 15f;
+    public float swordRange = 0.6f;
+    public LayerMask playerLayers;
 
     float lookRadius = 10f;
     Transform target;
@@ -194,15 +194,18 @@ public class ArcherController : MonoBehaviour
         attacking = true;
 
         _animator.SetTrigger("attack");
-        yield return new WaitForSecondsRealtime(0.5f);
-        GameObject newBullet;
-        newBullet = Instantiate(projectile, _shootTransform.position, _shootTransform.rotation);
-        //newBullet.GetComponent<Rigidbody2D>().AddForce(_shootTransform.right * shootForce);
-        newBullet.GetComponent<Rigidbody2D>().velocity = new Vector2(-transform.localScale.x * shootForce, newBullet.GetComponent<Rigidbody2D>().velocity.y);
-        newBullet.GetComponent<ProjectileScript>().gunDMG = Attack;
-        Destroy(newBullet, 2);
+        yield return new WaitForSecondsRealtime(0.7f);
 
-        yield return new WaitForSecondsRealtime(AttSpeed - 0.5f);
+            Collider2D[] hitPlayers = Physics2D.OverlapCircleAll(_shootTransform.position, swordRange, playerLayers);
+
+            foreach (Collider2D player in hitPlayers)
+            {
+                //enemy.GetComponent<Enemy1Controller>().GetDamage(swordDMG);
+                Debug.Log("colision con Player");
+                player.SendMessage("GetDamageByEnemy", Attack);
+            }
+
+            yield return new WaitForSecondsRealtime(AttSpeed - 0.5f);
 
         attacking = false;
         }
@@ -249,6 +252,8 @@ public class ArcherController : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, lookRadius);
+        Gizmos.color = Color.green;
+        if (_shootTransform != null) Gizmos.DrawWireSphere(_shootTransform.position, swordRange);
     }
 
 
