@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.AI;
 using TMPro;
 
-public class NightBorneController : MonoBehaviour
+public class BringerOfDeathController : MonoBehaviour
 {
     // CONSTANTES
     private const float SPEED_MOV = 2f;
@@ -47,6 +47,7 @@ public class NightBorneController : MonoBehaviour
 
     //Attack
     public Transform _shootTransform;
+    public GameObject projectile;
     public float swordRange = 0.6f;
     public LayerMask playerLayers;
 
@@ -115,7 +116,7 @@ public class NightBorneController : MonoBehaviour
         _boxCollider2D = GetComponent<BoxCollider2D>();
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        _weather = GameObject.Find("WeatherController").GetComponent<WeatherController>();
+        //_weather = GameObject.Find("WeatherController").GetComponent<WeatherController>();
 
         target = GameObject.FindGameObjectWithTag("Player").transform;
     }
@@ -123,9 +124,9 @@ public class NightBorneController : MonoBehaviour
 
     void Update()
     {
-        CheckWeatherChange();
-        if (levelHasChanged)
-            Nivel = _nivel;
+        //CheckWeatherChange();
+        //if (levelHasChanged)
+            //Nivel = _nivel;
         StartCoroutine(Moverse());
         HealthBarUpdate();
         CheckEnemy();
@@ -140,7 +141,7 @@ public class NightBorneController : MonoBehaviour
             float cont = 0;
             while (cont < DISTANCIA_EN_SEGUNDOS * 10f/MovSpeed)
             {
-                _rigidbody2D.velocity = new Vector2(Mathf.Sign(-transform.localScale.x) * SPEED_MOV * MovSpeed, _rigidbody2D.velocity.y); // desplazamiento del personaje
+                _rigidbody2D.velocity = new Vector2(Mathf.Sign(transform.localScale.x) * SPEED_MOV * MovSpeed, _rigidbody2D.velocity.y); // desplazamiento del personaje
                 _animator.SetFloat("velocity_x", Mathf.Abs(_rigidbody2D.velocity.x)); // establece velocity_x en el animator*/
                 cont++;
                 yield return new WaitForSecondsRealtime(0.1f);
@@ -182,6 +183,7 @@ public class NightBorneController : MonoBehaviour
     public IEnumerator Die()
     {
         _animator.SetTrigger("dead");
+        _rigidbody2D.bodyType = RigidbodyType2D.Static;
         _boxCollider2D.enabled = false;
         _rigidbody2D.gravityScale = 0f;
         yield return new WaitForSecondsRealtime(0.7f);
@@ -211,6 +213,27 @@ public class NightBorneController : MonoBehaviour
         }
     }
 
+    public IEnumerator DoAbility()
+    {
+        if (!attacking)
+        {
+            attacking = true;
+
+            _animator.SetTrigger("ability");
+            yield return new WaitForSecondsRealtime(0.5f);
+            GameObject newBullet;
+            newBullet = Instantiate(projectile, target.position, target.rotation);
+            //newBullet.GetComponent<Rigidbody2D>().AddForce(_shootTransform.right * shootForce);
+            newBullet.GetComponent<Rigidbody2D>().velocity = new Vector2(0, newBullet.GetComponent<Rigidbody2D>().velocity.y);
+            newBullet.GetComponent<BringerOfDeathProjectile>().gunDMG = Attack;
+            Destroy(newBullet, 2);
+
+            yield return new WaitForSecondsRealtime(AttSpeed - 0.5f);
+
+            attacking = false;
+        }
+    }
+
     public void CheckEnemy()
     {
         float distance = Vector2.Distance(target.position, transform.position);
@@ -220,20 +243,21 @@ public class NightBorneController : MonoBehaviour
         {
             //StopCoroutine(Moverse()); //moving = false; //StopAllCoroutines();
             if (Random.Range(0f, 10f) >= seDispara && !attacking) { StartCoroutine(DoAttack()); }
+            if (Random.Range(0f, 10f) >= seDispara && !attacking) { StartCoroutine(DoAbility()); }
 
             //Debug.Log(distance);
             // Move towards the target
-            
+
             if (transform.position.x <= target.position.x)
             {
-                transform.localScale = new Vector2(-Mathf.Abs(transform.localScale.x), transform.localScale.y);
-                _canvasTranform.localScale = new Vector2(-Mathf.Abs(_canvasTranform.localScale.x), _canvasTranform.localScale.y);
+                transform.localScale = new Vector2(Mathf.Abs(transform.localScale.x), transform.localScale.y);
+                _canvasTranform.localScale = new Vector2(Mathf.Abs(_canvasTranform.localScale.x), _canvasTranform.localScale.y);
                 _rigidbody2D.velocity = new Vector2(2, _rigidbody2D.velocity.y);
             }
             else
             {
-                transform.localScale = new Vector2(Mathf.Abs(transform.localScale.x), transform.localScale.y);
-                _canvasTranform.localScale = new Vector2(Mathf.Abs(_canvasTranform.localScale.x), _canvasTranform.localScale.y);
+                transform.localScale = new Vector2(-Mathf.Abs(transform.localScale.x), transform.localScale.y);
+                _canvasTranform.localScale = new Vector2(-Mathf.Abs(_canvasTranform.localScale.x), _canvasTranform.localScale.y);
                 _rigidbody2D.velocity = new Vector2(-2, _rigidbody2D.velocity.y);
             }
 
@@ -260,6 +284,7 @@ public class NightBorneController : MonoBehaviour
     ////// RECIBE DAÑO //////
     public void GetDamage(float dmg)
     {
+        _animator.SetTrigger("hurt");
         HP = Mathf.Max(0, HP - dmg);
         ShowDamageDeal(Mathf.RoundToInt(dmg));
         if (HP <= 0) StartCoroutine(Die());

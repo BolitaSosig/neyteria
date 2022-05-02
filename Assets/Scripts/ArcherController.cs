@@ -224,13 +224,13 @@ public class ArcherController : MonoBehaviour
             if (transform.position.x <= target.position.x)
             {
                 transform.localScale = new Vector2(-Mathf.Abs(transform.localScale.x), transform.localScale.y);
-                _canvasTranform.localScale = new Vector2(-1, _canvasTranform.localScale.y);
+                _canvasTranform.localScale = new Vector2(-Mathf.Abs(_canvasTranform.localScale.x), _canvasTranform.localScale.y);
                 _rigidbody2D.velocity = new Vector2(2, _rigidbody2D.velocity.y);
             }
             else
             {
                 transform.localScale = new Vector2(Mathf.Abs(transform.localScale.x), transform.localScale.y);
-                _canvasTranform.localScale = new Vector2(1, _canvasTranform.localScale.y);
+                _canvasTranform.localScale = new Vector2(Mathf.Abs(_canvasTranform.localScale.x), _canvasTranform.localScale.y);
                 _rigidbody2D.velocity = new Vector2(-2, _rigidbody2D.velocity.y);
             }
 
