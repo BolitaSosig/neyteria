@@ -80,7 +80,8 @@ public class PlayerAttack : MonoBehaviour
             newBullet = Instantiate(bullet, _shootTransform.position, _shootTransform.rotation);
             //newBullet.GetComponent<Rigidbody2D>().AddForce(_shootTransform.right * shootForce);
             newBullet.GetComponent<Rigidbody2D>().velocity = new Vector2(transform.localScale.x * shootForce, newBullet.GetComponent<Rigidbody2D>().velocity.y);
-            newBullet.GetComponent<BulletScript>().gunDMG = _playerController.Attack;
+            float supAtt = _playerController.oneHitKill ? 999999f : 0f;
+            newBullet.GetComponent<BulletScript>().gunDMG = _playerController.Attack + supAtt;
             Destroy(newBullet, 2);
 
             StartCoroutine(Cooldown(shootRate));
@@ -101,7 +102,8 @@ public class PlayerAttack : MonoBehaviour
             {
                 //enemy.GetComponent<Enemy1Controller>().GetDamage(swordDMG);
                 //Debug.Log("colision con Enemy");
-                enemy.SendMessage("GetDamageByPlayer", _playerController.Attack);
+                float supAtt = _playerController.oneHitKill ? 999999f : 0f;
+                enemy.SendMessage("GetDamageByPlayer", _playerController.Attack + supAtt);
             }
 
             StartCoroutine(Cooldown(swordRate));
@@ -120,7 +122,8 @@ public class PlayerAttack : MonoBehaviour
             {
                 //enemy.GetComponent<Enemy1Controller>().GetDamage(mazeDMG);
                 //Debug.Log("colision con Enemy");
-                enemy.SendMessage("GetDamageByPlayer", _playerController.Attack);
+                float supAtt = _playerController.oneHitKill ? 999999f : 0f;
+                enemy.SendMessage("GetDamageByPlayer", _playerController.Attack + supAtt);
             }
 
 

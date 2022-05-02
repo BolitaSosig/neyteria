@@ -45,6 +45,7 @@ public class PlayerController : MonoBehaviour
     public bool noCD = false;
     public bool dashOnAir = false;
     public bool canMove = true;
+    public bool oneHitKill = false;
 
     private (Vector2, Vector2) getGroundCheckCorners()
     {
