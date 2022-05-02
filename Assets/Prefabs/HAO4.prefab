@@ -80,7 +80,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _nivel: 1
-  HP: 50
+  HP: 100
   MaxHP: 100
   Stamina: 100
   Attack: 4
