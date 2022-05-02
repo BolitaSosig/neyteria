@@ -401,10 +401,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: FireWorm
       objectReference: {fileID: 0}
-    - target: {fileID: 4274105038498637994, guid: 9aa9587d97908ac45bd994d91f59e8a8, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9aa9587d97908ac45bd994d91f59e8a8, type: 3}
 --- !u!1 &696145744
@@ -523,38 +519,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1204358337, guid: 7afe4bb56f6028f4699a5fd005fd10af, type: 3}
-      propertyPath: swordRange
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2130559013, guid: 7afe4bb56f6028f4699a5fd005fd10af, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.71
-      objectReference: {fileID: 0}
-    - target: {fileID: 2130559013, guid: 7afe4bb56f6028f4699a5fd005fd10af, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.72
-      objectReference: {fileID: 0}
-    - target: {fileID: 4274105038498637989, guid: 7afe4bb56f6028f4699a5fd005fd10af, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 527d86ff20c8b594a9238682c0e6c917, type: 2}
-    - target: {fileID: 4274105038498637990, guid: 7afe4bb56f6028f4699a5fd005fd10af, type: 3}
-      propertyPath: m_Size.x
-      value: 0.55895996
-      objectReference: {fileID: 0}
-    - target: {fileID: 4274105038498637990, guid: 7afe4bb56f6028f4699a5fd005fd10af, type: 3}
-      propertyPath: m_Offset.x
-      value: 0.5170593
-      objectReference: {fileID: 0}
-    - target: {fileID: 4274105038498637990, guid: 7afe4bb56f6028f4699a5fd005fd10af, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 3.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4274105038498637990, guid: 7afe4bb56f6028f4699a5fd005fd10af, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 2.4
-      objectReference: {fileID: 0}
     - target: {fileID: 4274105038498637991, guid: 7afe4bb56f6028f4699a5fd005fd10af, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -599,10 +563,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4274105038498637992, guid: 7afe4bb56f6028f4699a5fd005fd10af, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: be23824cc6aaa194bbc618d2dd924519, type: 3}
     - target: {fileID: 4274105038498637994, guid: 7afe4bb56f6028f4699a5fd005fd10af, type: 3}
       propertyPath: m_Name
       value: HAO4
@@ -616,10 +576,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1204358337, guid: 749695e8263a6fc4a8cdaa63528f3d03, type: 3}
-      propertyPath: swordRange
-      value: 0.9
-      objectReference: {fileID: 0}
     - target: {fileID: 4274105038498637991, guid: 749695e8263a6fc4a8cdaa63528f3d03, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -667,10 +623,6 @@ PrefabInstance:
     - target: {fileID: 4274105038498637994, guid: 749695e8263a6fc4a8cdaa63528f3d03, type: 3}
       propertyPath: m_Name
       value: NightBorne
-      objectReference: {fileID: 0}
-    - target: {fileID: 4274105038498637994, guid: 749695e8263a6fc4a8cdaa63528f3d03, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 749695e8263a6fc4a8cdaa63528f3d03, type: 3}
@@ -785,10 +737,6 @@ PrefabInstance:
     - target: {fileID: 4274105038498637994, guid: c5d00deb518a633498166c8cc43a1bf5, type: 3}
       propertyPath: m_Name
       value: archer
-      objectReference: {fileID: 0}
-    - target: {fileID: 4274105038498637994, guid: c5d00deb518a633498166c8cc43a1bf5, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5d00deb518a633498166c8cc43a1bf5, type: 3}
