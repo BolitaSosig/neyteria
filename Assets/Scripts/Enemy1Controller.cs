@@ -206,9 +206,10 @@ public class Enemy1Controller : MonoBehaviour
 
     void CheckWeatherChange()
     {
-        if(_weather.WeatherChanged)
+
+        if (_weather.WeatherChanged)
         {
-            switch((int)_weather._current)
+            switch ((int)_weather._current)
             {
                 case 0: // DAY
                     _levelText.color = Color.white;
