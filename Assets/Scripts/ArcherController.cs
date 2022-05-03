@@ -126,7 +126,9 @@ public class ArcherController : MonoBehaviour
         CheckWeatherChange();
         if (levelHasChanged)
             Nivel = _nivel;
-        StartCoroutine(Moverse());
+
+        if (!PauseMenu.GameIsPaused) 
+            StartCoroutine(Moverse());
         HealthBarUpdate();
         CheckEnemy();
     }

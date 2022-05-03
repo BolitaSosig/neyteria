@@ -8,6 +8,7 @@ public class GLOBAL : MonoBehaviour
     public GameObject startPosition;
     public GameObject player;
     public int d = 0;
+    public PauseMenu pauseMenu;
 
     // ENEMIGO
     public static float AUMENTO_NV = 0.99f;
