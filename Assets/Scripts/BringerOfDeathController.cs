@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AI;
 using TMPro;
+using UnityEngine.Tilemaps;
 
 public class BringerOfDeathController : MonoBehaviour
 {
@@ -62,6 +63,11 @@ public class BringerOfDeathController : MonoBehaviour
 
     bool firstTimeMediaVida = true;
     bool firstTimePocaVida = true;
+
+    private CameraController _camera;
+    private GameObject _player;
+    [SerializeField] private GameObject _togglePlatform;
+    [SerializeField] private GameObject _transformPlataform;
 
 
 
@@ -124,7 +130,10 @@ public class BringerOfDeathController : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _weather = GameObject.Find("WeatherController").GetComponent<WeatherController>();
 
+        _camera = GameObject.FindObjectOfType<CameraController>();
+
         target = GameObject.FindGameObjectWithTag("Player").transform;
+        _player = GameObject.Find("Player");
     }
 
 
@@ -195,6 +204,7 @@ public class BringerOfDeathController : MonoBehaviour
         _boxCollider2D.enabled = false;
         _rigidbody2D.gravityScale = 0f; 
         yield return new WaitForSecondsRealtime(0.7f);
+        _togglePlatform.SetActive(false);
         Destroy(gameObject);
     }
 
@@ -315,6 +325,17 @@ public class BringerOfDeathController : MonoBehaviour
         for (int i = 0; i < 2; i++) InstantiateEnemy(Random.Range(0, 5), 1, new Vector3(gameObject.transform.position.x + Random.Range(-4, 4), gameObject.transform.position.y + 10, gameObject.transform.position.z), gameObject.transform.rotation);
 
         InstantiateEnemy(2, 1, new Vector3(gameObject.transform.position.x + Random.Range(-4,4), gameObject.transform.position.y + 10, gameObject.transform.position.z), gameObject.transform.rotation);
+
+        for (int i = 0; i < 5; i++)
+        {
+            GameObject newBullet;
+            //newBullet = Instantiate(projectile, target.position, target.rotation);
+            newBullet = Instantiate(projectile, new Vector3(gameObject.transform.position.x + Random.Range(-8, 8), target.position.y + 2, target.position.z), target.rotation);
+            //newBullet.GetComponent<Rigidbody2D>().AddForce(_shootTransform.right * shootForce);
+            newBullet.GetComponent<Rigidbody2D>().velocity = new Vector2(0, newBullet.GetComponent<Rigidbody2D>().velocity.y);
+            newBullet.GetComponent<BringerOfDeathProjectile>().gunDMG = Attack;
+            Destroy(newBullet, 1.4f);
+        }
     }
 
     void InvocarEnemigos2()
@@ -324,6 +345,17 @@ public class BringerOfDeathController : MonoBehaviour
         for (int i = 0; i < 2; i++) InstantiateEnemy(Random.Range(0, 4), 1, new Vector3(gameObject.transform.position.x + Random.Range(-4, 4), gameObject.transform.position.y + 10, gameObject.transform.position.z), gameObject.transform.rotation);
 
         InstantiateEnemy(4, 2, new Vector3(gameObject.transform.position.x + Random.Range(-4, 4), gameObject.transform.position.y + 10, gameObject.transform.position.z), gameObject.transform.rotation);
+
+        for (int i = 0; i < 5; i++)
+        {
+            GameObject newBullet;
+            //newBullet = Instantiate(projectile, target.position, target.rotation);
+            newBullet = Instantiate(projectile, new Vector3(gameObject.transform.position.x + Random.Range(-8, 8), target.position.y + 2, target.position.z), target.rotation);
+            //newBullet.GetComponent<Rigidbody2D>().AddForce(_shootTransform.right * shootForce);
+            newBullet.GetComponent<Rigidbody2D>().velocity = new Vector2(0, newBullet.GetComponent<Rigidbody2D>().velocity.y);
+            newBullet.GetComponent<BringerOfDeathProjectile>().gunDMG = Attack;
+            Destroy(newBullet, 1.4f);
+        }
     }
 
 
@@ -333,8 +365,8 @@ public class BringerOfDeathController : MonoBehaviour
         _animator.SetTrigger("hurt");
         HP = Mathf.Max(0, HP - dmg);
         ShowDamageDeal(Mathf.RoundToInt(dmg));
-        if (HP <= 50 && firstTimeMediaVida) { InvocarEnemigos1(); }
-        if (HP <= 20 && firstTimePocaVida) { InvocarEnemigos2(); }
+        if (HP <= (MaxHP/2) && firstTimeMediaVida) { InvocarEnemigos1(); }
+        if (HP <= (MaxHP/5) && firstTimePocaVida) { InvocarEnemigos2(); }
         if (HP <= 0) StartCoroutine(Die());
     }
 

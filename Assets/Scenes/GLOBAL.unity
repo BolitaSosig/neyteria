@@ -3190,6 +3190,26 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7232537792695838311, guid: 0019507ed1bf00840b40e13df6f3cd8f, type: 3}
+      propertyPath: Attack
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232537792695838311, guid: 0019507ed1bf00840b40e13df6f3cd8f, type: 3}
+      propertyPath: Inmune
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232537792695838311, guid: 0019507ed1bf00840b40e13df6f3cd8f, type: 3}
+      propertyPath: Defense
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232537792695838311, guid: 0019507ed1bf00840b40e13df6f3cd8f, type: 3}
+      propertyPath: oneHitKill
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232537792695838311, guid: 0019507ed1bf00840b40e13df6f3cd8f, type: 3}
+      propertyPath: staminaIsUsed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232537792695838311, guid: 0019507ed1bf00840b40e13df6f3cd8f, type: 3}
       propertyPath: HasMuertoTexto
       value: 
       objectReference: {fileID: 141580870}

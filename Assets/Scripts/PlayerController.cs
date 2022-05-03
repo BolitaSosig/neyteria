@@ -105,6 +105,8 @@ public class PlayerController : MonoBehaviour
         CheckDeath();
         Moverse();
         UseModulo();
+
+        if (Input.GetKeyDown(KeyCode.L)) {Attack += 20; Defense += 20; }
     }
 
     void Moverse()
@@ -238,9 +240,11 @@ public class PlayerController : MonoBehaviour
             _audioSource.StopMusic();
 
             HasMuertoTexto.SetActive(true);
+            canMove = false;
 
             yield return new WaitForSecondsRealtime(3f);
 
+            canMove = true;
             HasMuertoTexto.SetActive(false);
 
             SceneManager.LoadScene("MenuV2", LoadSceneMode.Single);
