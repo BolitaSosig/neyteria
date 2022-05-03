@@ -9,6 +9,7 @@ public class DialogueManager : MonoBehaviour {
 	public Text dialogueText;
 
 	private PlayerController _playerController;
+	private SoundManager _audioSource;
 
 	public Animator animator;
 
@@ -18,6 +19,7 @@ public class DialogueManager : MonoBehaviour {
 	void Start () {
 		sentences = new Queue<string>();
 		_playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+		_audioSource = GameObject.Find("SoundManager").GetComponent<SoundManager>();
 	}
 
 	public void StartDialogue (Dialogue dialogue)
@@ -40,11 +42,15 @@ public class DialogueManager : MonoBehaviour {
 
 	public void DisplayNextSentence ()
 	{
+		_audioSource.PlayAudioOneShot(8);
 		if (sentences.Count == 0)
 		{
 			EndDialogue();
 			return;
 		}
+
+		_audioSource.PlayAudioOneShot(9);
+		
 
 		string sentence = sentences.Dequeue();
 		StopAllCoroutines();

@@ -14,6 +14,7 @@ public class PlayerAttack : MonoBehaviour
     //Referencias
     private Animator _animator;
     private PlayerController _playerController;
+    private SoundManager _audioSource;
 
     //Selector
     public int seleccionado = 2; //0 es pistola, 1 es espada, y 2 es maza
@@ -43,6 +44,7 @@ public class PlayerAttack : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _playerController = GetComponent<PlayerController>();
+        _audioSource = GameObject.Find("SoundManager").GetComponent<SoundManager>();
 
         _shootTransform = GameObject.Find("ShootTransform").transform;
         _swordTransform = GameObject.Find("SwordTransform").transform;
@@ -75,6 +77,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if (seleccionado == 0 && Input.GetButtonDown("Fire1") && !attacking)
         {
+            _audioSource.PlayAudioOneShot(Random.Range(0,2));
             _animator.SetTrigger("gunAttack");
             GameObject newBullet;
             newBullet = Instantiate(bullet, _shootTransform.position, _shootTransform.rotation);
@@ -94,7 +97,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if (seleccionado == 1 && Input.GetButtonDown("Fire1") && !attacking)
         {
-
+            _audioSource.PlayAudioOneShot(Random.Range(2, 4));
             _animator.SetTrigger("swordAttack");
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(_swordTransform.position, swordRange, enemyLayers);
 
@@ -125,6 +128,8 @@ public class PlayerAttack : MonoBehaviour
                 float supAtt = _playerController.oneHitKill ? 999999f : 0f;
                 enemy.SendMessage("GetDamageByPlayer", _playerController.Attack + supAtt);
             }
+
+            _audioSource.PlayAudioOneShot(4);
 
 
             StartCoroutine(Cooldown(mazeRate));

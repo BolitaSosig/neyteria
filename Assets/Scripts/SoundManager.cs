@@ -5,13 +5,13 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     AudioSource audioSource;
-    public AudioClip aud1;
-    public AudioClip aud2;
+
     public AudioClip[] audios = new AudioClip[5];
 
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        AudioListener.volume = PlayerPrefs.GetFloat("musicVolume");
     }
 
     public void PlayAudioOneShot(int num)
@@ -23,6 +23,11 @@ public class SoundManager : MonoBehaviour
     {
         audioSource.PlayOneShot(audios[num]);
         audioSource.loop = true;
+    }
+
+    public void StopMusic()
+    {
+        audioSource.Stop();
     }
 
 

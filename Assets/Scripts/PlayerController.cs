@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -34,7 +35,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public Component[] Modulos = new Component[3];
     private GameObject _GLOBAL;
     [SerializeField] private SceneController _sceneController;
-    
+
+    private SoundManager _audioSource;
+    private bool muerto = false;
+    public GameObject HasMuertoTexto;
+
 
     // AUXILIARES
 
@@ -82,6 +87,7 @@ public class PlayerController : MonoBehaviour
         _boxCollider2D = GetComponent<BoxCollider2D>();
         _animator = GetComponent<Animator>();
         _GLOBAL = GameObject.Find("GLOBAL");
+        _audioSource = GameObject.Find("SoundManager").GetComponent<SoundManager>();
 
         gameObject.AddComponent(typeof(Supersalto));
         Modulos[0] = gameObject.GetComponent(typeof(Supersalto));
@@ -89,6 +95,8 @@ public class PlayerController : MonoBehaviour
         Modulos[1] = gameObject.GetComponent(typeof(Invencibilidad));
         gameObject.AddComponent(typeof(Rumarh));
         Modulos[2] = gameObject.GetComponent(typeof(Rumarh));
+
+        HasMuertoTexto.SetActive(false);
     }
 
 
@@ -127,6 +135,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W) && grounded) // comprueba que puede saltar
         {
             _rigidbody2D.AddForce(Vector2.up * JUMP_FORCE * Mathf.Sqrt(JumpCap), ForceMode2D.Impulse); // impulsa al personaje hacia arriba
+            _audioSource.PlayAudioOneShot(6);
         }
 
         _animator.SetBool("on_air", !grounded);
@@ -149,6 +158,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!Inmune)
         {
+            _audioSource.PlayAudioOneShot(11);
             HP = Mathf.Max(0, HP - dmg);
             Inmune = true;
 
@@ -176,6 +186,7 @@ public class PlayerController : MonoBehaviour
     {
         if (staminaDecrease)
         {
+            _audioSource.PlayAudioOneShot(12);
             staminaIsUsed = true;
             Stamina = Mathf.Max(0, Stamina - cant);
             yield return new WaitForSecondsRealtime(0.5f);
@@ -195,6 +206,7 @@ public class PlayerController : MonoBehaviour
         if(indx >= 0 && indx <= 2)
         {
             Modulos[indx].GetType().GetMethod("Launch").Invoke(Modulos[indx], new object[] { });
+            _audioSource.PlayAudioOneShot(10);
         }
     }
 
@@ -210,7 +222,29 @@ public class PlayerController : MonoBehaviour
     {
         if(HP <= 0)
         {
-            Destroy(gameObject);
+            StartCoroutine(Muerte());  
         }
+    }
+
+
+    IEnumerator Muerte()
+    {
+        if (!muerto)
+        {
+            muerto = true;
+
+            //Destroy(gameObject);
+            Time.timeScale = 0f;
+            _audioSource.StopMusic();
+
+            HasMuertoTexto.SetActive(true);
+
+            yield return new WaitForSecondsRealtime(3f);
+
+            HasMuertoTexto.SetActive(false);
+
+            SceneManager.LoadScene("MenuV2", LoadSceneMode.Single);
+        }
+
     }
 }
