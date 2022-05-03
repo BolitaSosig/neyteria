@@ -103,7 +103,7 @@ public class Enemy1Controller : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _weather = GameObject.Find("WeatherController").GetComponent<WeatherController>();
 
-        Physics2D.IgnoreCollision(GameObject.Find("Player").GetComponent<Collider2D>(), _boxCollider2D);
+        //Physics2D.IgnoreCollision(GameObject.Find("Player").GetComponent<Collider2D>(), _boxCollider2D);
     }
 
 
