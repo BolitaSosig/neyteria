@@ -204,7 +204,7 @@ public class BringerOfDeathController : MonoBehaviour
         _boxCollider2D.enabled = false;
         _rigidbody2D.gravityScale = 0f; 
         yield return new WaitForSecondsRealtime(0.7f);
-        _togglePlatform.SetActive(false);
+        if(_togglePlatform != null) _togglePlatform.SetActive(false);
         Destroy(gameObject);
     }
 

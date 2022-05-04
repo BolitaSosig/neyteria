@@ -471,7 +471,7 @@ MonoBehaviour:
   - {fileID: 0}
   _sceneController: {fileID: 0}
   HasMuertoTexto: {fileID: 0}
-  staminaIsUsed: 0
+  staminaIsUsed: 1
   Inmune: 0
   staminaDecrease: 1
   noCD: 0
