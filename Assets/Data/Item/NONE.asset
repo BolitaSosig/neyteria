@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 0
   icono: {fileID: 0}
-  rareza: 0
+  rareza: 1
   usable: 0
   maxCant: 999
-  nombre: 
-  descripcion: 
+  nombre: NONE
+  descripcion: NONE

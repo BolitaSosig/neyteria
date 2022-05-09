@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce7d44e0dd811ba4cbb082c6eddb2802, type: 3}
-  m_Name: Occaterio
+  m_Name: Suero_energetico
   m_EditorClassIdentifier: 
-  ID: 2
+  ID: 4
   icono: {fileID: 0}
-  rareza: 4
-  usable: 0
-  maxCant: 2147483647
-  nombre: Occaterio
-  descripcion: Material raro que se puede emplear para canjear en el Nexo Central,
-    entre otras cosas.
+  rareza: 2
+  usable: 1
+  maxCant: 999
+  nombre: "Suero energ\xE9tico"
+  descripcion: Suero que reduce un poco el consumo de la resistencia.

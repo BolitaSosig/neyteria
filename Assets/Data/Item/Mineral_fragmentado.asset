@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce7d44e0dd811ba4cbb082c6eddb2802, type: 3}
-  m_Name: Suero vital
+  m_Name: Mineral_fragmentado
   m_EditorClassIdentifier: 
-  ID: 3
+  ID: 7
   icono: {fileID: 0}
   rareza: 2
-  usable: 1
+  usable: 0
   maxCant: 999
-  nombre: Suero Vital
-  descripcion: Suero que restaura unos pocos puntos de salud.
+  nombre: Mineral fragmentado
+  descripcion: Pedazo de mineral desbordado de las paredes de las cuevas de Oriquaht.

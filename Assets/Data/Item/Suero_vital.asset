@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce7d44e0dd811ba4cbb082c6eddb2802, type: 3}
-  m_Name: Suero energetico
+  m_Name: Suero_vital
   m_EditorClassIdentifier: 
-  ID: 0
+  ID: 3
   icono: {fileID: 0}
-  rareza: 0
-  usable: 0
+  rareza: 2
+  usable: 1
   maxCant: 999
-  nombre: 
-  descripcion: 
+  nombre: Suero Vital
+  descripcion: Suero que restaura unos pocos puntos de salud.

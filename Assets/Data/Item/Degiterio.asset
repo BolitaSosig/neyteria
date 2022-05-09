@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Degiterio
   m_EditorClassIdentifier: 
   ID: 1
-  icono: {fileID: 0}
+  icono: {fileID: 6761164967045977113, guid: 7d41805254e404743b71b2f565e06775, type: 3}
   rareza: 1
   usable: 0
   maxCant: 2147483647
   nombre: Degiterio
-  descripcion: Recurso utilizado para canjear en la Comunicadora Central.
+  descripcion: Recurso utilizado para canjear en el Nexo Central.
