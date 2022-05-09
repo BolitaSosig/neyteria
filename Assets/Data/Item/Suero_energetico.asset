@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Suero_energetico
   m_EditorClassIdentifier: 
   ID: 4
-  icono: {fileID: 0}
+  icono: {fileID: -5428206428529569624, guid: 7d41805254e404743b71b2f565e06775, type: 3}
   rareza: 2
   usable: 1
   maxCant: 999

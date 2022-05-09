@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Suero_vital
   m_EditorClassIdentifier: 
   ID: 3
-  icono: {fileID: 0}
+  icono: {fileID: 6099581493293703690, guid: 7d41805254e404743b71b2f565e06775, type: 3}
   rareza: 2
   usable: 1
   maxCant: 999
