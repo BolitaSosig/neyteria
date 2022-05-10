@@ -13,7 +13,7 @@ public class MenuButton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        soundController = GameObject.Find("Canvas").GetComponent<SoundController>();
+        soundController = GameObject.Find("CanvasM").GetComponent<SoundController>();
         button = gameObject;
         animator = GetComponent<Animator>();
     }
@@ -21,6 +21,8 @@ public class MenuButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (EventSystem.current == null) return;
+
         if (EventSystem.current.currentSelectedGameObject == button)
         {
             

@@ -18,19 +18,30 @@ public class MenuPpal : MonoBehaviour
 
     SoundController soundController;
 
+    GameObject player;
+    bool firstTime = true;
+    private Rigidbody2D _rigidbody2D;
+    private PlayerController _playerController;
+
     // Start is called before the first frame update
     void Start()
     {
-        soundController = GameObject.Find("Canvas").GetComponent<SoundController>();
+        soundController = GameObject.Find("CanvasM").GetComponent<SoundController>();
+        player = GameObject.Find("Player");
+        //_playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+        if (player == null) SceneManager.LoadScene("GLOBAL", LoadSceneMode.Additive);
+        //_playerController.canMove = false;
+        StartCoroutine(WaitCoroutine2());
     }
 
     // Update is called once per frame
     void Update()
     {
+
         //Esto es para que gire la imagen de cargando
         //if (asyncLoad != null) {
-            
-            rotationEuler -= Vector3.forward * 1 * Time.deltaTime;     //Incrementa 15 grados cada vez
+
+        rotationEuler -= Vector3.forward * 1 * Time.deltaTime;     //Incrementa 15 grados cada vez
             transform.rotation = Quaternion.Euler(rotationEuler);
             ImagenCargando.rectTransform.Rotate(transform.rotation.eulerAngles);
         //}
@@ -75,7 +86,26 @@ public class MenuPpal : MonoBehaviour
 
 
         SceneManager.LoadScene("Nivel1-1", LoadSceneMode.Single);
-        SceneManager.LoadScene("GLOBAL", LoadSceneMode.Additive);
+        _playerController.canMove = true;
+        _rigidbody2D.simulated = true;
+    }
+
+    IEnumerator WaitCoroutine2()
+    {
+
+        //yield on a new YieldInstruction that waits for 3 seconds.
+        yield return new WaitForSeconds(0.5f);
+
+        GameObject player = GameObject.Find("Player");
+        _playerController = player.GetComponent<PlayerController>();
+        _rigidbody2D = player.GetComponent<Rigidbody2D>();
+
+        _playerController.SeleccionarEventSystem();
+        _rigidbody2D.simulated = false;
+
+
+        GameObject.Find("GLOBAL").GetComponent<GLOBAL>().StartPos();
+
     }
 
 }

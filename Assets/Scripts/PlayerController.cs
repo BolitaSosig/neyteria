@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
@@ -49,7 +50,7 @@ public class PlayerController : MonoBehaviour
     public bool staminaDecrease = true;
     public bool noCD = false;
     public bool dashOnAir = false;
-    public bool canMove = true;
+    public bool canMove = false;
     public bool oneHitKill = false;
 
     private (Vector2, Vector2) getGroundCheckCorners()
@@ -97,6 +98,11 @@ public class PlayerController : MonoBehaviour
         Modulos[2] = gameObject.GetComponent(typeof(Rumarh));
 
         HasMuertoTexto.SetActive(false);
+    }
+
+    public void SeleccionarEventSystem()
+    {
+        EventSystem.current.SetSelectedGameObject(GameObject.Find("Boton Jugar"));
     }
 
 
@@ -244,10 +250,13 @@ public class PlayerController : MonoBehaviour
 
             yield return new WaitForSecondsRealtime(3f);
 
-            canMove = true;
             HasMuertoTexto.SetActive(false);
 
+            HP = MaxHP;
+
             SceneManager.LoadScene("MenuV2", LoadSceneMode.Single);
+            Time.timeScale = 1f;
+            muerto = false;
         }
 
     }

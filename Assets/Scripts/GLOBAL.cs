@@ -27,7 +27,7 @@ public class GLOBAL : MonoBehaviour
         
     }
 
-    void StartPos()
+    public void StartPos()
     {
         if (startPosition.activeSelf)
             player.transform.position = startPosition.transform.position;

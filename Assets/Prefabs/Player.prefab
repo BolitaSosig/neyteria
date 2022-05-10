@@ -476,7 +476,7 @@ MonoBehaviour:
   staminaDecrease: 1
   noCD: 0
   dashOnAir: 0
-  canMove: 1
+  canMove: 0
   oneHitKill: 0
 --- !u!114 &7939270272959203814
 MonoBehaviour:

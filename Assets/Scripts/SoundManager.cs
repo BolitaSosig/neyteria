@@ -17,6 +17,7 @@ public class SoundManager : MonoBehaviour
     public void PlayAudioOneShot(int num)
     {
         audioSource.PlayOneShot(audios[num]);
+        audioSource.loop = false;
     }
 
     public void PlayAudioLooping(int num)
