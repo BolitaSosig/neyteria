@@ -53,7 +53,9 @@ public class BringerOfDeathProjectile : MonoBehaviour
     public IEnumerator DoDMG()
     {
         col2D.enabled = false;
-        yield return new WaitForSecondsRealtime(0.3f);
+        yield return new WaitForSecondsRealtime(0.7f);
         col2D.enabled = true;
+        yield return new WaitForSecondsRealtime(0.5f);
+        col2D.enabled = false;
     }
 }
