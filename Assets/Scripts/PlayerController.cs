@@ -245,6 +245,10 @@ public class PlayerController : MonoBehaviour
             Time.timeScale = 0f;
             _audioSource.StopMusic();
 
+            _audioSource.PlayAudioOneShot(13);
+
+            GameObject.Find("MusicLevel1").SetActive(false);
+
             HasMuertoTexto.SetActive(true);
             canMove = false;
 
