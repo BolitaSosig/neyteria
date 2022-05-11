@@ -409,6 +409,7 @@ GameObject:
   - component: {fileID: 7232537792695838305}
   - component: {fileID: 7232537792695838311}
   - component: {fileID: 7939270272959203814}
+  - component: {fileID: 7078024818365178684}
   - component: {fileID: 7232537792695838304}
   - component: {fileID: 7232537792695838307}
   - component: {fileID: 7232537792695838310}
@@ -504,6 +505,18 @@ MonoBehaviour:
   swordRate: 0.6
   mazeRange: 1.5
   mazeRate: 1
+--- !u!114 &7078024818365178684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7232537792695838306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 508b9f9e00e9b7a419ebdc92c15a9e25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &7232537792695838304
 SpriteRenderer:
   m_ObjectHideFlags: 0
