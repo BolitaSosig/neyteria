@@ -5,14 +5,24 @@ using UnityEngine;
 
 public class PlayerItems : MonoBehaviour
 {
+    public static Item NONE = Resources.Load<Item>("Data\\Item\\NONE");
+    public static Item DEGITERIO = Resources.Load<Item>("Data\\Item\\Degiterio");
+    public static Item OCCATERIO = Resources.Load<Item>("Data\\Item\\Occaterio");
+    public static Item SUERO_VITAL = Resources.Load<Item>("Data\\Item\\Suero_vital");
+    public static Item SUERO_ENERGETICO = Resources.Load<Item>("Data\\Item\\Suero_energetico");
+    public static Item SUERO_FORTALECEDOR = Resources.Load<Item>("Data\\Item\\Suero_fortalecedor");
+    public static Item SUERO_PROTECTOR = Resources.Load<Item>("Data\\Item\\Suero_protector");
+    public static Item MINERAL_FRAGMENTADO = Resources.Load<Item>("Data\\Item\\Mineral_fragmentado");
+    public static Item NEXOTEK = Resources.Load<Item>("Data\\Item\\Nexotek");
+
     private Dictionary<Item, int> items = new Dictionary<Item, int>();
     public bool printItems = false;
 
 
     public void Start()
     {
-        Add(Resources.Load<Item>("Data\\Item\\Degiterio"), 0);
-        Add(Resources.Load<Item>("Data\\Item\\Occaterio"), 0);
+        Add(DEGITERIO, 0);
+        Add(OCCATERIO, 0);
     }
 
     public void Update()
