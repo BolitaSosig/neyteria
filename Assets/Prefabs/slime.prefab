@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4274105038498637990}
   - component: {fileID: 4274105038498637993}
   - component: {fileID: 4274105038498637989}
+  - component: {fileID: -6817436987815219161}
   m_Layer: 9
   m_Name: slime
   m_TagString: Enemy
@@ -61,10 +62,10 @@ MonoBehaviour:
   dmgReduc: 0
   mov_x: 0
   cont_mov_x: 0
-  _spriteRenderer: {fileID: 4274105038498637992}
   _levelText: {fileID: 1084794721244080582}
   _canvasTranform: {fileID: 6458302505504297276}
   _damageDealTMP: {fileID: 1931263843719411576, guid: 9eb9ec5f41b3bb945bd9dfe9fedef7fe, type: 3}
+  _weather: {fileID: 0}
   healthBarEnemy: {fileID: 757757706578032882}
   baseHP: 50
   baseAttack: 4
@@ -188,6 +189,38 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!60 &-6817436987815219161
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4274105038498637994}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.6, y: 1.25}
+    newSize: {x: 0.16, y: 0.24}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.060661316, y: 0.12217045}
+      - {x: -0.47683716, y: 0.094665155}
+      - {x: -0.60015565, y: -0.3611275}
+      - {x: -0.69572145, y: -0.57865906}
+      - {x: 0.6961258, y: -0.5766907}
+      - {x: 0.49588472, y: -0.23932782}
+      - {x: 0.37987673, y: 0.08887349}
 --- !u!1 &5624228668794474145
 GameObject:
   m_ObjectHideFlags: 0

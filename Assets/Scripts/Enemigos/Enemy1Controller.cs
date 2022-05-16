@@ -33,6 +33,7 @@ public class Enemy1Controller : MonoBehaviour
     // REFERENCIAS
     private Rigidbody2D _rigidbody2D;
     private BoxCollider2D _boxCollider2D;
+    private PolygonCollider2D _polygonCollider2D;
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
     [SerializeField] private TextMeshProUGUI _levelText;
@@ -99,11 +100,12 @@ public class Enemy1Controller : MonoBehaviour
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _boxCollider2D = GetComponent<BoxCollider2D>();
+        _polygonCollider2D = GetComponent<PolygonCollider2D>();
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _weather = GameObject.Find("WeatherController").GetComponent<WeatherController>();
 
-        //Physics2D.IgnoreCollision(GameObject.Find("Player").GetComponent<Collider2D>(), _boxCollider2D);
+        Physics2D.IgnoreCollision(GameObject.Find("Player").GetComponent<Collider2D>(), _boxCollider2D);
     }
 
 
@@ -147,12 +149,12 @@ public class Enemy1Controller : MonoBehaviour
         player.GetComponent<PlayerController>().GetDamageByEnemy(Attack);
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.gameObject.tag.Equals("Player"))
+        if (collision.gameObject.tag.Equals("Player"))
             DoDamage(collision.gameObject);
     }
-    
+
 
     private void HealthBarUpdate()
     {
