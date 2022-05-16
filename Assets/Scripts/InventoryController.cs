@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class InventoryController : MonoBehaviour
 {
-    private PlayerItems _items;
+    public PlayerItems _items;
     public GameObject _itemPrefab;
     public GameObject _viewportContent;
 
@@ -41,6 +41,7 @@ public class InventoryController : MonoBehaviour
 
     void FillItems()
     {
+        Debug.Log("FillItems");
         DeleteItems();
         foreach((Item i, int c) in _items.getAllItemsCant())
         {

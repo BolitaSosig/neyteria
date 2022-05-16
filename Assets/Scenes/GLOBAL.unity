@@ -705,6 +705,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7232537792695838306, guid: 0019507ed1bf00840b40e13df6f3cd8f, type: 3}
   m_PrefabInstance: {fileID: 1484414868}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &207203768 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7078024818365178684, guid: 0019507ed1bf00840b40e13df6f3cd8f, type: 3}
+  m_PrefabInstance: {fileID: 1484414868}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207203763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 508b9f9e00e9b7a419ebdc92c15a9e25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &269763359
 GameObject:
   m_ObjectHideFlags: 0
@@ -1282,6 +1293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62d64efd797516548929896de84ebf6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _items: {fileID: 207203768}
   _itemPrefab: {fileID: 2285609462491146767, guid: 5e2c037162a9d1e448441cbb6f4b681d, type: 3}
   _viewportContent: {fileID: 1676627374}
 --- !u!95 &706552877
@@ -3673,6 +3685,10 @@ PrefabInstance:
       propertyPath: lista.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7078024818365178684, guid: 0019507ed1bf00840b40e13df6f3cd8f, type: 3}
+      propertyPath: _inventoryController
+      value: 
+      objectReference: {fileID: 706552876}
     - target: {fileID: 7232537792695838305, guid: 0019507ed1bf00840b40e13df6f3cd8f, type: 3}
       propertyPath: m_RootOrder
       value: 3
