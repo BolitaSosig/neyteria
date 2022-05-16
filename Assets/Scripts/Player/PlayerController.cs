@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
     public bool staminaDecrease = true;
     public bool noCD = false;
     public bool dashOnAir = false;
-    public bool canMove = false;
+    public bool canMove = true;
     public bool oneHitKill = false;
 
     private (Vector2, Vector2) getGroundCheckCorners()
