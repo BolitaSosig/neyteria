@@ -10,7 +10,6 @@ public class PlayerDashController : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         normalizedStart = 0.25f - animator.gameObject.GetComponent<PlayerController>().DashRange / 4f;
-        //normalizedEnd = 1f - normalizedStart;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

@@ -153,7 +153,7 @@ public class PlayerController : MonoBehaviour
     ////// EVASION //////
     void Dash()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift) /*Input.GetAxisRaw("Dash") == 1*/ && canDash) // comprueba que puede dashear
+        if (Input.GetKeyDown(KeyCode.LeftShift) /*Input.GetAxisRaw("Dash") == 1*/ && canDash && !onAir) // comprueba que puede dashear
         {
             int shortDash = _rigidbody2D.velocity.x == 0 ? 1 : 0; // 1 si dashea mientras se esta moviendo, 0 si está quieto
             _rigidbody2D.velocity = new Vector2(DASH_FORCE * transform.localScale.x, 0);

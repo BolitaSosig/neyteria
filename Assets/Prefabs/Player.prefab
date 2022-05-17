@@ -479,6 +479,7 @@ MonoBehaviour:
   dashOnAir: 0
   canMove: 0
   oneHitKill: 0
+  gettingDmg: 0
 --- !u!114 &7939270272959203814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -517,6 +518,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 508b9f9e00e9b7a419ebdc92c15a9e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  printItems: 0
+  _inventoryController: {fileID: 0}
 --- !u!212 &7232537792695838304
 SpriteRenderer:
   m_ObjectHideFlags: 0
