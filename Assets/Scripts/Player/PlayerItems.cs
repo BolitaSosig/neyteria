@@ -25,8 +25,10 @@ public class PlayerItems : MonoBehaviour
     {
         StartItems(); 
 
-        Add(DEGITERIO, 10);
-        Add(OCCATERIO, 0);
+        Add(DEGITERIO, 100);
+        Add(OCCATERIO, 4);
+        Add(SUERO_VITAL, 2);
+        Add(SUERO_ENERGETICO, 3);
     }
 
     void StartItems()

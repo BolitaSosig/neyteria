@@ -45,10 +45,13 @@ public class InventoryController : MonoBehaviour
         DeleteItems();
         foreach((Item i, int c) in _items.getAllItemsCant())
         {
-            GameObject go = Instantiate(_itemPrefab);
-            go.GetComponentsInChildren<Image>()[0].sprite = i.icono;
-            go./*transform.Find("CantBack").*/GetComponentInChildren<TextMeshProUGUI>().text = c.ToString();
-            go.transform.parent = _viewportContent.transform;
+            if (i.visible)
+            {
+                GameObject go = Instantiate(_itemPrefab);
+                go.GetComponentsInChildren<Image>()[0].sprite = i.icono;
+                go./*transform.Find("CantBack").*/GetComponentInChildren<TextMeshProUGUI>().text = c.ToString();
+                go.transform.parent = _viewportContent.transform;
+            }
         }
     }
 

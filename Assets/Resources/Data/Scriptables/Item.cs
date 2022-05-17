@@ -14,4 +14,5 @@ public class Item : ScriptableObject
     public string nombre;
     [TextArea(3, 10)]
     public string descripcion;
+    public bool visible = true;
 }
