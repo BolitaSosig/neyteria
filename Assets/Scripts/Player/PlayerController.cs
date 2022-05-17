@@ -52,6 +52,7 @@ public class PlayerController : MonoBehaviour
     public bool dashOnAir = false;
     public bool canMove = true;
     public bool oneHitKill = false;
+    public bool gettingDmg = false;
 
     private (Vector2, Vector2) getGroundCheckCorners()
     {
@@ -164,11 +165,12 @@ public class PlayerController : MonoBehaviour
     ////// RECIBE DAÑO //////
     public IEnumerator GetDamage(float dmg)
     {
-        if (!Inmune)
+        if (!Inmune && !_animator.GetBool("dash_iframes"))
         {
             _audioSource.PlayAudioOneShot(11);
             HP = Mathf.Max(0, HP - dmg);
             Inmune = true;
+            Debug.Log("daño");
 
             yield return new WaitForSecondsRealtime(DMG_CD);
             Inmune = false;
