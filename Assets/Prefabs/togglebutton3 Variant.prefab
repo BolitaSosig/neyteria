@@ -1,0 +1,106 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1821181065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7791346646797201809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48688917a3b5f954bb26aae346a4c77a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _togglePlatform: {fileID: 0}
+  _transformPlataform: {fileID: 0}
+  ToggleCanvas: {fileID: 0}
+  _endFrame: {fileID: -930424847767002969, guid: 6a91bebc45cf18a43967a134da0f00ee, type: 3}
+  _tooglePosition: {x: 0, y: 0}
+  _activated: 0
+  isTimed: 0
+  spawnPlatform: 0
+  segundos: 0
+--- !u!1001 &865013657356619129
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5742226838270926108, guid: 3667d5a08dc559b43bc32bb2344cb927, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5742226838270926108, guid: 3667d5a08dc559b43bc32bb2344cb927, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -2.857143
+      objectReference: {fileID: 0}
+    - target: {fileID: 5742226838270926108, guid: 3667d5a08dc559b43bc32bb2344cb927, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.857143
+      objectReference: {fileID: 0}
+    - target: {fileID: 5742226838270926108, guid: 3667d5a08dc559b43bc32bb2344cb927, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 63.414288
+      objectReference: {fileID: 0}
+    - target: {fileID: 5742226838270926108, guid: 3667d5a08dc559b43bc32bb2344cb927, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 111.97143
+      objectReference: {fileID: 0}
+    - target: {fileID: 5742226838270926108, guid: 3667d5a08dc559b43bc32bb2344cb927, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5742226838270926108, guid: 3667d5a08dc559b43bc32bb2344cb927, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5742226838270926108, guid: 3667d5a08dc559b43bc32bb2344cb927, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5742226838270926108, guid: 3667d5a08dc559b43bc32bb2344cb927, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5742226838270926108, guid: 3667d5a08dc559b43bc32bb2344cb927, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5742226838270926108, guid: 3667d5a08dc559b43bc32bb2344cb927, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5742226838270926108, guid: 3667d5a08dc559b43bc32bb2344cb927, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5742226838270926108, guid: 3667d5a08dc559b43bc32bb2344cb927, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6776478817288755971, guid: 3667d5a08dc559b43bc32bb2344cb927, type: 3}
+      propertyPath: _endFrame
+      value: 
+      objectReference: {fileID: -930424847767002969, guid: 6a91bebc45cf18a43967a134da0f00ee, type: 3}
+    - target: {fileID: 6776478817288755971, guid: 3667d5a08dc559b43bc32bb2344cb927, type: 3}
+      propertyPath: spawnPlatform
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6776478817288755971, guid: 3667d5a08dc559b43bc32bb2344cb927, type: 3}
+      propertyPath: _togglePlatform
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6926898138705657064, guid: 3667d5a08dc559b43bc32bb2344cb927, type: 3}
+      propertyPath: m_Name
+      value: togglebutton3
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6776478817288755971, guid: 3667d5a08dc559b43bc32bb2344cb927, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 3667d5a08dc559b43bc32bb2344cb927, type: 3}
+--- !u!1 &7791346646797201809 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6926898138705657064, guid: 3667d5a08dc559b43bc32bb2344cb927, type: 3}
+  m_PrefabInstance: {fileID: 865013657356619129}
+  m_PrefabAsset: {fileID: 0}

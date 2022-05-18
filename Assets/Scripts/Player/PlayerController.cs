@@ -249,7 +249,11 @@ public class PlayerController : MonoBehaviour
 
             _audioSource.PlayAudioOneShot(13);
 
-            GameObject.Find("MusicLevel1").SetActive(false);
+            if (GameObject.Find("MusicLevel1") != null) GameObject.Find("MusicLevel1").SetActive(false);
+            if (GameObject.Find("MusicLevel2") != null) GameObject.Find("MusicLevel2").SetActive(false);
+            if (GameObject.Find("MusicLevel3-1") != null) GameObject.Find("MusicLevel3-1").SetActive(false);
+            if (GameObject.Find("MusicLevel3-2") != null) GameObject.Find("MusicLevel3-2").SetActive(false);
+            if (GameObject.Find("MusicLevel4") != null) GameObject.Find("MusicLevel4").SetActive(false);
 
             HasMuertoTexto.SetActive(true);
             canMove = false;

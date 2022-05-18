@@ -7,6 +7,7 @@ using UnityEngine.Tilemaps;
 public class ToggleButton : MonoBehaviour
 {
     [SerializeField] private GameObject _togglePlatform;
+    [SerializeField] private GameObject ToggleCanvas;
     private GameObject _player;
     [SerializeField] private Sprite _endFrame;
     [SerializeField] private Vector2 _tooglePosition;
@@ -33,12 +34,44 @@ public class ToggleButton : MonoBehaviour
         _camera = GameObject.FindObjectOfType<CameraController>();
         _player = GameObject.Find("Player");
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        ToggleCanvas = GetChildWithName(gameObject, "canvas2");
+        ToggleCanvas.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player") && !Activated)
+        {
+            ToggleCanvas.SetActive(true);
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player") && !Activated)
+        {
+            ToggleCanvas.SetActive(false);
+        }
+    }
+
+    GameObject GetChildWithName(GameObject obj, string name)
+    {
+        Transform trans = obj.transform;
+        Transform childTrans = trans.Find(name);
+        if (childTrans != null)
+        {
+            return childTrans.gameObject;
+        }
+        else
+        {
+            return null;
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -54,6 +87,7 @@ public class ToggleButton : MonoBehaviour
     void Toggle()
     {
         Activated = true;
+        ToggleCanvas.SetActive(false);
         gameObject.GetComponent<Animator>().SetBool("trigger", Activated);
 
         Tilemap tm = _togglePlatform.GetComponent<Tilemap>();
