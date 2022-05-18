@@ -20,3 +20,4 @@ MonoBehaviour:
   nombre: Occaterio
   descripcion: Material raro que se puede emplear para canjear en el Nexo Central,
     entre otras cosas.
+  visible: 0

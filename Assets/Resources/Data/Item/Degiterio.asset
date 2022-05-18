@@ -19,3 +19,4 @@ MonoBehaviour:
   maxCant: 2147483647
   nombre: Degiterio
   descripcion: Recurso utilizado para canjear en el Nexo Central.
+  visible: 0
