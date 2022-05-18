@@ -31,6 +31,9 @@ public class PlayerItems : MonoBehaviour
         Add(OCCATERIO, 23);
         Add(SUERO_VITAL, 2);
         Add(SUERO_ENERGETICO, 3);
+        Add(SUERO_PROTECTOR, 1);
+        Add(SUERO_FORTALECEDOR, 3);
+        Add(MINERAL_FRAGMENTADO, 8);
     }
 
     void StartItems()

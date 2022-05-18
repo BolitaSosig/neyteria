@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Mineral_fragmentado
   m_EditorClassIdentifier: 
   ID: 7
-  icono: {fileID: 0}
+  icono: {fileID: -7583409310137716746, guid: 7d41805254e404743b71b2f565e06775, type: 3}
   rareza: 2
   usable: 0
   maxCant: 999
   nombre: Mineral fragmentado
   descripcion: Pedazo de mineral desbordado de las paredes de las cuevas de Oriquaht.
+  visible: 1
