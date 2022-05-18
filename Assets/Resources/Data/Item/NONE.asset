@@ -19,3 +19,4 @@ MonoBehaviour:
   maxCant: 999
   nombre: NONE
   descripcion: NONE
+  visible: 1
