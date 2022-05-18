@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerItems : MonoBehaviour
 {
+
     public static Item NONE;
     public static Item DEGITERIO;
     public static Item OCCATERIO;
@@ -14,6 +15,7 @@ public class PlayerItems : MonoBehaviour
     public static Item SUERO_PROTECTOR;
     public static Item MINERAL_FRAGMENTADO;
     public static Item NEXOTEK;
+
 
     private Dictionary<Item, int> items = new Dictionary<Item, int>();
     public bool printItems = false;
@@ -25,8 +27,8 @@ public class PlayerItems : MonoBehaviour
     {
         StartItems(); 
 
-        Add(DEGITERIO, 100);
-        Add(OCCATERIO, 4);
+        Add(DEGITERIO, 4276);
+        Add(OCCATERIO, 23);
         Add(SUERO_VITAL, 2);
         Add(SUERO_ENERGETICO, 3);
     }
@@ -46,7 +48,8 @@ public class PlayerItems : MonoBehaviour
 
     public void Update()
     {
-        if(printItems)
+        Debug.Log(items.Count);
+        if (printItems)
         {
             printItems = false;
             ShowConsole();
@@ -80,6 +83,17 @@ public class PlayerItems : MonoBehaviour
     {
         items.Remove(i);
         _inventoryController.SendMessage("FillItems");
+    }
+
+    public (Item, int) getByID(int id)
+    {
+        Debug.Log(items.Count);
+        foreach (Item item in items.Keys)
+        {
+            if (item.ID == id)
+                return (item, items[item]);
+        }
+        return (NONE, 0);
     }
 
     public List<(Item, int)> getAllItemsCant()

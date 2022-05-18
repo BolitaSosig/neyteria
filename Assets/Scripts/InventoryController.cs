@@ -9,6 +9,15 @@ public class InventoryController : MonoBehaviour
     public PlayerItems _items;
     public GameObject _itemPrefab;
     public GameObject _viewportContent;
+    // RESOURCES
+    public TextMeshProUGUI _degiterioCount;
+    public TextMeshProUGUI _occaterioCount;
+    // ITEM INFO
+    public TextMeshProUGUI _itemName;
+    public Image _itemIcon;
+    public TextMeshProUGUI _itemRareza;
+    public TextMeshProUGUI _itemCantidad;
+    public TextMeshProUGUI _itemDescripcion;
 
     [SerializeField]
     public bool isShown
@@ -41,7 +50,6 @@ public class InventoryController : MonoBehaviour
 
     void FillItems()
     {
-        Debug.Log("FillItems");
         DeleteItems();
         foreach((Item i, int c) in _items.getAllItemsCant())
         {
@@ -51,7 +59,12 @@ public class InventoryController : MonoBehaviour
                 go.GetComponentsInChildren<Image>()[0].sprite = i.icono;
                 go./*transform.Find("CantBack").*/GetComponentInChildren<TextMeshProUGUI>().text = c.ToString();
                 go.transform.parent = _viewportContent.transform;
+                go.name = "Item " + i.ID.ToString();
             }
+            if (i.Equals(PlayerItems.DEGITERIO))
+                _degiterioCount.text = c.ToString();
+            if (i.Equals(PlayerItems.OCCATERIO))
+                _occaterioCount.text = c.ToString();
         }
     }
 
@@ -61,5 +74,10 @@ public class InventoryController : MonoBehaviour
         {
             Destroy(go.gameObject);
         }
+    }
+
+    public void SelectItem()
+    {
+        
     }
 }

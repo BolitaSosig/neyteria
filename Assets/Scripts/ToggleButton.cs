@@ -16,6 +16,7 @@ public class ToggleButton : MonoBehaviour
     public bool _activated = false;
     public bool isTimed = false;
     public bool spawnPlatform = true;
+    public bool isPlayer = false;
     public float segundos = 0;
 
     [SerializeField] public bool Activated { 
@@ -41,23 +42,28 @@ public class ToggleButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(isPlayer)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Toggle();
+                isPlayer = false;
+            }
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && !Activated)
-        {
-            ToggleCanvas.SetActive(true);
-        }
+        bool cond = other.CompareTag("Player") && !Activated;
+        ToggleCanvas.SetActive(cond);
+        isPlayer = cond;
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && !Activated)
-        {
-            ToggleCanvas.SetActive(false);
-        }
+        bool cond = other.CompareTag("Player") && !Activated;
+        ToggleCanvas.SetActive(!cond);
+        isPlayer = !cond;
     }
 
     GameObject GetChildWithName(GameObject obj, string name)
@@ -72,16 +78,6 @@ public class ToggleButton : MonoBehaviour
         {
             return null;
         }
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (!Activated && collision.gameObject.CompareTag("Player"))
-                Toggle();
-        }
-        
     }
 
     void Toggle()
