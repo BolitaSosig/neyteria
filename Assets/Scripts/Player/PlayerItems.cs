@@ -15,6 +15,11 @@ public class PlayerItems : MonoBehaviour
     public static Item SUERO_PROTECTOR;
     public static Item MINERAL_FRAGMENTADO;
     public static Item NEXOTEK;
+    public static Item MINERAL_COMPACTO;
+    public static Item PIEDRAS_DE_LAVA;
+    public static Item ROCA_DE_MAGMA;
+    public static Item SOLLOZOS_DEL_CREPUSCULO;
+    public static Item TEMOR_DEL_CREPUSCULO;
 
 
     private Dictionary<Item, int> items = new Dictionary<Item, int>();
@@ -34,6 +39,11 @@ public class PlayerItems : MonoBehaviour
         Add(SUERO_PROTECTOR, 1);
         Add(SUERO_FORTALECEDOR, 3);
         Add(MINERAL_FRAGMENTADO, 8);
+        Add(MINERAL_COMPACTO, 4);
+        Add(PIEDRAS_DE_LAVA, 6);
+        Add(ROCA_DE_MAGMA, 3);
+        Add(SOLLOZOS_DEL_CREPUSCULO, 4);
+        Add(TEMOR_DEL_CREPUSCULO, 1);
     }
 
     void StartItems()
@@ -47,6 +57,11 @@ public class PlayerItems : MonoBehaviour
         SUERO_PROTECTOR = Resources.Load<Item>("Data\\Item\\Suero_protector");
         MINERAL_FRAGMENTADO = Resources.Load<Item>("Data\\Item\\Mineral_fragmentado");
         NEXOTEK = Resources.Load<Item>("Data\\Item\\Nexotek");
+        MINERAL_COMPACTO = Resources.Load<Item>("Data\\Item\\Mineral_compacto");
+        PIEDRAS_DE_LAVA = Resources.Load<Item>("Data\\Item\\Piedras_de_lava");
+        ROCA_DE_MAGMA = Resources.Load<Item>("Data\\Item\\ROca_de_magma");
+        SOLLOZOS_DEL_CREPUSCULO = Resources.Load<Item>("Data\\Item\\Sollozos_del_crepusculo");
+        TEMOR_DEL_CREPUSCULO = Resources.Load<Item>("Data\\Item\\Temor_del_crepusculo");
     }
 
     public void Update()

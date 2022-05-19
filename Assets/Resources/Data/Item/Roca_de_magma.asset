@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce7d44e0dd811ba4cbb082c6eddb2802, type: 3}
-  m_Name: Suero_vital
+  m_Name: Roca_de_magma
   m_EditorClassIdentifier: 
-  ID: 3
-  icono: {fileID: 6099581493293703690, guid: 7d41805254e404743b71b2f565e06775, type: 3}
-  rareza: 2
-  usable: 1
+  ID: 11
+  icono: {fileID: 2614870373251885436, guid: 7d41805254e404743b71b2f565e06775, type: 3}
+  rareza: 4
+  usable: 0
   maxCant: 999
-  nombre: Suero vital
-  descripcion: Suero que restaura unos pocos puntos de salud.
+  nombre: Roca de magma
+  descripcion: "Roca ba\xF1ada en un poderoso e incandescente magma creada por la
+    compresi\xF3n de peque\xF1as piedras de lava. \n\nQuema todo lo que se le acerque.\r"
   visible: 1

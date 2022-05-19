@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce7d44e0dd811ba4cbb082c6eddb2802, type: 3}
-  m_Name: Suero_vital
+  m_Name: Mineral_compacto
   m_EditorClassIdentifier: 
-  ID: 3
-  icono: {fileID: 6099581493293703690, guid: 7d41805254e404743b71b2f565e06775, type: 3}
-  rareza: 2
-  usable: 1
+  ID: 9
+  icono: {fileID: 8132948862792318974, guid: 7d41805254e404743b71b2f565e06775, type: 3}
+  rareza: 3
+  usable: 0
   maxCant: 999
-  nombre: Suero vital
-  descripcion: Suero que restaura unos pocos puntos de salud.
+  nombre: Mineral compacto
+  descripcion: "Trozo de mineral consistente formado por minerales m\xE1s peque\xF1os.
+    \n\nSe puede tambi\xE9n encontrar en ciertas zonas de las Cuevas del Alba."
   visible: 1

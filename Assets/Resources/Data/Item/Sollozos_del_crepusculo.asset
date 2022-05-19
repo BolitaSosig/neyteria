@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce7d44e0dd811ba4cbb082c6eddb2802, type: 3}
+  m_Name: Sollozos_del_crepusculo
+  m_EditorClassIdentifier: 
+  ID: 12
+  icono: {fileID: -732356172534689064, guid: 7d41805254e404743b71b2f565e06775, type: 3}
+  rareza: 4
+  usable: 0
+  maxCant: 999
+  nombre: "Sollozos del Crep\xFAsulo"
+  descripcion: "Ciertas piedras de las que se desconoce el origen y la formaci\xF3n.
+    \n\nSi las aprietas con fuerza, con suerte se pueden o\xEDr los sollozos de aquellas
+    que ser\xE1n v\xEDctimas de la Cat\xE1strofe del Principio y Fin."
+  visible: 1
