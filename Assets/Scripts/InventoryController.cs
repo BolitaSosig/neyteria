@@ -24,6 +24,7 @@ public class InventoryController : MonoBehaviour
     {
         set
         {
+            GameObject.Find("Player").GetComponent<PlayerController>().canMove = !value;
             GetComponent<Animator>().SetBool("show", value);
         }
         get
@@ -42,10 +43,11 @@ public class InventoryController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.F))
-        {
+        if (Input.GetKeyDown(KeyCode.F))
             isShown = !isShown;
-        }
+        else if (Input.GetKeyDown(KeyCode.Escape) && isShown)
+            isShown = false;
+
     }
 
     void FillItems()
