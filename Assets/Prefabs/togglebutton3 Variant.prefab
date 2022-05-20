@@ -28,6 +28,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 495347419, guid: 3667d5a08dc559b43bc32bb2344cb927, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -0.7142856
+      objectReference: {fileID: 0}
     - target: {fileID: 5742226838270926108, guid: 3667d5a08dc559b43bc32bb2344cb927, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -94,7 +98,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6926898138705657064, guid: 3667d5a08dc559b43bc32bb2344cb927, type: 3}
       propertyPath: m_Name
-      value: togglebutton3
+      value: togglebutton3 Variant
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6776478817288755971, guid: 3667d5a08dc559b43bc32bb2344cb927, type: 3}
