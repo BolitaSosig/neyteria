@@ -11,7 +11,6 @@ public class GUIController : MonoBehaviour
     [SerializeField] private GameObject healthBarRelleno;
     [SerializeField] private GameObject staminaBar;
     [SerializeField] private GameObject staminaBarRelleno;
-    [SerializeField] private GameObject itemObtained;
 
 
     [SerializeField] private TextMeshProUGUI[] moduloCD = new TextMeshProUGUI[3];
@@ -30,7 +29,6 @@ public class GUIController : MonoBehaviour
     float SBRscaleY;
     float SBRscaleX;
 
-    Queue<(Item, int)> itemQueue = new Queue<(Item, int)>();
 
     void Start()
     {
@@ -97,21 +95,5 @@ public class GUIController : MonoBehaviour
                 }
             }
         }    
-    }
-
-    public void ShowItem(Item item, int cant)
-    {
-        StartCoroutine(ShowItemTimer(item, cant));
-    }
-
-    IEnumerator ShowItemTimer(Item item, int cant)
-    {
-        while (itemObtained.GetComponent<Animator>().GetBool("show")) { }
-        
-        itemObtained.GetComponent<Animator>().SetBool("show", true);
-        itemObtained.GetComponentInChildren<Image>().sprite = item.icono;
-        itemObtained.GetComponentInChildren<TextMeshProUGUI>().text = "x" + cant + " " + item.nombre;
-        yield return new WaitForSecondsRealtime(3f);
-        itemObtained.GetComponent<Animator>().SetBool("show", false);
     }
 }

@@ -3524,6 +3524,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 294819061}
     m_Modifications:
     - target: {fileID: 7078024818365178684, guid: 0019507ed1bf00840b40e13df6f3cd8f, type: 3}
+      propertyPath: itemObtained
+      value: 
+      objectReference: {fileID: 1682977307}
+    - target: {fileID: 7078024818365178684, guid: 0019507ed1bf00840b40e13df6f3cd8f, type: 3}
       propertyPath: _guiController
       value: 
       objectReference: {fileID: 1557532841}
@@ -3634,7 +3638,6 @@ MonoBehaviour:
   healthBarRelleno: {fileID: 1008788040}
   staminaBar: {fileID: 761869022}
   staminaBarRelleno: {fileID: 1904063223}
-  itemObtained: {fileID: 1682977307}
   moduloCD:
   - {fileID: 1217860440}
   - {fileID: 820414232}
@@ -3857,7 +3860,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -546.2, y: -64}
+  m_AnchoredPosition: {x: -577.9, y: -64}
   m_SizeDelta: {x: 200, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1682977309

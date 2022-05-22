@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerItems : MonoBehaviour
 {
@@ -26,8 +28,8 @@ public class PlayerItems : MonoBehaviour
     public bool printItems = false;
 
     public InventoryController _inventoryController;
-    public GUIController _guiController;
-
+    [SerializeField] private GameObject itemObtained;
+    Queue<(Item, int)> itemQueue = new Queue<(Item, int)>();
 
     public void Start()
     {
@@ -84,7 +86,6 @@ public class PlayerItems : MonoBehaviour
             items.Add(i, c);
         }
         _inventoryController.SendMessage("FillItems");
-        _guiController.ShowItem(i, c);
     }
 
     public void Remove(Item i, int c)
@@ -134,5 +135,24 @@ public class PlayerItems : MonoBehaviour
         }
         res += "---------------------\n";
         Debug.Log(res);
+    }
+
+
+
+
+    public void ShowItem(Item item, int cant)
+    {
+        StartCoroutine(ShowItemTimer(item, cant));
+    }
+
+    IEnumerator ShowItemTimer(Item item, int cant)
+    {
+        while (itemObtained.GetComponent<Animator>().GetBool("show")) { }
+
+        itemObtained.GetComponent<Animator>().SetBool("show", true);
+        itemObtained.GetComponentInChildren<Image>().sprite = item.icono;
+        itemObtained.GetComponentInChildren<TextMeshProUGUI>().text = "x" + cant + " " + item.nombre;
+        yield return new WaitForSecondsRealtime(3f);
+        itemObtained.GetComponent<Animator>().SetBool("show", false);
     }
 }

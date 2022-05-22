@@ -90,6 +90,7 @@ public class Suministrador : MonoBehaviour
                 cantidad += prob <= rate[i] ? 1 : 0;
             }
             pi.Add(drops[i], cantidad);
+            //GameObject.Find("Player").GetComponent<PlayerItems>().ShowItem(drops[i], cantidad);
         }
     }
 }
