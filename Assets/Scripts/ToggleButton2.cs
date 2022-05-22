@@ -8,7 +8,7 @@ public class ToggleButton2 : MonoBehaviour
 {
     [SerializeField] private GameObject _togglePlatform;
     [SerializeField] private GameObject _transformPlataform;
-    [SerializeField] private GameObject ToggleCanvas;
+    private GameObject ToggleCanvas;
     private GameObject _player;
     [SerializeField] private Sprite _endFrame;
     [SerializeField] private Vector2 _tooglePosition;

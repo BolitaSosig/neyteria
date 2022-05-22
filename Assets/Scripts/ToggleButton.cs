@@ -7,7 +7,7 @@ using UnityEngine.Tilemaps;
 public class ToggleButton : MonoBehaviour
 {
     [SerializeField] private GameObject _togglePlatform;
-    [SerializeField] private GameObject ToggleCanvas;
+    private GameObject ToggleCanvas;
     private GameObject _player;
     [SerializeField] private Sprite _endFrame;
     [SerializeField] private Vector2 _tooglePosition;
