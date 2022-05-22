@@ -66,7 +66,6 @@ public class PlayerItems : MonoBehaviour
 
     public void Update()
     {
-        Debug.Log(items.Count);
         if (printItems)
         {
             printItems = false;

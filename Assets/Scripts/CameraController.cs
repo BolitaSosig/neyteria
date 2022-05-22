@@ -20,6 +20,8 @@ public class CameraController : MonoBehaviour
     {
         _cam = GetComponent<CinemachineVirtualCamera>();
         _playerBody = GameObject.Find("Player").GetComponent<Rigidbody2D>();
+
+        
     }
 
     void Update()

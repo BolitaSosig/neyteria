@@ -46,6 +46,7 @@ public class ToggleButton : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                Debug.Log("toggle");
                 Toggle();
                 isPlayer = false;
             }
@@ -62,8 +63,8 @@ public class ToggleButton : MonoBehaviour
     void OnTriggerExit2D(Collider2D other)
     {
         bool cond = other.CompareTag("Player") && !Activated;
-        ToggleCanvas.SetActive(!cond);
-        isPlayer = !cond;
+        ToggleCanvas.SetActive(cond);
+        isPlayer = cond;
     }
 
     GameObject GetChildWithName(GameObject obj, string name)

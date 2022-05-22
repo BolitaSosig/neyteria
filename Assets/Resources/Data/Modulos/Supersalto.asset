@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5475d04df7a041440b678e4f9dfb0c7b, type: 3}
   m_Name: Supersalto
   m_EditorClassIdentifier: 
-  ID: 0
-  nombre: 
-  descripcion: 
+  ID: 1
+  nombre: "M\xF3dulo de Supersalto"
+  descripcion: blablabla
   Slots: 1
-  Duracion: 0
-  TdE: 0
-  MaxLvl: 1
-  script: {fileID: 0}
+  Duracion: 15
+  TdE: 30
+  MaxLvl: 3
+  script: {fileID: 11500000, guid: 1ecf92e0adb2dda44a81a87dbbec635d, type: 3}
   override_start: 0
   override_skill: 0
   override_cooldown: 0
