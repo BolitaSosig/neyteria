@@ -26,6 +26,7 @@ public class PlayerItems : MonoBehaviour
     public bool printItems = false;
 
     public InventoryController _inventoryController;
+    public GUIController _guiController;
 
 
     public void Start()
@@ -83,6 +84,7 @@ public class PlayerItems : MonoBehaviour
             items.Add(i, c);
         }
         _inventoryController.SendMessage("FillItems");
+        _guiController.ShowItem(i, c);
     }
 
     public void Remove(Item i, int c)
