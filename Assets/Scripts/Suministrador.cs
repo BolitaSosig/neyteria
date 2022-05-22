@@ -8,10 +8,12 @@ public class Suministrador : MonoBehaviour
     public bool isPlayer;
     [SerializeField] private GameObject ToggleCanvas;
     private GameObject _player;
+    private ItemObtenido _itemObtenido;
     public Item[] drops;
     public int[] cant;
     [Range(0, 1)]
     public float[] rate;
+    public bool[] asegurado;
 
     public bool Opened 
     {
@@ -27,6 +29,7 @@ public class Suministrador : MonoBehaviour
     void Start()
     {
         _player = GameObject.Find("Player");
+        _itemObtenido = GameObject.Find("ItemObtained").GetComponent<ItemObtenido>();
         ToggleCanvas = GetChildWithName(gameObject, "canvas2");
         ToggleCanvas.SetActive(false);
     }
@@ -54,8 +57,8 @@ public class Suministrador : MonoBehaviour
     void OnTriggerExit2D(Collider2D other)
     {
         bool cond = other.CompareTag("Player") && !Opened;
-        ToggleCanvas.SetActive(!cond);
-        isPlayer = !cond;
+        ToggleCanvas.SetActive(cond);
+        isPlayer = cond;
     }
 
     GameObject GetChildWithName(GameObject obj, string name)
@@ -83,14 +86,17 @@ public class Suministrador : MonoBehaviour
         PlayerItems pi = _player.GetComponent<PlayerItems>();
         for(int i = 0; i < drops.Length; i++)
         {
-            int cantidad = 0;
-            for(int j = 0; j < cant[i]; j++)
+            int cantidad = asegurado[i] ? 1 : 0;
+            for(int j = cantidad; j < cant[i]; j++)
             {
                 float prob = Random.value;
                 cantidad += prob <= rate[i] ? 1 : 0;
             }
-            pi.Add(drops[i], cantidad);
-            //GameObject.Find("Player").GetComponent<PlayerItems>().ShowItem(drops[i], cantidad);
+            if (cantidad != 0)
+            {
+                pi.Add(drops[i], cantidad);
+                _itemObtenido.ShowItem(drops[i], cantidad);
+            }
         }
     }
 }

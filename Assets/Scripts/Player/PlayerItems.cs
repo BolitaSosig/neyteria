@@ -28,25 +28,13 @@ public class PlayerItems : MonoBehaviour
     public bool printItems = false;
 
     public InventoryController _inventoryController;
-    [SerializeField] private GameObject itemObtained;
-    Queue<(Item, int)> itemQueue = new Queue<(Item, int)>();
 
     public void Start()
     {
         StartItems(); 
 
-        Add(DEGITERIO, 4276);
-        Add(OCCATERIO, 23);
-        Add(SUERO_VITAL, 2);
-        Add(SUERO_ENERGETICO, 3);
-        Add(SUERO_PROTECTOR, 1);
-        Add(SUERO_FORTALECEDOR, 3);
-        Add(MINERAL_FRAGMENTADO, 8);
-        Add(MINERAL_COMPACTO, 4);
-        Add(PIEDRAS_DE_LAVA, 6);
-        Add(ROCA_DE_MAGMA, 3);
-        Add(SOLLOZOS_DEL_CREPUSCULO, 4);
-        Add(TEMOR_DEL_CREPUSCULO, 1);
+        Add(DEGITERIO, 0);
+        Add(OCCATERIO, 0);
     }
 
     void StartItems()
@@ -135,24 +123,5 @@ public class PlayerItems : MonoBehaviour
         }
         res += "---------------------\n";
         Debug.Log(res);
-    }
-
-
-
-
-    public void ShowItem(Item item, int cant)
-    {
-        StartCoroutine(ShowItemTimer(item, cant));
-    }
-
-    IEnumerator ShowItemTimer(Item item, int cant)
-    {
-        while (itemObtained.GetComponent<Animator>().GetBool("show")) { }
-
-        itemObtained.GetComponent<Animator>().SetBool("show", true);
-        itemObtained.GetComponentInChildren<Image>().sprite = item.icono;
-        itemObtained.GetComponentInChildren<TextMeshProUGUI>().text = "x" + cant + " " + item.nombre;
-        yield return new WaitForSecondsRealtime(3f);
-        itemObtained.GetComponent<Animator>().SetBool("show", false);
     }
 }
