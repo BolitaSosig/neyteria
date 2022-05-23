@@ -19,6 +19,7 @@ public class InventoryItemSelect : MonoBehaviour
     {
         int id = Int32.Parse(gameObject.name.Replace("Item ", ""));
         (Item item, int cant) pair = _items.getByID(id);
+        _inventory._selectedItemID = id;
 
         _inventory._itemName.text = pair.item.nombre;
         _inventory._itemDescripcion.text = pair.item.descripcion;

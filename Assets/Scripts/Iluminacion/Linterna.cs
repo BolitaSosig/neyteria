@@ -20,7 +20,7 @@ public class Linterna : MonoBehaviour
 
     void SeguirPlayer()
     {
-        transform.position = _player.transform.position;
+        transform.position = _player.transform.position + new Vector3(-0.1f * Mathf.Sign(_player.transform.localScale.x), 0, 0);
         transform.rotation = Quaternion.Euler(0, 0, Mathf.Sign(_player.transform.localScale.x)  * -90);
     }
 }

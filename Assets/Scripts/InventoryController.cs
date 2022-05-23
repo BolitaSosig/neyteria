@@ -9,6 +9,7 @@ public class InventoryController : MonoBehaviour
     public PlayerItems _items;
     public GameObject _itemPrefab;
     public GameObject _viewportContent;
+    public GameObject _rapidosContent;
     // RESOURCES
     public TextMeshProUGUI _degiterioCount;
     public TextMeshProUGUI _occaterioCount;
@@ -18,6 +19,8 @@ public class InventoryController : MonoBehaviour
     public TextMeshProUGUI _itemRareza;
     public TextMeshProUGUI _itemCantidad;
     public TextMeshProUGUI _itemDescripcion;
+
+    public int _selectedItemID;
 
     [SerializeField]
     public bool isShown
@@ -47,7 +50,14 @@ public class InventoryController : MonoBehaviour
             isShown = !isShown;
         else if (Input.GetKeyDown(KeyCode.Escape) && isShown)
             isShown = false;
-
+        else if (Input.GetKeyDown(KeyCode.E) && isShown)
+        {
+            Item i = _items.getByID(_selectedItemID).Item1;
+            if (_items.rapidos.Contains(i))
+                _items.RemoveQuickItem(i);
+            else
+                _items.AddQuickItem(i);
+        }
     }
 
     void FillItems()
@@ -60,8 +70,10 @@ public class InventoryController : MonoBehaviour
                 GameObject go = Instantiate(_itemPrefab);
                 go.GetComponentsInChildren<Image>()[0].sprite = i.icono;
                 go./*transform.Find("CantBack").*/GetComponentInChildren<TextMeshProUGUI>().text = c.ToString();
-                go.transform.parent = _viewportContent.transform;
                 go.name = "Item " + i.ID.ToString();
+
+                if (_items.rapidos.Contains(i)) go.transform.parent = _rapidosContent.transform;
+                else                            go.transform.parent = _viewportContent.transform;
             }
             if (i.Equals(PlayerItems.DEGITERIO))
                 _degiterioCount.text = c.ToString();
@@ -73,6 +85,10 @@ public class InventoryController : MonoBehaviour
     void DeleteItems()
     {
         foreach(Transform go in _viewportContent.transform)
+        {
+            Destroy(go.gameObject);
+        }
+        foreach(Transform go in _rapidosContent.transform)
         {
             Destroy(go.gameObject);
         }

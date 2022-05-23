@@ -25,6 +25,8 @@ public class PlayerItems : MonoBehaviour
 
 
     private Dictionary<Item, int> items = new Dictionary<Item, int>();
+    public List<Item> rapidos = new List<Item>();
+    public int index_rapido = 0;
     public bool printItems = false;
 
     public InventoryController _inventoryController;
@@ -57,6 +59,8 @@ public class PlayerItems : MonoBehaviour
 
     public void Update()
     {
+        if(rapidos.Count > 0)
+            RotateQuickItem();
         if (printItems)
         {
             printItems = false;
@@ -95,7 +99,6 @@ public class PlayerItems : MonoBehaviour
 
     public (Item, int) getByID(int id)
     {
-        Debug.Log(items.Count);
         foreach (Item item in items.Keys)
         {
             if (item.ID == id)
@@ -112,6 +115,32 @@ public class PlayerItems : MonoBehaviour
             res.Add((item, items[item]));
         }
         return res;
+    }
+
+    public void AddQuickItem(Item item)
+    {
+        if (items.ContainsKey(item))
+        {
+            rapidos.Add(item);
+            _inventoryController.SendMessage("FillItems");
+        }
+    }
+    public void RemoveQuickItem(Item item)
+    {
+        if (items.ContainsKey(item))
+        {
+            rapidos.Remove(item);
+            _inventoryController.SendMessage("FillItems");
+            index_rapido = Mathf.Max(0, index_rapido - 1);
+        }
+    }
+
+    void RotateQuickItem()
+    {
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+            index_rapido = (index_rapido + 1) % rapidos.Count;
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+            index_rapido = index_rapido - 1 < 0 ? rapidos.Count - 1 : index_rapido - 1;
     }
 
     public void ShowConsole()

@@ -17,6 +17,9 @@ public class GUIController : MonoBehaviour
     [SerializeField] public Image[] moduloCB = new Image[3];
     [SerializeField] public RawImage[] moduloSprite = new RawImage[3];
 
+    [SerializeField] public Image itemIcon;
+    [SerializeField] public TextMeshProUGUI itemCant;
+
     //Escala de HealtBar y su relleno
     float HBscaleY;
     float HBscaleX;
@@ -54,6 +57,7 @@ public class GUIController : MonoBehaviour
         UpdateHealthBar();
         UpdateStaminaBar();
         UpdateModulosTimings();
+        UpdateQuickItem();
     }
 
     void UpdateHealthBar()
@@ -95,5 +99,20 @@ public class GUIController : MonoBehaviour
                 }
             }
         }    
+    }
+
+    public void UpdateQuickItem()
+    {
+        PlayerItems pi = player.GetComponent<PlayerItems>();
+        if(pi.rapidos.Count > 0)
+        {
+            (Item item, int cant) pair = pi.getByID(pi.rapidos.ToArray()[pi.index_rapido].ID);
+            itemIcon.sprite = pair.item.icono;
+            itemCant.text = pair.cant.ToString();
+        } else
+        {
+            itemIcon.sprite = PlayerItems.NONE.icono;
+            itemCant.text = "";
+        }
     }
 }
