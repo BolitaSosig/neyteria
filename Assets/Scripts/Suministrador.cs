@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class Suministrador : MonoBehaviour
 {
     public bool _opened;
     public bool isPlayer;
     [SerializeField] private GameObject ToggleCanvas;
+    [SerializeField] private Light2D _luz;
     private GameObject _player;
     private ItemObtenido _itemObtenido;
     public Item[] drops;
@@ -30,7 +32,7 @@ public class Suministrador : MonoBehaviour
     {
         _player = GameObject.Find("Player");
         _itemObtenido = GameObject.Find("ItemObtained").GetComponent<ItemObtenido>();
-        ToggleCanvas = GetChildWithName(gameObject, "canvas2");
+        //ToggleCanvas = GetChildWithName(gameObject, "canvas2");
         ToggleCanvas.SetActive(false);
     }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using UnityEngine.Tilemaps;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class ToggleButton : MonoBehaviour
 {
@@ -46,7 +47,6 @@ public class ToggleButton : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                Debug.Log("toggle");
                 Toggle();
                 isPlayer = false;
             }

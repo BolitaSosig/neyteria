@@ -17,7 +17,7 @@ TagManager:
   - NoChoca
   - Player
   - Enemy
-  - 
+  - Background
   - 
   - 
   - 
@@ -40,6 +40,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 790717493
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

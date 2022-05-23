@@ -2,6 +2,7 @@ using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 using UnityEngine.Tilemaps;
 
 public class CameraController : MonoBehaviour
@@ -70,8 +71,9 @@ public class CameraController : MonoBehaviour
     {
         cinematic = true;
         player.GetComponent<PlayerController>().canMove = false;
+        GameObject.Find("Global_Plano").GetComponent<Light2D>().color = Color.white;
 
-        if(show) { 
+        if (show) { 
             tm.color = new Color(tm.color.r, tm.color.g, tm.color.b, 0f);
 
             _cam.m_Follow = togglePlatform.transform;
@@ -95,8 +97,9 @@ public class CameraController : MonoBehaviour
             }
             togglePlatform.SetActive(false);
         }
-        
 
+
+        GameObject.Find("Global_Plano").GetComponent<Light2D>().color = Color.black;
         _cam.m_Follow = player.transform;
         player.GetComponent<PlayerController>().canMove = true;
         cinematic = false;
@@ -106,8 +109,9 @@ public class CameraController : MonoBehaviour
     {
         cinematic = true;
         player.GetComponent<PlayerController>().canMove = false;
+        GameObject.Find("Global_Plano").GetComponent<Light2D>().color = Color.white;
 
-        if(show)
+        if (show)
         {
             sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 0f);
 
@@ -132,8 +136,9 @@ public class CameraController : MonoBehaviour
             }
             togglePlatform.SetActive(false);
         }
-        
 
+
+        GameObject.Find("Global_Plano").GetComponent<Light2D>().color = Color.black;
         _cam.m_Follow = player.transform;
         player.GetComponent<PlayerController>().canMove = true;
         cinematic = false;
