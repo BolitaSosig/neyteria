@@ -50,7 +50,7 @@ public class Bat1Controller : MonoBehaviour
     public GameObject projectile;
     public float shootForce = 15f;
 
-    float lookRadius = 10f;
+    public float lookRadius = 10f;
     Transform target;
 
     float seDispara = 9.95f;
@@ -188,7 +188,7 @@ public class Bat1Controller : MonoBehaviour
         _animator.SetTrigger("dead");
         _boxCollider2D.enabled = false;
         _rigidbody2D.gravityScale = 0f;
-        yield return new WaitForSecondsRealtime(0.7f);
+        yield return new WaitForSecondsRealtime(0.4f);
         Destroy(gameObject);
     }
 
@@ -231,24 +231,83 @@ public class Bat1Controller : MonoBehaviour
             //Debug.Log(distance);
             // Move towards the target
             
-            if (transform.position.x <= target.position.x)
+            // Modifcar la 'x' según convenga
+            if (transform.position.x <= target.position.x - 0.5f)
             {
                 transform.localScale = new Vector2(-Mathf.Abs(transform.localScale.x), transform.localScale.y);
                 _canvasTranform.localScale = new Vector2(-Mathf.Abs(_canvasTranform.localScale.x), _canvasTranform.localScale.y);
-                _rigidbody2D.velocity = new Vector2(2, _rigidbody2D.velocity.y);
+                _rigidbody2D.velocity = new Vector2(MovSpeed, _rigidbody2D.velocity.y);
             }
-            else
+            else if (transform.position.x > target.position.x + 0.5f)
             {
                 transform.localScale = new Vector2(Mathf.Abs(transform.localScale.x), transform.localScale.y);
                 _canvasTranform.localScale = new Vector2(Mathf.Abs(_canvasTranform.localScale.x), _canvasTranform.localScale.y);
-                _rigidbody2D.velocity = new Vector2(-2, _rigidbody2D.velocity.y);
+                _rigidbody2D.velocity = new Vector2(-MovSpeed, _rigidbody2D.velocity.y);
             }
+
+            // Modificar la 'y' según convenga
+
+            if (transform.position.y >= target.position.y)
+            {
+                if (transform.position.y > target.position.y + (lookRadius * 0.7))             //Acercarse si estás muy arriba
+                {
+                    _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, -MovSpeed);
+                }
+                else if (transform.position.y < target.position.y + (lookRadius * 0.3))       //Alejarse si estás muy cerca por arriba
+                {
+                    _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, MovSpeed);
+                }
+                else                                                                          //En otro caso, la 'y' se queda quieta
+                {
+                    _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, 0);
+                }
+                
+            }
+            else if (transform.position.y < target.position.y)
+            {
+                if (transform.position.y < target.position.y - (lookRadius * 0.7))        //Acercarse si estás muy abajo
+                {
+                    _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, MovSpeed);
+                }
+                else if (transform.position.y > target.position.y - (lookRadius * 0.3))       //Alejarse si estás muy cerca por abajo
+                {
+                    _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, -MovSpeed);
+                }
+                else                                                                          //En otro caso, la 'y' se queda quieta
+                {
+                    _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, 0);
+                }
+            }
+
+            
+            /*if (transform.position.y > target.position.y + (lookRadius * 0.7) )             //Acercarse si estás muy arriba
+            {
+                _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, -MovSpeed);
+            }
+            else if (transform.position.y < target.position.y - (lookRadius * 0.7))        //Acercarse si estás muy abajo
+            {
+                _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, MovSpeed);
+            }
+            else if (transform.position.y < target.position.y + (lookRadius * 0.3))       //Alejarse si estás muy cerca por arriba
+            {
+                _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, MovSpeed);
+            }
+            else if (transform.position.y > target.position.y - (lookRadius * 0.3))       //Alejarse si estás muy cerca por abajo
+            {
+                _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, -MovSpeed);
+            }
+            else                                                                          //En otro caso, la 'y' se queda quieta
+            {
+                _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, 0);
+            }*/
+
 
         }
 
         else
         { //_rigidbody2D.velocity = new Vector2(0, _rigidbody2D.velocity.y);
             //StartCoroutine(Moverse());
+            _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, 0);
         }
 
         _animator.SetFloat("velocity_x", Mathf.Abs(_rigidbody2D.velocity.x)); // establece velocity_x en el animator*/
@@ -259,6 +318,12 @@ public class Bat1Controller : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, lookRadius);
+
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, lookRadius * 0.7f);
+
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, lookRadius * 0.3f);
     }
 
 
@@ -267,7 +332,9 @@ public class Bat1Controller : MonoBehaviour
     {
         HP = Mathf.Max(0, HP - dmg);
         ShowDamageDeal(Mathf.RoundToInt(dmg));
+
         if (HP <= 0) StartCoroutine(Die());
+        else _animator.SetTrigger("hurt");
     }
 
     public void GetDamageByPlayer(float attack)
