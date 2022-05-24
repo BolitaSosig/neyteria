@@ -586,11 +586,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemigosNivel:
-  - {fileID: 4274105038498637994, guid: 7b036402091756f4db05e0b63ceec1d0, type: 3}
-  - {fileID: 4274105038498637994, guid: c5d00deb518a633498166c8cc43a1bf5, type: 3}
-  - {fileID: 4274105038498637994, guid: 7afe4bb56f6028f4699a5fd005fd10af, type: 3}
-  - {fileID: 4274105038498637994, guid: 9aa9587d97908ac45bd994d91f59e8a8, type: 3}
-  - {fileID: 4274105038498637994, guid: 749695e8263a6fc4a8cdaa63528f3d03, type: 3}
+  - {fileID: 3897717456840040774, guid: 0f3b31b15a5a08f41b68233c4d9f72e2, type: 3}
+  - {fileID: 5261946912149675479, guid: 2b6ecf68ed8c33d468f5f6336776f505, type: 3}
+  - {fileID: 2011861614474417254, guid: c80e99c74fbea604a987fb7a540e2dbc, type: 3}
+  - {fileID: 4274105038498637994, guid: a84cadcaab5aa764494b60e9cc301b91, type: 3}
+  - {fileID: 3019103667255911260, guid: 35975619134093946a6fc5447518a1f1, type: 3}
   _nivel: 20
   HP: 100
   MaxHP: 100
