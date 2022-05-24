@@ -376,7 +376,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7680256104949013031
 Transform:
   m_ObjectHideFlags: 0
@@ -436,6 +436,7 @@ MonoBehaviour:
   playerLayers:
     serializedVersion: 2
     m_Bits: 256
+  _audioSource: {fileID: 6440395474963439699}
   _togglePlatform: {fileID: 0}
   _transformPlataform: {fileID: 0}
   baseHP: 110

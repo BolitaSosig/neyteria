@@ -1,5 +1,65 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &877311572
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 877311573}
+  m_Layer: 9
+  m_Name: ability1Transform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &877311573
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877311572}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.28, y: -7.25, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7680256104949013031}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1094392689
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1094392690}
+  m_Layer: 9
+  m_Name: ability2Transform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1094392690
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094392689}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.89, y: -7.15, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7680256104949013031}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6440395474963439699
 GameObject:
   m_ObjectHideFlags: 0
@@ -39,10 +99,10 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6440395474963439699}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 1ce9496ad28b9c24598463f6e5cb6126, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5dda627bf3642d3429f67937c0e5f348, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -138,7 +198,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d8760eae3c1c4e04c8572ee57f97be39, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 4f06688da25b3924a864ed85be9cf916, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -248,7 +308,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7680256103627788340}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.65, y: -5, z: 0}
+  m_LocalPosition: {x: -7.51, y: -4.11, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7680256104949013031}
@@ -386,11 +446,13 @@ Transform:
   m_GameObject: {fileID: 7680256104176733726}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 309.58, y: 2.42, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0}
   m_Children:
   - {fileID: 7680256103750619530}
   - {fileID: 7680256103627788343}
   - {fileID: 3397481793247942367}
+  - {fileID: 877311573}
+  - {fileID: 1094392690}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -548,11 +610,16 @@ MonoBehaviour:
   _weather: {fileID: 0}
   healthBarEnemy: {fileID: 7680256104188059548}
   _shootTransform: {fileID: 7680256103627788343}
-  projectile: {fileID: 8451858909790069766, guid: 2c712c579aa44114cb72a4be4fe34b37, type: 3}
-  swordRange: 4.73
+  projectile: {fileID: 8451858909790069766, guid: 8b74b6da621ea5143a4228d1cf937ccd, type: 3}
+  swordRange: 2.5
+  _ability1Transform: {fileID: 877311573}
+  ability1Range: 2.55
+  _ability2Transform: {fileID: 1094392690}
+  ability2Range: 2.25
   playerLayers:
     serializedVersion: 2
     m_Bits: 256
+  _audioSource: {fileID: 6440395474963439699}
   _togglePlatform: {fileID: 0}
   _transformPlataform: {fileID: 0}
   baseHP: 100

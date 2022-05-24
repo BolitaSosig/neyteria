@@ -54,6 +54,8 @@ public class BringerOfDeathController : MonoBehaviour
     public float swordRange = 0.6f;
     public LayerMask playerLayers;
 
+    public GameObject _audioSource;
+
     float lookRadius = 10f;
     Transform target;
 
@@ -205,6 +207,7 @@ public class BringerOfDeathController : MonoBehaviour
         _boxCollider2D.enabled = false;
         this.enabled = false;
         _rigidbody2D.gravityScale = 0f;
+        _audioSource.SetActive(false);
         yield return new WaitForSecondsRealtime(2f);
         if(_togglePlatform != null) _togglePlatform.SetActive(false);
         //Destroy(gameObject);
@@ -368,8 +371,8 @@ public class BringerOfDeathController : MonoBehaviour
         
         HP = Mathf.Max(0, HP - dmg);
         ShowDamageDeal(Mathf.RoundToInt(dmg));
-        if (HP <= (MaxHP/2) && firstTimeMediaVida) { InvocarEnemigos1(); }
-        if (HP <= (MaxHP/5) && firstTimePocaVida) { InvocarEnemigos2(); }
+        if (HP <= (MaxHP / 2) && firstTimeMediaVida) { InvocarEnemigos1(); healthBarEnemy.gameObject.GetComponent<RawImage>().color = Color.yellow; }
+        if (HP <= (MaxHP / 5) && firstTimePocaVida) { InvocarEnemigos2(); healthBarEnemy.gameObject.GetComponent<RawImage>().color = Color.magenta; }
 
         if (HP <= 0) { StopAllCoroutines(); moving = true; _animator.SetBool("isDead", true); StartCoroutine(Die()); } else { _animator.SetTrigger("hurt"); }
     }

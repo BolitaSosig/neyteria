@@ -59,6 +59,8 @@ public class ElementalWater : MonoBehaviour
 
     public LayerMask playerLayers;
 
+    public GameObject _audioSource;
+
     float lookRadius = 10f;
     Transform target;
 
@@ -210,6 +212,7 @@ public class ElementalWater : MonoBehaviour
         _boxCollider2D.enabled = false;
         this.enabled = false;
         _rigidbody2D.gravityScale = 0f;
+        _audioSource.SetActive(false);
         yield return new WaitForSecondsRealtime(2f);
         if (_togglePlatform != null) _togglePlatform.SetActive(false);
         //Destroy(gameObject);
@@ -279,7 +282,7 @@ public class ElementalWater : MonoBehaviour
             _animator.SetTrigger("ability1");
             yield return new WaitForSecondsRealtime(0.7f);
 
-            Collider2D[] hitPlayers = Physics2D.OverlapCircleAll(_shootTransform.position, swordRange, playerLayers);
+            Collider2D[] hitPlayers = Physics2D.OverlapCircleAll(_ability1Transform.position, ability1Range, playerLayers);
 
             foreach (Collider2D player in hitPlayers)
             {
@@ -303,7 +306,7 @@ public class ElementalWater : MonoBehaviour
             _animator.SetTrigger("ability2");
             yield return new WaitForSecondsRealtime(0.7f);
 
-            Collider2D[] hitPlayers = Physics2D.OverlapCircleAll(_shootTransform.position, swordRange, playerLayers);
+            Collider2D[] hitPlayers = Physics2D.OverlapCircleAll(_ability2Transform.position, ability2Range, playerLayers);
 
             foreach (Collider2D player in hitPlayers)
             {
@@ -431,8 +434,8 @@ public class ElementalWater : MonoBehaviour
         _animator.SetTrigger("hurt");
         HP = Mathf.Max(0, HP - dmg);
         ShowDamageDeal(Mathf.RoundToInt(dmg));
-        if (HP <= (MaxHP/2) && firstTimeMediaVida) { InvocarEnemigos1(); }
-        if (HP <= (MaxHP/5) && firstTimePocaVida) { InvocarEnemigos2(); }
+        if (HP <= (MaxHP/2) && firstTimeMediaVida) { InvocarEnemigos1(); healthBarEnemy.gameObject.GetComponent<RawImage>().color = Color.yellow; }
+        if (HP <= (MaxHP/5) && firstTimePocaVida) { InvocarEnemigos2(); healthBarEnemy.gameObject.GetComponent<RawImage>().color = Color.magenta; }
 
         if (HP <= 0) { StopAllCoroutines(); moving = true; _animator.SetBool("isDead", true); StartCoroutine(Die()); } else { _animator.SetTrigger("hurt"); }
     }
