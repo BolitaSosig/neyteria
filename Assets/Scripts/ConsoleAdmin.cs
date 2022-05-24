@@ -10,6 +10,8 @@ public class ConsoleAdmin : MonoBehaviour
     private float originalTimeScale = 1f;
 
     // REFERENCIAS
+    [SerializeField]
+    private TextMeshProUGUI _helpText;
     private PlayerController _playerController;
     private PlayerItems _playerItems;
 
@@ -54,6 +56,8 @@ public class ConsoleAdmin : MonoBehaviour
         {
             Showing = true;
         }
+        if (Showing && Input.GetKey(KeyCode.Tab))
+            GetHelp();
     }
 
     public void EnterCommand()
@@ -206,6 +210,37 @@ public class ConsoleAdmin : MonoBehaviour
         } else
         {
             Debug.LogError(error + "Comienza el comando siempre con el término 'comm'.");
+        }
+    }
+
+    void GetHelp()
+    {
+        string command = GetComponent<TMP_InputField>().text;
+        string[] c = command.Split(" ".ToCharArray());
+        if(c.Length > 1)
+        {
+            string texto = "";
+            int[] indexes = new int[10];
+            switch(c[1])
+            {
+                case "health":
+                    texto = "comm health <cantidad>";
+                    indexes[2] = 11;    indexes[3] = texto.Length;
+                    break;
+                case "player":
+                    texto = "comm player <atributo> <valor>";
+                    indexes[2] = 11; indexes[3] = 22;    indexes[4] = texto.Length;
+                    break;
+                case "item":
+                    texto = "comm item <give|remove> <id_item> [cantidad]";
+                    indexes[2] = 9; indexes[3] = 23;    indexes[4] = 33;    indexes[5] = texto.Length;
+                    break;
+            }
+            if(c[c.Length-1].Equals(""))
+                texto = texto.Substring(indexes[c.Length - 1]);
+            else
+                texto = texto.Substring(indexes[c.Length]);
+            _helpText.text = command + texto;
         }
     }
 }
