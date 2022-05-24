@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ConsoleAdmin : MonoBehaviour
 {
-    private bool _showing = false;
+    public static bool _showing = false;
     private Vector3 originalPos;
     private float originalTimeScale = 1f;
 
