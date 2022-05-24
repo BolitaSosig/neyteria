@@ -71,7 +71,8 @@ public class CameraController : MonoBehaviour
     {
         cinematic = true;
         player.GetComponent<PlayerController>().canMove = false;
-        GameObject.Find("Global_Plano").GetComponent<Light2D>().color = Color.white;
+        if(GLOBAL.zona.Equals("Nivel1-1"))
+            GameObject.Find("Global_Plano").GetComponent<Light2D>().color = Color.white;
 
         if (show) { 
             tm.color = new Color(tm.color.r, tm.color.g, tm.color.b, 0f);
@@ -99,7 +100,8 @@ public class CameraController : MonoBehaviour
         }
 
 
-        GameObject.Find("Global_Plano").GetComponent<Light2D>().color = Color.black;
+        if (GLOBAL.zona.Equals("Nivel1-1"))
+            GameObject.Find("Global_Plano").GetComponent<Light2D>().color = Color.black;
         _cam.m_Follow = player.transform;
         player.GetComponent<PlayerController>().canMove = true;
         cinematic = false;
@@ -109,7 +111,8 @@ public class CameraController : MonoBehaviour
     {
         cinematic = true;
         player.GetComponent<PlayerController>().canMove = false;
-        GameObject.Find("Global_Plano").GetComponent<Light2D>().color = Color.white;
+        if (GLOBAL.zona.Equals("Nivel1-1"))
+            GameObject.Find("Global_Plano").GetComponent<Light2D>().color = Color.white;
 
         if (show)
         {
@@ -138,7 +141,8 @@ public class CameraController : MonoBehaviour
         }
 
 
-        GameObject.Find("Global_Plano").GetComponent<Light2D>().color = Color.black;
+        if (GLOBAL.zona.Equals("Nivel1-1"))
+            GameObject.Find("Global_Plano").GetComponent<Light2D>().color = Color.black;
         _cam.m_Follow = player.transform;
         player.GetComponent<PlayerController>().canMove = true;
         cinematic = false;

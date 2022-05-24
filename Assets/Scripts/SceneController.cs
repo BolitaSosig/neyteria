@@ -26,23 +26,29 @@ public class SceneController : MonoBehaviour
                 {
                     SceneManager.LoadSceneAsync("RestZone", LoadSceneMode.Additive);
                     SceneManager.LoadSceneAsync("Nivel2-1", LoadSceneMode.Additive);
+                    GLOBAL.zona = "RestZone";
                 } else
                 {
                     SceneManager.UnloadSceneAsync("RestZone");
                     SceneManager.UnloadSceneAsync("Nivel2-1");
+                    GLOBAL.zona = "Nivel1-1";
                 }
+                GameObject.FindObjectOfType<Luz>().ChangeLightBetweenZones();
                 return;
             case "RestZoneLoadLevel2":
                 if (SceneManager.GetSceneByName("RestZone").name == null)
                 {
                     SceneManager.LoadSceneAsync("RestZone", LoadSceneMode.Additive);
                     SceneManager.LoadSceneAsync("Nivel1-1", LoadSceneMode.Additive);
+                    GLOBAL.zona = "RestZone";
                 }
                 else
                 {
                     SceneManager.UnloadSceneAsync("RestZone");
                     SceneManager.UnloadSceneAsync("Nivel1-1");
+                    GLOBAL.zona = "Nivel2-1";
                 }
+                GameObject.FindObjectOfType<Luz>().ChangeLightBetweenZones();
                 return;
         }
     }

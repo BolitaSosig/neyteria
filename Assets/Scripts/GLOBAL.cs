@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GLOBAL : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class GLOBAL : MonoBehaviour
     public GameObject player;
     public int d = 0;
     public PauseMenu pauseMenu;
+
+    public static string zona;
 
     // ENEMIGO
     public static float AUMENTO_NV = 0.99f;
@@ -32,4 +35,9 @@ public class GLOBAL : MonoBehaviour
         if (startPosition.activeSelf)
             player.transform.position = startPosition.transform.position;
     }
+
+    /*public static void SetZone(Scene z)
+    {
+        zona = z;
+    }*/
 }
