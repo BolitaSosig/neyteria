@@ -11,7 +11,7 @@ public class GLOBAL : MonoBehaviour
     public int d = 0;
     public PauseMenu pauseMenu;
 
-    public static string zona;
+    public static string zona = "Nivel1-1";
 
     // ENEMIGO
     public static float AUMENTO_NV = 0.99f;
