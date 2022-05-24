@@ -215,8 +215,10 @@ MonoBehaviour:
   _weather: {fileID: 0}
   healthBarEnemy: {fileID: 757757706578032882}
   _shootTransform: {fileID: 2130559013}
-  projectile: {fileID: 8451858909790069766, guid: 3ecbf72d595659241a968dbec6faa4e2, type: 3}
+  projectile: {fileID: 8451858909790069766, guid: d85895634f695bc42a674dbcb16dabdb, type: 3}
   shootForce: 15
+  lookRadius: 10
+  followEnemy: 0
   baseHP: 50
   baseAttack: 4
   baseDefense: 1

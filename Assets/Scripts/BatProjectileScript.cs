@@ -49,6 +49,7 @@ public class BatProjectileScript : MonoBehaviour
 
     public IEnumerator Following()
     {
+        GetComponent<SpriteRenderer>().color = Color.magenta;
         while (follow)
         {
             Vector2 direction2 = new Vector2(player.position.x, player.position.y) - new Vector2(this.transform.position.x, this.transform.position.y);
