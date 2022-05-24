@@ -200,12 +200,15 @@ public class BringerOfDeathController : MonoBehaviour
     public IEnumerator Die()
     {
         _animator.SetTrigger("dead");
+        _canvasTranform.gameObject.SetActive(false);
         _rigidbody2D.bodyType = RigidbodyType2D.Static;
         _boxCollider2D.enabled = false;
-        _rigidbody2D.gravityScale = 0f; 
-        yield return new WaitForSecondsRealtime(0.7f);
+        this.enabled = false;
+        _rigidbody2D.gravityScale = 0f;
+        yield return new WaitForSecondsRealtime(2f);
         if(_togglePlatform != null) _togglePlatform.SetActive(false);
-        Destroy(gameObject);
+        //Destroy(gameObject);
+        
     }
 
     public IEnumerator DoAttack()
@@ -362,12 +365,13 @@ public class BringerOfDeathController : MonoBehaviour
     ////// RECIBE DAÑO //////
     public void GetDamage(float dmg)
     {
-        _animator.SetTrigger("hurt");
+        
         HP = Mathf.Max(0, HP - dmg);
         ShowDamageDeal(Mathf.RoundToInt(dmg));
         if (HP <= (MaxHP/2) && firstTimeMediaVida) { InvocarEnemigos1(); }
         if (HP <= (MaxHP/5) && firstTimePocaVida) { InvocarEnemigos2(); }
-        if (HP <= 0) StartCoroutine(Die());
+
+        if (HP <= 0) { StopAllCoroutines(); moving = true; _animator.SetBool("isDead", true); StartCoroutine(Die()); } else { _animator.SetTrigger("hurt"); }
     }
 
     public void GetDamageByPlayer(float attack)

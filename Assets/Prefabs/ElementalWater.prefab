@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6440395474963439699}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -4.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7680256104949013031}
@@ -248,7 +248,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7680256103627788340}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.37, y: -3.54, z: 0}
+  m_LocalPosition: {x: -1.65, y: -5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7680256104949013031}
@@ -292,7 +292,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.02, y: 1.33}
+  m_AnchoredPosition: {x: -0.02, y: -3.43}
   m_SizeDelta: {x: 2.0812, y: 1.6216}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &7680256103750619535
@@ -365,11 +365,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7680256104949013031}
-  - component: {fileID: 7680256104176733717}
   - component: {fileID: 7680256104176733714}
   - component: {fileID: 7680256104176733715}
   - component: {fileID: 7680256104176733712}
   - component: {fileID: 7680256104176733713}
+  - component: {fileID: 1404724840}
   m_Layer: 9
   m_Name: ElementalWater
   m_TagString: Enemy
@@ -386,7 +386,7 @@ Transform:
   m_GameObject: {fileID: 7680256104176733726}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 309.58, y: 2.42, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
   - {fileID: 7680256103750619530}
   - {fileID: 7680256103627788343}
@@ -394,55 +394,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7680256104176733717
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7680256104176733726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e0cb443ec8c41f43b13ae63c21cd4b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemigosNivel:
-  - {fileID: 4274105038498637994, guid: 7b036402091756f4db05e0b63ceec1d0, type: 3}
-  - {fileID: 4274105038498637994, guid: c5d00deb518a633498166c8cc43a1bf5, type: 3}
-  - {fileID: 4274105038498637994, guid: 7afe4bb56f6028f4699a5fd005fd10af, type: 3}
-  - {fileID: 4274105038498637994, guid: 9aa9587d97908ac45bd994d91f59e8a8, type: 3}
-  - {fileID: 4274105038498637994, guid: 749695e8263a6fc4a8cdaa63528f3d03, type: 3}
-  _nivel: 20
-  HP: 100
-  MaxHP: 100
-  Stamina: 100
-  Attack: 4
-  Defense: 1
-  Weight: 1
-  MovSpeed: 1
-  AttSpeed: 1
-  JumpCap: 1
-  dmgReduc: 0
-  mov_x: 0
-  cont_mov_x: 0
-  _levelText: {fileID: 7680256104375301898}
-  _canvasTranform: {fileID: 7680256103750619530}
-  _damageDealTMP: {fileID: 1931263843719411576, guid: 9eb9ec5f41b3bb945bd9dfe9fedef7fe, type: 3}
-  _weather: {fileID: 0}
-  healthBarEnemy: {fileID: 7680256104188059548}
-  _shootTransform: {fileID: 7680256103627788343}
-  projectile: {fileID: 8451858909790069766, guid: 2c712c579aa44114cb72a4be4fe34b37, type: 3}
-  swordRange: 4.73
-  playerLayers:
-    serializedVersion: 2
-    m_Bits: 256
-  _togglePlatform: {fileID: 0}
-  _transformPlataform: {fileID: 0}
-  baseHP: 110
-  baseAttack: 6
-  baseDefense: 2.5
-  baseMovSpeed: 1
-  baseAttSpeed: 1
 --- !u!212 &7680256104176733714
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -483,7 +434,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -750047184722822154, guid: 61360be86ed0cb748aa3d849762998b4, type: 3}
+  m_Sprite: {fileID: 1689677927718415070, guid: 704473ddd5310cc4b9b8c4549a50b3a7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -507,18 +458,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.03904724, y: -2.399107}
+  m_Offset: {x: 0.06, y: -6.3324394}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.75, y: 0.5}
-    oldSize: {x: 17.5, y: 11.625}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 41.142857, y: 18.285715}
     newSize: {x: 0.16, y: 0.24}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.6064148, y: 6.3547173}
+  m_Size: {x: 3.52, y: 5.3812256}
   m_EdgeRadius: 0
 --- !u!50 &7680256104176733712
 Rigidbody2D:
@@ -551,7 +502,7 @@ Animator:
   m_GameObject: {fileID: 7680256104176733726}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c00e73be90ac2d7458d2d5ba8aaa495a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -560,6 +511,55 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1404724840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7680256104176733726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 030dcd13413c9b24ab277572e2d79aa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemigosNivel:
+  - {fileID: 4274105038498637994, guid: 7b036402091756f4db05e0b63ceec1d0, type: 3}
+  - {fileID: 4274105038498637994, guid: c5d00deb518a633498166c8cc43a1bf5, type: 3}
+  - {fileID: 4274105038498637994, guid: 7afe4bb56f6028f4699a5fd005fd10af, type: 3}
+  - {fileID: 4274105038498637994, guid: 9aa9587d97908ac45bd994d91f59e8a8, type: 3}
+  - {fileID: 4274105038498637994, guid: 749695e8263a6fc4a8cdaa63528f3d03, type: 3}
+  _nivel: 20
+  HP: 100
+  MaxHP: 100
+  Stamina: 100
+  Attack: 4
+  Defense: 1
+  Weight: 1
+  MovSpeed: 1
+  AttSpeed: 1
+  JumpCap: 1
+  dmgReduc: 0
+  mov_x: 0
+  cont_mov_x: 0
+  _levelText: {fileID: 7680256104375301898}
+  _canvasTranform: {fileID: 7680256103750619530}
+  _damageDealTMP: {fileID: 1931263843719411576, guid: 9eb9ec5f41b3bb945bd9dfe9fedef7fe, type: 3}
+  _weather: {fileID: 0}
+  healthBarEnemy: {fileID: 7680256104188059548}
+  _shootTransform: {fileID: 7680256103627788343}
+  projectile: {fileID: 8451858909790069766, guid: 2c712c579aa44114cb72a4be4fe34b37, type: 3}
+  swordRange: 4.73
+  playerLayers:
+    serializedVersion: 2
+    m_Bits: 256
+  _togglePlatform: {fileID: 0}
+  _transformPlataform: {fileID: 0}
+  baseHP: 100
+  baseAttack: 6
+  baseDefense: 2.5
+  baseMovSpeed: 1
+  baseAttSpeed: 1
 --- !u!1 &7680256104188059549
 GameObject:
   m_ObjectHideFlags: 0

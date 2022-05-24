@@ -52,6 +52,11 @@ public class ElementalWater : MonoBehaviour
     public Transform _shootTransform;
     public GameObject projectile;
     public float swordRange = 0.6f;
+    public Transform _ability1Transform;
+    public float ability1Range = 0.6f;
+    public Transform _ability2Transform;
+    public float ability2Range = 0.6f;
+
     public LayerMask playerLayers;
 
     float lookRadius = 10f;
@@ -200,12 +205,14 @@ public class ElementalWater : MonoBehaviour
     public IEnumerator Die()
     {
         _animator.SetTrigger("dead");
+        _canvasTranform.gameObject.SetActive(false);
         _rigidbody2D.bodyType = RigidbodyType2D.Static;
         _boxCollider2D.enabled = false;
-        _rigidbody2D.gravityScale = 0f; 
-        yield return new WaitForSecondsRealtime(0.7f);
-        if(_togglePlatform != null) _togglePlatform.SetActive(false);
-        Destroy(gameObject);
+        this.enabled = false;
+        _rigidbody2D.gravityScale = 0f;
+        yield return new WaitForSecondsRealtime(2f);
+        if (_togglePlatform != null) _togglePlatform.SetActive(false);
+        //Destroy(gameObject);
     }
 
     public IEnumerator DoAttack()
@@ -370,6 +377,10 @@ public class ElementalWater : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, lookRadius);
         Gizmos.color = Color.green;
         if (_shootTransform != null) Gizmos.DrawWireSphere(_shootTransform.position, swordRange);
+        Gizmos.color = Color.white;
+        if (_ability1Transform != null) Gizmos.DrawWireSphere(_ability1Transform.position, ability1Range);
+        Gizmos.color = Color.yellow;
+        if (_ability2Transform != null) Gizmos.DrawWireSphere(_ability2Transform.position, ability2Range);
     }
 
     void InvocarEnemigos1()
@@ -422,7 +433,8 @@ public class ElementalWater : MonoBehaviour
         ShowDamageDeal(Mathf.RoundToInt(dmg));
         if (HP <= (MaxHP/2) && firstTimeMediaVida) { InvocarEnemigos1(); }
         if (HP <= (MaxHP/5) && firstTimePocaVida) { InvocarEnemigos2(); }
-        if (HP <= 0) StartCoroutine(Die());
+
+        if (HP <= 0) { StopAllCoroutines(); moving = true; _animator.SetBool("isDead", true); StartCoroutine(Die()); } else { _animator.SetTrigger("hurt"); }
     }
 
     public void GetDamageByPlayer(float attack)
