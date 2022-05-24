@@ -20,7 +20,7 @@ public class ProjectileScript : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             // Debug.Log("colision con Player"); return;
-            other.SendMessage("GetDamageByEnemy", gunDMG * BULLET_DMG);
+            other.SendMessage("GetDamageByEnemy", gunDMG); //* BULLET_DMG);
 
             //Debug.Log("colision con Enemy"); 
             Destroy(gameObject);
