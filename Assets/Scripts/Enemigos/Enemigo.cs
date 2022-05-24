@@ -65,7 +65,7 @@ public class Enemigo : MonoBehaviour
         }
     }
 
-    private (Vector2, Vector2) getGroundCheckCorners()
+    protected (Vector2, Vector2) getGroundCheckCorners()
     {
         Vector3 max = _boxCollider2D.bounds.max;
         Vector3 min = _boxCollider2D.bounds.min;
@@ -83,6 +83,15 @@ public class Enemigo : MonoBehaviour
         }
     }
 
+    protected bool checkBorderPlatform()
+    {
+        Vector3 max = _boxCollider2D.bounds.max;
+        Vector3 min = _boxCollider2D.bounds.min;
+        Vector2 corner1 = new Vector2(max.x + Mathf.Sign(transform.localScale.x) * 0.25f, min.y - 0.1f);
+        Vector2 corner2 = new Vector2(min.x + Mathf.Sign(transform.localScale.x) * 0.25f, min.y - 0.1f);
+        return Physics2D.OverlapPoint(corner1) == null || Physics2D.OverlapPoint(corner2) == null;
+    }
+
     public bool canDash
     {
         get { return Input.GetAxisRaw("Dash") == 1; }
@@ -96,11 +105,6 @@ public class Enemigo : MonoBehaviour
 
     protected virtual void Start()
     {
-        StartReferences();
-    }
-
-    protected void StartReferences()
-    {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _boxCollider2D = GetComponent<BoxCollider2D>();
         _polygonCollider2D = GetComponent<PolygonCollider2D>();
@@ -112,7 +116,7 @@ public class Enemigo : MonoBehaviour
     }
 
 
-    protected void Update()
+    protected virtual void Update()
     {
         CheckWeatherChange();
         if (levelHasChanged)
@@ -128,7 +132,7 @@ public class Enemigo : MonoBehaviour
         {
             moving = true;
             float cont = 0;
-            while (cont < DISTANCIA_EN_SEGUNDOS * 10f / MovSpeed)
+            while (!checkBorderPlatform() && cont < DISTANCIA_EN_SEGUNDOS * 10f / MovSpeed)
             {
                 _rigidbody2D.velocity = new Vector2(Mathf.Sign(transform.localScale.x) * SPEED_MOV * MovSpeed, _rigidbody2D.velocity.y); // desplazamiento del personaje
                 _animator.SetFloat("velocity_x", Mathf.Abs(_rigidbody2D.velocity.x)); // establece velocity_x en el animator*/

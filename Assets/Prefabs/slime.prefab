@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4274105038498637991}
-  - component: {fileID: 4274105038498637988}
+  - component: {fileID: 184336980097207150}
   - component: {fileID: 4274105038498637992}
   - component: {fileID: 4274105038498637990}
   - component: {fileID: 4274105038498637993}
@@ -37,7 +37,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4274105038498637988
+--- !u!114 &184336980097207150
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -46,11 +46,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4274105038498637994}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de071e1213b06b84ea30d4d32a51a6b4, type: 3}
+  m_Script: {fileID: 11500000, guid: d9c12791caa6b5d40816a39229587e33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _nivel: 1
-  HP: 100
+  HP: 50
   MaxHP: 100
   Stamina: 100
   Attack: 4
