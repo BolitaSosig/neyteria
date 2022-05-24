@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     // CONSTANTES
     private const float SPEED_MOV = 8f;
     private const float JUMP_FORCE = 22f;
-    private const float DASH_FORCE = 12f;
+    private const float DASH_FORCE = 15f;
     private const float DMG_CD = 0.5f;
     private const float DASH_RANGE = 0.1f;
     private const float STAMINA_REC_SPEED = 30f;
@@ -112,13 +112,11 @@ public class PlayerController : MonoBehaviour
         CheckDeath();
         Moverse();
         UseModulo();
-
-        if (Input.GetKeyDown(KeyCode.L)) {Attack += 20; Defense += 20; }
     }
 
     void Moverse()
     {
-        if(canMove)
+        if(canMove && Time.timeScale > 0)
         {
             Dash();
             Walk();

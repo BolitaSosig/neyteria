@@ -15,4 +15,52 @@ public class Item : ScriptableObject
     public bool usable;
     public int maxCant = 999;
     public bool visible = true;
+
+
+
+    public static Item NONE;
+    public static Item DEGITERIO;
+    public static Item OCCATERIO;
+    public static Item SUERO_VITAL;
+    public static Item SUERO_ENERGETICO;
+    public static Item SUERO_FORTALECEDOR;
+    public static Item SUERO_PROTECTOR;
+    public static Item MINERAL_FRAGMENTADO;
+    public static Item NEXOTEK;
+    public static Item MINERAL_COMPACTO;
+    public static Item PIEDRAS_DE_LAVA;
+    public static Item ROCA_DE_MAGMA;
+    public static Item SOLLOZOS_DEL_CREPUSCULO;
+    public static Item TEMOR_DEL_CREPUSCULO;
+
+    private static Item[] allItems;
+
+    private void OnEnable()
+    {
+        NONE = Resources.Load<Item>("Data\\Item\\NONE");
+        DEGITERIO = Resources.Load<Item>("Data\\Item\\Degiterio");
+        OCCATERIO = Resources.Load<Item>("Data\\Item\\Occaterio");
+        SUERO_VITAL = Resources.Load<Item>("Data\\Item\\Suero_vital");
+        SUERO_ENERGETICO = Resources.Load<Item>("Data\\Item\\Suero_energetico");
+        SUERO_FORTALECEDOR = Resources.Load<Item>("Data\\Item\\Suero_fortalecedor");
+        SUERO_PROTECTOR = Resources.Load<Item>("Data\\Item\\Suero_protector");
+        MINERAL_FRAGMENTADO = Resources.Load<Item>("Data\\Item\\Mineral_fragmentado");
+        NEXOTEK = Resources.Load<Item>("Data\\Item\\Nexotek");
+        MINERAL_COMPACTO = Resources.Load<Item>("Data\\Item\\Mineral_compacto");
+        PIEDRAS_DE_LAVA = Resources.Load<Item>("Data\\Item\\Piedras_de_lava");
+        ROCA_DE_MAGMA = Resources.Load<Item>("Data\\Item\\ROca_de_magma");
+        SOLLOZOS_DEL_CREPUSCULO = Resources.Load<Item>("Data\\Item\\Sollozos_del_crepusculo");
+        TEMOR_DEL_CREPUSCULO = Resources.Load<Item>("Data\\Item\\Temor_del_crepusculo");
+
+        allItems = new Item[]
+        {
+            NONE, DEGITERIO, OCCATERIO, SUERO_VITAL, SUERO_ENERGETICO, SUERO_FORTALECEDOR, SUERO_PROTECTOR, MINERAL_FRAGMENTADO,
+            NEXOTEK, MINERAL_COMPACTO, PIEDRAS_DE_LAVA, ROCA_DE_MAGMA, SOLLOZOS_DEL_CREPUSCULO, TEMOR_DEL_CREPUSCULO
+        };
+    }
+
+    public static Item getItemByID(int id)
+    {
+        return allItems[id];
+    } 
 }

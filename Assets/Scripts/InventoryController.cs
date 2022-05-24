@@ -75,9 +75,9 @@ public class InventoryController : MonoBehaviour
                 if (_items.rapidos.Contains(i)) go.transform.parent = _rapidosContent.transform;
                 else                            go.transform.parent = _viewportContent.transform;
             }
-            if (i.Equals(PlayerItems.DEGITERIO))
+            if (i.Equals(Item.DEGITERIO))
                 _degiterioCount.text = c.ToString();
-            if (i.Equals(PlayerItems.OCCATERIO))
+            if (i.Equals(Item.OCCATERIO))
                 _occaterioCount.text = c.ToString();
         }
     }

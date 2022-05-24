@@ -111,7 +111,7 @@ public class GUIController : MonoBehaviour
             itemCant.text = pair.cant.ToString();
         } else
         {
-            itemIcon.sprite = PlayerItems.NONE.icono;
+            itemIcon.sprite = Item.NONE.icono;
             itemCant.text = "";
         }
     }

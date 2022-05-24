@@ -7,23 +7,6 @@ using UnityEngine.UI;
 
 public class PlayerItems : MonoBehaviour
 {
-
-    public static Item NONE;
-    public static Item DEGITERIO;
-    public static Item OCCATERIO;
-    public static Item SUERO_VITAL;
-    public static Item SUERO_ENERGETICO;
-    public static Item SUERO_FORTALECEDOR;
-    public static Item SUERO_PROTECTOR;
-    public static Item MINERAL_FRAGMENTADO;
-    public static Item NEXOTEK;
-    public static Item MINERAL_COMPACTO;
-    public static Item PIEDRAS_DE_LAVA;
-    public static Item ROCA_DE_MAGMA;
-    public static Item SOLLOZOS_DEL_CREPUSCULO;
-    public static Item TEMOR_DEL_CREPUSCULO;
-
-
     private Dictionary<Item, int> items = new Dictionary<Item, int>();
     public List<Item> rapidos = new List<Item>();
     public int index_rapido = 0;
@@ -33,28 +16,8 @@ public class PlayerItems : MonoBehaviour
 
     public void Start()
     {
-        StartItems(); 
-
-        Add(DEGITERIO, 0);
-        Add(OCCATERIO, 0);
-    }
-
-    void StartItems()
-    {
-        NONE = Resources.Load<Item>("Data\\Item\\NONE");
-        DEGITERIO = Resources.Load<Item>("Data\\Item\\Degiterio");
-        OCCATERIO = Resources.Load<Item>("Data\\Item\\Occaterio");
-        SUERO_VITAL = Resources.Load<Item>("Data\\Item\\Suero_vital");
-        SUERO_ENERGETICO = Resources.Load<Item>("Data\\Item\\Suero_energetico");
-        SUERO_FORTALECEDOR = Resources.Load<Item>("Data\\Item\\Suero_fortalecedor");
-        SUERO_PROTECTOR = Resources.Load<Item>("Data\\Item\\Suero_protector");
-        MINERAL_FRAGMENTADO = Resources.Load<Item>("Data\\Item\\Mineral_fragmentado");
-        NEXOTEK = Resources.Load<Item>("Data\\Item\\Nexotek");
-        MINERAL_COMPACTO = Resources.Load<Item>("Data\\Item\\Mineral_compacto");
-        PIEDRAS_DE_LAVA = Resources.Load<Item>("Data\\Item\\Piedras_de_lava");
-        ROCA_DE_MAGMA = Resources.Load<Item>("Data\\Item\\ROca_de_magma");
-        SOLLOZOS_DEL_CREPUSCULO = Resources.Load<Item>("Data\\Item\\Sollozos_del_crepusculo");
-        TEMOR_DEL_CREPUSCULO = Resources.Load<Item>("Data\\Item\\Temor_del_crepusculo");
+        Add(Item.DEGITERIO, 0);
+        Add(Item.OCCATERIO, 0);
     }
 
     public void Update()
@@ -104,7 +67,7 @@ public class PlayerItems : MonoBehaviour
             if (item.ID == id)
                 return (item, items[item]);
         }
-        return (NONE, 0);
+        return (Item.NONE, 0);
     }
 
     public List<(Item, int)> getAllItemsCant()
