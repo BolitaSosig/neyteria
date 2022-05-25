@@ -112,6 +112,9 @@ public class PlayerController : MonoBehaviour
         CheckDeath();
         Moverse();
         UseModulo();
+        if (Input.GetKeyDown(KeyCode.K)) { Defense++; Attack++; }
+        if (Input.GetKeyDown(KeyCode.L)) { Defense--; Attack--; }
+
     }
 
     void Moverse()
