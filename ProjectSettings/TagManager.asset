@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ZoneLoader
   - Enemy
+  - Nivel1_Enemigos1
   layers:
   - Default
   - TransparentFX
