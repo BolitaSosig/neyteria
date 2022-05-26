@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 4274105038498637990}
   - component: {fileID: 4274105038498637993}
   - component: {fileID: 4274105038498637989}
+  - component: {fileID: 8628197505749317961}
   m_Layer: 9
   m_Name: archer
   m_TagString: Enemy
@@ -222,6 +223,37 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!60 &8628197505749317961
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4274105038498637994}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.1333334, y: 2.1333334}
+    newSize: {x: 0.16, y: 0.24}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.31320375, y: 0.15496421}
+      - {x: 0.33945674, y: -0.50815123}
+      - {x: -0.2250239, y: -0.5131892}
+      - {x: -0.22516377, y: 0.13361311}
+      - {x: -0.10966008, y: 0.21701258}
+      - {x: 0.14380288, y: 0.25129908}
 --- !u!1 &5624228668794474145
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,20 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Módulo", menuName = "Scriptable/Módulo del Ocaso")]
-public class Modulo : ScriptableObject
+public class Modulo : Item
 {
-    public int ID;
-    public string nombre;
-    [TextArea(3, 10)]
-    public string descripcion;
     [Range(1, 3)]
     public int Slots = 1;
     public float Duracion;
     public float TdE;
-    [Range(1, 3)]
-    public int MaxLvl = 1;
+    public Modulo Upgrade;
 
     public Object script;
+    [Range(1, 3)]
+    public int Nv = 1;
     public bool override_start;
     public bool override_skill;
     public bool override_cooldown;
@@ -24,7 +21,6 @@ public class Modulo : ScriptableObject
     private MonoBehaviour _script;
     private PlayerController player;
     private float cd = 0;
-    private float lvl = 1;
 
     void Start()
     {

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4274105038498637990}
   - component: {fileID: 4274105038498637993}
   - component: {fileID: 4274105038498637989}
-  - component: {fileID: -6817436987815219161}
+  - component: {fileID: 3049060372610334745}
   m_Layer: 9
   m_Name: slime
   m_TagString: Enemy
@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _nivel: 1
-  HP: 50
+  HP: 100
   MaxHP: 100
   Stamina: 100
   Attack: 4
@@ -189,7 +189,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!60 &-6817436987815219161
+--- !u!60 &3049060372610334745
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -214,13 +214,13 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.060661316, y: 0.12217045}
-      - {x: -0.47683716, y: 0.094665155}
-      - {x: -0.60015565, y: -0.3611275}
-      - {x: -0.69572145, y: -0.57865906}
-      - {x: 0.6961258, y: -0.5766907}
-      - {x: 0.49588472, y: -0.23932782}
-      - {x: 0.37987673, y: 0.08887349}
+    - - {x: -0.521328, y: 0.04017149}
+      - {x: -0.6009529, y: -0.3174144}
+      - {x: -0.6862572, y: -0.5823474}
+      - {x: 0.6933678, y: -0.5823474}
+      - {x: 0.47984695, y: -0.36932015}
+      - {x: 0.45877916, y: -0.10319676}
+      - {x: 0.2303406, y: 0.13969456}
 --- !u!1 &5624228668794474145
 GameObject:
   m_ObjectHideFlags: 0
