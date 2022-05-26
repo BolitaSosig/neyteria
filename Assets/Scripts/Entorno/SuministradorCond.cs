@@ -20,4 +20,16 @@ public class SuministradorCond : Suministrador
             GameObject.Find("DialogoSuministrador5").GetComponent<BoxCollider2D>().enabled = false;
         }
     }
+
+    public IEnumerator Suministrador8()
+    {
+        if (true)
+            base.Unlock();
+        else
+        {
+            GameObject.Find("DialogoSuministrador8").GetComponent<BoxCollider2D>().enabled = true;
+            yield return new WaitForSecondsRealtime(0.1f);
+            GameObject.Find("DialogoSuministrador8").GetComponent<BoxCollider2D>().enabled = false;
+        }
+    }
 }

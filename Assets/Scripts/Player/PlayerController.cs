@@ -42,8 +42,6 @@ public class PlayerController : MonoBehaviour
     public GameObject HasMuertoTexto;
 
 
-    // AUXILIARES
-
     // FLAGS
     public bool staminaIsUsed = false;
     [SerializeField] public bool Inmune = false;                // Inmortal
