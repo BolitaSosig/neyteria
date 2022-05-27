@@ -27,6 +27,7 @@ public class Enemigo : MonoBehaviour
     [SerializeField] protected int cont_mov_x = 0;
 
     protected bool moving = false;
+    protected bool dying = true;
 
     // REFERENCIAS
     protected Rigidbody2D _rigidbody2D;
@@ -47,6 +48,7 @@ public class Enemigo : MonoBehaviour
     public float baseDefense;
     public float baseMovSpeed;
     public float baseAttSpeed;
+    public EnemyDrop drop;
 
     protected int _weatherVarNivel = 0;
 
@@ -178,6 +180,7 @@ public class Enemigo : MonoBehaviour
         _animator.SetTrigger("dead");
         _boxCollider2D.enabled = false;
         _rigidbody2D.gravityScale = 0f;
+        drop.GetDrops();
         yield return new WaitForSecondsRealtime(0.5f);
         Destroy(gameObject);
     }
@@ -187,12 +190,17 @@ public class Enemigo : MonoBehaviour
     {
         HP = Mathf.Max(0, HP - dmg);
         ShowDamageDeal(Mathf.RoundToInt(dmg));
-        if (HP <= 0) StartCoroutine(Die());
+        if (dying && HP <= 0)
+        {
+            dying = false;
+            StartCoroutine(Die());
+        }
     }
 
     public void GetDamageByPlayer(float attack)
     {
-        GetDamage(5 * attack / Mathf.Sqrt(Defense) * (1 - dmgReduc));
+        if(dying)
+            GetDamage(5 * attack / Mathf.Sqrt(Defense) * (1 - dmgReduc));
     }
 
     protected void UpdateStats()

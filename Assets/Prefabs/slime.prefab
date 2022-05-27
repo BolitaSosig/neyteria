@@ -72,6 +72,7 @@ MonoBehaviour:
   baseDefense: 1
   baseMovSpeed: 1
   baseAttSpeed: 1
+  drop: {fileID: 11400000, guid: 11a40238c20500b46976838b9d8db083, type: 2}
 --- !u!212 &4274105038498637992
 SpriteRenderer:
   m_ObjectHideFlags: 0
