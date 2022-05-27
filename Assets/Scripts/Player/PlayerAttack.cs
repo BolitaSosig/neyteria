@@ -6,8 +6,10 @@ public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] bool attacking = false;
     [SerializeField] bool switchingWeapon = false;
-
     [SerializeField] bool canAttack = true;
+
+    public Arma arma;
+    private Arma arma_old;
 
     
 
@@ -55,6 +57,10 @@ public class PlayerAttack : MonoBehaviour
         _maze = GameObject.Find("pivote-maze");
 
         StartCoroutine(UpdateSeleccionado());
+
+        _playerController.Attack = arma.ataque;
+        _playerController.Weight = arma.peso;
+        arma_old = arma;
     }
 
     // Update is called once per frame
@@ -70,7 +76,12 @@ public class PlayerAttack : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Q) && !switchingWeapon) StartCoroutine(UpdateSeleccionado());
         }
         
-        
+        if(!arma.Equals(arma_old))
+        {
+            _playerController.Attack += arma.ataque - arma_old.ataque;
+            _playerController.Weight += arma.peso - arma_old.peso;
+            arma_old = arma;
+        }
     }
 
     void GunAttack()

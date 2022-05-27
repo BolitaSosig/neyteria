@@ -4234,6 +4234,10 @@ PrefabInstance:
       propertyPath: _sceneController
       value: 
       objectReference: {fileID: 1174612726}
+    - target: {fileID: 7939270272959203814, guid: 0019507ed1bf00840b40e13df6f3cd8f, type: 3}
+      propertyPath: arma
+      value: 
+      objectReference: {fileID: 11400000, guid: ab9de8ea0204ce34f893501608be978f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0019507ed1bf00840b40e13df6f3cd8f, type: 3}
 --- !u!1 &1557532840
