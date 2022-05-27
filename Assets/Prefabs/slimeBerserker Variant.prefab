@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 184336980097207150, guid: 7b036402091756f4db05e0b63ceec1d0, type: 3}
+      propertyPath: drop
+      value: 
+      objectReference: {fileID: 11400000, guid: 199cac5ed99c3a54dad7674a4fa741f0, type: 2}
     - target: {fileID: 4274105038498637988, guid: 7b036402091756f4db05e0b63ceec1d0, type: 3}
       propertyPath: _nivel
       value: 12
@@ -93,7 +97,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4274105038498637994, guid: 7b036402091756f4db05e0b63ceec1d0, type: 3}
       propertyPath: m_Name
-      value: slimeBerserker
+      value: slimeBerserker Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b036402091756f4db05e0b63ceec1d0, type: 3}

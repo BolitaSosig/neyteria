@@ -32,6 +32,9 @@ public class Item : ScriptableObject
     public static Item ROCA_DE_MAGMA;
     public static Item SOLLOZOS_DEL_CREPUSCULO;
     public static Item TEMOR_DEL_CREPUSCULO;
+    public static Item GOTAS_DE_SLIME;
+    public static Item GOTAS_DE_SLIME_FURIOSO;
+    public static Item GOTAS_DE_SLIME_DE_LAVA;
     public static Item MODULO_DE_SUPERSALTO_1;
     public static Item MODULO_DE_SUPERSALTO_2;
     public static Item MODULO_DE_SUPERSALTO_3;
@@ -54,6 +57,9 @@ public class Item : ScriptableObject
         ROCA_DE_MAGMA = Resources.Load<Item>("Data\\Item\\ROca_de_magma");
         SOLLOZOS_DEL_CREPUSCULO = Resources.Load<Item>("Data\\Item\\Sollozos_del_crepusculo");
         TEMOR_DEL_CREPUSCULO = Resources.Load<Item>("Data\\Item\\Temor_del_crepusculo");
+        GOTAS_DE_SLIME = Resources.Load<Item>("Data\\Item\\Gotas_de_slime");
+        GOTAS_DE_SLIME_FURIOSO = Resources.Load<Item>("Data\\Item\\Gotas_de_slime_furioso");
+        GOTAS_DE_SLIME_DE_LAVA = Resources.Load<Item>("Data\\Item\\Gotas_de_slime_de_lava");
         MODULO_DE_SUPERSALTO_1 = Resources.Load<Item>("Data\\Modulo\\Modulo_de_Supersalto_1");
         MODULO_DE_SUPERSALTO_2 = Resources.Load<Item>("Data\\Modulo\\Modulo_de_Supersalto_2");
         MODULO_DE_SUPERSALTO_3 = Resources.Load<Item>("Data\\Modulo\\Modulo_de_Supersalto_3");
@@ -62,7 +68,8 @@ public class Item : ScriptableObject
         {
             NONE, DEGITERIO, OCCATERIO, SUERO_VITAL, SUERO_ENERGETICO, SUERO_FORTALECEDOR, SUERO_PROTECTOR, MINERAL_FRAGMENTADO,
             NEXOTEK, MINERAL_COMPACTO, PIEDRAS_DE_LAVA, ROCA_DE_MAGMA, SOLLOZOS_DEL_CREPUSCULO, TEMOR_DEL_CREPUSCULO,
-            null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,
+            GOTAS_DE_SLIME, GOTAS_DE_SLIME_FURIOSO, GOTAS_DE_SLIME_DE_LAVA, null, null, null, null, null, null, null, null, 
+            null, null, null, null, null,
             null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,
             null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,
             null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,
