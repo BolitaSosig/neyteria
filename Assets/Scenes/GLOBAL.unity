@@ -4150,6 +4150,30 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+    - target: {fileID: 40047114691595252, guid: 0019507ed1bf00840b40e13df6f3cd8f, type: 3}
+      propertyPath: AumHP
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 40047114691595252, guid: 0019507ed1bf00840b40e13df6f3cd8f, type: 3}
+      propertyPath: AumAttack
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 40047114691595252, guid: 0019507ed1bf00840b40e13df6f3cd8f, type: 3}
+      propertyPath: AumWeight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 40047114691595252, guid: 0019507ed1bf00840b40e13df6f3cd8f, type: 3}
+      propertyPath: AumDefense
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 40047114691595252, guid: 0019507ed1bf00840b40e13df6f3cd8f, type: 3}
+      propertyPath: AumStamina
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 40047114691595252, guid: 0019507ed1bf00840b40e13df6f3cd8f, type: 3}
+      propertyPath: AumGastoDash
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7078024818365178684, guid: 0019507ed1bf00840b40e13df6f3cd8f, type: 3}
       propertyPath: itemObtained
       value: 

@@ -10,15 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce7d44e0dd811ba4cbb082c6eddb2802, type: 3}
-  m_Name: Temor_del_crepusculo
+  m_Name: 011-Roca_de_magma
   m_EditorClassIdentifier: 
-  ID: 13
-  icono: {fileID: -2693009140137883590, guid: 7d41805254e404743b71b2f565e06775, type: 3}
-  rareza: 5
+  ID: 11
+  icono: {fileID: 2614870373251885436, guid: 7d41805254e404743b71b2f565e06775, type: 3}
+  rareza: 4
   usable: 0
   maxCant: 999
-  nombre: "Temor del Crep\xFAsculo"
-  descripcion: "Gran roca que amacena un poderoso y siniestro poder. \n\nAl sujetarla
-    con las manos, se puede sentir el miedo y los gritos de dolor de esos que perecer\xE1n
-    el la Cat\xE1strofe del Principio y Fin."
+  nombre: Roca de magma
+  descripcion: "Roca ba\xF1ada en un poderoso e incandescente magma creada por la
+    compresi\xF3n de peque\xF1as piedras de lava. \n\nQuema todo lo que se le acerque.\r"
   visible: 1

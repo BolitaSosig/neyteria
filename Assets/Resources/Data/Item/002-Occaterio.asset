@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce7d44e0dd811ba4cbb082c6eddb2802, type: 3}
-  m_Name: NONE
+  m_Name: 002-Occaterio
   m_EditorClassIdentifier: 
-  ID: 0
-  icono: {fileID: 6761164967045977113, guid: 7d41805254e404743b71b2f565e06775, type: 3}
-  rareza: 1
+  ID: 2
+  icono: {fileID: -68751727340038015, guid: 7d41805254e404743b71b2f565e06775, type: 3}
+  rareza: 4
   usable: 0
-  maxCant: 999
-  nombre: NONE
-  descripcion: NONE
-  visible: 1
+  maxCant: 2147483647
+  nombre: Occaterio
+  descripcion: Material raro que se puede emplear para canjear en el Nexo Central,
+    entre otras cosas.
+  visible: 0

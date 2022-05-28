@@ -24,10 +24,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public float Weight = 1f;                  // Peso
     [SerializeField] public float MovSpeed = 1f;                // Velocidad con la que se desplaza el personaje
     [SerializeField] public float JumpCap = 1f;                 // Altura que se alcanza con el salto
-    [SerializeField] public float DashRange = 1f;               // Intervalo de invulnerabilidad al evadir
+    [SerializeField] public float DashRange = 0.7f;             // Intervalo de invulnerabilidad al evadir
     [SerializeField] public float gastoDash = 25f;              // Gasto de resistencia al evadir
     [SerializeField] public float StaminaVelRec = 1f;           // Velocidad con la que se recupera la resistencia
     [SerializeField] public float dmgReduc = 0f;                // Reducción del daño recibido
+
 
     // REFERENCIAS
     private Rigidbody2D _rigidbody2D;
@@ -110,9 +111,6 @@ public class PlayerController : MonoBehaviour
         CheckDeath();
         Moverse();
         UseModulo();
-        if (Input.GetKeyDown(KeyCode.K)) { Defense++; Attack++; }
-        if (Input.GetKeyDown(KeyCode.L)) { Defense--; Attack--; }
-
     }
 
     void Moverse()
@@ -132,7 +130,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetAxisRaw("Horizontal") == 1 && transform.localScale.x < 0 || Input.GetAxisRaw("Horizontal") == -1 && transform.localScale.x > 0)
             transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z); // cambia de direccion
 
-        if (canDash || onAir)
+        if (canDash || onAir || (!canDash && Stamina < gastoDash))
             _rigidbody2D.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * SPEED_MOV * MovSpeed, _rigidbody2D.velocity.y); // desplazamiento del personaje
         _animator.SetFloat("velocity_x", Mathf.Abs(_rigidbody2D.velocity.x)); // establece velocity_x en el animator
     }
@@ -152,11 +150,11 @@ public class PlayerController : MonoBehaviour
     ////// EVASION //////
     void Dash()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift) /*Input.GetAxisRaw("Dash") == 1*/ && canDash && !onAir) // comprueba que puede dashear
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash && !onAir) // comprueba que puede dashear
         {
+            canDash = false;
             int shortDash = _rigidbody2D.velocity.x == 0 ? 1 : 0; // 1 si dashea mientras se esta moviendo, 0 si está quieto
             _rigidbody2D.velocity = new Vector2(DASH_FORCE * transform.localScale.x, 0);
-            canDash = false;
             StartCoroutine(GastarStamina(gastoDash - 0.35f * gastoDash * shortDash)); // consume resistencia al evadir
         }
     }

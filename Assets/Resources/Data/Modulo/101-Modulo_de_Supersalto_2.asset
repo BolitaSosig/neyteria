@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5475d04df7a041440b678e4f9dfb0c7b, type: 3}
-  m_Name: Modulo_de_Supersalto_3
+  m_Name: 101-Modulo_de_Supersalto_2
   m_EditorClassIdentifier: 
-  ID: 102
-  nombre: "M\xF3dulo de Supersalto nv3"
+  ID: 101
+  nombre: "M\xF3dulo de Supersalto nv2"
   descripcion: "Un sencillo m\xF3dulo desarrollado y programado para los primeros
     prototipos de Neyteria. Al conectarse con estos, se puede llegar m\xE1s alto
     al pegar un salto. \xDAtil para llegar a zonas que de normal no se alcanzan con
     un simple salto.\n\nDurante el periodo del efecto, la capacidad de salto aumenta
-    en un 100%. "
+    en un 75%. "
   icono: {fileID: 21300000, guid: d1f45a662c8f08b4ba04d5b1a38091c5, type: 3}
   rareza: 3
   usable: 0
@@ -27,9 +27,9 @@ MonoBehaviour:
   Slots: 1
   Duracion: 15
   TdE: 30
-  Upgrade: {fileID: 0}
+  Upgrade: {fileID: 11400000, guid: daede1574bae6e1478feea1f7a65cc62, type: 2}
   script: {fileID: 11500000, guid: 1ecf92e0adb2dda44a81a87dbbec635d, type: 3}
-  Nv: 3
+  Nv: 2
   override_start: 0
   override_skill: 0
   override_cooldown: 0

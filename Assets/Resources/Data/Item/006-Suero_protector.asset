@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce7d44e0dd811ba4cbb082c6eddb2802, type: 3}
-  m_Name: Degiterio
+  m_Name: 006-Suero_protector
   m_EditorClassIdentifier: 
-  ID: 1
-  icono: {fileID: 3875323374126825214, guid: 7d41805254e404743b71b2f565e06775, type: 3}
-  rareza: 1
-  usable: 0
-  maxCant: 2147483647
-  nombre: Degiterio
-  descripcion: Recurso utilizado para canjear en el Nexo Central.
-  visible: 0
+  ID: 6
+  icono: {fileID: 5860025163644826426, guid: 7d41805254e404743b71b2f565e06775, type: 3}
+  rareza: 2
+  usable: 1
+  maxCant: 999
+  nombre: Suero protector
+  descripcion: Suero que aumenta ligeramente la defensa.

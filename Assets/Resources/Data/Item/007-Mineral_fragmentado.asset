@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce7d44e0dd811ba4cbb082c6eddb2802, type: 3}
-  m_Name: Suero_energetico
+  m_Name: 007-Mineral_fragmentado
   m_EditorClassIdentifier: 
-  ID: 4
-  icono: {fileID: -5428206428529569624, guid: 7d41805254e404743b71b2f565e06775, type: 3}
+  ID: 7
+  icono: {fileID: -7583409310137716746, guid: 7d41805254e404743b71b2f565e06775, type: 3}
   rareza: 2
-  usable: 1
+  usable: 0
   maxCant: 999
-  nombre: "Suero energ\xE9tico"
-  descripcion: Suero que reduce un poco el consumo de la resistencia.
+  nombre: Mineral fragmentado
+  descripcion: Pedazo de mineral desbordado de las paredes de las cuevas de Oriquaht.
+  visible: 1

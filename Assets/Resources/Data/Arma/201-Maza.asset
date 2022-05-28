@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9bfefc211ee062449ba6b3fe0c3e935, type: 3}
-  m_Name: Sable_picapiedra
+  m_Name: 201-Maza
   m_EditorClassIdentifier: 
-  ID: 128
-  nombre: Sable picapiedra
+  ID: 201
+  nombre: Maza
   descripcion: Una espada de corto alcance forjada para aquellos que poseen el coraje
     de enfrentarse a este mundo.
   icono: {fileID: 6761164967045977113, guid: 7d41805254e404743b71b2f565e06775, type: 3}
-  rareza: 2
+  rareza: 1
   usable: 0
   maxCant: 1
   visible: 1
-  tipo: 0
-  ataque: 3.5
-  peso: 4.3
+  tipo: 1
+  ataque: 5
+  peso: 7

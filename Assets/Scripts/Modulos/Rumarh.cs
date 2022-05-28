@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Rumarh : MonoBehaviour
 {
-    private PlayerController player;
+    private PlayerController playerC;
+    private PlayerStats playerS;
     public float cd = 0;
     public int slot = 1;
     public int lvl = 1;
@@ -15,7 +16,8 @@ public class Rumarh : MonoBehaviour
 
     void Start()
     {
-        player = gameObject.GetComponent<PlayerController>();
+        playerC = gameObject.GetComponent<PlayerController>();
+        playerS = gameObject.GetComponent<PlayerStats>();
     }
 
     public void Launch()
@@ -26,11 +28,11 @@ public class Rumarh : MonoBehaviour
 
     public IEnumerator Skill()
     {
-        player.dmgReduc += 0.2f * lvl;
+        playerS.dmgReduc += 0.2f * lvl;
         StartCoroutine(Cooldown());
         yield return new WaitForSecondsRealtime(Duracion);
-        if (player.noCD) cd = 0;
-        player.dmgReduc -= 0.2f * lvl;
+        if (playerC.noCD) cd = 0;
+        playerS.dmgReduc -= 0.2f * lvl;
     }
     public IEnumerator Cooldown()
     {

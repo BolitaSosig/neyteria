@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Supersalto : MonoBehaviour
 {
-    private PlayerController player;
+    private PlayerStats playerS;
+    private PlayerController playerC;
     public float cd = 0;
     public int slot = 1;
     public int lvl = 1;
@@ -15,7 +16,8 @@ public class Supersalto : MonoBehaviour
 
     void Start()
     {
-        player = gameObject.GetComponent<PlayerController>();
+        playerS = gameObject.GetComponent<PlayerStats>();
+        playerC = gameObject.GetComponent<PlayerController>();
     }
 
     public void Launch()
@@ -26,11 +28,11 @@ public class Supersalto : MonoBehaviour
 
     public IEnumerator Skill()
     {
-        player.JumpCap += 0.5f + 0.25f * (lvl - 1);
+        playerS.JumpCap += 0.5f + 0.25f * (lvl - 1);
         StartCoroutine(Cooldown());
         yield return new WaitForSecondsRealtime(Duracion);
-        if (player.noCD) cd = 0;
-        player.JumpCap -= 0.5f + 0.25f * (lvl - 1);
+        if (playerC.noCD) cd = 0;
+        playerS.JumpCap -= 0.5f + 0.25f * (lvl - 1);
     }
     public IEnumerator Cooldown()
     {

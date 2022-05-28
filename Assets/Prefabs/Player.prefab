@@ -408,6 +408,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7232537792695838305}
   - component: {fileID: 7232537792695838311}
+  - component: {fileID: 40047114691595252}
   - component: {fileID: 7939270272959203814}
   - component: {fileID: 7078024818365178684}
   - component: {fileID: 7232537792695838304}
@@ -480,6 +481,41 @@ MonoBehaviour:
   canMove: 0
   oneHitKill: 0
   gettingDmg: 0
+--- !u!114 &40047114691595252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7232537792695838306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83c502c355e98604c9bd2f87fe86a785, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BaseHP: 100
+  BaseStamina: 100
+  BaseAttack: 1
+  BaseDefense: 1
+  BaseWeight: 1
+  MovSpeed: 1
+  JumpCap: 1
+  DashRange: 1
+  gastoDash: 25
+  StaminaVelRec: 1
+  dmgReduc: 0
+  AumHP: 0
+  AumStamina: 0
+  AumAttack: 0
+  AumDefense: 0
+  AumWeight: 0
+  AumGastoDash: 0
+  AdicHP: 0
+  AdicStamina: 0
+  AdicAttack: 0
+  AdicDefense: 0
+  AdicWeight: 0
+  AdicGastoDash: 0
 --- !u!114 &7939270272959203814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -495,6 +531,7 @@ MonoBehaviour:
   attacking: 0
   switchingWeapon: 0
   canAttack: 1
+  arma: {fileID: 0}
   seleccionado: 2
   bullet: {fileID: 8451858909790069766, guid: f54218b34e09ac746a824df05014b4d6, type: 3}
   shootForce: 25
@@ -518,6 +555,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 508b9f9e00e9b7a419ebdc92c15a9e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rapidos: []
+  index_rapido: 0
   printItems: 0
   _inventoryController: {fileID: 0}
 --- !u!212 &7232537792695838304

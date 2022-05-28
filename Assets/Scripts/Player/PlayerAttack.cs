@@ -16,6 +16,7 @@ public class PlayerAttack : MonoBehaviour
     //Referencias
     private Animator _animator;
     private PlayerController _playerController;
+    private PlayerStats _playerStats;
     private SoundManager _audioSource;
 
     //Selector
@@ -46,6 +47,7 @@ public class PlayerAttack : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _playerController = GetComponent<PlayerController>();
+        _playerStats = GetComponent<PlayerStats>();
         _audioSource = GameObject.Find("SoundManager").GetComponent<SoundManager>();
 
         _shootTransform = GameObject.Find("ShootTransform").transform;
@@ -58,8 +60,8 @@ public class PlayerAttack : MonoBehaviour
 
         StartCoroutine(UpdateSeleccionado());
 
-        _playerController.Attack = arma.ataque;
-        _playerController.Weight = arma.peso;
+        _playerStats.BaseAttack = arma.ataque;
+        _playerStats.BaseWeight = arma.peso;
         arma_old = arma;
     }
 
@@ -78,8 +80,8 @@ public class PlayerAttack : MonoBehaviour
         
         if(!arma.Equals(arma_old))
         {
-            _playerController.Attack += arma.ataque - arma_old.ataque;
-            _playerController.Weight += arma.peso - arma_old.peso;
+            _playerStats.BaseAttack += arma.ataque - arma_old.ataque;
+            _playerStats.BaseWeight += arma.peso - arma_old.peso;
             arma_old = arma;
         }
     }
@@ -160,9 +162,9 @@ public class PlayerAttack : MonoBehaviour
     {
         switchingWeapon = true;
         seleccionado = (seleccionado + 1) % 3; // seleciona siguiente indice arma
-        if (seleccionado == 0) { _gun.SetActive(true); _sword.SetActive(false); _maze.SetActive(false); _playerController.Attack = 1f; }
-        else if (seleccionado == 1) { _gun.SetActive(false); _sword.SetActive(true); _maze.SetActive(false); _playerController.Attack = 3f; }
-        else /*(seleccionado == 2)*/ { _gun.SetActive(false); _sword.SetActive(false); _maze.SetActive(true); _playerController.Attack = 5f; }
+        if (seleccionado == 0) { _gun.SetActive(true); _sword.SetActive(false); _maze.SetActive(false); }
+        else if (seleccionado == 1) { _gun.SetActive(false); _sword.SetActive(true); _maze.SetActive(false); }
+        else /*(seleccionado == 2)*/ { _gun.SetActive(false); _sword.SetActive(false); _maze.SetActive(true); }
 
         yield return new WaitForSecondsRealtime(1f);
         switchingWeapon = false;

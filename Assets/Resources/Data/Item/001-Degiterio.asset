@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce7d44e0dd811ba4cbb082c6eddb2802, type: 3}
-  m_Name: Nexotek
+  m_Name: 001-Degiterio
   m_EditorClassIdentifier: 
-  ID: 8
-  icono: {fileID: 0}
-  rareza: 5
-  usable: 1
-  maxCant: 999
-  nombre: Nexotek
-  descripcion: "C\xE1psula que permite la uni\xF3n con el Gran Nexo Central. \nCons\xFAmelo
-    para teletransportarte al \xFAltimo Nexo que te conectaste."
+  ID: 1
+  icono: {fileID: 3875323374126825214, guid: 7d41805254e404743b71b2f565e06775, type: 3}
+  rareza: 1
+  usable: 0
+  maxCant: 2147483647
+  nombre: Degiterio
+  descripcion: Recurso utilizado para canjear en el Nexo Central.
+  visible: 0

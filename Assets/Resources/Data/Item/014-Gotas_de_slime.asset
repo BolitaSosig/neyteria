@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce7d44e0dd811ba4cbb082c6eddb2802, type: 3}
-  m_Name: Mineral_fragmentado
+  m_Name: 014-Gotas_de_slime
   m_EditorClassIdentifier: 
-  ID: 7
-  icono: {fileID: -7583409310137716746, guid: 7d41805254e404743b71b2f565e06775, type: 3}
+  ID: 14
+  nombre: Gotas de Slime
+  descripcion: "Peque\xF1as gotas muy viscosas que dejan los Slime cuando son aniquilados.\n\nTal
+    vez se puedan utilizar de alguna manera si se transmutan en el Gran Nexo Central. "
+  icono: {fileID: -6338023803479276477, guid: 7d41805254e404743b71b2f565e06775, type: 3}
   rareza: 2
   usable: 0
   maxCant: 999
-  nombre: Mineral fragmentado
-  descripcion: Pedazo de mineral desbordado de las paredes de las cuevas de Oriquaht.
   visible: 1

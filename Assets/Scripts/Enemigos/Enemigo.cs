@@ -205,7 +205,6 @@ public class Enemigo : MonoBehaviour
 
     protected void UpdateStats()
     {
-        Debug.Log(HP);
         float var = (100 + (_nivel * (_nivel - 1) * GLOBAL.AUMENTO_NV) / 4) / 100f;
         float oldMHP = MaxHP;
         MaxHP = baseHP * var;

@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce7d44e0dd811ba4cbb082c6eddb2802, type: 3}
-  m_Name: Gotas_de_slime_furioso
+  m_Name: 013-Temor_del_crepusculo
   m_EditorClassIdentifier: 
-  ID: 15
-  nombre: Gotas de Slime Furioso
-  descripcion: "Gotas viscosas que dejan los Slime Furiosos cuando mueren. Emanan
-    un poderoso aura que transmite la Furia P\xFArpura.\n\nTal vez se puedan utilizar
-    de alguna manera si se transmutan en el Gran Nexo Central."
-  icono: {fileID: 6395214293025444372, guid: 7d41805254e404743b71b2f565e06775, type: 3}
-  rareza: 3
+  ID: 13
+  icono: {fileID: -2693009140137883590, guid: 7d41805254e404743b71b2f565e06775, type: 3}
+  rareza: 5
   usable: 0
   maxCant: 999
+  nombre: "Temor del Crep\xFAsculo"
+  descripcion: "Gran roca que amacena un poderoso y siniestro poder. \n\nAl sujetarla
+    con las manos, se puede sentir el miedo y los gritos de dolor de esos que perecer\xE1n
+    el la Cat\xE1strofe del Principio y Fin."
   visible: 1

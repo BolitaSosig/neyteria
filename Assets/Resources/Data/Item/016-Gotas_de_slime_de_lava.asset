@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce7d44e0dd811ba4cbb082c6eddb2802, type: 3}
-  m_Name: Gotas_de_slime_de_lava
+  m_Name: 016-Gotas_de_slime_de_lava
   m_EditorClassIdentifier: 
   ID: 16
   nombre: Gotas de Slime de Lava

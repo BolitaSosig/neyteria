@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce7d44e0dd811ba4cbb082c6eddb2802, type: 3}
-  m_Name: Roca_de_magma
+  m_Name: 015-Gotas_de_slime_furioso
   m_EditorClassIdentifier: 
-  ID: 11
-  icono: {fileID: 2614870373251885436, guid: 7d41805254e404743b71b2f565e06775, type: 3}
-  rareza: 4
+  ID: 15
+  nombre: Gotas de Slime Furioso
+  descripcion: "Gotas viscosas que dejan los Slime Furiosos cuando mueren. Emanan
+    un poderoso aura que transmite la Furia P\xFArpura.\n\nTal vez se puedan utilizar
+    de alguna manera si se transmutan en el Gran Nexo Central."
+  icono: {fileID: 6395214293025444372, guid: 7d41805254e404743b71b2f565e06775, type: 3}
+  rareza: 3
   usable: 0
   maxCant: 999
-  nombre: Roca de magma
-  descripcion: "Roca ba\xF1ada en un poderoso e incandescente magma creada por la
-    compresi\xF3n de peque\xF1as piedras de lava. \n\nQuema todo lo que se le acerque.\r"
   visible: 1
