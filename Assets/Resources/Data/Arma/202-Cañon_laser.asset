@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 202
   nombre: "Ca\xF1\xF3n l\xE1ser"
-  descripcion: Una espada de corto alcance forjada para aquellos que poseen el coraje
-    de enfrentarse a este mundo.
-  icono: {fileID: 6761164967045977113, guid: 7d41805254e404743b71b2f565e06775, type: 3}
+  descripcion: "Un ca\xF1\xF3n que canaliza energ\xEDa para disparar peque\xF1as
+    balas l\xE1ser a gran velocidad."
+  icono: {fileID: -7718305920703717862, guid: efc5f83711e58174da1f3b1de731108f, type: 3}
   rareza: 1
   usable: 0
   maxCant: 1

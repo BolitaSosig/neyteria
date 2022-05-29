@@ -11,7 +11,6 @@ public class PlayerAttack : MonoBehaviour
     public Arma arma;
     private Arma arma_old;
 
-    
 
     //Referencias
     private Animator _animator;
@@ -83,6 +82,13 @@ public class PlayerAttack : MonoBehaviour
             _playerStats.BaseAttack += arma.ataque - arma_old.ataque;
             _playerStats.BaseWeight += arma.peso - arma_old.peso;
             arma_old = arma;
+
+            if (arma.tipo == Arma.Tipo.Espada)
+                _sword.GetComponentInChildren<SpriteRenderer>().sprite = arma.icono;
+            else if (arma.tipo == Arma.Tipo.Maza)
+                _maze.GetComponentInChildren<SpriteRenderer>().sprite = arma.icono;
+            else
+                _gun.GetComponentInChildren<SpriteRenderer>().sprite = arma.icono;
         }
     }
 
