@@ -34,7 +34,6 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rigidbody2D;
     private BoxCollider2D _boxCollider2D;
     private Animator _animator;
-    [SerializeField] public Component[] Modulos = new Component[3];
     private GameObject _GLOBAL;
     [SerializeField] private SceneController _sceneController;
 
@@ -90,13 +89,6 @@ public class PlayerController : MonoBehaviour
         _GLOBAL = GameObject.Find("GLOBAL");
         _audioSource = GameObject.Find("SoundManager").GetComponent<SoundManager>();
 
-        gameObject.AddComponent(typeof(Supersalto));
-        Modulos[0] = gameObject.GetComponent(typeof(Supersalto));
-        gameObject.AddComponent(typeof(Invencibilidad));
-        Modulos[1] = gameObject.GetComponent(typeof(Invencibilidad));
-        gameObject.AddComponent(typeof(Rumarh));
-        Modulos[2] = gameObject.GetComponent(typeof(Rumarh));
-
         HasMuertoTexto.SetActive(false);
     }
 
@@ -110,7 +102,6 @@ public class PlayerController : MonoBehaviour
     {
         CheckDeath();
         Moverse();
-        UseModulo();
     }
 
     void Moverse()
@@ -199,21 +190,6 @@ public class PlayerController : MonoBehaviour
             yield return new WaitForSecondsRealtime(0.5f);
             staminaIsUsed = false;
             StartCoroutine(RecuperacionStamina());
-        }
-    }
-
-
-    void UseModulo()
-    {
-        int indx = -1;
-        if (Input.GetKeyDown(KeyCode.Alpha1)) indx = 0;
-        else if (Input.GetKeyDown(KeyCode.Alpha2)) indx = 1;
-        else if (Input.GetKeyDown(KeyCode.Alpha3)) indx = 2;
-        
-        if(indx >= 0 && indx <= 2)
-        {
-            Modulos[indx].GetType().GetMethod("Launch").Invoke(Modulos[indx], new object[] { });
-            _audioSource.PlayAudioOneShot(10);
         }
     }
 

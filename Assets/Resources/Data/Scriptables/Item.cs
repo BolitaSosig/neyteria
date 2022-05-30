@@ -39,6 +39,11 @@ public class Item : ScriptableObject
     public static Item MODULO_DE_SUPERSALTO_1;
     public static Item MODULO_DE_SUPERSALTO_2;
     public static Item MODULO_DE_SUPERSALTO_3;
+    public static Item MODULO_DE_INVENCIBILIDAD_1;
+    public static Item MODULO_DE_AGUANTE_1;
+    public static Item MODULO_DE_RUMARH_1;
+    public static Item MODULO_DE_RUMARH_2;
+    public static Item MODULO_DE_RUMARH_3;
 
     public static Item ESPADA_CORTA;
     public static Item MAZA;
@@ -71,9 +76,14 @@ public class Item : ScriptableObject
         GOTAS_DE_SLIME_FURIOSO = Resources.Load<Item>("Data\\Item\\015-Gotas_de_slime_furioso");
         GOTAS_DE_SLIME_DE_LAVA = Resources.Load<Item>("Data\\Item\\016-Gotas_de_slime_de_lava");
 
-        MODULO_DE_SUPERSALTO_1 = Resources.Load<Item>("Data\\Modulo\\100-Modulo_de_Supersalto_1");
-        MODULO_DE_SUPERSALTO_2 = Resources.Load<Item>("Data\\Modulo\\101-Modulo_de_Supersalto_2");
-        MODULO_DE_SUPERSALTO_3 = Resources.Load<Item>("Data\\Modulo\\102-Modulo_de_Supersalto_3");
+        MODULO_DE_SUPERSALTO_1 = Resources.Load<Item>("Data\\Modulo\\100-Modulo_de_supersalto_1");
+        MODULO_DE_SUPERSALTO_2 = Resources.Load<Item>("Data\\Modulo\\101-Modulo_de_supersalto_2");
+        MODULO_DE_SUPERSALTO_3 = Resources.Load<Item>("Data\\Modulo\\102-Modulo_de_supersalto_3");
+        MODULO_DE_INVENCIBILIDAD_1 = Resources.Load<Item>("Data\\Modulo\\103-Modulo_de_invencibilidad_1");
+        MODULO_DE_AGUANTE_1 = Resources.Load<Item>("Data\\Modulo\\104-Modulo_de_aguante_1");
+        MODULO_DE_RUMARH_1 = Resources.Load<Item>("Data\\Modulo\\105-Modulo_de_Rumarh_1");
+        MODULO_DE_RUMARH_2 = Resources.Load<Item>("Data\\Modulo\\106-Modulo_de_Rumarh_2");
+        MODULO_DE_RUMARH_3 = Resources.Load<Item>("Data\\Modulo\\107-Modulo_de_Rumarh_3");
 
         ESPADA_CORTA = Resources.Load<Item>("Data\\Arma\\200-Espada_corta");
         MAZA = Resources.Load<Item>("Data\\Arma\\201-Maza");
@@ -187,11 +197,11 @@ public class Item : ScriptableObject
             MODULO_DE_SUPERSALTO_1, 
             MODULO_DE_SUPERSALTO_2, 
             MODULO_DE_SUPERSALTO_3,
-            null,
-            null,
-            null,
-            null,
-            null,
+            MODULO_DE_INVENCIBILIDAD_1,
+            MODULO_DE_AGUANTE_1,
+            MODULO_DE_RUMARH_1,
+            MODULO_DE_RUMARH_2,
+            MODULO_DE_RUMARH_3,
             null,
             null,
             null,

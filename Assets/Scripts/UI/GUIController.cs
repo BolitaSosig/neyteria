@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class GUIController : MonoBehaviour
 {
     private PlayerController player;
+    private PlayerModulos playerM;
     [SerializeField] private GameObject healthBar;
     [SerializeField] private GameObject healthBarRelleno;
     [SerializeField] private GameObject staminaBar;
@@ -15,7 +16,7 @@ public class GUIController : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI[] moduloCD = new TextMeshProUGUI[3];
     [SerializeField] public Image[] moduloCB = new Image[3];
-    [SerializeField] public RawImage[] moduloSprite = new RawImage[3];
+    [SerializeField] public Image[] moduloSprite = new Image[3];
 
     [SerializeField] public Image itemIcon;
     [SerializeField] public TextMeshProUGUI itemCant;
@@ -36,6 +37,7 @@ public class GUIController : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        playerM = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerModulos>();
 
         //Escala de HealtBar y su relleno
         HBscaleY = healthBar.transform.localScale.y;
@@ -74,15 +76,21 @@ public class GUIController : MonoBehaviour
 
     void UpdateModulosTimings()
     {
-        
         for(int i = 0; i < 3; i++)
         {
-            if (player.Modulos[i] != null)
+            if (playerM._modulos[i] != null)
             {
-                float cd = (float)player.Modulos[i].GetType().GetField("cd").GetValue(player.Modulos[i]);
-                float Duracion = (float)player.Modulos[i].GetType().GetField("Duracion").GetValue(player.Modulos[i]);
-                float TdE = (float)player.Modulos[i].GetType().GetField("TdE").GetValue(player.Modulos[i]);
-                if (cd <= 0) { moduloCD[i].text = ""; moduloCB[i].fillAmount = 1; moduloCB[i].enabled = false; moduloSprite[i].color = Color.white; }
+                float cd = playerM._cooldown[i];
+                float duracion = playerM._duracion[i];
+                float Duracion = playerM._modulos[i].Duracion;
+                moduloSprite[i].sprite = playerM._modulos[i].icono;
+
+                if (cd <= 0) { 
+                    moduloCD[i].text = ""; 
+                    moduloCB[i].fillAmount = 1; 
+                    moduloCB[i].enabled = false;
+                    moduloSprite[i].color = Color.white; 
+                }
                 else
                 {
                     if (moduloCB[i].fillAmount == 0) {
@@ -93,10 +101,13 @@ public class GUIController : MonoBehaviour
                     } else
                     {
                         moduloCB[i].enabled = true;
-                        moduloCB[i].fillAmount = (cd - TdE + Duracion) /Duracion;
+                        moduloCB[i].fillAmount = duracion / Duracion;
                     }
 
                 }
+            } else
+            {
+                moduloSprite[i].sprite = Item.NONE.icono;
             }
         }    
     }

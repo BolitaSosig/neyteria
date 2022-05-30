@@ -15,7 +15,7 @@ MonoBehaviour:
   ID: 204
   nombre: Porra demolerocas
   descripcion: 
-  icono: {fileID: 6761164967045977113, guid: 7d41805254e404743b71b2f565e06775, type: 3}
+  icono: {fileID: -223114385829370851, guid: efc5f83711e58174da1f3b1de731108f, type: 3}
   rareza: 2
   usable: 0
   maxCant: 1

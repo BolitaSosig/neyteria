@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Módulo", menuName = "Scriptable/Módulo del Ocaso")]
@@ -11,55 +12,69 @@ public class Modulo : Item
     public float TdE;
     public Modulo Upgrade;
 
-    public Object script;
     [Range(1, 3)]
     public int Nv = 1;
     public bool override_start;
     public bool override_skill;
     public bool override_cooldown;
 
-    private MonoBehaviour _script;
-    private PlayerController player;
-    private float cd = 0;
 
-    void Start()
+
+    public static void SkillOn(int id, int lvl)
     {
-        _script = (MonoBehaviour)script;
-        if (override_start)
-            player.SendMessage("Start");
-        else
-            player = GameObject.Find("Player").GetComponent<PlayerController>();
+        Skill(true, id, lvl);
+    }
+    public static void SkillOff(int id, int lvl)
+    {
+        Skill(false, id, lvl);
     }
 
-    public void Launch()
+    private static void Skill(bool on, int id, int lvl)
     {
-        if (cd == 0)
-            _script.SendMessage("Skill", this);
-    }
-
-    public IEnumerator Skill()
-    {
-        //player.JumpCap += 0.5f + 0.25f * (lvl - 1);
-        _script.SendMessage("SkillOn", player);
-        //StartCoroutine(Cooldown());
-        yield return new WaitForSecondsRealtime(Duracion);
-        if (player.noCD) cd = 0;
-        //player.JumpCap -= 0.5f + 0.25f * (lvl - 1);
-        _script.SendMessage("SkillOff", player);
-    }
-    public IEnumerator Cooldown()
-    {
-        if (override_cooldown)
-            _script.SendMessage("Cooldown");
-        else
+        switch (id)
         {
-            cd = TdE;
-            while (cd > 0)
-            {
-                cd -= 0.1f;
-                yield return new WaitForSeconds(0.1f);
-            }
-            cd = 0;
+            case 100:
+            case 101:
+            case 102:
+                Supersalto_Skill(on, lvl);
+                break;
+            case 103:
+                Invencibilidad_Skill(on);
+                break;
+            case 104:
+                Aguante_Skill(on);
+                break;
+            case 105:
+            case 106:
+            case 107:
+                Rumarh_Skill(on, lvl);
+                break;
         }
+    }
+
+    private static void Supersalto_Skill(bool on, int lvl)
+    {
+        PlayerStats player = GameObject.Find("Player").GetComponent<PlayerStats>();
+        float buff = 0.5f + 0.25f * (lvl - 1);
+        player.JumpCap += on ? buff : -buff;
+    }
+
+    private static void Invencibilidad_Skill(bool on)
+    {
+        PlayerController player = GameObject.Find("Player").GetComponent<PlayerController>();
+        player.Inmune = on;
+    }
+
+    private static void Aguante_Skill(bool on)
+    {
+        PlayerController player = GameObject.Find("Player").GetComponent<PlayerController>();
+        player.staminaDecrease = !on;
+    }
+
+    private static void Rumarh_Skill(bool on, int lvl)
+    {
+        PlayerStats player = GameObject.Find("Player").GetComponent<PlayerStats>();
+        float buff = 0.1f * lvl;
+        player.dmgReduc += on ? buff : -buff;
     }
 }
