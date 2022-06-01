@@ -7,12 +7,15 @@ public class InventoryItemSelect : MonoBehaviour
 {
     private InventoryController _inventory;
     private PlayerItems _items;
+    public GameObject equiped;
+    public GameObject cantidad;
 
 
     private void Start()
     {
         _inventory = GameObject.Find("Inventario").GetComponent<InventoryController>();
         _items = GameObject.Find("Player").GetComponent<PlayerItems>();
+        equiped.SetActive(false);
     }
 
     public void SelectItem()

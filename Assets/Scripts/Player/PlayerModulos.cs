@@ -71,4 +71,9 @@ public class PlayerModulos : MonoBehaviour
         }
         _cooldown[s] = 0;
     }
+
+    public bool IsEquiped(Modulo m)
+    {
+        return m.Equals(_modulos[0]) || m.Equals(_modulos[1]) || m.Equals(_modulos[2]);
+    }
 }
