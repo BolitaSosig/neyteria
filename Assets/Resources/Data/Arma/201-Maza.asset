@@ -20,7 +20,7 @@ MonoBehaviour:
   rareza: 1
   usable: 0
   maxCant: 1
-  visible: 1
+  visible: 0
   tipo: 1
   ataque: 5
   peso: 7

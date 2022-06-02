@@ -22,7 +22,7 @@ MonoBehaviour:
   rareza: 3
   usable: 0
   maxCant: 1
-  visible: 1
+  visible: 0
   Slots: 1
   Duracion: 10
   TdE: 25

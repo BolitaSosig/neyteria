@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public float Defense = 1f;                 // Defensa
     [SerializeField] public float Weight = 1f;                  // Peso
     [SerializeField] public float MovSpeed = 1f;                // Velocidad con la que se desplaza el personaje
+    [SerializeField] public float AttSpeed = 1f;                // Velocidad con la que se desplaza el personaje
     [SerializeField] public float JumpCap = 1f;                 // Altura que se alcanza con el salto
     [SerializeField] public float DashRange = 0.7f;             // Intervalo de invulnerabilidad al evadir
     [SerializeField] public float gastoDash = 25f;              // Gasto de resistencia al evadir

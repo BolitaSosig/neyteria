@@ -19,7 +19,6 @@ public class Modulo : Item
     public bool override_cooldown;
 
 
-
     public static void SkillOn(int id, int lvl)
     {
         Skill(true, id, lvl);

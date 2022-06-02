@@ -13,6 +13,7 @@ public class PlayerItems : MonoBehaviour
     public bool printItems = false;
 
     public InventoryController _inventoryController;
+    public EquipmentController _equipmentController;
 
     public void Start()
     {
@@ -41,6 +42,7 @@ public class PlayerItems : MonoBehaviour
             items.Add(i, c);
         }
         _inventoryController.SendMessage("FillItems");
+        _equipmentController.SendMessage("FillEquipment");
     }
 
     public void Remove(Item i, int c)
@@ -52,12 +54,14 @@ public class PlayerItems : MonoBehaviour
                 items[i] = cant;
         }
         _inventoryController.SendMessage("FillItems");
+        _equipmentController.SendMessage("FillEquipment");
     }
 
     public void Remove(Item i)
     {
         items.Remove(i);
         _inventoryController.SendMessage("FillItems");
+        _equipmentController.SendMessage("FillEquipment");
     }
 
     public (Item, int) getByID(int id)
