@@ -80,7 +80,7 @@ public class EquipmentController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (/*Input.GetButton("Equipment") && Input.GetButtonDown("Equipment2")*/ Input.GetKeyDown(KeyCode.R))
             IsShow = !IsShow;
         if (Input.GetKeyDown(KeyCode.Z))
         {

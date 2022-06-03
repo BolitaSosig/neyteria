@@ -413,6 +413,7 @@ GameObject:
   - component: {fileID: 18003629497360716}
   - component: {fileID: 7078024818365178684}
   - component: {fileID: 7232537792695838304}
+  - component: {fileID: 5217823679815080306}
   - component: {fileID: 7232537792695838307}
   - component: {fileID: 7232537792695838310}
   - component: {fileID: 7232537792695838308}
@@ -463,15 +464,12 @@ MonoBehaviour:
   Defense: 1
   Weight: 1
   MovSpeed: 1
+  AttSpeed: 1
   JumpCap: 1
   DashRange: 0.5
   gastoDash: 25
   StaminaVelRec: 1
   dmgReduc: 0
-  Modulos:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   _sceneController: {fileID: 0}
   HasMuertoTexto: {fileID: 0}
   staminaIsUsed: 1
@@ -556,6 +554,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 721ce5c0ed8e50043978f76f30d5e832, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _modulos:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _duracion:
+  - 0
+  - 0
+  - 0
+  _cooldown:
+  - 0
+  - 0
+  - 0
 --- !u!114 &7078024818365178684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -572,6 +582,7 @@ MonoBehaviour:
   index_rapido: 0
   printItems: 0
   _inventoryController: {fileID: 0}
+  _equipmentController: {fileID: 0}
 --- !u!212 &7232537792695838304
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -623,6 +634,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5217823679815080306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7232537792695838306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5965dc1d1c7a3524a9366632aab7b67c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &7232537792695838307
 Rigidbody2D:
   serializedVersion: 4

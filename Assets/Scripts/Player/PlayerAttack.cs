@@ -94,7 +94,7 @@ public class PlayerAttack : MonoBehaviour
 
     void GunAttack()
     {
-        if (seleccionado == 0 && Input.GetButtonDown("Fire1") && !attacking)
+        if (seleccionado == 0 && Input.GetButtonDown("Hit") && !attacking)
         {
             _audioSource.PlayAudioOneShot(Random.Range(0,2));
             _animator.SetTrigger("gunAttack");
@@ -114,7 +114,7 @@ public class PlayerAttack : MonoBehaviour
 
     void SwordAttack()
     {
-        if (seleccionado == 1 && Input.GetButtonDown("Fire1") && !attacking)
+        if (seleccionado == 1 && Input.GetButtonDown("Hit") && !attacking)
         {
             _audioSource.PlayAudioOneShot(Random.Range(2, 4));
             _animator.SetTrigger("swordAttack");
@@ -135,7 +135,7 @@ public class PlayerAttack : MonoBehaviour
     void MazeAttack()
     {
 
-        if (seleccionado == 2 && Input.GetButtonDown("Fire1") && !attacking)
+        if (seleccionado == 2 && Input.GetButtonDown("Hit") && !attacking)
         {
             _animator.SetTrigger("mazeAttack");
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(_mazeTransform.position, mazeRange, enemyLayers);

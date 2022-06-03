@@ -79,7 +79,8 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public bool canDash {
+    public bool canDash
+    {
         get { return _animator.GetBool("can_dash") && Stamina >= gastoDash; }
         set { _animator.SetBool("can_dash", value); }
     }
@@ -115,7 +116,7 @@ public class PlayerController : MonoBehaviour
 
     void Moverse()
     {
-        if(canMove && Time.timeScale > 0)
+        if (canMove && Time.timeScale > 0)
         {
             Dash();
             Walk();
@@ -141,7 +142,7 @@ public class PlayerController : MonoBehaviour
         if (grounded) { coyoteTimeCounter = coyoteTime; }       //Coyote time
         else { coyoteTimeCounter -= Time.deltaTime; }
 
-        if (Input.GetKeyDown(KeyCode.W)) { jumpBufferTimeCounter = jumpBufferTime; }    //Jump buffer
+        if (Input.GetButtonDown("Jump")) { jumpBufferTimeCounter = jumpBufferTime; }    //Jump buffer
         else { jumpBufferTimeCounter -= Time.deltaTime; }
 
         if (jumpBufferTimeCounter > 0f && coyoteTimeCounter > 0f) // comprueba que puede saltar
@@ -152,7 +153,7 @@ public class PlayerController : MonoBehaviour
             jumpBufferTimeCounter = 0f;
         }
 
-        if (Input.GetKeyUp(KeyCode.W) && _rigidbody2D.velocity.y > 0f)      // Saltos variables
+        if (Input.GetButtonDown("Jump") && _rigidbody2D.velocity.y > 0f)      // Saltos variables
         {
             _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, _rigidbody2D.velocity.y * 0.7f);
 
@@ -165,7 +166,7 @@ public class PlayerController : MonoBehaviour
     ////// EVASION //////
     void Dash()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash && !onAir) // comprueba que puede dashear
+        if (Input.GetButtonDown("Dash") && canDash && !onAir) // comprueba que puede dashear
         {
             canDash = false;
             int shortDash = _rigidbody2D.velocity.x == 0 ? 1 : 0; // 1 si dashea mientras se esta moviendo, 0 si está quieto
@@ -227,9 +228,9 @@ public class PlayerController : MonoBehaviour
 
     void CheckDeath()
     {
-        if(HP <= 0)
+        if (HP <= 0)
         {
-            StartCoroutine(Muerte());  
+            StartCoroutine(Muerte());
         }
     }
 
