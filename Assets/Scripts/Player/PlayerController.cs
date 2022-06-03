@@ -31,6 +31,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public float dmgReduc = 0f;                // Reducción del daño recibido
 
 
+    //COYOTE TIME Y JUMP BUFFER TIME
+    public float coyoteTime = 0.2f;
+    private float coyoteTimeCounter;
+
+    public float jumpBufferTime = 0.1f;
+    private float jumpBufferTimeCounter;
+
+
     // REFERENCIAS
     private Rigidbody2D _rigidbody2D;
     private BoxCollider2D _boxCollider2D;
@@ -130,10 +138,25 @@ public class PlayerController : MonoBehaviour
     ////// SALTO //////
     void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.W) && grounded) // comprueba que puede saltar
+        if (grounded) { coyoteTimeCounter = coyoteTime; }       //Coyote time
+        else { coyoteTimeCounter -= Time.deltaTime; }
+
+        if (Input.GetKeyDown(KeyCode.W)) { jumpBufferTimeCounter = jumpBufferTime; }    //Jump buffer
+        else { jumpBufferTimeCounter -= Time.deltaTime; }
+
+        if (jumpBufferTimeCounter > 0f && coyoteTimeCounter > 0f) // comprueba que puede saltar
         {
             _rigidbody2D.AddForce(Vector2.up * JUMP_FORCE * Mathf.Sqrt(JumpCap), ForceMode2D.Impulse); // impulsa al personaje hacia arriba
             _audioSource.PlayAudioOneShot(6);
+
+            jumpBufferTimeCounter = 0f;
+        }
+
+        if (Input.GetKeyUp(KeyCode.W) && _rigidbody2D.velocity.y > 0f)      // Saltos variables
+        {
+            _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, _rigidbody2D.velocity.y * 0.7f);
+
+            coyoteTimeCounter = 0f;
         }
 
         _animator.SetBool("on_air", !grounded);
