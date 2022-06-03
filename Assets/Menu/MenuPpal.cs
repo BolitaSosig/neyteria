@@ -100,6 +100,7 @@ public class MenuPpal : MonoBehaviour
         _playerController = player.GetComponent<PlayerController>();
         _rigidbody2D = player.GetComponent<Rigidbody2D>();
 
+        _playerController.canMove = false;
         _playerController.SeleccionarEventSystem();
         _rigidbody2D.simulated = false;
 
