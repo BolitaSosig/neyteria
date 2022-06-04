@@ -50,8 +50,13 @@ public class PlayerItems : MonoBehaviour
         if(items.ContainsKey(i))
         {
             int cant = items[i] - c;
-            if (cant >= 0)
+            if (cant > 0)
                 items[i] = cant;
+            else
+            {
+                Remove(i);
+                return;
+            }
         }
         _inventoryController.SendMessage("FillItems");
         _equipmentController.SendMessage("FillEquipment");
@@ -60,6 +65,7 @@ public class PlayerItems : MonoBehaviour
     public void Remove(Item i)
     {
         items.Remove(i);
+        RemoveQuickItem(i);
         _inventoryController.SendMessage("FillItems");
         _equipmentController.SendMessage("FillEquipment");
     }
@@ -119,5 +125,55 @@ public class PlayerItems : MonoBehaviour
         }
         res += "---------------------\n";
         Debug.Log(res);
+    }
+
+
+
+    public IEnumerator UseQuickItem()
+    {
+        bool used = true;
+        switch (rapidos[index_rapido].ID)
+        {
+            case 3:
+                StartCoroutine(SueroVital_Effect());
+                break;
+            case 5:
+                StartCoroutine(SueroFuerza_Effect());
+                break;
+            case 6:
+                StartCoroutine(SueroProteccion_Effect());
+                break;
+            default:
+                used = false;
+                break;
+        }
+        if(used)
+            Remove(rapidos[index_rapido], 1);
+        yield return new WaitForSeconds(0f);
+    }
+    private IEnumerator SueroVital_Effect()
+    {
+        PlayerController player = FindObjectOfType<PlayerController>();
+        int hpo = 50;
+        while (player.HP < player.MaxHP && hpo > 0)
+        {
+            player.HP += 1;
+            hpo--;
+            yield return new WaitForSecondsRealtime(1f / 50f);
+        }
+    }
+    private IEnumerator SueroFuerza_Effect()
+    {
+        PlayerStats player = FindObjectOfType<PlayerStats>();
+        player.AumAttack += 0.1f;
+        yield return new WaitForSecondsRealtime(60f);
+        player.AumAttack -= 0.1f;
+    }
+    private IEnumerator SueroProteccion_Effect()
+    {
+        PlayerStats player = FindObjectOfType<PlayerStats>();
+        player.AumDefense += 0.1f;
+        yield return new WaitForSecondsRealtime(60f);
+        player.AumDefense -= 0.1f;
     }
 }

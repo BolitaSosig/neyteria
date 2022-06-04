@@ -306,5 +306,5 @@ public class Item : ScriptableObject
     public static Item getItemByID(int id)
     {
         return allItems[id];
-    } 
+    }
 }

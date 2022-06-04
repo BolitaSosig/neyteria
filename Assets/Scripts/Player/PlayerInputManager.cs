@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerInputManager : MonoBehaviour
 {
     private PlayerController _player;
+    private PlayerItems _items;
     private PauseMenu _pause;
     private InventoryController _inventoryController;
     private EquipmentController _equipmnetController;
@@ -16,6 +17,8 @@ public class PlayerInputManager : MonoBehaviour
     public bool _isInventory;
     public bool _isEquipment;
     public bool _isConsole;
+
+    public bool _useItemTimer = false;
 
     public bool CanPause
     {
@@ -54,7 +57,7 @@ public class PlayerInputManager : MonoBehaviour
         { 
             return 
                 (!_isPause && Input.GetButton("Console1") && Input.GetButtonDown("Console2")) || 
-                (_isConsole && Input.GetButtonDown("Cancel")) ; 
+                (_isConsole && (Input.GetButtonDown("Cancel") || Input.GetButtonDown("Console2"))) ; 
         }
     }
     public bool CanConsoleHelp
@@ -62,10 +65,16 @@ public class PlayerInputManager : MonoBehaviour
         get { return _isConsole; }
     }
 
+    public bool CanUseItem
+    {
+        get { return !_useItemTimer && !_isPause && !_isInventory && !_isEquipment && !_isConsole && Input.GetButtonDown("UseItem"); }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         _player = FindObjectOfType<PlayerController>();
+        _items = FindObjectOfType<PlayerItems>();
         _pause = FindObjectOfType<PauseMenu>();
         _inventoryController = FindObjectOfType<InventoryController>();
         _equipmnetController = FindObjectOfType<EquipmentController>();
@@ -88,6 +97,8 @@ public class PlayerInputManager : MonoBehaviour
             SetInventory();
         if (CanEquipment)
             SetEquipment();
+        if (CanUseItem)
+            SetUseItem();
     }
 
     void SetPause()
@@ -129,5 +140,17 @@ public class PlayerInputManager : MonoBehaviour
     {
         _isEquipment = !_isEquipment;
         _equipmnetController.IsShow = _isEquipment;
+    }
+
+    void SetUseItem()
+    {
+        _useItemTimer = true;
+        StartCoroutine(_items.UseQuickItem());
+        StartCoroutine(UseItemTimer());
+    }
+    IEnumerator UseItemTimer()
+    {
+        yield return new WaitForSecondsRealtime(1f);
+        _useItemTimer = false;
     }
 }
