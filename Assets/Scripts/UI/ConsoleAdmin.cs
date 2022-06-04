@@ -15,7 +15,7 @@ public class ConsoleAdmin : MonoBehaviour
     private PlayerController _playerController;
     private PlayerItems _playerItems;
 
-    private bool Showing
+    public bool Showing
     {
         get { return _showing; }
         set
@@ -47,7 +47,7 @@ public class ConsoleAdmin : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckShowConsole();
+        //CheckShowConsole();
     }
 
     void CheckShowConsole()
@@ -213,7 +213,7 @@ public class ConsoleAdmin : MonoBehaviour
         }
     }
 
-    void GetHelp()
+    public void GetHelp()
     {
         string command = GetComponent<TMP_InputField>().text;
         string[] c = command.Split(" ".ToCharArray());

@@ -17,12 +17,12 @@ public class PlayerModulos : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        /*if (Input.GetKeyDown(KeyCode.Alpha1))
             Start(0);
         else if (Input.GetKeyDown(KeyCode.Alpha2))
             Start(1);
         else if (Input.GetKeyDown(KeyCode.Alpha3))
-            Start(2);
+            Start(2);*/
     }
 
     public void Start(int s)
