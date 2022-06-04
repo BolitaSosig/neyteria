@@ -46,11 +46,11 @@ public class InventoryController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F) && !ConsoleAdmin._showing)
+        /*if (Input.GetKeyDown(KeyCode.F) && !ConsoleAdmin._showing)
             isShown = !isShown;
         else if (Input.GetKeyDown(KeyCode.Escape) && isShown)
             isShown = false;
-        else if (Input.GetKeyDown(KeyCode.E) && isShown)
+        else */if (Input.GetKeyDown(KeyCode.E) && isShown)
         {
             Item i = _items.getByID(_selectedItemID).Item1;
             if (_items.rapidos.Contains(i))
