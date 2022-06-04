@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,6 +25,28 @@ public class PlayerInputManager : MonoBehaviour
     {
         get { return !_isPause && !_isInventory && !_isEquipment && !_isConsole;  }
     }
+    public bool CanInventory
+    {
+        get 
+        { 
+            return 
+                (!_isPause && !_isEquipment && !_isConsole && 
+                    (Input.GetButtonDown("Inventory") || 
+                    (Input.GetButton("InventoryJoystick1") && Input.GetButtonDown("InventoryJoystick2")))) ||
+                (_isInventory && Input.GetButtonDown("Cancel"));  
+        }
+    }
+    public bool CanEquipment
+    {
+        get 
+        { 
+            return 
+                (!_isPause && !_isInventory && !_isConsole && 
+                    (Input.GetButtonDown("Equipment") || 
+                    (Input.GetButton("EquipmentJoystick1") && Input.GetButtonDown("EquipmentJoystick2")))) ||
+                (_isEquipment && Input.GetButtonDown("Cancel"));  
+        }
+    }
 
     public bool CanConsole
     {
@@ -31,7 +54,7 @@ public class PlayerInputManager : MonoBehaviour
         { 
             return 
                 (!_isPause && Input.GetButton("Console1") && Input.GetButtonDown("Console2")) || 
-                (_isConsole && Input.GetButtonDown("Pause")) ; 
+                (_isConsole && Input.GetButtonDown("Cancel")) ; 
         }
     }
     public bool CanConsoleHelp
@@ -61,6 +84,10 @@ public class PlayerInputManager : MonoBehaviour
             SetConsole();
         if (CanConsoleHelp)
             SetConsoleHelp();
+        if (CanInventory)
+            SetInventory();
+        if (CanEquipment)
+            SetEquipment();
     }
 
     void SetPause()
@@ -74,11 +101,11 @@ public class PlayerInputManager : MonoBehaviour
 
     void SetModulo()
     {
-        if (Input.GetButtonDown("Modulo1"))
+        if (Input.GetButtonDown("Modulo1") || Input.GetAxisRaw("ModuloJoystick13") == 1)
             _modulos.Start(0);
-        else if (Input.GetButtonDown("Modulo2"))
+        else if (Input.GetButtonDown("Modulo2") || Input.GetAxisRaw("ModuloJoystick2") == 1)
             _modulos.Start(1);
-        else if (Input.GetButtonDown("Modulo3"))
+        else if (Input.GetButtonDown("Modulo3") || Input.GetAxisRaw("ModuloJoystick13") == -1)
             _modulos.Start(2);
     }
 
@@ -90,5 +117,17 @@ public class PlayerInputManager : MonoBehaviour
     void SetConsoleHelp()
     {
         _console.GetHelp();
+    }
+
+    void SetInventory()
+    {
+        _isInventory = !_isInventory;
+        _inventoryController.isShown = _isInventory;
+    }
+
+    void SetEquipment()
+    {
+        _isEquipment = !_isEquipment;
+        _equipmnetController.IsShow = _isEquipment;
     }
 }

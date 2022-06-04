@@ -80,8 +80,8 @@ public class EquipmentController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (/*Input.GetButton("Equipment") && Input.GetButtonDown("Equipment2")*/ Input.GetKeyDown(KeyCode.R))
-            IsShow = !IsShow;
+        /*if (/*Input.GetButton("Equipment") && Input.GetButtonDown("Equipment2") Input.GetKeyDown(KeyCode.R))
+            IsShow = !IsShow;*/
         if (Input.GetKeyDown(KeyCode.Z))
         {
             estadoInfo.transform.position = !estadoInfo.transform.position.Equals(estadoInitPos) ? estadoInitPos : estadoInitPos * new Vector2(0, -100);
