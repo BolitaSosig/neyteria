@@ -35,6 +35,7 @@ public class PlayerStats : MonoBehaviour
     public float AdicWeight = 0f;
     public float AdicGastoDash = 0f;
 
+    public Dictionary<int, float> buffStorage = new Dictionary<int, float>();
 
     // REF
     private PlayerController _pc;

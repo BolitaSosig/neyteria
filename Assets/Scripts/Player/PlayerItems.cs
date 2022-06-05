@@ -15,6 +15,12 @@ public class PlayerItems : MonoBehaviour
     public InventoryController _inventoryController;
     public EquipmentController _equipmentController;
 
+    [Space(20)]
+    [SerializeField] private Item añadirObjeto;
+    [SerializeField] private int añadirCantidad;
+    [SerializeField] private bool añadir;
+
+
     public void Start()
     {
         Add(Item.DEGITERIO, 0);
@@ -30,6 +36,8 @@ public class PlayerItems : MonoBehaviour
             printItems = false;
             ShowConsole();
         }
+        if (añadir)
+            AddItemTroughtInspector();
     }
 
     public void Add(Item i, int c)
@@ -127,6 +135,12 @@ public class PlayerItems : MonoBehaviour
         Debug.Log(res);
     }
 
+    private void AddItemTroughtInspector()
+    {
+        añadir = false;
+        Add(añadirObjeto, añadirCantidad);
+    }
+
 
 
     public IEnumerator UseQuickItem()
@@ -165,15 +179,22 @@ public class PlayerItems : MonoBehaviour
     private IEnumerator SueroFuerza_Effect()
     {
         PlayerStats player = FindObjectOfType<PlayerStats>();
-        player.AumAttack += 0.1f;
-        yield return new WaitForSecondsRealtime(60f);
-        player.AumAttack -= 0.1f;
+        if (!player.buffStorage.ContainsKey(5))
+        {
+            player.buffStorage.Add(3, 0.1f);
+            player.AumAttack += 0.1f;
+            yield return new WaitForSecondsRealtime(60f);
+            player.AumAttack -= 0.1f;
+        }
     }
     private IEnumerator SueroProteccion_Effect()
     {
         PlayerStats player = FindObjectOfType<PlayerStats>();
-        player.AumDefense += 0.1f;
-        yield return new WaitForSecondsRealtime(60f);
-        player.AumDefense -= 0.1f;
+        if (!player.buffStorage.ContainsKey(6))
+        {
+            player.AumDefense += 0.1f;
+            yield return new WaitForSecondsRealtime(60f);
+            player.AumDefense -= 0.1f;
+        }
     }
 }

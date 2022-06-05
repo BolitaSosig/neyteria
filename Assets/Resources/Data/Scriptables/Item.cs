@@ -44,6 +44,8 @@ public class Item : ScriptableObject
     public static Item MODULO_DE_RUMARH_1;
     public static Item MODULO_DE_RUMARH_2;
     public static Item MODULO_DE_RUMARH_3;
+    public static Item MODULO_DE_CONVERSION;
+    public static Item MODULO_DE_LA_FURIA;
 
     public static Item ESPADA_CORTA;
     public static Item MAZA;
@@ -84,6 +86,8 @@ public class Item : ScriptableObject
         MODULO_DE_RUMARH_1 = Resources.Load<Item>("Data\\Modulo\\105-Modulo_de_Rumarh_1");
         MODULO_DE_RUMARH_2 = Resources.Load<Item>("Data\\Modulo\\106-Modulo_de_Rumarh_2");
         MODULO_DE_RUMARH_3 = Resources.Load<Item>("Data\\Modulo\\107-Modulo_de_Rumarh_3");
+        MODULO_DE_CONVERSION = Resources.Load<Item>("Data\\Modulo\\108-Modulo_de_conversion");
+        MODULO_DE_LA_FURIA  = Resources.Load<Item>("Data\\Modulo\\109-Modulo_de_la_furia");
 
         ESPADA_CORTA = Resources.Load<Item>("Data\\Arma\\200-Espada_corta");
         MAZA = Resources.Load<Item>("Data\\Arma\\201-Maza");
@@ -202,8 +206,8 @@ public class Item : ScriptableObject
             MODULO_DE_RUMARH_1,
             MODULO_DE_RUMARH_2,
             MODULO_DE_RUMARH_3,
-            null,
-            null,
+            MODULO_DE_CONVERSION,
+            MODULO_DE_LA_FURIA,
             null,
             null,
             null,

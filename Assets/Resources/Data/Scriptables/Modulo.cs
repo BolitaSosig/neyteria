@@ -48,6 +48,12 @@ public class Modulo : Item
             case 107:
                 Rumarh_Skill(on, lvl);
                 break;
+            case 108:
+                Conversion_Skill(on);
+                break;
+            case 109:
+                Furia_Skill(on);
+                break;
         }
     }
 
@@ -75,5 +81,32 @@ public class Modulo : Item
         PlayerStats player = GameObject.Find("Player").GetComponent<PlayerStats>();
         float buff = 0.1f * lvl;
         player.dmgReduc += on ? buff : -buff;
+    }
+
+    private static void Conversion_Skill(bool on)
+    {
+        PlayerStats playerS = GameObject.Find("Player").GetComponent<PlayerStats>();
+        if (on)
+        {
+            PlayerController playerC = GameObject.Find("Player").GetComponent<PlayerController>();
+            playerS.buffStorage.Add(108, 0.03f * playerC.MaxHP);
+            playerS.AdicAttack += playerS.buffStorage[108];
+            playerS.AdicDefense += playerS.buffStorage[108];
+        } else
+        {
+            playerS.AdicAttack -= playerS.buffStorage[108];
+            playerS.AdicDefense -= playerS.buffStorage[108];
+            playerS.buffStorage.Remove(108);
+        }
+    }
+    private static void Furia_Skill(bool on)
+    {
+        PlayerStats playerS = GameObject.Find("Player").GetComponent<PlayerStats>();
+        if (on)
+        {
+            PlayerController playerC = GameObject.Find("Player").GetComponent<PlayerController>();
+        } else
+        {
+        }
     }
 }
