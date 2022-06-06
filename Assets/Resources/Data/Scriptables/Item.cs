@@ -36,25 +36,36 @@ public class Item : ScriptableObject
     public static Item GOTAS_DE_SLIME_FURIOSO;
     public static Item GOTAS_DE_SLIME_DE_LAVA;
 
-    public static Item MODULO_DE_SUPERSALTO_1;
-    public static Item MODULO_DE_SUPERSALTO_2;
-    public static Item MODULO_DE_SUPERSALTO_3;
-    public static Item MODULO_DE_INVENCIBILIDAD_1;
-    public static Item MODULO_DE_AGUANTE_1;
-    public static Item MODULO_DE_RUMARH_1;
-    public static Item MODULO_DE_RUMARH_2;
-    public static Item MODULO_DE_RUMARH_3;
-    public static Item MODULO_DE_CONVERSION;
-    public static Item MODULO_DE_LA_FURIA;
+    public static Modulo MODULO_DE_SUPERSALTO_1;
+    public static Modulo MODULO_DE_SUPERSALTO_2;
+    public static Modulo MODULO_DE_SUPERSALTO_3;
+    public static Modulo MODULO_DE_INVENCIBILIDAD_1;
+    public static Modulo MODULO_DE_AGUANTE_1;
+    public static Modulo MODULO_DE_RUMARH_1;
+    public static Modulo MODULO_DE_RUMARH_2;
+    public static Modulo MODULO_DE_RUMARH_3;
+    public static Modulo MODULO_DE_CONVERSION;
+    public static Modulo MODULO_DE_LA_FURIA;
 
-    public static Item ESPADA_CORTA;
-    public static Item MAZA;
-    public static Item CANON_LASER;
-    public static Item SABLE_PICAPIEDRA;
-    public static Item PORRA_DEMOLEROCAS;
-    public static Item PISTOLA_ROMPEMUROS;
+    public static Arma ESPADA_CORTA;
+    public static Arma MAZA;
+    public static Arma CANON_LASER;
+    public static Arma SABLE_PICAPIEDRA;
+    public static Arma PORRA_DEMOLEROCAS;
+    public static Arma PISTOLA_ROMPEMUROS;
 
-
+    public static Traje TUNICA_PROTECTORA;
+    public static Traje TRAJE_DE_VITALIDAD;
+    public static Traje MANTO_DE_LA_FURIA;
+    public static Traje ROPA_DE_LOS_RAUVNIR;
+    public static Traje TUNICA_DEL_MENSAJERO;
+    public static Traje TUNICA_LIGERA;
+    public static Traje VESTIDO_DEL_COSECHADOR;
+    public static Traje CONJUNTO_VOLADOR;
+    public static Traje ARMADURA_DE_FTREQIS;
+    public static Traje SABANA_DEL_TIEMPO;
+    public static Traje BENDICION_DE_LAS_NUBES;
+    public static Traje MANTO_DE_LA_LOCURA;
 
     private static Item[] allItems;
 
@@ -78,23 +89,36 @@ public class Item : ScriptableObject
         GOTAS_DE_SLIME_FURIOSO = Resources.Load<Item>("Data\\Item\\015-Gotas_de_slime_furioso");
         GOTAS_DE_SLIME_DE_LAVA = Resources.Load<Item>("Data\\Item\\016-Gotas_de_slime_de_lava");
 
-        MODULO_DE_SUPERSALTO_1 = Resources.Load<Item>("Data\\Modulo\\100-Modulo_de_supersalto_1");
-        MODULO_DE_SUPERSALTO_2 = Resources.Load<Item>("Data\\Modulo\\101-Modulo_de_supersalto_2");
-        MODULO_DE_SUPERSALTO_3 = Resources.Load<Item>("Data\\Modulo\\102-Modulo_de_supersalto_3");
-        MODULO_DE_INVENCIBILIDAD_1 = Resources.Load<Item>("Data\\Modulo\\103-Modulo_de_invencibilidad_1");
-        MODULO_DE_AGUANTE_1 = Resources.Load<Item>("Data\\Modulo\\104-Modulo_de_aguante_1");
-        MODULO_DE_RUMARH_1 = Resources.Load<Item>("Data\\Modulo\\105-Modulo_de_Rumarh_1");
-        MODULO_DE_RUMARH_2 = Resources.Load<Item>("Data\\Modulo\\106-Modulo_de_Rumarh_2");
-        MODULO_DE_RUMARH_3 = Resources.Load<Item>("Data\\Modulo\\107-Modulo_de_Rumarh_3");
-        MODULO_DE_CONVERSION = Resources.Load<Item>("Data\\Modulo\\108-Modulo_de_conversion");
-        MODULO_DE_LA_FURIA  = Resources.Load<Item>("Data\\Modulo\\109-Modulo_de_la_furia");
+        MODULO_DE_SUPERSALTO_1 = Resources.Load<Modulo>("Data\\Modulo\\100-Modulo_de_supersalto_1");
+        MODULO_DE_SUPERSALTO_2 = Resources.Load<Modulo>("Data\\Modulo\\101-Modulo_de_supersalto_2");
+        MODULO_DE_SUPERSALTO_3 = Resources.Load<Modulo>("Data\\Modulo\\102-Modulo_de_supersalto_3");
+        MODULO_DE_INVENCIBILIDAD_1 = Resources.Load<Modulo>("Data\\Modulo\\103-Modulo_de_invencibilidad_1");
+        MODULO_DE_AGUANTE_1 = Resources.Load<Modulo>("Data\\Modulo\\104-Modulo_de_aguante_1");
+        MODULO_DE_RUMARH_1 = Resources.Load<Modulo>("Data\\Modulo\\105-Modulo_de_Rumarh_1");
+        MODULO_DE_RUMARH_2 = Resources.Load<Modulo>("Data\\Modulo\\106-Modulo_de_Rumarh_2");
+        MODULO_DE_RUMARH_3 = Resources.Load<Modulo>("Data\\Modulo\\107-Modulo_de_Rumarh_3");
+        MODULO_DE_CONVERSION = Resources.Load<Modulo>("Data\\Modulo\\108-Modulo_de_conversion");
+        MODULO_DE_LA_FURIA  = Resources.Load<Modulo>("Data\\Modulo\\109-Modulo_de_la_furia");
 
-        ESPADA_CORTA = Resources.Load<Item>("Data\\Arma\\200-Espada_corta");
-        MAZA = Resources.Load<Item>("Data\\Arma\\201-Maza");
-        CANON_LASER = Resources.Load<Item>("Data\\Arma\\202-Cañon_laser");
-        SABLE_PICAPIEDRA = Resources.Load<Item>("Data\\Arma\\203-Sable_picapiedra");
-        PORRA_DEMOLEROCAS = Resources.Load<Item>("Data\\Arma\\204-Porra_demolerocas");
-        PISTOLA_ROMPEMUROS = Resources.Load<Item>("Data\\Arma\\205-Pistola_rompemuros");
+        ESPADA_CORTA = Resources.Load<Arma>("Data\\Arma\\200-Espada_corta");
+        MAZA = Resources.Load<Arma>("Data\\Arma\\201-Maza");
+        CANON_LASER = Resources.Load<Arma>("Data\\Arma\\202-Cañon_laser");
+        SABLE_PICAPIEDRA = Resources.Load<Arma>("Data\\Arma\\203-Sable_picapiedra");
+        PORRA_DEMOLEROCAS = Resources.Load<Arma>("Data\\Arma\\204-Porra_demolerocas");
+        PISTOLA_ROMPEMUROS = Resources.Load<Arma>("Data\\Arma\\205-Pistola_rompemuros");
+
+        TUNICA_PROTECTORA = Resources.Load<Traje>("Data\\Traje\\250-Tunica_protectora");
+        TRAJE_DE_VITALIDAD = Resources.Load<Traje>("Data\\Traje\\251-Traje_de_vitalidad");
+        MANTO_DE_LA_FURIA = Resources.Load<Traje>("Data\\Traje\\252-Manto_de_la_furia");
+        ROPA_DE_LOS_RAUVNIR = Resources.Load<Traje>("Data\\Traje\\253-Ropa_de_los_rauvnir");
+        TUNICA_DEL_MENSAJERO = Resources.Load<Traje>("Data\\Traje\\254-Tunica_del_mensajero");
+        TUNICA_LIGERA = Resources.Load<Traje>("Data\\Traje\\255-Tunica_ligera");
+        VESTIDO_DEL_COSECHADOR = Resources.Load<Traje>("Data\\Traje\\256-Vestido_del_cosechador");
+        CONJUNTO_VOLADOR = Resources.Load<Traje>("Data\\Traje\\257-Conjunto_volador");
+        ARMADURA_DE_FTREQIS = Resources.Load<Traje>("Data\\Traje\\258-Armadura_de_ftreqis");
+        SABANA_DEL_TIEMPO = Resources.Load<Traje>("Data\\Traje\\259-Sabana_del_tiempo");
+        BENDICION_DE_LAS_NUBES = Resources.Load<Traje>("Data\\Traje\\260-Bendicion_de_las_nubes");
+        MANTO_DE_LA_LOCURA = Resources.Load<Traje>("Data\\Traje\\261-Manto_de_la_locura");
 
         allItems = new Item[]
         {
@@ -303,7 +327,63 @@ public class Item : ScriptableObject
             CANON_LASER,
             SABLE_PICAPIEDRA,
             PORRA_DEMOLEROCAS,
-            PISTOLA_ROMPEMUROS
+            PISTOLA_ROMPEMUROS,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            TUNICA_PROTECTORA,
+            TRAJE_DE_VITALIDAD,
+            MANTO_DE_LA_FURIA,
+            ROPA_DE_LOS_RAUVNIR,
+            TUNICA_DEL_MENSAJERO,
+            TUNICA_LIGERA,
+            VESTIDO_DEL_COSECHADOR,
+            CONJUNTO_VOLADOR,
+            ARMADURA_DE_FTREQIS,
+            SABANA_DEL_TIEMPO,
+            BENDICION_DE_LAS_NUBES,
+            MANTO_DE_LA_LOCURA
         };
     }
 

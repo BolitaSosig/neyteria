@@ -11,6 +11,7 @@ public class PlayerStats : MonoBehaviour
     public float BaseDefense = 1f;             // Defensa
     public float BaseWeight = 1f;              // Peso
     public float MovSpeed = 1f;                // Velocidad con la que se desplaza el personaje
+    public float AttSpeed = 1f;              // Velocidad con la que ataca el personaje
     public float JumpCap = 1f;                 // Altura que se alcanza con el salto
     public float DashRange = 0.7f;               // Intervalo de invulnerabilidad al evadir
     public float gastoDash = 25f;              // Gasto de resistencia al evadir
@@ -55,16 +56,21 @@ public class PlayerStats : MonoBehaviour
 
     void UpdateStats()
     {
+        float mhpaux = _pc.MaxHP;
+
         _pc.MaxHP = BaseHP * AumHP + AdicHP;
         _pc.MaxStamina = BaseStamina * AumStamina + AdicStamina;
         _pc.Attack = BaseAttack * AumAttack + AdicAttack;
         _pc.Defense = BaseDefense * AumDefense + AdicDefense;
         _pc.Weight = BaseWeight * AumWeight + AdicWeight;
         _pc.MovSpeed = MovSpeed;
+        _pc.AttSpeed = AttSpeed;
         _pc.JumpCap = JumpCap;
         _pc.DashRange = DashRange;
         _pc.gastoDash = gastoDash * AumGastoDash + AdicGastoDash;
         _pc.StaminaVelRec = StaminaVelRec;
         _pc.dmgReduc = dmgReduc;
+
+        _pc.HP = _pc.MaxHP * _pc.HP / mhpaux;
     }
 }

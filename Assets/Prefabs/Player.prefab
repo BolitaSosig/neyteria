@@ -410,6 +410,7 @@ GameObject:
   - component: {fileID: 7232537792695838311}
   - component: {fileID: 40047114691595252}
   - component: {fileID: 7939270272959203814}
+  - component: {fileID: 9109888644041789781}
   - component: {fileID: 18003629497360716}
   - component: {fileID: 7078024818365178684}
   - component: {fileID: 7232537792695838304}
@@ -470,6 +471,8 @@ MonoBehaviour:
   gastoDash: 25
   StaminaVelRec: 1
   dmgReduc: 0
+  coyoteTime: 0.2
+  jumpBufferTime: 0.1
   _sceneController: {fileID: 0}
   HasMuertoTexto: {fileID: 0}
   staminaIsUsed: 1
@@ -542,6 +545,19 @@ MonoBehaviour:
   swordRate: 0.6
   mazeRange: 1.5
   mazeRate: 1
+--- !u!114 &9109888644041789781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7232537792695838306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63e85dafb64810e4ea30ea85d7f5b0df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _traje: {fileID: 11400000, guid: 477947bb366daca40b33ec87e41dd102, type: 2}
 --- !u!114 &18003629497360716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -583,6 +599,9 @@ MonoBehaviour:
   printItems: 0
   _inventoryController: {fileID: 0}
   _equipmentController: {fileID: 0}
+  "a\xF1adirObjeto": {fileID: 0}
+  "a\xF1adirCantidad": 0
+  "a\xF1adir": 0
 --- !u!212 &7232537792695838304
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -646,6 +665,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5965dc1d1c7a3524a9366632aab7b67c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isPause: 0
+  _isInventory: 0
+  _isEquipment: 0
+  _isConsole: 0
+  _useItemTimer: 0
 --- !u!50 &7232537792695838307
 Rigidbody2D:
   serializedVersion: 4
