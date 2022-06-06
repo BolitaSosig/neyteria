@@ -106,7 +106,7 @@ public class PlayerAttack : MonoBehaviour
             _playerController.Atacar();
             Destroy(newBullet, 2);
 
-            StartCoroutine(Cooldown(shootRate));
+            StartCoroutine(Cooldown(shootRate / _playerController.AttSpeed));
         }
 
     }
@@ -129,7 +129,7 @@ public class PlayerAttack : MonoBehaviour
             }
             _playerController.Atacar();
 
-            StartCoroutine(Cooldown(swordRate));
+            StartCoroutine(Cooldown(swordRate / _playerController.AttSpeed));
         }
     }
 
@@ -153,7 +153,7 @@ public class PlayerAttack : MonoBehaviour
             _audioSource.PlayAudioOneShot(4);
 
 
-            StartCoroutine(Cooldown(mazeRate));
+            StartCoroutine(Cooldown(mazeRate / _playerController.AttSpeed));
         }
     }
 
