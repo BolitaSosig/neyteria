@@ -12,10 +12,10 @@ public class MovePlatformScript : MonoBehaviour
     public Vector3 endPosition;
 
     public bool begin = true;
-    public bool move = true;
+    public bool move = false;
 
-    //public bool isPlayer = false;
-    //private GameObject _player;
+    public bool isPlayer = false;
+    private GameObject _player;
 
 
     // Start is called before the first frame update
@@ -27,24 +27,24 @@ public class MovePlatformScript : MonoBehaviour
         startPosition = platformPathStart.transform.position;
         endPosition = platformPathEnd.transform.position;
 
-        //_player = GameObject.FindGameObjectWithTag("Player");
+        _player = GameObject.FindGameObjectWithTag("Player");
 
 
-        move = false;
-        begin = false;
-        StartCoroutine(Vector3LerpCoroutine(gameObject, endPosition, speed));
+        //move = false;
+        //begin = false;
+        //StartCoroutine(Vector3LerpCoroutine(gameObject, endPosition, speed));
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (begin && move)
+        if (!begin && move)
         {
             move = false;
             StartCoroutine(Vector3LerpCoroutine(gameObject, startPosition, speed));
         }
 
-        if (!begin && move)
+        if (begin && move)
         {
             move = false;
             StartCoroutine(Vector3LerpCoroutine(gameObject, endPosition, speed));
@@ -63,10 +63,15 @@ public class MovePlatformScript : MonoBehaviour
 
         while (obj.transform.position != target && time < timeMax)
         {
+            float prevX = obj.transform.position.x;
+
             obj.transform.position = Vector3.Lerp(startPosition, target, (time / Vector3.Distance(startPosition, target)) * speed);
             time += Time.deltaTime;
 
-            //if (isPlayer) { _player.transform.position = Vector3.Lerp(startPosition, target, (time / Vector3.Distance(startPosition, target)) * speed); }
+            float postX = obj.transform.position.x;
+
+            if (isPlayer) { _player.transform.position = new Vector3(_player.transform.position.x + (postX - prevX), _player.transform.position.y, _player.transform.position.z); } //El player sigue el movimiento de la plataforma
+
             yield return null;
         }
 
@@ -75,9 +80,16 @@ public class MovePlatformScript : MonoBehaviour
     }
 
 
+    //Begin the movement of the platform
+    public void StartStopMovement()
+    {
+        move = !move;
+    }
+
+
     //Collider detections
 
-    /*void OnCollisionEnter2D(Collision2D col)
+    void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.CompareTag("Player"))
         { isPlayer = true; }
@@ -88,7 +100,8 @@ public class MovePlatformScript : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Player"))
         { isPlayer = false; }
-    }*/
+    }
+
 
     //Encontar hijos por su nombre
 
