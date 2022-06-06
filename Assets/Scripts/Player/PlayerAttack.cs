@@ -98,12 +98,12 @@ public class PlayerAttack : MonoBehaviour
         {
             _audioSource.PlayAudioOneShot(Random.Range(0,2));
             _animator.SetTrigger("gunAttack");
-            GameObject newBullet;
-            newBullet = Instantiate(bullet, _shootTransform.position, _shootTransform.rotation);
+            GameObject newBullet = Instantiate(bullet, _shootTransform.position, _shootTransform.rotation);
             //newBullet.GetComponent<Rigidbody2D>().AddForce(_shootTransform.right * shootForce);
             newBullet.GetComponent<Rigidbody2D>().velocity = new Vector2(transform.localScale.x * shootForce, newBullet.GetComponent<Rigidbody2D>().velocity.y);
             float supAtt = _playerController.oneHitKill ? 999999f : 0f;
             newBullet.GetComponent<BulletScript>().gunDMG = _playerController.Attack + supAtt;
+            _playerController.Atacar();
             Destroy(newBullet, 2);
 
             StartCoroutine(Cooldown(shootRate));
@@ -127,6 +127,7 @@ public class PlayerAttack : MonoBehaviour
                 float supAtt = _playerController.oneHitKill ? 999999f : 0f;
                 enemy.SendMessage("GetDamageByPlayer", _playerController.Attack + supAtt);
             }
+            _playerController.Atacar();
 
             StartCoroutine(Cooldown(swordRate));
         }
@@ -147,6 +148,7 @@ public class PlayerAttack : MonoBehaviour
                 float supAtt = _playerController.oneHitKill ? 999999f : 0f;
                 enemy.SendMessage("GetDamageByPlayer", _playerController.Attack + supAtt);
             }
+            _playerController.Atacar();
 
             _audioSource.PlayAudioOneShot(4);
 

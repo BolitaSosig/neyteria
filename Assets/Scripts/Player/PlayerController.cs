@@ -218,6 +218,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void Atacar()
+    {
+        StartCoroutine(GastarStamina(3.5f * Weight));
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("ZoneLoader")) // regiones de carga de escenas

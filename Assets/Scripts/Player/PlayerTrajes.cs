@@ -37,8 +37,12 @@ public class PlayerTrajes : MonoBehaviour
         if(_oldTraje != null)
         {
             Traje.Pasiva(_oldTraje.ID, false);
+            _stats.BaseDefense -= _oldTraje.defensa;
+            _stats.BaseWeight -= _oldTraje.peso;
         }
         Traje.Pasiva(_traje.ID, true);
+        _stats.BaseDefense += _traje.defensa;
+        _stats.BaseWeight += _traje.peso;
     }
 
     public void PasiveChecker(int id)
