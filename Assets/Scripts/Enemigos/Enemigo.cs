@@ -65,6 +65,7 @@ public class Enemigo : MonoBehaviour
             UpdateStats();
             LevelTextUpdate();
         }
+        get { return _nivel; }
     }
 
     protected (Vector2, Vector2) getGroundCheckCorners()
@@ -178,7 +179,9 @@ public class Enemigo : MonoBehaviour
     public IEnumerator Die()
     {
         _animator.SetTrigger("dead");
+        FindObjectOfType<PlayerController>().SendMessageUpwards("EnemyDefeated", this);
         _boxCollider2D.enabled = false;
+        _polygonCollider2D.enabled = false;
         _rigidbody2D.gravityScale = 0f;
         drop.GetDrops();
         yield return new WaitForSecondsRealtime(0.5f);
@@ -200,7 +203,7 @@ public class Enemigo : MonoBehaviour
     public void GetDamageByPlayer(float attack)
     {
         if(dying)
-            GetDamage(5 * attack / Mathf.Sqrt(Defense) * (1 - dmgReduc));
+            GetDamage(FindObjectOfType<PlayerController>().AumDmg * (5 * attack / Mathf.Sqrt(Defense) * (1 - dmgReduc)));
     }
 
     protected void UpdateStats()

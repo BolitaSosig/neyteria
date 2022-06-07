@@ -42,6 +42,7 @@ public class PlayerModulos : MonoBehaviour
     {
         Modulo.SkillOn(_modulos[s].ID, _modulos[s].Nv);
         StartCoroutine(Cooldown(s));
+        SendMessageUpwards("ModuloSkillStarted", s);
         Coroutine dur = StartCoroutine(Duration(s));
         if (GetComponent<PlayerController>().noCD) 
             _cooldown[s] = 0;

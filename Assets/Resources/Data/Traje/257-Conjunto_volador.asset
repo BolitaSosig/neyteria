@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 257
   nombre: Conjunto volador
-  descripcion: Cuando el personaje se encuentra en el aire, hay un 30% de probabilidad
-    de no consumir resistencia al intentar consumirla.
+  descripcion: "Cuando el personaje se encuentra en el aire, hay un 30% de probabilidad
+    de recuperar instant\xE1neamente la resistencia consumida."
   icono: {fileID: 6761164967045977113, guid: 7d41805254e404743b71b2f565e06775, type: 3}
   rareza: 3
   usable: 0

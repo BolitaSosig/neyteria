@@ -15,8 +15,10 @@ MonoBehaviour:
   ID: 259
   nombre: "S\xE1bana del tiempo"
   descripcion: "Al activar un m\xF3dulo del ocaso, los tiempos de espera de todos
-    los m\xF3dulos equipados se reducen en un 5%, pero la velocidad de movimiento
-    se reduce en un 5%. Este efecto se puede acumular hasta 3 veces."
+    los m\xF3dulos equipados se reducen en un 15%, pero la velocidad de movimiento
+    se reduce en un 5%. Este efecto se puede acumular hasta 3 veces como m\xE1ximo
+    y cada efecto desaparecer\xE1 cuando se pueda volver a usar cada M\xF3dulo del
+    Ocaso."
   icono: {fileID: 6761164967045977113, guid: 7d41805254e404743b71b2f565e06775, type: 3}
   rareza: 3
   usable: 0

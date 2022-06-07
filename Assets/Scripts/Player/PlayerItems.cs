@@ -149,7 +149,7 @@ public class PlayerItems : MonoBehaviour
         switch (rapidos[index_rapido].ID)
         {
             case 3:
-                StartCoroutine(SueroVital_Effect());
+                SueroVital_Effect();
                 break;
             case 5:
                 StartCoroutine(SueroFuerza_Effect());
@@ -165,16 +165,10 @@ public class PlayerItems : MonoBehaviour
             Remove(rapidos[index_rapido], 1);
         yield return new WaitForSeconds(0f);
     }
-    private IEnumerator SueroVital_Effect()
+    private void SueroVital_Effect()
     {
         PlayerController player = FindObjectOfType<PlayerController>();
-        int hpo = 50;
-        while (player.HP < player.MaxHP && hpo > 0)
-        {
-            player.HP += 1;
-            hpo--;
-            yield return new WaitForSecondsRealtime(1f / 50f);
-        }
+        player.SendMessage("RecuperarSalud", 50f);
     }
     private IEnumerator SueroFuerza_Effect()
     {

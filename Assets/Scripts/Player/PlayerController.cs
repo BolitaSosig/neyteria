@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public float Attack = 1f;                  // Ataque
     [SerializeField] public float Defense = 1f;                 // Defensa
     [SerializeField] public float Weight = 1f;                  // Peso
+    [SerializeField] public float AumDmg = 1f;                  // Aumento del daño total inflingido
     [SerializeField] public float MovSpeed = 1f;                // Velocidad con la que se desplaza el personaje
     [SerializeField] public float AttSpeed = 1f;                // Velocidad con la que se desplaza el personaje
     [SerializeField] public float JumpCap = 1f;                 // Altura que se alcanza con el salto
@@ -183,7 +184,6 @@ public class PlayerController : MonoBehaviour
             _audioSource.PlayAudioOneShot(11);
             HP = Mathf.Max(0, HP - dmg);
             Inmune = true;
-            Debug.Log("daño");
 
             yield return new WaitForSecondsRealtime(DMG_CD);
             Inmune = false;
@@ -200,8 +200,8 @@ public class PlayerController : MonoBehaviour
     {
         while (Stamina < MaxStamina && !staminaIsUsed)
         {
-            Stamina = Mathf.Min(MaxStamina, Stamina + Time.fixedDeltaTime * STAMINA_REC_SPEED * StaminaVelRec);
-            yield return new WaitForSecondsRealtime(Time.fixedDeltaTime);
+            Stamina = Mathf.Min(MaxStamina, Stamina + 0.02f * STAMINA_REC_SPEED * StaminaVelRec);
+            yield return new WaitForSecondsRealtime(0.01f);
         }
     }
 
@@ -209,6 +209,7 @@ public class PlayerController : MonoBehaviour
     {
         if (staminaDecrease)
         {
+            SendMessageUpwards("StaminaConsumed", cant);
             _audioSource.PlayAudioOneShot(12);
             staminaIsUsed = true;
             Stamina = Mathf.Max(0, Stamina - cant);
@@ -218,9 +219,20 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    IEnumerator RecuperarSalud(float cant)
+    {
+        float c = cant;
+        while (HP < MaxHP && c > 0)
+        {
+            HP += 1;
+            c--;
+            yield return new WaitForSecondsRealtime(1f / cant);
+        }
+    }
+
     public void Atacar()
     {
-        StartCoroutine(GastarStamina(3.5f * Weight));
+        StartCoroutine(GastarStamina(4.5f * Weight));
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

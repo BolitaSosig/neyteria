@@ -67,7 +67,7 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        canAttack = _playerController.canMove && Time.timeScale > 0;
+        canAttack = _playerController.canMove && Time.timeScale > 0 && _playerController.Stamina >= 4.5f * _playerController.Weight;
 
         if (canAttack)
         {

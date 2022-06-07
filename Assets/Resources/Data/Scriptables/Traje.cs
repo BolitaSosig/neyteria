@@ -28,6 +28,7 @@ public class Traje : Item
                 break;
             case 255:
             case 258:
+            case 261:
                 if(on)
                     FindObjectOfType<PlayerTrajes>().PasiveChecker(id); ;
                 break;

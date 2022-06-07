@@ -10,6 +10,7 @@ public class PlayerStats : MonoBehaviour
     public float BaseAttack = 1f;              // Ataque
     public float BaseDefense = 1f;             // Defensa
     public float BaseWeight = 1f;              // Peso
+    public float AumDmg = 1f;                   // Peso
     public float MovSpeed = 1f;                // Velocidad con la que se desplaza el personaje
     public float AttSpeed = 1f;              // Velocidad con la que ataca el personaje
     public float JumpCap = 1f;                 // Altura que se alcanza con el salto
@@ -63,6 +64,7 @@ public class PlayerStats : MonoBehaviour
         _pc.Attack = BaseAttack * AumAttack + AdicAttack;
         _pc.Defense = BaseDefense * AumDefense + AdicDefense;
         _pc.Weight = BaseWeight * AumWeight + AdicWeight;
+        _pc.AumDmg = AumDmg;
         _pc.MovSpeed = MovSpeed;
         _pc.AttSpeed = AttSpeed;
         _pc.JumpCap = JumpCap;
