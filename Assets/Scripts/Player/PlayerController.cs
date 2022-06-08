@@ -154,7 +154,7 @@ public class PlayerController : MonoBehaviour
             jumpBufferTimeCounter = 0f;
         }
 
-        if (Input.GetButtonDown("Jump") && _rigidbody2D.velocity.y > 0f)      // Saltos variables
+        if (Input.GetButtonUp("Jump") && _rigidbody2D.velocity.y > 0f)      // Saltos variables
         {
             _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, _rigidbody2D.velocity.y * 0.7f);
 
