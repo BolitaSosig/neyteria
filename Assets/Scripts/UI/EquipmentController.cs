@@ -119,6 +119,7 @@ public class EquipmentController : MonoBehaviour
         {
             GameObject go = Instantiate(_itemPrefab);
             go.GetComponentsInChildren<Image>()[0].sprite = i.icono;
+            go.GetComponentsInChildren<RawImage>()[0].color = Item.GetRarezaColor(i.rareza);
             go.name = "Item " + i.ID.ToString();
             go.transform.GetChild(2).gameObject.SetActive(false);
 

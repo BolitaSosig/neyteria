@@ -16,7 +16,29 @@ public class Item : ScriptableObject
     public int maxCant = 999;
     public bool visible = true;
 
+    public static Color RAREZA_1 = new Color(0.5f, 0.5f, 0.5f);
+    public static Color RAREZA_2 = new Color(0.4f, 0.6f, 0.6f);
+    public static Color RAREZA_3 = new Color(0.4f, 0.6f, 0.4f);
+    public static Color RAREZA_4 = new Color(0.6f, 0.4f, 0.6f);
+    public static Color RAREZA_5 = new Color(0.6f, 0.6f, 0.2f);
 
+    public static Color GetRarezaColor(int r)
+    {
+        switch(r)
+        {
+            case 1:
+                return RAREZA_1;
+            case 2:
+                return RAREZA_2;
+            case 3:
+                return RAREZA_3;
+            case 4:
+                return RAREZA_4;
+            case 5:
+                return RAREZA_5;
+        }
+        return new Color();
+    }
 
     public static Item NONE;
     public static Item DEGITERIO;

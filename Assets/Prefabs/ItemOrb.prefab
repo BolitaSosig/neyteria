@@ -236,7 +236,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 0.40190455, g: 0.6320754, b: 0.59814674, a: 1}
+  m_Color: {r: 0.6, g: 0.6, b: 0.2, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -297,6 +297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 7416204565468534236}
+  back: {fileID: 9122138925750387666}
   item: {fileID: 0}
   cantidad: 0
 --- !u!50 &3557898686617493709

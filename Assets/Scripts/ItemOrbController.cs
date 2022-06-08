@@ -5,6 +5,7 @@ using UnityEngine;
 public class ItemOrbController : MonoBehaviour
 {
     public SpriteRenderer icon;
+    public SpriteRenderer back;
     public Item item;
     public int cantidad;
 
@@ -18,6 +19,7 @@ public class ItemOrbController : MonoBehaviour
         item = i;
         cantidad = c;
         icon.sprite = i.icono;
+        back.color = Item.GetRarezaColor(i.rareza);
         Launch();
     }
 
