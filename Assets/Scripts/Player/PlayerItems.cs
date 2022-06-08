@@ -15,6 +15,7 @@ public class PlayerItems : MonoBehaviour
     public InventoryController _inventoryController;
     public EquipmentController _equipmentController;
 
+    
     [Space(20)]
     [SerializeField] private Item añadirObjeto;
     [SerializeField] private int añadirCantidad;
@@ -23,8 +24,10 @@ public class PlayerItems : MonoBehaviour
 
     public void Start()
     {
-        Add(Item.DEGITERIO, 0);
-        Add(Item.OCCATERIO, 0);
+        items.Add(Item.DEGITERIO, 0);
+        items.Add(Item.OCCATERIO, 0);
+        _inventoryController.SendMessage("FillItems");
+        _equipmentController.SendMessage("FillEquipment");
     }
 
     public void Update()
@@ -49,6 +52,7 @@ public class PlayerItems : MonoBehaviour
         {
             items.Add(i, c);
         }
+        FindObjectOfType<ItemObtenido>().ShowItem(i, c);
         _inventoryController.SendMessage("FillItems");
         _equipmentController.SendMessage("FillEquipment");
     }

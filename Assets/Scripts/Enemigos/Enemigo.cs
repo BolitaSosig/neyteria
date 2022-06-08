@@ -35,6 +35,7 @@ public class Enemigo : MonoBehaviour
     protected PolygonCollider2D _polygonCollider2D;
     protected Animator _animator;
     protected SpriteRenderer _spriteRenderer;
+    public GameObject itemOrbPrefab;
     [SerializeField] protected TextMeshProUGUI _levelText;
     [SerializeField] protected Transform _canvasTranform;
     [SerializeField] protected GameObject _damageDealTMP;
@@ -183,8 +184,8 @@ public class Enemigo : MonoBehaviour
         _boxCollider2D.enabled = false;
         _polygonCollider2D.enabled = false;
         _rigidbody2D.gravityScale = 0f;
-        drop.GetDrops();
         yield return new WaitForSecondsRealtime(0.5f);
+        drop.GetDrops(transform, itemOrbPrefab);
         Destroy(gameObject);
     }
 

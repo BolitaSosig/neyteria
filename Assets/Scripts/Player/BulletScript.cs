@@ -12,12 +12,14 @@ public class BulletScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if(other.GetComponent<ItemOrbController>() != null)
+            Physics2D.IgnoreCollision(other, GetComponent<CapsuleCollider2D>());
+        else if (other.CompareTag("Player"))
         {
             // Debug.Log("colision con Player"); return;
         }

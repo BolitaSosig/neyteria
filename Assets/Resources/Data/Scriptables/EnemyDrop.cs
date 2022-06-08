@@ -30,13 +30,13 @@ public class EnemyDrop : ScriptableObject
         return drops;
     }
 
-    public void GetDrops()
+    public void GetDrops(Transform t, GameObject itemOrbPrefab)
     {
         PlayerItems pi = FindObjectOfType<PlayerItems>();
         foreach ((Item i, int c) in CalculateDrops())
         {
-            pi.Add(i, c);
-            FindObjectOfType<ItemObtenido>().ShowItem(i, c);
+            GameObject go = Instantiate(itemOrbPrefab, t.position, new Quaternion());
+            go.GetComponent<ItemOrbController>().Create(i, c);
         }
     }
 }

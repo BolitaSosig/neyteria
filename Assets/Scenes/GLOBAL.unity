@@ -7745,6 +7745,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7232537792695838311, guid: 0019507ed1bf00840b40e13df6f3cd8f, type: 3}
+      propertyPath: itemorb
+      value: 
+      objectReference: {fileID: 9014287780126377293, guid: be4fa4a062c2fdb43a6dd95966ae532f, type: 3}
+    - target: {fileID: 7232537792695838311, guid: 0019507ed1bf00840b40e13df6f3cd8f, type: 3}
       propertyPath: drawTrace
       value: 1
       objectReference: {fileID: 0}

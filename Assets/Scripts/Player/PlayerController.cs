@@ -108,7 +108,7 @@ public class PlayerController : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(GameObject.Find("Boton Jugar"));
     }
 
-
+    public GameObject itemorb;
     void Update()
     {
         CheckDeath();

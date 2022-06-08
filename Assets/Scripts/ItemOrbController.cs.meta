@@ -1,10 +1,9 @@
 fileFormatVersion: 2
-guid: 869be8ed682c999478b3ef25ff9cbb55
+guid: 9de4ed5f592b4ba4d84bbb0694c8c5c5
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - itemOrbPrefab: {fileID: 9014287780126377293, guid: be4fa4a062c2fdb43a6dd95966ae532f, type: 3}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
