@@ -98,7 +98,6 @@ public class Suministrador : MonoBehaviour
             if (cantidad != 0)
             {
                 pi.Add(drops[i], cantidad);
-                _itemObtenido.ShowItem(drops[i], cantidad);
             }
         }
     }

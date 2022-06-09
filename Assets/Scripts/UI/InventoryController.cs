@@ -69,7 +69,7 @@ public class InventoryController : MonoBehaviour
             {
                 GameObject go = Instantiate(_itemPrefab);
                 go.GetComponentsInChildren<Image>()[0].sprite = i.icono;
-                go.GetComponentsInChildren<RawImage>()[0].color = Item.GetRarezaColor(i.rareza);
+                go.GetComponentsInChildren<RawImage>()[0].color = Item.GetRarezaColor(i.rareza) - new Color(0,0,0,0.5f);
                 go.GetComponentInChildren<TextMeshProUGUI>().text = c.ToString();
                 go.name = "Item " + i.ID.ToString();
 

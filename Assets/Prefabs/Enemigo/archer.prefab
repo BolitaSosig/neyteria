@@ -93,6 +93,7 @@ MonoBehaviour:
   dmgReduc: 0
   mov_x: 0
   cont_mov_x: 0
+  itemOrbPrefab: {fileID: 9014287780126377293, guid: be4fa4a062c2fdb43a6dd95966ae532f, type: 3}
   _levelText: {fileID: 1084794721244080582}
   _canvasTranform: {fileID: 6458302505504297276}
   _damageDealTMP: {fileID: 1931263843719411576, guid: 9eb9ec5f41b3bb945bd9dfe9fedef7fe, type: 3}
@@ -103,6 +104,7 @@ MonoBehaviour:
   baseDefense: 1
   baseMovSpeed: 1.3
   baseAttSpeed: 1.3
+  drop: {fileID: 0}
   _shootTransform: {fileID: 2130559013}
   projectile: {fileID: 8451858909790069766, guid: 3ecbf72d595659241a968dbec6faa4e2, type: 3}
   shootForce: 15

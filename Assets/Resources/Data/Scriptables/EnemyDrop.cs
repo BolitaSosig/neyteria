@@ -36,7 +36,7 @@ public class EnemyDrop : ScriptableObject
         foreach ((Item i, int c) in CalculateDrops())
         {
             GameObject go = Instantiate(itemOrbPrefab, t.position, new Quaternion());
-            go.GetComponent<ItemOrbController>().Create(i, c);
+            go.GetComponentInChildren<ItemOrbController>().Create(i, c);
         }
     }
 }

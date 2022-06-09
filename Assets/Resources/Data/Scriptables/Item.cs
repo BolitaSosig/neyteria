@@ -16,11 +16,11 @@ public class Item : ScriptableObject
     public int maxCant = 999;
     public bool visible = true;
 
-    public static Color RAREZA_1 = new Color(0.5f, 0.5f, 0.5f);
-    public static Color RAREZA_2 = new Color(0.4f, 0.6f, 0.6f);
-    public static Color RAREZA_3 = new Color(0.4f, 0.6f, 0.4f);
-    public static Color RAREZA_4 = new Color(0.6f, 0.4f, 0.6f);
-    public static Color RAREZA_5 = new Color(0.6f, 0.6f, 0.2f);
+    public static Color RAREZA_1 = new Color(0.7f, 0.7f, 0.7f);
+    public static Color RAREZA_2 = new Color(0.5f, 0.9f, 0.9f);
+    public static Color RAREZA_3 = new Color(0.5f, 0.9f, 0.5f);
+    public static Color RAREZA_4 = new Color(0.9f, 0.5f, 0.9f);
+    public static Color RAREZA_5 = new Color(0.9f, 0.9f, 0.5f);
 
     public static Color GetRarezaColor(int r)
     {
