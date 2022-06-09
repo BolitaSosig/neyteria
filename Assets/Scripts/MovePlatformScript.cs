@@ -81,7 +81,7 @@ public class MovePlatformScript : MonoBehaviour
 
 
     //Begin the movement of the platform
-    public void StartStopMovement()
+    public void InvertActivatedDesactivated()
     {
         move = !move;
     }

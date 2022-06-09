@@ -147,4 +147,23 @@ public class CameraController : MonoBehaviour
         player.GetComponent<PlayerController>().canMove = true;
         cinematic = false;
     }
+
+    public IEnumerator CinematicaInterruptorSimple(GameObject player, GameObject togglePlatform)
+    {
+        cinematic = true;
+        player.GetComponent<PlayerController>().canMove = false;
+        if (GLOBAL.zona.Equals("Nivel1-1"))
+            GameObject.Find("Global_Plano").GetComponent<Light2D>().color = Color.white;
+
+
+        _cam.m_Follow = togglePlatform.transform;
+        yield return new WaitForSeconds(2);
+
+
+        if (GLOBAL.zona.Equals("Nivel1-1"))
+            GameObject.Find("Global_Plano").GetComponent<Light2D>().color = Color.black;
+        _cam.m_Follow = player.transform;
+        player.GetComponent<PlayerController>().canMove = true;
+        cinematic = false;
+    }
 }
