@@ -89,7 +89,7 @@ public class MovePlatformScript : MonoBehaviour
 
     //Collider detections
 
-    void OnCollisionEnter2D(Collision2D col)
+    /*void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.CompareTag("Player"))
         { isPlayer = true; }
@@ -97,6 +97,19 @@ public class MovePlatformScript : MonoBehaviour
 
 
     void OnCollisionExit2D(Collision2D col)
+    {
+        if (col.gameObject.CompareTag("Player"))
+        { isPlayer = false; }
+    }*/
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.CompareTag("Player"))
+        { isPlayer = true; }
+    }
+
+
+    void OnTriggerExit2D(Collider2D col)
     {
         if (col.gameObject.CompareTag("Player"))
         { isPlayer = false; }
