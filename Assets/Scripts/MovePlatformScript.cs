@@ -5,14 +5,18 @@ using UnityEngine;
 public class MovePlatformScript : MonoBehaviour
 {
 
-    public GameObject platformPathStart;
-    public GameObject platformPathEnd;
-    public int speed;
-    public Vector3 startPosition;
-    public Vector3 endPosition;
+    public Transform startPos;
+    public Transform endPos;
+    public float speed = 1f;
+    public float startFadeTime;
+    public float endFadeTime;
+
+    private Vector3 startCoord;
+    private Vector3 endCoord;
 
     public bool begin = true;
     public bool move = false;
+    public bool fading = false;
 
     public bool isPlayer = false;
     private GameObject _player;
@@ -21,18 +25,11 @@ public class MovePlatformScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        platformPathStart = GetChildWithName(gameObject, "StartPath");
-        platformPathEnd = GetChildWithName(gameObject, "EndPath");
-
-        startPosition = platformPathStart.transform.position;
-        endPosition = platformPathEnd.transform.position;
+        startCoord = startPos.position;
+        endCoord = endPos.position;
 
         _player = GameObject.FindGameObjectWithTag("Player");
 
-
-        //move = false;
-        //begin = false;
-        //StartCoroutine(Vector3LerpCoroutine(gameObject, endPosition, speed));
     }
 
     // Update is called once per frame
@@ -41,27 +38,47 @@ public class MovePlatformScript : MonoBehaviour
         if (!begin && move)
         {
             move = false;
-            StartCoroutine(Vector3LerpCoroutine(gameObject, startPosition, speed));
+            StartCoroutine(Vector3LerpCoroutine(gameObject, startCoord));
         }
 
         if (begin && move)
         {
             move = false;
-            StartCoroutine(Vector3LerpCoroutine(gameObject, endPosition, speed));
+            StartCoroutine(Vector3LerpCoroutine(gameObject, endCoord));
         }
     }
 
 
+    IEnumerator FadePlatform(Vector3 startC, Vector3 endC, float tf, bool accel)
+    {
+        float time = 0f;
+        float var = speed / (tf * tf);
+        Vector3 dir = Vector3.Normalize(endC - startC);
+        Vector3 start = transform.position;
+
+        while (time < tf)
+        {
+            transform.position = accel ? start + time * time * var * dir : start + (tf - (tf - time) * (tf - time) * var) * dir;
+            time += Time.deltaTime;
+            yield return null;
+        }
+        fading = false;
+    }
+
     //Lerp of platform movement
 
-    IEnumerator Vector3LerpCoroutine(GameObject obj, Vector3 target, float speed)
+    IEnumerator Vector3LerpCoroutine(GameObject obj, Vector3 target)
     {
+        fading = startFadeTime > 0f;
+        Vector3Fade(obj, target, startFadeTime, true);
+        yield return new WaitUntil(() => !fading);
+
         Vector3 startPosition = obj.transform.position;
         float time = 0f;
 
         float timeMax = Vector3.Distance(startPosition, target) / speed;
 
-        while (obj.transform.position != target && time < timeMax)
+        while (obj.transform.position != target && time < timeMax && Vector3.Distance(obj.transform.position, target) > endFadeTime)
         {
             float prevX = obj.transform.position.x;
 
@@ -75,8 +92,18 @@ public class MovePlatformScript : MonoBehaviour
             yield return null;
         }
 
+        fading = endFadeTime > 0f;
+        Vector3Fade(obj, target, endFadeTime, false);
+        yield return new WaitUntil(() => !fading);
+
         begin = !begin;
         move = true;
+    }
+
+    void Vector3Fade(GameObject obj, Vector3 target, float tf, bool accel)
+    {
+        if (fading)
+            StartCoroutine(FadePlatform(obj.transform.position, target, tf, accel));
     }
 
 
