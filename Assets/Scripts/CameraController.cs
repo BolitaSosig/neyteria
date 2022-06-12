@@ -166,4 +166,16 @@ public class CameraController : MonoBehaviour
         player.GetComponent<PlayerController>().canMove = true;
         cinematic = false;
     }
+
+    public IEnumerator CinematicaTeletransporte(bool on)
+    {
+        if(on)
+        {
+            _cam.m_Follow = GameObject.Find("TpPointer").transform;
+        } else
+        {
+            _cam.m_Follow = _playerBody.transform;
+        }
+        yield return null;
+    }
 }

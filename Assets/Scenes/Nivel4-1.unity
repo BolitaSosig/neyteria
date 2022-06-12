@@ -136431,3 +136431,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isTouched: 0
   segundos: 5
+  segsDifuminar: 2.5

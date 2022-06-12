@@ -10,6 +10,7 @@ public class MovePlatformScript : MonoBehaviour
     public float speed = 1f;
     public float startFadeTime;
     public float endFadeTime;
+    public bool loop;
 
     private Vector3 startCoord;
     private Vector3 endCoord;
@@ -29,12 +30,15 @@ public class MovePlatformScript : MonoBehaviour
         endCoord = endPos.position;
 
         _player = GameObject.FindGameObjectWithTag("Player");
-
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (startCoord != startPos.position)
+            startCoord = startPos.position;
+        if (endCoord != endPos.position)
+            endCoord = endPos.position;
         if (!begin && move)
         {
             move = false;
@@ -54,11 +58,11 @@ public class MovePlatformScript : MonoBehaviour
         float time = 0f;
         float var = speed / (tf * tf);
         Vector3 dir = Vector3.Normalize(endC - startC);
-        Vector3 start = transform.position;
 
         while (time < tf)
         {
-            transform.position = accel ? start + time * time * var * dir : start + (tf - (tf - time) * (tf - time) * var) * dir;
+            float func = accel ? time * time * var : speed - (tf - time) * (tf - time) * var;
+            transform.position = Vector3.Lerp(startC, startC + tf * speed * dir, func / speed);
             time += Time.deltaTime;
             yield return null;
         }
@@ -73,16 +77,16 @@ public class MovePlatformScript : MonoBehaviour
         Vector3Fade(obj, target, startFadeTime, true);
         yield return new WaitUntil(() => !fading);
 
-        Vector3 startPosition = obj.transform.position;
-        float time = 0f;
+        Vector3 startPosition = startCoord;
+        float time = startFadeTime;
 
         float timeMax = Vector3.Distance(startPosition, target) / speed;
 
-        while (obj.transform.position != target && time < timeMax && Vector3.Distance(obj.transform.position, target) > endFadeTime)
+        while (obj.transform.position != target && time < (timeMax - endFadeTime) && Vector3.Distance(obj.transform.position, target) > endFadeTime)
         {
             float prevX = obj.transform.position.x;
 
-            obj.transform.position = Vector3.Lerp(startPosition, target, (time / Vector3.Distance(startPosition, target)) * speed);
+            obj.transform.position = Vector3.Lerp(startPosition, target, time / timeMax);
             time += Time.deltaTime;
 
             float postX = obj.transform.position.x;
@@ -95,9 +99,10 @@ public class MovePlatformScript : MonoBehaviour
         fading = endFadeTime > 0f;
         Vector3Fade(obj, target, endFadeTime, false);
         yield return new WaitUntil(() => !fading);
+        obj.transform.Translate(target - obj.transform.position);
 
         begin = !begin;
-        move = true;
+        move = loop;
     }
 
     void Vector3Fade(GameObject obj, Vector3 target, float tf, bool accel)

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9030351668465215418}
   - component: {fileID: 1482463427589058049}
   - component: {fileID: 5669460385571634528}
+  - component: {fileID: 176511677709500071}
   m_Layer: 0
   m_Name: nexo_central
   m_TagString: Untagged
@@ -46,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d160b275054eb1a41b35b3e4bcdc9e9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nexo: 0
   discovered: 0
   teleporting: 0
 --- !u!212 &1482463427589058049
@@ -118,6 +120,32 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!61 &176511677709500071
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1482463427589058050}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.015698254, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.625, y: 2.25}
+    newSize: {x: 2.625, y: 2.25}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.1542974, y: 2.25}
+  m_EdgeRadius: 0
 --- !u!1 &1482463429478824784
 GameObject:
   m_ObjectHideFlags: 0
