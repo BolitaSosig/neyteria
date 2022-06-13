@@ -5,8 +5,8 @@ using UnityEngine.Experimental.Rendering.Universal;
 
 public class Luz : MonoBehaviour
 {
-    [SerializeField] private Light2D _globalLight;
-    [SerializeField] private Light2D _linterna;
+    [SerializeField] public Light2D _globalLight;
+    [SerializeField] public Light2D _linterna;
 
     // Start is called before the first frame update
     void Start()

@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Nivel1_Enemigos1
   - Plataformas
+  - CollisionNivel
   layers:
   - Default
   - TransparentFX

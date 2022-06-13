@@ -71,7 +71,7 @@ public class CameraController : MonoBehaviour
     {
         cinematic = true;
         player.GetComponent<PlayerController>().canMove = false;
-        if(GLOBAL.zona.Equals("Nivel1-1"))
+        if(GLOBAL.zona.Equals("CollisionNivel1"))
             GameObject.Find("Global_Plano").GetComponent<Light2D>().color = Color.white;
 
         if (show) { 
@@ -100,7 +100,7 @@ public class CameraController : MonoBehaviour
         }
 
 
-        if (GLOBAL.zona.Equals("Nivel1-1"))
+        if (GLOBAL.zona.Equals("CollisionNivel1"))
             GameObject.Find("Global_Plano").GetComponent<Light2D>().color = Color.black;
         _cam.m_Follow = player.transform;
         player.GetComponent<PlayerController>().canMove = true;
@@ -111,7 +111,7 @@ public class CameraController : MonoBehaviour
     {
         cinematic = true;
         player.GetComponent<PlayerController>().canMove = false;
-        if (GLOBAL.zona.Equals("Nivel1-1"))
+        if (GLOBAL.zona.Equals("CollisionNivel1"))
             GameObject.Find("Global_Plano").GetComponent<Light2D>().color = Color.white;
 
         if (show)
@@ -141,7 +141,7 @@ public class CameraController : MonoBehaviour
         }
 
 
-        if (GLOBAL.zona.Equals("Nivel1-1"))
+        if (GLOBAL.zona.Equals("CollisionNivel1"))
             GameObject.Find("Global_Plano").GetComponent<Light2D>().color = Color.black;
         _cam.m_Follow = player.transform;
         player.GetComponent<PlayerController>().canMove = true;
@@ -152,7 +152,7 @@ public class CameraController : MonoBehaviour
     {
         cinematic = true;
         player.GetComponent<PlayerController>().canMove = false;
-        if (GLOBAL.zona.Equals("Nivel1-1"))
+        if (GLOBAL.zona.Equals("CollisionNivel1"))
             GameObject.Find("Global_Plano").GetComponent<Light2D>().color = Color.white;
 
 
@@ -160,7 +160,7 @@ public class CameraController : MonoBehaviour
         yield return new WaitForSeconds(2);
 
 
-        if (GLOBAL.zona.Equals("Nivel1-1"))
+        if (GLOBAL.zona.Equals("CollisionNivel1"))
             GameObject.Find("Global_Plano").GetComponent<Light2D>().color = Color.black;
         _cam.m_Follow = player.transform;
         player.GetComponent<PlayerController>().canMove = true;
@@ -177,5 +177,12 @@ public class CameraController : MonoBehaviour
             _cam.m_Follow = _playerBody.transform;
         }
         yield return null;
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("CollisionNivel"))
+            FindObjectOfType<SceneController>().EnterCollisionNivel(collision.name);
     }
 }
