@@ -15,7 +15,8 @@ public class NexoCentralController : MonoBehaviour
     {
         Nexo_1_2,
         Nexo_2_3,
-        Nexo_3_3
+        Nexo_3_3,
+        Nexo_4_4
     }
 
 
@@ -33,7 +34,7 @@ public class NexoCentralController : MonoBehaviour
 
         if(colisionando && discovered && !teleporting && Input.GetKeyDown(KeyCode.T))
         {
-            FindObjectOfType<TeleportController>().Teleport(nexo, Nexo.Nexo_2_3);
+            StartCoroutine(Teleport());
         }
     }
 
@@ -48,4 +49,34 @@ public class NexoCentralController : MonoBehaviour
         if (collision.CompareTag("Player"))
             colisionando = false;
     }
+
+    IEnumerator Teleport()
+    {
+        Nexo end = Nexo.Nexo_1_2;
+        switch(nexo)
+        {
+            case Nexo.Nexo_1_2:
+                yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow));
+                if (Input.GetKeyDown(KeyCode.UpArrow))
+                    end = Nexo.Nexo_2_3;
+                else if (Input.GetKeyDown(KeyCode.DownArrow))
+                    end = Nexo.Nexo_4_4;
+                break;
+            case Nexo.Nexo_2_3:
+                yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow));
+                if (Input.GetKeyDown(KeyCode.UpArrow))
+                    end = Nexo.Nexo_3_3;
+                else if (Input.GetKeyDown(KeyCode.DownArrow))
+                    end = Nexo.Nexo_1_2;
+                break;
+            case Nexo.Nexo_3_3:
+                end = Nexo.Nexo_2_3;
+                break;
+            case Nexo.Nexo_4_4:
+                end = Nexo.Nexo_1_2;
+                break;
+        }
+        FindObjectOfType<TeleportController>().Teleport(nexo, end);
+    }
+
 }

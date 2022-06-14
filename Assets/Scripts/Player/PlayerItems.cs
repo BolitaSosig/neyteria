@@ -14,7 +14,6 @@ public class PlayerItems : MonoBehaviour
 
     public InventoryController _inventoryController;
     public EquipmentController _equipmentController;
-
     
     [Space(20)]
     [SerializeField] private Item añadirObjeto;

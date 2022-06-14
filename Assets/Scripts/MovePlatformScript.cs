@@ -58,11 +58,13 @@ public class MovePlatformScript : MonoBehaviour
         float time = 0f;
         float var = speed / (tf * tf);
         Vector3 dir = Vector3.Normalize(endC - startC);
+        Vector3 end = startC + tf * speed * dir;
 
         while (time < tf)
         {
             float func = accel ? time * time * var : speed - (tf - time) * (tf - time) * var;
-            transform.position = Vector3.Lerp(startC, startC + tf * speed * dir, func / speed);
+            transform.position = Vector3.Lerp(startC, end, func / speed);
+                //Vector3.SmoothDamp(startC, end, ref vel, tf, 20 /*speed * accel.CompareTo(false)*/);
             time += Time.deltaTime;
             yield return null;
         }

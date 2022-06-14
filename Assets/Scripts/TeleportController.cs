@@ -7,7 +7,7 @@ public class TeleportController : MonoBehaviour
 {
     public Transform[] nexo1_nexo2;
     public Transform[] nexo2_nexo3;
-    public Transform[] nexo3_nexo4;
+    public Transform[] nexo4_nexo1;
 
     private CameraController cam;
     private MovePlatformScript pointer;
@@ -36,6 +36,9 @@ public class TeleportController : MonoBehaviour
                     case NexoCentralController.Nexo.Nexo_2_3:
                         StartCoroutine(Teleport(nexo1_nexo2, GameObject.Find("Tubos_1-2").transform));
                         break;
+                    case NexoCentralController.Nexo.Nexo_4_4:
+                        TeleportReverse(nexo4_nexo1, GameObject.Find("Tubos_4-1").transform);
+                        break;
                 }
                 break;
             case NexoCentralController.Nexo.Nexo_2_3:
@@ -44,10 +47,26 @@ public class TeleportController : MonoBehaviour
                     case NexoCentralController.Nexo.Nexo_1_2:
                        TeleportReverse(nexo1_nexo2, GameObject.Find("Tubos_1-2").transform);
                         break;
+                    case NexoCentralController.Nexo.Nexo_3_3:
+                       StartCoroutine(Teleport(nexo2_nexo3, GameObject.Find("Tubos_2-3").transform));
+                        break;
                 }
                 break;
             case NexoCentralController.Nexo.Nexo_3_3:
-                //StartCoroutine(Teleport(nexo3_nexo4));
+                switch (to)
+                {
+                    case NexoCentralController.Nexo.Nexo_2_3:
+                        TeleportReverse(nexo2_nexo3, GameObject.Find("Tubos_2-3").transform);
+                        break;
+                }
+                break;
+            case NexoCentralController.Nexo.Nexo_4_4:
+                switch (to)
+                {
+                    case NexoCentralController.Nexo.Nexo_1_2:
+                        StartCoroutine(Teleport(nexo4_nexo1, GameObject.Find("Tubos_4-1").transform));
+                        break;
+                }
                 break;
         }
     }
@@ -56,9 +75,10 @@ public class TeleportController : MonoBehaviour
     {
         if (!teleporting)
         {
+            teleporting = true;
             t[0].GetComponentInChildren<NexoCentralController>().teleporting = true;
             t[t.Length - 1].GetComponentInChildren<NexoCentralController>().teleporting = true;
-            StartCoroutine(ActivateTubos(tubos, true));
+            StartCoroutine(ActivateTubos(tubos));
             pointer.transform.position = t[0].position;
             StartCoroutine(cam.CinematicaTeletransporte(true));
 
@@ -68,6 +88,7 @@ public class TeleportController : MonoBehaviour
                 pointer.startPos = t[i - 1];
                 pointer.endPos = t[i];
                 pointer.move = true;
+                pointer.begin = true;
                 if(i == 1)
                 {
                     yield return new WaitForSecondsRealtime((Vector3.Distance(t[i - 1].position, t[i].position) / pointer.speed) / 2f);
@@ -76,10 +97,11 @@ public class TeleportController : MonoBehaviour
             }
             
             yield return new WaitUntil(() => pointer.transform.position == t[t.Length - 1].position);
-            StartCoroutine(cam.CinematicaTeletransporte(false));
-            StartCoroutine(ActivateTubos(tubos, false));
             t[0].GetComponentInChildren<NexoCentralController>().teleporting = false;
             t[t.Length - 1].GetComponentInChildren<NexoCentralController>().teleporting = false;
+            StartCoroutine(cam.CinematicaTeletransporte(false));
+            teleporting = false;
+            StartCoroutine(ActivateTubos(tubos));
         }
     }
     
@@ -87,14 +109,16 @@ public class TeleportController : MonoBehaviour
     {
         ArrayList l = new ArrayList(t);
         l.Reverse();
-        StartCoroutine(Teleport((Transform[]) l.ToArray(), tubos));
+        Transform[] tr = new Transform[l.Count];
+        l.CopyTo(tr);
+        StartCoroutine(Teleport(tr, tubos));
     }
 
-    IEnumerator ActivateTubos(Transform parent, bool activate)
+    IEnumerator ActivateTubos(Transform parent)
     {
         foreach(Animator a in parent.GetComponentsInChildren<Animator>())
         {
-            a.SetBool("teleporting", activate);
+            a.SetBool("teleporting", teleporting);
             yield return null;
         }
     }
