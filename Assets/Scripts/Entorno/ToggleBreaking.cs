@@ -34,6 +34,7 @@ public class ToggleBreaking : MonoBehaviour
     {
         nHits--;
         StartCoroutine(Vibrar());
+        Debug.Log("golpe");
     }
 
     IEnumerator Vibrar()

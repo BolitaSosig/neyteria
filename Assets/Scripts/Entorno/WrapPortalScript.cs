@@ -26,22 +26,27 @@ public class WrapPortalScript : MonoBehaviour
             {
                 TransportPortal();
                 isPlayer = false;
+                PortalCanvas.SetActive(false);
             }
         }
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        bool cond = other.CompareTag("Player");
-        PortalCanvas.SetActive(cond);
-        isPlayer = cond;
+        if (other.CompareTag("Player"))
+        {
+            PortalCanvas.SetActive(true);
+            isPlayer = true;
+        }
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        bool cond = other.CompareTag("Player");
-        PortalCanvas.SetActive(cond);
-        isPlayer = cond;
+        if (other.CompareTag("Player"))
+        {
+            PortalCanvas.SetActive(false);
+            isPlayer = false;
+        }
     }
 
     GameObject GetChildWithName(GameObject obj, string name)
