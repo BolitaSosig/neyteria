@@ -7,6 +7,7 @@ public class NexoCentralController : MonoBehaviour
     public Nexo nexo;
     public bool discovered;
     public bool teleporting;
+    public Canvas canvas;
 
     private bool colisionando;
     private Animator animator;
@@ -32,22 +33,30 @@ public class NexoCentralController : MonoBehaviour
         animator.SetBool("discovered", discovered);
         animator.SetBool("teleporting", teleporting);
 
-        if(colisionando && discovered && !teleporting && Input.GetKeyDown(KeyCode.T))
+        /*if(colisionando && discovered && !teleporting && Input.GetKeyDown(KeyCode.T))
         {
             StartCoroutine(Teleport());
-        }
+        }*/
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
+        {
             colisionando = true;
+            canvas.gameObject.SetActive(true);
+            collision.GetComponent<PlayerAttack>().canAttack = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
+        {
             colisionando = false;
+            canvas.gameObject.SetActive(false);
+            collision.GetComponent<PlayerAttack>().canAttack = false;
+        }
     }
 
     IEnumerator Teleport()
@@ -79,4 +88,8 @@ public class NexoCentralController : MonoBehaviour
         FindObjectOfType<TeleportController>().Teleport(nexo, end);
     }
 
+    void Equipo()
+    {
+        GameObject.FindObjectOfType<EquipmentController>().IsShow = true;
+    }
 }

@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    [SerializeField] bool attacking = false;
+    [SerializeField] public bool attacking = false;
     [SerializeField] bool switchingWeapon = false;
-    [SerializeField] bool canAttack = true;
+    [SerializeField] public bool canAttack = true;
 
     public Arma arma;
     private Arma arma_old;
