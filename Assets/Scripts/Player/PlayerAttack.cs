@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] public bool attacking = false;
-    [SerializeField] bool switchingWeapon = false;
+    //[SerializeField] bool switchingWeapon = false;
     [SerializeField] public bool canAttack = true;
 
     public Arma arma;
@@ -19,7 +19,7 @@ public class PlayerAttack : MonoBehaviour
     private SoundManager _audioSource;
 
     //Selector
-    public int seleccionado = 2; //0 es pistola, 1 es espada, y 2 es maza
+    //public int seleccionado = 2; //0 es pistola, 1 es espada, y 2 es maza
     GameObject _gun;
     GameObject _sword;
     GameObject _maze;
@@ -57,8 +57,6 @@ public class PlayerAttack : MonoBehaviour
         _sword = GameObject.Find("pivote-sword");
         _maze = GameObject.Find("pivote-maze");
 
-        StartCoroutine(UpdateSeleccionado());
-
         _playerStats.BaseAttack = arma.ataque;
         _playerStats.BaseWeight = arma.peso;
         arma_old = arma;
@@ -74,7 +72,7 @@ public class PlayerAttack : MonoBehaviour
             GunAttack();
             SwordAttack();
             MazeAttack();
-            if (Input.GetKeyDown(KeyCode.Q) && !switchingWeapon) StartCoroutine(UpdateSeleccionado());
+            //if (Input.GetKeyDown(KeyCode.Q) && !switchingWeapon) StartCoroutine(UpdateSeleccionado());
         }
         
         if(!arma.Equals(arma_old))
@@ -84,17 +82,26 @@ public class PlayerAttack : MonoBehaviour
             arma_old = arma;
 
             if (arma.tipo == Arma.Tipo.Espada)
+            {
                 _sword.GetComponentInChildren<SpriteRenderer>().sprite = arma.icono;
+                _gun.SetActive(false); _sword.SetActive(true); _maze.SetActive(false);
+            }
             else if (arma.tipo == Arma.Tipo.Maza)
+            {
                 _maze.GetComponentInChildren<SpriteRenderer>().sprite = arma.icono;
+                _gun.SetActive(false); _sword.SetActive(false); _maze.SetActive(true);
+            }
             else
+            {
                 _gun.GetComponentInChildren<SpriteRenderer>().sprite = arma.icono;
+                _gun.SetActive(true); _sword.SetActive(false); _maze.SetActive(false);
+            }
         }
     }
 
     void GunAttack()
     {
-        if (seleccionado == 0 && Input.GetButtonDown("Hit") && !attacking)
+        if (arma.tipo == Arma.Tipo.Laser && Input.GetButtonDown("Hit") && !attacking)
         {
             _audioSource.PlayAudioOneShot(Random.Range(0,2));
             _animator.SetTrigger("gunAttack");
@@ -114,7 +121,7 @@ public class PlayerAttack : MonoBehaviour
 
     void SwordAttack()
     {
-        if (seleccionado == 1 && Input.GetButtonDown("Hit") && !attacking)
+        if (arma.tipo == Arma.Tipo.Espada && Input.GetButtonDown("Hit") && !attacking)
         {
             _audioSource.PlayAudioOneShot(Random.Range(2, 4));
             _animator.SetTrigger("swordAttack");
@@ -136,7 +143,7 @@ public class PlayerAttack : MonoBehaviour
     void MazeAttack()
     {
 
-        if (seleccionado == 2 && Input.GetButtonDown("Hit") && !attacking)
+        if (arma.tipo == Arma.Tipo.Maza && Input.GetButtonDown("Hit") && !attacking)
         {
             _animator.SetTrigger("mazeAttack");
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(_mazeTransform.position, mazeRange, enemyLayers);
@@ -164,18 +171,6 @@ public class PlayerAttack : MonoBehaviour
         Gizmos.DrawWireSphere(_swordTransform.position, swordRange);
         Gizmos.DrawWireSphere(_mazeTransform.position, mazeRange);
 
-    }
-
-    IEnumerator UpdateSeleccionado()
-    {
-        switchingWeapon = true;
-        seleccionado = (seleccionado + 1) % 3; // seleciona siguiente indice arma
-        if (seleccionado == 0) { _gun.SetActive(true); _sword.SetActive(false); _maze.SetActive(false); }
-        else if (seleccionado == 1) { _gun.SetActive(false); _sword.SetActive(true); _maze.SetActive(false); }
-        else /*(seleccionado == 2)*/ { _gun.SetActive(false); _sword.SetActive(false); _maze.SetActive(true); }
-
-        yield return new WaitForSecondsRealtime(1f);
-        switchingWeapon = false;
     }
 
     IEnumerator Cooldown(float segundos)
