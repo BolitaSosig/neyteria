@@ -88,12 +88,12 @@ public class PlayerModulos : MonoBehaviour
         return i;
     }
 
-    public int getTotalSlots()
+    public int getTotalSlotsFree()
     {
         int slotsTot = 0;
         foreach (Modulo m in _modulos)
-            if(m != null) 
-                slotsTot += m.Slots;
+            if (m == null)
+                slotsTot++;
         return slotsTot;
     }
 
@@ -116,9 +116,9 @@ public class PlayerModulos : MonoBehaviour
             int i = FindModule(m);
             _modulos[i] = null;
             for (int j = 1; j < m.Slots; j++)
-                _modulos[ + j] = null;
+                _modulos[i + j] = null;
         }
-        else if (getTotalSlots() <= m.Slots)
+        else if (getTotalSlotsFree() >= m.Slots)
         {
             int i = FindConsecutiveSlots(m.Slots);
             if (i == -1)

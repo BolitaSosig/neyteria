@@ -152,7 +152,7 @@ public class EquipmentController : MonoBehaviour
                 Modulo m = (Modulo)i;
                 go.transform.parent = modulosContent.transform;
                 go.GetComponent<InventoryItemSelect>().equiped.GetComponentInChildren<TextMeshProUGUI>().text =
-                    "" + _player.GetComponent<PlayerModulos>().FindModule(m);
+                    "" + (_player.GetComponent<PlayerModulos>().FindModule(m) + 1);
                 //go.GetComponent<InventoryItemSelect>().equiped.SetActive(_items.gameObject.GetComponent<PlayerModulos>().IsEquiped(m));
             }
             else
