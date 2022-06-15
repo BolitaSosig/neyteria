@@ -10,20 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5475d04df7a041440b678e4f9dfb0c7b, type: 3}
-  m_Name: 108-Modulo_de_conversion
+  m_Name: 199-Modulo_nulo
   m_EditorClassIdentifier: 
-  ID: 108
-  nombre: "M\xF3dulo de conversi\xF3n"
-  descripcion: "Durante el periodo de efecto, aumenta el ataque y la defensa en un
-    3% de los puntos m\xE1ximos de salud."
-  icono: {fileID: 21300000, guid: 2a35e59a70dd50a429fdae1bee6fbb86, type: 3}
-  rareza: 3
+  ID: 199
+  nombre: "Extensi\xF3n de M\xF3dulo"
+  descripcion: ' '
+  icono: {fileID: 0}
+  rareza: 1
   usable: 0
-  maxCant: 1
+  maxCant: 0
   visible: 0
-  Slots: 2
-  Duracion: 20
-  TdE: 60
+  Slots: 1
+  Duracion: 0
+  TdE: 0
   Upgrade: {fileID: 0}
   Nv: 1
   override_start: 0

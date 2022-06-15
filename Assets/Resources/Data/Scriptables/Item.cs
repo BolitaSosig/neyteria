@@ -68,6 +68,7 @@ public class Item : ScriptableObject
     public static Modulo MODULO_DE_RUMARH_3;
     public static Modulo MODULO_DE_CONVERSION;
     public static Modulo MODULO_DE_LA_FURIA;
+    public static Modulo MODULO_NULO;
 
     public static Arma ESPADA_CORTA;
     public static Arma MAZA;
@@ -121,6 +122,7 @@ public class Item : ScriptableObject
         MODULO_DE_RUMARH_3 = Resources.Load<Modulo>("Data\\Modulo\\107-Modulo_de_Rumarh_3");
         MODULO_DE_CONVERSION = Resources.Load<Modulo>("Data\\Modulo\\108-Modulo_de_conversion");
         MODULO_DE_LA_FURIA  = Resources.Load<Modulo>("Data\\Modulo\\109-Modulo_de_la_furia");
+        MODULO_NULO  = Resources.Load<Modulo>("Data\\Modulo\\199-Modulo_nulo");
 
         ESPADA_CORTA = Resources.Load<Arma>("Data\\Arma\\200-Espada_corta");
         MAZA = Resources.Load<Arma>("Data\\Arma\\201-Maza");
@@ -343,7 +345,7 @@ public class Item : ScriptableObject
             null,
             null,
             null,
-            null,
+            MODULO_NULO,
             ESPADA_CORTA,
             MAZA,
             CANON_LASER,

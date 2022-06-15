@@ -16,24 +16,25 @@ public class PlayerInputManager : MonoBehaviour
     public bool _isPause;
     public bool _isInventory;
     public bool _isEquipment;
+    public bool _isEquipmentNexo;
     public bool _isConsole;
 
     public bool _useItemTimer = false;
 
     public bool CanPause
     {
-        get { return !_isConsole && !_isInventory && !_isEquipment && Input.GetButtonDown("Pause") ; }
+        get { return !_isConsole && !_isInventory && !_isEquipment && !_isEquipmentNexo && Input.GetButtonDown("Pause") ; }
     }
     public bool CanModulo
     {
-        get { return !_isPause && !_isInventory && !_isEquipment && !_isConsole;  }
+        get { return !_isPause && !_isInventory && !_isEquipment && !_isConsole && !_isEquipmentNexo;  }
     }
     public bool CanInventory
     {
         get 
         { 
             return 
-                (!_isPause && !_isEquipment && !_isConsole && 
+                (!_isPause && !_isEquipment && !_isConsole && !_isEquipmentNexo &&
                     (Input.GetButtonDown("Inventory") || 
                     (Input.GetButton("InventoryJoystick1") && Input.GetButtonDown("InventoryJoystick2")))) ||
                 (_isInventory && Input.GetButtonDown("Cancel"));  
@@ -48,6 +49,10 @@ public class PlayerInputManager : MonoBehaviour
                     (Input.GetButtonDown("Equipment") || 
                     (Input.GetButton("EquipmentJoystick1") && Input.GetButtonDown("EquipmentJoystick2")))) ||
                 (_isEquipment && Input.GetButtonDown("Cancel"));  
+        }
+        set
+        {
+
         }
     }
 
@@ -67,7 +72,7 @@ public class PlayerInputManager : MonoBehaviour
 
     public bool CanUseItem
     {
-        get { return !_useItemTimer && !_isPause && !_isInventory && !_isEquipment && !_isConsole && Input.GetButtonDown("UseItem"); }
+        get { return !_useItemTimer && !_isPause && !_isInventory && !_isEquipment && !_isEquipmentNexo && !_isConsole && Input.GetButtonDown("UseItem"); }
     }
 
     // Start is called before the first frame update
@@ -99,6 +104,8 @@ public class PlayerInputManager : MonoBehaviour
             SetEquipment();
         if (CanUseItem)
             SetUseItem();
+        if (_isEquipmentNexo && Input.GetButtonDown("Cancel"))
+            SetEquipmentNexo();
     }
 
     void SetPause()
@@ -152,5 +159,11 @@ public class PlayerInputManager : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(1f);
         _useItemTimer = false;
+    }
+
+    public void SetEquipmentNexo()
+    {
+        _isEquipmentNexo = !_isEquipmentNexo;
+        SetEquipment();
     }
 }

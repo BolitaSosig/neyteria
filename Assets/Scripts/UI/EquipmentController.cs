@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class EquipmentController : MonoBehaviour
 {
+    public Item selectedEquip;
+
     public GameObject armasViewport;
     public GameObject trajesViewport;
     public GameObject modulosViewport;
@@ -48,6 +50,8 @@ public class EquipmentController : MonoBehaviour
     public TextMeshProUGUI _jumpCap;
     public TextMeshProUGUI _gastoDash;
     public TextMeshProUGUI _dmgReduc;
+    [Space]
+    public GameObject _equiparOpcion;
 
     private bool _isShow = false;
     public bool IsShow
@@ -56,6 +60,7 @@ public class EquipmentController : MonoBehaviour
         { 
             _isShow = value;
             transform.position = _isShow ? menuInitPos : menuInitPos * new Vector2(0, -100);
+            _equiparOpcion.SetActive(_player.GetComponent<PlayerInputManager>()._isEquipmentNexo);
         }
         get { return _isShow; }
     }
@@ -87,6 +92,8 @@ public class EquipmentController : MonoBehaviour
             estadoInfo.transform.position = !estadoInfo.transform.position.Equals(estadoInitPos) ? estadoInitPos : estadoInitPos * new Vector2(0, -100);
             itemInfo.transform.position = !itemInfo.transform.position.Equals(itemInitPos) ? itemInitPos : itemInitPos * new Vector2(0, -100);
         }
+        if (Input.GetButtonDown("UseItem") && IsShow && _equiparOpcion.activeSelf)
+            Equipar();
         UpdateStats();
     }
 
@@ -138,13 +145,15 @@ public class EquipmentController : MonoBehaviour
                         go.transform.SetParent(laserContent.transform);
                         break;
                 }
-                go.GetComponent<InventoryItemSelect>().equiped.SetActive(_items.gameObject.GetComponent<PlayerAttack>().arma.Equals(a));
+                //go.GetComponent<InventoryItemSelect>().equiped.SetActive(_items.gameObject.GetComponent<PlayerAttack>().arma.Equals(a));
             }
             else if (i.GetType().IsEquivalentTo(typeof(Modulo)))  // MODULOS
             {
                 Modulo m = (Modulo)i;
                 go.transform.parent = modulosContent.transform;
-                go.GetComponent<InventoryItemSelect>().equiped.SetActive(_items.gameObject.GetComponent<PlayerModulos>().IsEquiped(m));
+                go.GetComponent<InventoryItemSelect>().equiped.GetComponentInChildren<TextMeshProUGUI>().text =
+                    "" + _player.GetComponent<PlayerModulos>().FindModule(m);
+                //go.GetComponent<InventoryItemSelect>().equiped.SetActive(_items.gameObject.GetComponent<PlayerModulos>().IsEquiped(m));
             }
             else
                 Destroy(go);
@@ -187,5 +196,21 @@ public class EquipmentController : MonoBehaviour
     string FormatPerc(float p)
     {
         return Mathf.RoundToInt(p * 100f).ToString();
+    }
+
+    void Equipar()
+    {
+        if (selectedEquip.GetType().IsEquivalentTo(typeof(Arma)))
+        {
+            _player.GetComponent<PlayerAttack>().arma = (Arma)selectedEquip;
+            FillEquipment();
+        }
+        else if (selectedEquip.GetType().IsEquivalentTo(typeof(Traje)))
+        {
+            _player.GetComponent<PlayerTrajes>()._traje = (Traje)selectedEquip;
+            FillEquipment();
+        }
+        else if (selectedEquip.GetType().IsEquivalentTo(typeof(Modulo)))
+            _player.GetComponent<PlayerModulos>().SendMessage("EquipModulo", (Modulo)selectedEquip);
     }
 }

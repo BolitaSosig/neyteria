@@ -11,6 +11,7 @@ public class NexoCentralController : MonoBehaviour
 
     private bool colisionando;
     private Animator animator;
+    private PlayerInputManager input;
 
     public enum Nexo
     {
@@ -25,6 +26,7 @@ public class NexoCentralController : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        input = FindObjectOfType<PlayerInputManager>();
     }
 
     // Update is called once per frame
@@ -56,6 +58,7 @@ public class NexoCentralController : MonoBehaviour
             colisionando = false;
             canvas.gameObject.SetActive(false);
             collision.GetComponent<PlayerAttack>().canAttack = false;
+            collision.GetComponent<PlayerInputManager>()._isEquipmentNexo = false;
         }
     }
 
@@ -90,6 +93,6 @@ public class NexoCentralController : MonoBehaviour
 
     void Equipo()
     {
-        GameObject.FindObjectOfType<EquipmentController>().IsShow = true;
+        input.SetEquipmentNexo();
     }
 }

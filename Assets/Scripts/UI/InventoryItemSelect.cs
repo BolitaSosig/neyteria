@@ -11,13 +11,21 @@ public class InventoryItemSelect : MonoBehaviour
     public GameObject equiped;
     public GameObject cantidad;
 
+    public Item item;
+
 
     private void Start()
     {
         _inventory = GameObject.Find("Inventario").GetComponent<InventoryController>();
         _equipment = FindObjectOfType<EquipmentController>();
         _items = GameObject.Find("Player").GetComponent<PlayerItems>();
-        equiped.SetActive(false);
+
+        item = _items.getByID(Int32.Parse(gameObject.name.Replace("Item ", ""))).Item1;
+        equiped.SetActive(
+            (item.GetType().IsEquivalentTo(typeof(Arma)) && _items.GetComponent<PlayerAttack>().arma.Equals((Arma)item)) ||
+            (item.GetType().IsEquivalentTo(typeof(Traje)) && _items.GetComponent<PlayerTrajes>()._traje.Equals((Traje)item)) ||
+            (item.GetType().IsEquivalentTo(typeof(Modulo)) && _items.GetComponent<PlayerModulos>().IsEquiped((Modulo)item))
+            );
     }
 
     public void SelectItem()
@@ -49,6 +57,7 @@ public class InventoryItemSelect : MonoBehaviour
     
     void SelectArmaEquipment(Arma arma)
     {
+        _equipment.selectedEquip = arma;
         _equipment._itemName.text = arma.nombre;
         _equipment._itemDescripcion.text = arma.descripcion;
         _equipment._itemRareza.text = "Rareza " + arma.rareza;
@@ -61,6 +70,7 @@ public class InventoryItemSelect : MonoBehaviour
 
     void SelectTrajeEquipment(Traje traje)
     {
+        _equipment.selectedEquip = traje;
         _equipment._itemName.text = traje.nombre;
         _equipment._itemDescripcion.text = traje.descripcion;
         _equipment._itemRareza.text = "Rareza " + traje.rareza;
@@ -73,6 +83,7 @@ public class InventoryItemSelect : MonoBehaviour
 
     void SelectModuloEquipment(Modulo modulo)
     {
+        _equipment.selectedEquip = modulo;
         _equipment._itemName.text = modulo.nombre;
         _equipment._itemDescripcion.text = modulo.descripcion;
         _equipment._itemRareza.text = "Rareza " + modulo.rareza;

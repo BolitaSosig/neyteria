@@ -77,4 +77,61 @@ public class PlayerModulos : MonoBehaviour
     {
         return m.Equals(_modulos[0]) || m.Equals(_modulos[1]) || m.Equals(_modulos[2]);
     }
+    public int FindModule(Modulo m)
+    {
+        if (!IsEquiped(m))
+            return -1;
+        int i;
+        for (i = 0; i < _modulos.Length && (_modulos[i] == null || !_modulos[i].Equals(m)); i++) 
+        { 
+        }
+        return i;
+    }
+
+    public int getTotalSlots()
+    {
+        int slotsTot = 0;
+        foreach (Modulo m in _modulos)
+            if(m != null) 
+                slotsTot += m.Slots;
+        return slotsTot;
+    }
+
+    int FindConsecutiveSlots(int s)
+    {
+        if (s == 1)
+            return _modulos[0] == null ? 0 : _modulos[1] == null ? 1 : _modulos[2] == null ? 2 : -1;
+        else if (s == 2)
+            return _modulos[0] == null && _modulos[1] == null ? 0 : _modulos[1] == null && _modulos[2] == null ? 1 : -1;
+        else if (s == 3)
+            return _modulos[0] == null && _modulos[1] == null && _modulos[2] == null ? 0 : -1;
+        else
+            return -1;
+    }
+
+    void EquipModulo(Modulo m)
+    {
+        if (IsEquiped(m))
+        {
+            int i = FindModule(m);
+            _modulos[i] = null;
+            for (int j = 1; j < m.Slots; j++)
+                _modulos[ + j] = null;
+        }
+        else if (getTotalSlots() <= m.Slots)
+        {
+            int i = FindConsecutiveSlots(m.Slots);
+            if (i == -1)
+            {
+
+            }
+            else
+            {
+                _modulos[i] = m;
+                for (int j = 1; j < m.Slots; j++)
+                    _modulos[i + j] = (Modulo)Item.MODULO_NULO;
+            }
+        }
+        FindObjectOfType<EquipmentController>().FillEquipment();
+    }
 }
