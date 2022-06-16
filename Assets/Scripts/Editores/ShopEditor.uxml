@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <ui:Button text="Button" display-tooltip-when-elided="true" />
+    <ui:Foldout text="Foldout">
+        <uie:ObjectField label="Item" name="polla" style="flex-direction: row; align-items: stretch;" />
+    </ui:Foldout>
+</ui:UXML>
