@@ -57,6 +57,7 @@ public class PlayerAttack : MonoBehaviour
         _sword = GameObject.Find("pivote-sword");
         _maze = GameObject.Find("pivote-maze");
 
+        UpdateSpriteArma();
         _playerStats.BaseAttack = arma.ataque;
         _playerStats.BaseWeight = arma.peso;
         arma_old = arma;
@@ -81,21 +82,7 @@ public class PlayerAttack : MonoBehaviour
             _playerStats.BaseWeight += arma.peso - arma_old.peso;
             arma_old = arma;
 
-            if (arma.tipo == Arma.Tipo.Espada)
-            {
-                _sword.GetComponentInChildren<SpriteRenderer>().sprite = arma.icono;
-                _gun.SetActive(false); _sword.SetActive(true); _maze.SetActive(false);
-            }
-            else if (arma.tipo == Arma.Tipo.Maza)
-            {
-                _maze.GetComponentInChildren<SpriteRenderer>().sprite = arma.icono;
-                _gun.SetActive(false); _sword.SetActive(false); _maze.SetActive(true);
-            }
-            else
-            {
-                _gun.GetComponentInChildren<SpriteRenderer>().sprite = arma.icono;
-                _gun.SetActive(true); _sword.SetActive(false); _maze.SetActive(false);
-            }
+            UpdateSpriteArma();
         }
     }
 
@@ -180,6 +167,23 @@ public class PlayerAttack : MonoBehaviour
         attacking = false;
     }
 
-
+    void UpdateSpriteArma()
+    {
+        if (arma.tipo == Arma.Tipo.Espada)
+        {
+            _sword.GetComponentInChildren<SpriteRenderer>().sprite = arma.icono;
+            _gun.SetActive(false); _sword.SetActive(true); _maze.SetActive(false);
+        }
+        else if (arma.tipo == Arma.Tipo.Maza)
+        {
+            _maze.GetComponentInChildren<SpriteRenderer>().sprite = arma.icono;
+            _gun.SetActive(false); _sword.SetActive(false); _maze.SetActive(true);
+        }
+        else
+        {
+            _gun.GetComponentInChildren<SpriteRenderer>().sprite = arma.icono;
+            _gun.SetActive(true); _sword.SetActive(false); _maze.SetActive(false);
+        }
+    }
 
 }

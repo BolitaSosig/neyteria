@@ -95,4 +95,9 @@ public class NexoCentralController : MonoBehaviour
     {
         input.SetEquipmentNexo();
     }
+
+    void Stats()
+    {
+        FindObjectOfType<MejoraNexoController>().Show();
+    }
 }

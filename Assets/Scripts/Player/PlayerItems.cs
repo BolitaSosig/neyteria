@@ -81,7 +81,7 @@ public class PlayerItems : MonoBehaviour
         _equipmentController.SendMessage("FillEquipment");
     }
 
-    public (Item, int) getByID(int id)
+    public (Item item, int cant) getByID(int id)
     {
         foreach (Item item in items.Keys)
         {
@@ -91,7 +91,7 @@ public class PlayerItems : MonoBehaviour
         return (Item.NONE, 0);
     }
 
-    public List<(Item, int)> getAllItemsCant()
+    public List<(Item item, int cant)> getAllItemsCant()
     {
         List<(Item, int)> res = new List<(Item, int)>();
         foreach(Item item in items.Keys)

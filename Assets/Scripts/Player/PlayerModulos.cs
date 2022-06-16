@@ -8,6 +8,10 @@ public class PlayerModulos : MonoBehaviour
     public float[] _duracion = new float[3];
     public float[] _cooldown = new float[3];
 
+    private Coroutine[] skillCo = new Coroutine[3];
+    private Coroutine[] cdCo = new Coroutine[3];
+    private bool[] removing = new bool[3];
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,14 +38,14 @@ public class PlayerModulos : MonoBehaviour
     {
         if (_cooldown[s] == 0)
         {
-            StartCoroutine(Skill(s));
+            skillCo[s] = StartCoroutine(Skill(s));
         }
     }
     
     public IEnumerator Skill(int s)
     {
         Modulo.SkillOn(_modulos[s].ID, _modulos[s].Nv);
-        StartCoroutine(Cooldown(s));
+        cdCo[s] = StartCoroutine(Cooldown(s));
         SendMessageUpwards("ModuloSkillStarted", s);
         Coroutine dur = StartCoroutine(Duration(s));
         if (GetComponent<PlayerController>().noCD) 
@@ -114,9 +118,11 @@ public class PlayerModulos : MonoBehaviour
         if (IsEquiped(m))
         {
             int i = FindModule(m);
-            _modulos[i] = null;
-            for (int j = 1; j < m.Slots; j++)
-                _modulos[i + j] = null;
+            if(!removing[i])
+            {
+                removing[i] = true;
+                StartCoroutine(Removing(i));
+            }
         }
         else if (getTotalSlotsFree() >= m.Slots)
         {
@@ -133,5 +139,19 @@ public class PlayerModulos : MonoBehaviour
             }
         }
         FindObjectOfType<EquipmentController>().FillEquipment();
+    }
+
+    IEnumerator Removing(int index)
+    {
+        _duracion[index] = 0f;
+        _cooldown[index] = 0f;
+        for (int j = 1; j < _modulos[index].Slots; j++)
+            _modulos[index + j] = null;
+
+        yield return skillCo[index];
+        yield return cdCo[index];
+        _modulos[index] = null;
+        removing[index] = false;
+        yield return null;
     }
 }
