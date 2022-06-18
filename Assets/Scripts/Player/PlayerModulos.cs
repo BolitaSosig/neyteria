@@ -113,7 +113,7 @@ public class PlayerModulos : MonoBehaviour
             return -1;
     }
 
-    void EquipModulo(Modulo m)
+    public void EquipModulo(Modulo m)
     {
         if (IsEquiped(m))
         {

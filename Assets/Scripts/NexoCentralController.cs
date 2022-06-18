@@ -8,6 +8,7 @@ public class NexoCentralController : MonoBehaviour
     public bool discovered;
     public bool teleporting;
     public Canvas canvas;
+    public Shop tienda;
 
     private bool colisionando;
     private Animator animator;
@@ -99,5 +100,12 @@ public class NexoCentralController : MonoBehaviour
     void Stats()
     {
         FindObjectOfType<MejoraNexoController>().Show();
+    }
+
+    void OpenShop()
+    {
+        ShopController s = FindObjectOfType<ShopController>();
+        s.SetShop(tienda);
+        s.isShown = true;
     }
 }

@@ -77,6 +77,8 @@ public class PlayerItems : MonoBehaviour
     {
         items.Remove(i);
         RemoveQuickItem(i);
+        if (i.GetType().IsEquivalentTo(typeof(Modulo)) && GetComponent<PlayerModulos>().IsEquiped((Modulo)i))
+            GetComponent<PlayerModulos>().EquipModulo((Modulo)i);
         _inventoryController.SendMessage("FillItems");
         _equipmentController.SendMessage("FillEquipment");
     }

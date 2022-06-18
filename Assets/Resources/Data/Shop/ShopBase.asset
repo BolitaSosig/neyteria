@@ -17,10 +17,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6dd6d37f8504c454eb131b39aa2112c1, type: 2}
   - {fileID: 11400000, guid: e78f9677f697a3c4092bf478f72a2264, type: 2}
   - {fileID: 11400000, guid: 9ca40a993cd4b974890dfca9916173e3, type: 2}
-  cantidad: 01000000010000000100000001000000
+  - {fileID: 11400000, guid: ef20bd628f450dd42a503f40b8560b3f, type: 2}
+  cantidad: 0100000001000000010000000100000001000000
   costeItem:
-  - {fileID: 11400000, guid: b5b257f7e8204e745bd50fa997665ea2, type: 2}
-  - {fileID: 11400000, guid: b5b257f7e8204e745bd50fa997665ea2, type: 2}
-  - {fileID: 11400000, guid: b5b257f7e8204e745bd50fa997665ea2, type: 2}
-  - {fileID: 11400000, guid: b5b257f7e8204e745bd50fa997665ea2, type: 2}
-  costeCant: 19000000190000003200000032000000
+  - {fileID: 11400000, guid: db53870e595a2264ba1c178a916de1cc, type: 2}
+  - {fileID: 11400000, guid: db53870e595a2264ba1c178a916de1cc, type: 2}
+  - {fileID: 11400000, guid: 3d209bd4399f9f343a23bc87c0221dd1, type: 2}
+  - {fileID: 11400000, guid: 3d209bd4399f9f343a23bc87c0221dd1, type: 2}
+  - {fileID: 11400000, guid: e576cd24a5e27094f9d4c36cd523afdc, type: 2}

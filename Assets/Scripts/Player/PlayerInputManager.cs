@@ -10,6 +10,8 @@ public class PlayerInputManager : MonoBehaviour
     private PauseMenu _pause;
     private InventoryController _inventoryController;
     private EquipmentController _equipmnetController;
+    private ShopController _shopController;
+    private MejoraNexoController _statsUpgradeController;
     private PlayerModulos _modulos;
     private ConsoleAdmin _console;
 
@@ -17,24 +19,27 @@ public class PlayerInputManager : MonoBehaviour
     public bool _isInventory;
     public bool _isEquipment;
     public bool _isEquipmentNexo;
+    public bool _isStatsUpgrade;
+    public bool _isShop;
     public bool _isConsole;
 
     public bool _useItemTimer = false;
 
     public bool CanPause
     {
-        get { return !_isConsole && !_isInventory && !_isEquipment && !_isEquipmentNexo && Input.GetButtonDown("Pause") ; }
+        get { return !_isConsole && !_isInventory && !_isEquipment && !_isEquipmentNexo && !_isStatsUpgrade && !_isShop 
+                && Input.GetButtonDown("Pause") ; }
     }
     public bool CanModulo
     {
-        get { return !_isPause && !_isInventory && !_isEquipment && !_isConsole && !_isEquipmentNexo;  }
+        get { return !_isPause && !_isInventory && !_isEquipment && !_isConsole && !_isEquipmentNexo && !_isStatsUpgrade && !_isShop; }
     }
     public bool CanInventory
     {
         get 
         { 
             return 
-                (!_isPause && !_isEquipment && !_isConsole && !_isEquipmentNexo &&
+                (!_isPause && !_isEquipment && !_isConsole && !_isEquipmentNexo && !_isStatsUpgrade && !_isShop &&
                     (Input.GetButtonDown("Inventory") || 
                     (Input.GetButton("InventoryJoystick1") && Input.GetButtonDown("InventoryJoystick2")))) ||
                 (_isInventory && Input.GetButtonDown("Cancel"));  
@@ -45,7 +50,7 @@ public class PlayerInputManager : MonoBehaviour
         get 
         { 
             return 
-                (!_isPause && !_isInventory && !_isConsole && 
+                (!_isPause && !_isInventory && !_isConsole && !_isStatsUpgrade && !_isShop && 
                     (Input.GetButtonDown("Equipment") || 
                     (Input.GetButton("EquipmentJoystick1") && Input.GetButtonDown("EquipmentJoystick2")))) ||
                 (_isEquipment && Input.GetButtonDown("Cancel"));  
@@ -72,7 +77,8 @@ public class PlayerInputManager : MonoBehaviour
 
     public bool CanUseItem
     {
-        get { return !_useItemTimer && !_isPause && !_isInventory && !_isEquipment && !_isEquipmentNexo && !_isConsole && Input.GetButtonDown("UseItem"); }
+        get { return !_useItemTimer && !_isPause && !_isInventory && !_isEquipment && !_isEquipmentNexo && !_isConsole && !_isStatsUpgrade && !_isShop && 
+                Input.GetButtonDown("UseItem"); }
     }
 
     // Start is called before the first frame update
@@ -83,6 +89,8 @@ public class PlayerInputManager : MonoBehaviour
         _pause = FindObjectOfType<PauseMenu>();
         _inventoryController = FindObjectOfType<InventoryController>();
         _equipmnetController = FindObjectOfType<EquipmentController>();
+        _shopController = FindObjectOfType<ShopController>();
+        _statsUpgradeController = FindObjectOfType<MejoraNexoController>();
         _modulos = FindObjectOfType<PlayerModulos>();
         _console = FindObjectOfType<ConsoleAdmin>();
     }
@@ -104,8 +112,15 @@ public class PlayerInputManager : MonoBehaviour
             SetEquipment();
         if (CanUseItem)
             SetUseItem();
-        if (_isEquipmentNexo && Input.GetButtonDown("Cancel"))
-            SetEquipmentNexo();
+        if (Input.GetButtonDown("Cancel"))
+        {
+            if (_isEquipmentNexo)
+                SetEquipmentNexo();
+            if (_isShop)
+                SetShop();
+            if (_isStatsUpgrade)
+                SetStatsUpgrade();
+        }
     }
 
     void SetPause()
@@ -147,6 +162,18 @@ public class PlayerInputManager : MonoBehaviour
     {
         _isEquipment = !_isEquipment;
         _equipmnetController.IsShow = _isEquipment;
+    }
+
+    void SetShop()
+    {
+        _isShop = !_isShop;
+        _shopController.isShown = _isShop;
+    }
+
+    void SetStatsUpgrade()
+    {
+        _isStatsUpgrade = !_isStatsUpgrade;
+        _statsUpgradeController._isShow = _isStatsUpgrade;
     }
 
     void SetUseItem()
