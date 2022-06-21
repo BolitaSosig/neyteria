@@ -28,8 +28,8 @@ public class BringerOfDeathController : EnemyCheckEnemy
 
     protected CameraController _camera;
     protected GameObject _player;
-    [SerializeField] private GameObject _togglePlatform;
-    [SerializeField] private GameObject _transformPlataform;
+    [SerializeField] protected GameObject _togglePlatform;
+    [SerializeField] protected GameObject _transformPlataform;
 
     protected override void Start()
     {
@@ -85,7 +85,7 @@ public class BringerOfDeathController : EnemyCheckEnemy
         }
     }
 
-    protected IEnumerator DoAbility()
+    protected virtual IEnumerator DoAbility()
     {
         if (!attacking)
         {
@@ -133,7 +133,7 @@ public class BringerOfDeathController : EnemyCheckEnemy
         }
     }
 
-    protected void OnDrawGizmosSelected()
+    protected virtual void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, lookRadius);

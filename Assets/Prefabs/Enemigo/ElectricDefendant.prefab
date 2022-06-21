@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 877311572}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.28, y: -7.25, z: 0}
+  m_LocalPosition: {x: 0.72, y: -0.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7680256104949013031}
@@ -54,7 +54,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1094392689}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.89, y: -7.15, z: 0}
+  m_LocalPosition: {x: -4.63, y: 0.47, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7680256104949013031}
@@ -86,7 +86,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6440395474963439699}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -4.72, z: 0}
+  m_LocalPosition: {x: 0, y: 0.54, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7680256104949013031}
@@ -308,7 +308,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7680256103627788340}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.51, y: -4.11, z: 0}
+  m_LocalPosition: {x: -3.88, y: 0.68, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7680256104949013031}
@@ -352,7 +352,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.02, y: -3.43}
+  m_AnchoredPosition: {x: -0.02, y: 3.23}
   m_SizeDelta: {x: 2.0812, y: 1.6216}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &7680256103750619535
@@ -430,9 +430,9 @@ GameObject:
   - component: {fileID: 7680256104176733712}
   - component: {fileID: 7680256104176733713}
   - component: {fileID: 1404724840}
-  - component: {fileID: 1395834357}
+  - component: {fileID: 78911073}
   m_Layer: 9
-  m_Name: ElementalWater
+  m_Name: ElectricDefendant
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -497,12 +497,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 1689677927718415070, guid: 704473ddd5310cc4b9b8c4549a50b3a7, type: 3}
+  m_Sprite: {fileID: 4723107735738678597, guid: 0e1bc7bed5b62524fab851b9623a19d3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.24}
+  m_Size: {x: 16.2, y: 16.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -521,18 +521,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.06, y: -6.3324394}
+  m_Offset: {x: -0.052767456, y: 0.23000002}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 41.142857, y: 18.285715}
-    newSize: {x: 0.16, y: 0.24}
+    oldSize: {x: 20.25, y: 20.25}
+    newSize: {x: 16.2, y: 16.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.52, y: 5.3812256}
+  m_Size: {x: 2.9185705, y: 5.3812256}
   m_EdgeRadius: 0
 --- !u!50 &7680256104176733712
 Rigidbody2D:
@@ -565,7 +565,7 @@ Animator:
   m_GameObject: {fileID: 7680256104176733726}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c00e73be90ac2d7458d2d5ba8aaa495a, type: 2}
+  m_Controller: {fileID: 9100000, guid: f8eb6c08b205a6d439dc0005ddf6006f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -622,8 +622,8 @@ MonoBehaviour:
   - {fileID: 4274105038498637994, guid: a84cadcaab5aa764494b60e9cc301b91, type: 3}
   - {fileID: 3019103667255911260, guid: 35975619134093946a6fc5447518a1f1, type: 3}
   _shootTransform: {fileID: 7680256103627788343}
-  projectile: {fileID: 8451858909790069766, guid: 8b74b6da621ea5143a4228d1cf937ccd, type: 3}
-  swordRange: 2.5
+  projectile: {fileID: 8451858909790069766, guid: 6e8289d27a381c144a1b245c5c4daf10, type: 3}
+  swordRange: 1.74
   playerLayers:
     serializedVersion: 2
     m_Bits: 256
@@ -631,10 +631,10 @@ MonoBehaviour:
   _togglePlatform: {fileID: 0}
   _transformPlataform: {fileID: 0}
   _ability1Transform: {fileID: 877311573}
-  ability1Range: 2.55
+  ability1Range: 3.51
   _ability2Transform: {fileID: 1094392690}
-  ability2Range: 2.25
---- !u!60 &1395834357
+  ability2Range: 1.87
+--- !u!60 &78911073
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -651,27 +651,32 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 41.142857, y: 18.285715}
-    newSize: {x: 0.16, y: 0.24}
+    oldSize: {x: 20.25, y: 20.25}
+    newSize: {x: 16.2, y: 16.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.33319974, y: -4.928178}
-      - {x: -0.1302948, y: -4.9462433}
-      - {x: -0.60082144, y: -4.9281783}
-      - {x: -0.7894547, y: -5.0710354}
-      - {x: -0.87165403, y: -5.2982965}
-      - {x: -1.1452659, y: -6.1331215}
-      - {x: -1.241222, y: -8.495792}
-      - {x: -1.2773002, y: -8.802938}
-      - {x: -1.2083915, y: -8.83571}
-      - {x: 1.2247751, y: -8.853777}
-      - {x: 1.4151177, y: -8.260914}
-      - {x: 1.0898874, y: -7.0113387}
-      - {x: 0.67769957, y: -5.719337}
+    - - {x: 0.87145746, y: -1.9374039}
+      - {x: 1.0162442, y: -1.6842902}
+      - {x: 1.2396326, y: -1.3170276}
+      - {x: 1.5441896, y: -0.91238517}
+      - {x: 1.4252405, y: -0.50943977}
+      - {x: 1.0876203, y: 0.5828923}
+      - {x: 0.48148882, y: 1.9359926}
+      - {x: 0.10479736, y: 2.189392}
+      - {x: -0.7233887, y: 1.9488318}
+      - {x: -1.125, y: 1.875}
+      - {x: -1.1627808, y: -0.9123851}
+      - {x: -0.9909668, y: -1.6078175}
+      - {x: -0.6081805, y: -1.7641624}
+      - {x: -0.5502406, y: -2.4578924}
+      - {x: 0.81875175, y: -2.37198}
+      - {x: 0.9016549, y: -2.3328922}
+      - {x: 1.0485054, y: -2.25}
+      - {x: 0.8019321, y: -1.9609123}
 --- !u!1 &7680256104188059549
 GameObject:
   m_ObjectHideFlags: 0

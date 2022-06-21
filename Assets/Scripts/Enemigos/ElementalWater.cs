@@ -49,7 +49,7 @@ public class ElementalWater : BringerOfDeathController
         }
     }
 
-    public IEnumerator DoAbility2()
+    protected virtual IEnumerator DoAbility2()
     {
         if (!attacking)
         {
@@ -84,6 +84,19 @@ public class ElementalWater : BringerOfDeathController
         if (HP <= (MaxHP / 5) && firstTimePocaVida) { InvocarEnemigos2(); healthBarEnemy.gameObject.GetComponent<RawImage>().color = Color.magenta; }
 
         if (HP <= 0) { StopAllCoroutines(); moving = true; _animator.SetBool("isDead", true); StartCoroutine(Die()); } else { _animator.SetTrigger("hurt"); }
+    }
+
+
+    protected override void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, lookRadius);
+        Gizmos.color = Color.green;
+        if (_shootTransform != null) Gizmos.DrawWireSphere(_shootTransform.position, swordRange);
+        Gizmos.color = Color.white;
+        if (_ability1Transform != null) Gizmos.DrawWireSphere(_ability1Transform.position, ability1Range);
+        Gizmos.color = Color.yellow;
+        if (_ability2Transform != null) Gizmos.DrawWireSphere(_ability2Transform.position, ability2Range);
     }
 
 }
