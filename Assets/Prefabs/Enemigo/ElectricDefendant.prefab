@@ -600,7 +600,7 @@ MonoBehaviour:
   mov_x: 0
   cont_mov_x: 0
   invertMovementMoverse: 1
-  itemOrbPrefab: {fileID: 0}
+  itemOrbPrefab: {fileID: 9014287780126377293, guid: be4fa4a062c2fdb43a6dd95966ae532f, type: 3}
   _levelText: {fileID: 7680256104375301898}
   _canvasTranform: {fileID: 7680256103750619530}
   _damageDealTMP: {fileID: 1931263843719411576, guid: 9eb9ec5f41b3bb945bd9dfe9fedef7fe, type: 3}
@@ -611,7 +611,7 @@ MonoBehaviour:
   baseDefense: 2.5
   baseMovSpeed: 1
   baseAttSpeed: 1
-  drop: {fileID: 0}
+  drop: {fileID: 11400000, guid: 11a40238c20500b46976838b9d8db083, type: 2}
   invertMovementPerseguir: 1
   lookRadius: 10
   target: {fileID: 0}

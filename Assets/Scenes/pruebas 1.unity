@@ -130,21 +130,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1404724840, guid: a6fe57ec66609b947805020f87df6976, type: 3}
-      propertyPath: drop
-      value: 
-      objectReference: {fileID: 11400000, guid: 11a40238c20500b46976838b9d8db083, type: 2}
-    - target: {fileID: 1404724840, guid: a6fe57ec66609b947805020f87df6976, type: 3}
-      propertyPath: itemOrbPrefab
-      value: 
-      objectReference: {fileID: 9014287780126377293, guid: be4fa4a062c2fdb43a6dd95966ae532f, type: 3}
     - target: {fileID: 7680256104176733726, guid: a6fe57ec66609b947805020f87df6976, type: 3}
       propertyPath: m_Name
       value: ElectricDefendant
-      objectReference: {fileID: 0}
-    - target: {fileID: 7680256104176733726, guid: a6fe57ec66609b947805020f87df6976, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7680256104949013031, guid: a6fe57ec66609b947805020f87df6976, type: 3}
       propertyPath: m_RootOrder
@@ -869,14 +857,6 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4334564502149983269, guid: 1f05197c79be50c4f9ef6653fd4f0a09, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4334564502149983269, guid: 1f05197c79be50c4f9ef6653fd4f0a09, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4334564502149983269, guid: 1f05197c79be50c4f9ef6653fd4f0a09, type: 3}
       propertyPath: m_LocalPosition.x
       value: 433.67
       objectReference: {fileID: 0}
@@ -919,18 +899,6 @@ PrefabInstance:
     - target: {fileID: 4334564502149983272, guid: 1f05197c79be50c4f9ef6653fd4f0a09, type: 3}
       propertyPath: m_Name
       value: HAO4Lvl3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4334564502149983274, guid: 1f05197c79be50c4f9ef6653fd4f0a09, type: 3}
-      propertyPath: m_Color.b
-      value: 0.5415094
-      objectReference: {fileID: 0}
-    - target: {fileID: 4334564502149983274, guid: 1f05197c79be50c4f9ef6653fd4f0a09, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4334564502149983274, guid: 1f05197c79be50c4f9ef6653fd4f0a09, type: 3}
-      propertyPath: m_Color.r
-      value: 0.610283
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f05197c79be50c4f9ef6653fd4f0a09, type: 3}
@@ -1364,17 +1332,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 547420770, guid: 32af1c1b9c5c2d14fac9a4cd1997088f, type: 3}
-      propertyPath: invertMovementMoverse
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4274105038498637991, guid: 32af1c1b9c5c2d14fac9a4cd1997088f, type: 3}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4274105038498637991, guid: 32af1c1b9c5c2d14fac9a4cd1997088f, type: 3}
-      propertyPath: m_LocalScale.x
-      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4274105038498637991, guid: 32af1c1b9c5c2d14fac9a4cd1997088f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1414,10 +1374,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4274105038498637991, guid: 32af1c1b9c5c2d14fac9a4cd1997088f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4274105038498637993, guid: 32af1c1b9c5c2d14fac9a4cd1997088f, type: 3}
-      propertyPath: m_GravityScale
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4274105038498637994, guid: 32af1c1b9c5c2d14fac9a4cd1997088f, type: 3}
@@ -2189,14 +2145,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1404724840, guid: 76947eff7f789fb449d84ce50a0ae6f1, type: 3}
-      propertyPath: drop
-      value: 
-      objectReference: {fileID: 11400000, guid: 11a40238c20500b46976838b9d8db083, type: 2}
-    - target: {fileID: 1404724840, guid: 76947eff7f789fb449d84ce50a0ae6f1, type: 3}
-      propertyPath: itemOrbPrefab
-      value: 
-      objectReference: {fileID: 9014287780126377293, guid: be4fa4a062c2fdb43a6dd95966ae532f, type: 3}
     - target: {fileID: 7680256104176733726, guid: 76947eff7f789fb449d84ce50a0ae6f1, type: 3}
       propertyPath: m_Name
       value: EvilWizard
@@ -2623,14 +2571,6 @@ PrefabInstance:
     - target: {fileID: 1193483423332667990, guid: 69a317eedbe1d4a4ab71bf33e40a4c2c, type: 3}
       propertyPath: m_RootOrder
       value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1193483423332667990, guid: 69a317eedbe1d4a4ab71bf33e40a4c2c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1193483423332667990, guid: 69a317eedbe1d4a4ab71bf33e40a4c2c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 1193483423332667990, guid: 69a317eedbe1d4a4ab71bf33e40a4c2c, type: 3}
       propertyPath: m_LocalPosition.x
