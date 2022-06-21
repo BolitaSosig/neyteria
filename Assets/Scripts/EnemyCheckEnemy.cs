@@ -42,13 +42,13 @@ public class EnemyCheckEnemy : Enemigo
             {
                 transform.localScale = new Vector2(inv * Mathf.Abs(transform.localScale.x), transform.localScale.y);
                 _canvasTranform.localScale = new Vector2(inv * Mathf.Abs(_canvasTranform.localScale.x), _canvasTranform.localScale.y);
-                _rigidbody2D.velocity = new Vector2(2, _rigidbody2D.velocity.y);
+                _rigidbody2D.velocity = new Vector2(MovSpeed, _rigidbody2D.velocity.y);
             }
             else if (transform.position.x > target.position.x + 0.5f)
             {
                 transform.localScale = new Vector2(inv * -Mathf.Abs(transform.localScale.x), transform.localScale.y);
                 _canvasTranform.localScale = new Vector2(inv * -Mathf.Abs(_canvasTranform.localScale.x), _canvasTranform.localScale.y);
-                _rigidbody2D.velocity = new Vector2(-2, _rigidbody2D.velocity.y);
+                _rigidbody2D.velocity = new Vector2(-MovSpeed, _rigidbody2D.velocity.y);
             }
 
         }
