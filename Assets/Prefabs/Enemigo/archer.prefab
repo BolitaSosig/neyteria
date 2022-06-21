@@ -51,7 +51,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4274105038498637991
 Transform:
   m_ObjectHideFlags: 0
@@ -93,6 +93,7 @@ MonoBehaviour:
   dmgReduc: 0
   mov_x: 0
   cont_mov_x: 0
+  invertMovementMoverse: 1
   itemOrbPrefab: {fileID: 9014287780126377293, guid: be4fa4a062c2fdb43a6dd95966ae532f, type: 3}
   _levelText: {fileID: 1084794721244080582}
   _canvasTranform: {fileID: 6458302505504297276}
@@ -104,10 +105,15 @@ MonoBehaviour:
   baseDefense: 1
   baseMovSpeed: 1.3
   baseAttSpeed: 1.3
-  drop: {fileID: 0}
+  drop: {fileID: 11400000, guid: 11a40238c20500b46976838b9d8db083, type: 2}
+  invertMovementPerseguir: 1
+  lookRadius: 10
+  target: {fileID: 0}
   _shootTransform: {fileID: 2130559013}
   projectile: {fileID: 8451858909790069766, guid: 3ecbf72d595659241a968dbec6faa4e2, type: 3}
   shootForce: 15
+  seDispara: 9.95
+  attacking: 0
 --- !u!212 &4274105038498637992
 SpriteRenderer:
   m_ObjectHideFlags: 0

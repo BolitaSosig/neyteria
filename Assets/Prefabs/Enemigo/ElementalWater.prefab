@@ -585,12 +585,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 030dcd13413c9b24ab277572e2d79aa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemigosNivel:
-  - {fileID: 3897717456840040774, guid: 0f3b31b15a5a08f41b68233c4d9f72e2, type: 3}
-  - {fileID: 5261946912149675479, guid: 2b6ecf68ed8c33d468f5f6336776f505, type: 3}
-  - {fileID: 2011861614474417254, guid: c80e99c74fbea604a987fb7a540e2dbc, type: 3}
-  - {fileID: 4274105038498637994, guid: a84cadcaab5aa764494b60e9cc301b91, type: 3}
-  - {fileID: 3019103667255911260, guid: 35975619134093946a6fc5447518a1f1, type: 3}
   _nivel: 20
   HP: 100
   MaxHP: 100
@@ -604,29 +598,41 @@ MonoBehaviour:
   dmgReduc: 0
   mov_x: 0
   cont_mov_x: 0
+  invertMovementMoverse: 1
+  itemOrbPrefab: {fileID: 0}
   _levelText: {fileID: 7680256104375301898}
   _canvasTranform: {fileID: 7680256103750619530}
   _damageDealTMP: {fileID: 1931263843719411576, guid: 9eb9ec5f41b3bb945bd9dfe9fedef7fe, type: 3}
   _weather: {fileID: 0}
   healthBarEnemy: {fileID: 7680256104188059548}
+  baseHP: 100
+  baseAttack: 6
+  baseDefense: 2.5
+  baseMovSpeed: 1
+  baseAttSpeed: 1
+  drop: {fileID: 0}
+  invertMovementPerseguir: 1
+  lookRadius: 10
+  target: {fileID: 0}
+  enemigosNivel:
+  - {fileID: 3897717456840040774, guid: 0f3b31b15a5a08f41b68233c4d9f72e2, type: 3}
+  - {fileID: 5261946912149675479, guid: 2b6ecf68ed8c33d468f5f6336776f505, type: 3}
+  - {fileID: 2011861614474417254, guid: c80e99c74fbea604a987fb7a540e2dbc, type: 3}
+  - {fileID: 4274105038498637994, guid: a84cadcaab5aa764494b60e9cc301b91, type: 3}
+  - {fileID: 3019103667255911260, guid: 35975619134093946a6fc5447518a1f1, type: 3}
   _shootTransform: {fileID: 7680256103627788343}
   projectile: {fileID: 8451858909790069766, guid: 8b74b6da621ea5143a4228d1cf937ccd, type: 3}
   swordRange: 2.5
-  _ability1Transform: {fileID: 877311573}
-  ability1Range: 2.55
-  _ability2Transform: {fileID: 1094392690}
-  ability2Range: 2.25
   playerLayers:
     serializedVersion: 2
     m_Bits: 256
   _audioSource: {fileID: 6440395474963439699}
   _togglePlatform: {fileID: 0}
   _transformPlataform: {fileID: 0}
-  baseHP: 100
-  baseAttack: 6
-  baseDefense: 2.5
-  baseMovSpeed: 1
-  baseAttSpeed: 1
+  _ability1Transform: {fileID: 877311573}
+  ability1Range: 2.55
+  _ability2Transform: {fileID: 1094392690}
+  ability2Range: 2.25
 --- !u!1 &7680256104188059549
 GameObject:
   m_ObjectHideFlags: 0

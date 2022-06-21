@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 4274105038498637990}
   - component: {fileID: 4274105038498637993}
   - component: {fileID: 4274105038498637989}
+  - component: {fileID: 639032515}
   m_Layer: 9
   m_Name: HAO4
   m_TagString: Enemy
@@ -92,21 +93,29 @@ MonoBehaviour:
   dmgReduc: 0
   mov_x: 0
   cont_mov_x: 0
+  invertMovementMoverse: 1
+  itemOrbPrefab: {fileID: 9014287780126377293, guid: be4fa4a062c2fdb43a6dd95966ae532f, type: 3}
   _levelText: {fileID: 1084794721244080582}
   _canvasTranform: {fileID: 6458302505504297276}
   _damageDealTMP: {fileID: 1931263843719411576, guid: 9eb9ec5f41b3bb945bd9dfe9fedef7fe, type: 3}
   _weather: {fileID: 0}
   healthBarEnemy: {fileID: 757757706578032882}
-  _shootTransform: {fileID: 2130559013}
-  swordRange: 0.8
-  playerLayers:
-    serializedVersion: 2
-    m_Bits: 256
   baseHP: 80
   baseAttack: 7
   baseDefense: 1.4
   baseMovSpeed: 1
   baseAttSpeed: 1
+  drop: {fileID: 11400000, guid: 11a40238c20500b46976838b9d8db083, type: 2}
+  invertMovementPerseguir: 1
+  lookRadius: 10
+  target: {fileID: 0}
+  _shootTransform: {fileID: 2130559013}
+  swordRange: 0.8
+  playerLayers:
+    serializedVersion: 2
+    m_Bits: 256
+  seDispara: 9.95
+  attacking: 0
 --- !u!212 &4274105038498637992
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -224,6 +233,52 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!60 &639032515
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4274105038498637994}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.2, y: 2.4}
+    newSize: {x: 0.16, y: 0.24}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.31360474, y: -1.0827775}
+      - {x: 0.31116942, y: -1.1247628}
+      - {x: 0.30984497, y: -1.1620362}
+      - {x: 0.43133545, y: -1.194506}
+      - {x: 0.63748777, y: -1.1778122}
+      - {x: 0.6402771, y: -0.73708194}
+      - {x: 0.85, y: -0.45000002}
+      - {x: 0.68578494, y: -0.3429039}
+      - {x: 0.77500004, y: -0.35}
+      - {x: 0.78234863, y: -0.15788841}
+      - {x: 0.5509399, y: 0.09021759}
+      - {x: 0.3119995, y: 0.08569527}
+      - {x: 0.2300049, y: -0.17398338}
+      - {x: 0.16531372, y: -0.39673615}
+      - {x: 0.13295901, y: -0.58335954}
+      - {x: 0.29577637, y: -0.76336026}
+      - {x: 0.3982605, y: -1.0382817}
+      - {x: 0.54923093, y: -1.1392196}
+      - {x: 0.375238, y: -1.1175785}
+      - {x: 0.34646606, y: -0.9063816}
+      - {x: 0.34125975, y: -1.0414654}
 --- !u!1 &5624228668794474145
 GameObject:
   m_ObjectHideFlags: 0

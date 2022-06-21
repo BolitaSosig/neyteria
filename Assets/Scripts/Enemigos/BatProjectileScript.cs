@@ -76,15 +76,15 @@ public class BatProjectileScript : MonoBehaviour
 
 
         }
-        else if(!other.CompareTag("ZoneLoader"))
+        else if(other.CompareTag("ZoneLoader"))
         {
             //Debug.Log("colision con algo"); 
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
         else
         {
             //Debug.Log("colision con algo"); 
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
 }

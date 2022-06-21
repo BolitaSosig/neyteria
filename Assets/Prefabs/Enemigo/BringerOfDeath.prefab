@@ -370,6 +370,7 @@ GameObject:
   - component: {fileID: 7680256104176733715}
   - component: {fileID: 7680256104176733712}
   - component: {fileID: 7680256104176733713}
+  - component: {fileID: 624846229}
   m_Layer: 9
   m_Name: BringerOfDeath
   m_TagString: Enemy
@@ -406,12 +407,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e0cb443ec8c41f43b13ae63c21cd4b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemigosNivel:
-  - {fileID: 4274105038498637994, guid: 7b036402091756f4db05e0b63ceec1d0, type: 3}
-  - {fileID: 4274105038498637994, guid: c5d00deb518a633498166c8cc43a1bf5, type: 3}
-  - {fileID: 4274105038498637994, guid: 7afe4bb56f6028f4699a5fd005fd10af, type: 3}
-  - {fileID: 4274105038498637994, guid: 9aa9587d97908ac45bd994d91f59e8a8, type: 3}
-  - {fileID: 4274105038498637994, guid: 749695e8263a6fc4a8cdaa63528f3d03, type: 3}
   _nivel: 20
   HP: 100
   MaxHP: 100
@@ -425,11 +420,28 @@ MonoBehaviour:
   dmgReduc: 0
   mov_x: 0
   cont_mov_x: 0
+  invertMovementMoverse: 0
+  itemOrbPrefab: {fileID: 9014287780126377293, guid: be4fa4a062c2fdb43a6dd95966ae532f, type: 3}
   _levelText: {fileID: 7680256104375301898}
   _canvasTranform: {fileID: 7680256103750619530}
   _damageDealTMP: {fileID: 1931263843719411576, guid: 9eb9ec5f41b3bb945bd9dfe9fedef7fe, type: 3}
   _weather: {fileID: 0}
   healthBarEnemy: {fileID: 7680256104188059548}
+  baseHP: 110
+  baseAttack: 6
+  baseDefense: 2.5
+  baseMovSpeed: 1
+  baseAttSpeed: 1
+  drop: {fileID: 11400000, guid: 11a40238c20500b46976838b9d8db083, type: 2}
+  invertMovementPerseguir: 0
+  lookRadius: 10
+  target: {fileID: 0}
+  enemigosNivel:
+  - {fileID: 4274105038498637994, guid: 7b036402091756f4db05e0b63ceec1d0, type: 3}
+  - {fileID: 4274105038498637994, guid: c5d00deb518a633498166c8cc43a1bf5, type: 3}
+  - {fileID: 4274105038498637994, guid: 7afe4bb56f6028f4699a5fd005fd10af, type: 3}
+  - {fileID: 4274105038498637994, guid: 9aa9587d97908ac45bd994d91f59e8a8, type: 3}
+  - {fileID: 4274105038498637994, guid: 749695e8263a6fc4a8cdaa63528f3d03, type: 3}
   _shootTransform: {fileID: 7680256103627788343}
   projectile: {fileID: 8451858909790069766, guid: 2c712c579aa44114cb72a4be4fe34b37, type: 3}
   swordRange: 4.73
@@ -439,11 +451,6 @@ MonoBehaviour:
   _audioSource: {fileID: 6440395474963439699}
   _togglePlatform: {fileID: 0}
   _transformPlataform: {fileID: 0}
-  baseHP: 110
-  baseAttack: 6
-  baseDefense: 2.5
-  baseMovSpeed: 1
-  baseAttSpeed: 1
 --- !u!212 &7680256104176733714
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -561,6 +568,59 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!60 &624846229
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7680256104176733726}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.75, y: 0.5}
+    oldSize: {x: 17.5, y: 11.625}
+    newSize: {x: 0.16, y: 0.24}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.20056152, y: -4.9424896}
+      - {x: -0.13986206, y: -4.875986}
+      - {x: 0.54782104, y: -5.530363}
+      - {x: 1.0744324, y: -5.4363155}
+      - {x: 1.6053772, y: -2.9359207}
+      - {x: 2.0756226, y: -2.3587341}
+      - {x: 1.0740051, y: -0.8160515}
+      - {x: 0.029754639, y: 0.10557556}
+      - {x: -1.1410522, y: -0.36465454}
+      - {x: -1.760315, y: -1.1735687}
+      - {x: -1.9954834, y: -2.0782394}
+      - {x: -1.9640198, y: -2.9172401}
+      - {x: -2, y: -3.6875}
+      - {x: -1.7894897, y: -3.6388245}
+      - {x: -1.7000122, y: -3.7704487}
+      - {x: -1.6342468, y: -3.9836159}
+      - {x: -1.4682312, y: -4.4531746}
+      - {x: -1.325592, y: -5.420641}
+      - {x: -0.28167725, y: -5.4363155}
+      - {x: -0.058380127, y: -5.203411}
+      - {x: -0.10494995, y: -5.0263386}
+      - {x: -0.24194336, y: -4.9273663}
+    - - {x: 1.375, y: -2.0625}
+      - {x: 1.25, y: -1.9375}
+      - {x: 1.25, y: -2.0625}
+      - {x: 1.5, y: -1.9375}
+      - {x: 1.5, y: -2.4375}
+      - {x: 1.375, y: -2.3125}
 --- !u!1 &7680256104188059549
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,36 +5,25 @@ using UnityEngine.UI;
 using UnityEngine.AI;
 using TMPro;
 
-public class ArcherController : Enemigo
+public class ArcherController : EnemyCheckEnemy
 {
     //Arrow
-    public Transform _shootTransform;
-    public GameObject projectile;
-    public float shootForce = 15f;
+    [SerializeField] protected Transform _shootTransform;
+    [SerializeField] protected GameObject projectile;
+    [SerializeField] protected float shootForce = 15f;
 
-    float lookRadius = 10f;
-    Transform target;
 
-    float seDispara = 9.95f;
-    bool attacking = false;
+    [SerializeField] protected float seDispara = 9.95f;
+    [SerializeField] protected bool attacking = false;
 
-    
-    protected override void Start()
+
+    protected override void DoAttacksAndAbilities()
     {
-        base.Start();
-
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        if (Random.Range(0f, 10f) >= seDispara && !attacking) { StartCoroutine(DoAttack()); }
     }
 
 
-    protected override void Update()
-    {
-        base.Update();
-        CheckEnemy();
-    }
-
-    
-    public IEnumerator DoAttack()
+    public virtual IEnumerator DoAttack()
     {
         if (!attacking) {
         attacking = true;
@@ -54,44 +43,8 @@ public class ArcherController : Enemigo
         }
     }
 
-    public void CheckEnemy()
-    {
-        float distance = Vector2.Distance(target.position, transform.position);
 
-        // If inside the lookRadius
-        if (distance <= lookRadius)
-        {
-            //StopCoroutine(Moverse()); //moving = false; //StopAllCoroutines();
-            if (Random.Range(0f, 10f) >= seDispara && !attacking) { StartCoroutine(DoAttack()); }
-
-            //Debug.Log(distance);
-            // Move towards the target
-            
-            if (transform.position.x <= target.position.x)
-            {
-                transform.localScale = new Vector2(-Mathf.Abs(transform.localScale.x), transform.localScale.y);
-                _canvasTranform.localScale = new Vector2(-Mathf.Abs(_canvasTranform.localScale.x), _canvasTranform.localScale.y);
-                _rigidbody2D.velocity = new Vector2(2, _rigidbody2D.velocity.y);
-            }
-            else
-            {
-                transform.localScale = new Vector2(Mathf.Abs(transform.localScale.x), transform.localScale.y);
-                _canvasTranform.localScale = new Vector2(Mathf.Abs(_canvasTranform.localScale.x), _canvasTranform.localScale.y);
-                _rigidbody2D.velocity = new Vector2(-2, _rigidbody2D.velocity.y);
-            }
-
-        }
-
-        else
-        { //_rigidbody2D.velocity = new Vector2(0, _rigidbody2D.velocity.y);
-            //StartCoroutine(Moverse());
-        }
-
-        _animator.SetFloat("velocity_x", Mathf.Abs(_rigidbody2D.velocity.x)); // establece velocity_x en el animator*/
-        
-    }
-
-    void OnDrawGizmosSelected()
+    protected virtual void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, lookRadius);

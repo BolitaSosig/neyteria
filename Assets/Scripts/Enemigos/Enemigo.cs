@@ -27,7 +27,9 @@ public class Enemigo : MonoBehaviour
     [SerializeField] protected int cont_mov_x = 0;
 
     protected bool moving = false;
-    protected bool dying = true;
+    protected bool notDying = true;
+    [SerializeField] protected bool invertMovementMoverse = true;
+
 
     // REFERENCIAS
     protected Rigidbody2D _rigidbody2D;
@@ -87,7 +89,7 @@ public class Enemigo : MonoBehaviour
         }
     }
 
-    protected bool checkBorderPlatform()
+    protected virtual bool checkBorderPlatform()
     {
         Vector3 max = _boxCollider2D.bounds.max;
         Vector3 min = _boxCollider2D.bounds.min;
@@ -138,7 +140,10 @@ public class Enemigo : MonoBehaviour
             float cont = 0;
             while (!checkBorderPlatform() && cont < DISTANCIA_EN_SEGUNDOS * 10f / MovSpeed)
             {
-                _rigidbody2D.velocity = new Vector2(Mathf.Sign(transform.localScale.x) * SPEED_MOV * MovSpeed, _rigidbody2D.velocity.y); // desplazamiento del personaje
+                float inv = invertMovementMoverse == true ? -1 : 1;
+
+                _rigidbody2D.velocity = new Vector2(Mathf.Sign(inv * transform.localScale.x) * SPEED_MOV * MovSpeed, _rigidbody2D.velocity.y); // desplazamiento del personaje
+
                 _animator.SetFloat("velocity_x", Mathf.Abs(_rigidbody2D.velocity.x)); // establece velocity_x en el animator*/
                 cont++;
                 yield return new WaitForSecondsRealtime(0.1f);
@@ -154,6 +159,7 @@ public class Enemigo : MonoBehaviour
         }
 
     }
+
 
     protected void DoDamage(GameObject player)
     {
@@ -177,7 +183,7 @@ public class Enemigo : MonoBehaviour
         _levelText.text = "Nivel " + _nivel;
     }
 
-    public IEnumerator Die()
+    public virtual IEnumerator Die()
     {
         _animator.SetTrigger("dead");
         FindObjectOfType<PlayerController>().SendMessageUpwards("EnemyDefeated", this);
@@ -185,25 +191,25 @@ public class Enemigo : MonoBehaviour
         _polygonCollider2D.enabled = false;
         _rigidbody2D.gravityScale = 0f;
         yield return new WaitForSecondsRealtime(0.5f);
-        drop.GetDrops(transform, itemOrbPrefab);
+        if (drop != null) drop.GetDrops(transform, itemOrbPrefab);
         Destroy(gameObject);
     }
 
     ////// RECIBE DAÑO //////
-    public void GetDamage(float dmg)
+    public virtual void GetDamage(float dmg)
     {
         HP = Mathf.Max(0, HP - dmg);
         ShowDamageDeal(Mathf.RoundToInt(dmg));
-        if (dying && HP <= 0)
+        if (notDying && HP <= 0)
         {
-            dying = false;
+            notDying = false;
             StartCoroutine(Die());
         }
     }
 
     public void GetDamageByPlayer(float attack)
     {
-        if(dying)
+        if(notDying)
             GetDamage(FindObjectOfType<PlayerController>().AumDmg * (5 * attack / Mathf.Sqrt(Defense) * (1 - dmgReduc)));
     }
 

@@ -44,13 +44,14 @@ GameObject:
   - component: {fileID: 4274105038498637990}
   - component: {fileID: 4274105038498637993}
   - component: {fileID: 4274105038498637989}
+  - component: {fileID: 966929661}
   m_Layer: 9
   m_Name: NightBorne
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4274105038498637991
 Transform:
   m_ObjectHideFlags: 0
@@ -92,21 +93,29 @@ MonoBehaviour:
   dmgReduc: 0
   mov_x: 0
   cont_mov_x: 0
+  invertMovementMoverse: 1
+  itemOrbPrefab: {fileID: 9014287780126377293, guid: be4fa4a062c2fdb43a6dd95966ae532f, type: 3}
   _levelText: {fileID: 1084794721244080582}
   _canvasTranform: {fileID: 6458302505504297276}
   _damageDealTMP: {fileID: 1931263843719411576, guid: 9eb9ec5f41b3bb945bd9dfe9fedef7fe, type: 3}
   _weather: {fileID: 0}
   healthBarEnemy: {fileID: 757757706578032882}
-  _shootTransform: {fileID: 2130559013}
-  swordRange: 0.9
-  playerLayers:
-    serializedVersion: 2
-    m_Bits: 256
   baseHP: 85
   baseAttack: 5.5
   baseDefense: 1.3
   baseMovSpeed: 1.5
   baseAttSpeed: 1.5
+  drop: {fileID: 11400000, guid: 11a40238c20500b46976838b9d8db083, type: 2}
+  invertMovementPerseguir: 1
+  lookRadius: 10
+  target: {fileID: 0}
+  _shootTransform: {fileID: 2130559013}
+  swordRange: 0.9
+  playerLayers:
+    serializedVersion: 2
+    m_Bits: 256
+  seDispara: 9.95
+  attacking: 0
 --- !u!212 &4274105038498637992
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -224,6 +233,47 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!60 &966929661
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4274105038498637994}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4, y: 4}
+    newSize: {x: 0.16, y: 0.24}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.26829225, y: -0.16288072}
+      - {x: 0.05747682, y: -0.005002212}
+      - {x: -0.03794557, y: 0.019982904}
+      - {x: -0.19830322, y: -0.016309738}
+      - {x: -0.40945435, y: 0.016128153}
+      - {x: -0.5044006, y: -0.35243034}
+      - {x: -0.4705261, y: -0.42816734}
+      - {x: -0.49324954, y: -0.6349591}
+      - {x: -0.4451477, y: -0.9840565}
+      - {x: -0.1476013, y: -0.89232063}
+      - {x: -0.16041261, y: -0.9012269}
+      - {x: -0.03643799, y: -0.9058094}
+      - {x: 0.15083008, y: -0.91497886}
+      - {x: 0.35, y: -0.89247894}
+      - {x: 0.4124878, y: -0.73247266}
+      - {x: 0.31915283, y: -0.42330593}
 --- !u!1 &5624228668794474145
 GameObject:
   m_ObjectHideFlags: 0
