@@ -13,8 +13,8 @@ public class Enemigo : MonoBehaviour
     // ATRIBUTOS PERSONAJE
     [SerializeField] protected int _nivel = 1;
     protected int _oldNivel = 0;
-    [SerializeReference] protected float HP = 50f;
-    [SerializeField] protected float MaxHP = 100f;
+    [SerializeReference] public float HP = 50f;
+    [SerializeField] public float MaxHP = 100f;
     [SerializeField] protected float Stamina = 100f;
     [SerializeField] protected float Attack = 4f;
     [SerializeField] protected float Defense = 1f;

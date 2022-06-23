@@ -73,6 +73,12 @@ public class ElementalWater : BringerOfDeathController
         }
     }
 
+    public override IEnumerator Die()
+    {
+        GameObject.Find("CollisionNivel2Boss").GetComponent<BossHPController>().Show = false;
+        return base.Die();
+    }
+
 
     ////// RECIBE DAÑO //////
     public override void GetDamage(float dmg)

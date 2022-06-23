@@ -50,13 +50,15 @@ public class BringerOfDeathController : EnemyCheckEnemy
         _rigidbody2D.bodyType = RigidbodyType2D.Static;
         _boxCollider2D.enabled = false;
         _polygonCollider2D.enabled = false;
-        this.enabled = false;
         _rigidbody2D.gravityScale = 0f;
         _audioSource.SetActive(false);
         lookRadius = -1f;
         yield return new WaitForSecondsRealtime(1f);
+
+        GameObject.Find("CollisionNivel1Boss").GetComponent<BossHPController>().Show = false;
         if (drop != null) drop.GetDrops(transform, itemOrbPrefab);
         if (_togglePlatform != null) _togglePlatform.SetActive(false);
+        gameObject.SetActive(false);
         //Destroy(gameObject);
 
     }
