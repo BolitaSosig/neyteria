@@ -616,11 +616,11 @@ MonoBehaviour:
   lookRadius: 10
   target: {fileID: 0}
   enemigosNivel:
-  - {fileID: 3897717456840040774, guid: 0f3b31b15a5a08f41b68233c4d9f72e2, type: 3}
-  - {fileID: 5261946912149675479, guid: 2b6ecf68ed8c33d468f5f6336776f505, type: 3}
+  - {fileID: 4274105038498637994, guid: 32af1c1b9c5c2d14fac9a4cd1997088f, type: 3}
+  - {fileID: 4274105038498637994, guid: 71be68e0d5c77a24e86c7b2bc7340832, type: 3}
   - {fileID: 2011861614474417254, guid: c80e99c74fbea604a987fb7a540e2dbc, type: 3}
-  - {fileID: 4274105038498637994, guid: a84cadcaab5aa764494b60e9cc301b91, type: 3}
-  - {fileID: 3019103667255911260, guid: 35975619134093946a6fc5447518a1f1, type: 3}
+  - {fileID: 4334564502149983272, guid: 1f05197c79be50c4f9ef6653fd4f0a09, type: 3}
+  - {fileID: 7853270188163457846, guid: 741c44b1959432644867d9c54f0ec13a, type: 3}
   _shootTransform: {fileID: 7680256103627788343}
   projectile: {fileID: 8451858909790069766, guid: 6e8289d27a381c144a1b245c5c4daf10, type: 3}
   swordRange: 1.74

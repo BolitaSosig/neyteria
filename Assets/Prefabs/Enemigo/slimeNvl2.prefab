@@ -12,6 +12,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4274105038498637991, guid: 7b036402091756f4db05e0b63ceec1d0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4274105038498637991, guid: 7b036402091756f4db05e0b63ceec1d0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4274105038498637991, guid: 7b036402091756f4db05e0b63ceec1d0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -65,7 +73,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4274105038498637994, guid: 7b036402091756f4db05e0b63ceec1d0, type: 3}
       propertyPath: m_Name
-      value: slime Variant
+      value: slimeNvl2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b036402091756f4db05e0b63ceec1d0, type: 3}

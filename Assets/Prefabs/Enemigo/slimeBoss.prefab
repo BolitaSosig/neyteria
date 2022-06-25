@@ -438,9 +438,9 @@ MonoBehaviour:
   target: {fileID: 0}
   enemigosNivel:
   - {fileID: 1085498680947207433, guid: a4d43b9732cf35d448f46a6e3980fc17, type: 3}
-  - {fileID: 4274105038498637994, guid: c5d00deb518a633498166c8cc43a1bf5, type: 3}
+  - {fileID: 7577954905959076446, guid: 75d272a08a912ca45a1f0117fb47f58b, type: 3}
   - {fileID: 4940835939623291443, guid: 0c4a8a58c46b509439a0e14a97092bc4, type: 3}
-  - {fileID: 4274105038498637994, guid: 9aa9587d97908ac45bd994d91f59e8a8, type: 3}
+  - {fileID: 8092030464709351586, guid: 17cf33bade9725c41a175a0a8e6ba8f4, type: 3}
   - {fileID: 8834632868289575634, guid: 550f17ff58ddbca428284be59b0ec1f9, type: 3}
   _shootTransform: {fileID: 7680256103627788343}
   projectile: {fileID: 8451858909790069766, guid: fe89b214ecb92cf41904869883e14672, type: 3}

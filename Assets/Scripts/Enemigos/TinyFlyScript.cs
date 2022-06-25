@@ -30,5 +30,10 @@ public class TinyFlyScript : NightBorneController
         else { _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, 0); }
     }
 
+    protected override bool checkBorderPlatform()
+    {
+        return false;
+    }
+
 
 }
