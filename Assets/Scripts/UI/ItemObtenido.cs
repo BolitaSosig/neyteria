@@ -58,6 +58,7 @@ public class ItemObtenido : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.2f);
         obj[i].GetComponentsInChildren<Image>()[1].sprite = item.icono;
         obj[i].GetComponentInChildren<TextMeshProUGUI>().text = "x" + cant + " " + item.nombre;
+        obj[i].GetComponent<Image>().color = Color.Lerp(Item.GetRarezaColor(item.rareza), new Color(), 0.5f);
         yield return new WaitForSecondsRealtime(3f);
         SetShowing(i, false);
     }

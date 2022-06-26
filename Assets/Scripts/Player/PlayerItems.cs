@@ -25,6 +25,10 @@ public class PlayerItems : MonoBehaviour
     {
         items.Add(Item.DEGITERIO, 0);
         items.Add(Item.OCCATERIO, 0);
+        items.Add(Item.ESPADA_CORTA, 1);
+        items.Add(Item.MAZA, 1);
+        items.Add(Item.CANON_LASER, 1);
+        items.Add(Item.TUNICA_PROTECTORA, 1);
         _inventoryController.SendMessage("FillItems");
         _equipmentController.SendMessage("FillEquipment");
     }

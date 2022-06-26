@@ -202,6 +202,20 @@ public class ConsoleAdmin : MonoBehaviour
                         Debug.LogError(error + "El término '" + c[2] + "' del comando no existe.");
                     }
                     break;
+                // comm mode <normal|hard>
+                case "mode":
+                    if (c[2].Equals("normal"))
+                    {
+                        GLOBAL.HARD_MODE = false;
+                        Debug.Log(success + "Modo de juego establecido a 'normal'.");
+                    }
+                    else if (c[2].Equals("hard"))
+                    {
+                        GLOBAL.HARD_MODE = true;
+                        Debug.Log(success + "Modo de juego establecido a 'difícil'.");
+                    } else
+                        Debug.LogError(error + "El término '" + c[2] + "' del comando no existe.");
+                    break;
                 // ERROR
                 default:
                     Debug.LogError(error + "El término '" + c[1] + "' del comando no existe.");
@@ -234,6 +248,10 @@ public class ConsoleAdmin : MonoBehaviour
                 case "item":
                     texto = "comm item <give|remove> <id_item> [cantidad]";
                     indexes[2] = 9; indexes[3] = 23;    indexes[4] = 33;    indexes[5] = texto.Length;
+                    break;
+                case "mode":
+                    texto = "comm mode <normal|hard>";
+                    indexes[2] = 9; indexes[3] = texto.Length;
                     break;
             }
             if(c[c.Length-1].Equals(""))

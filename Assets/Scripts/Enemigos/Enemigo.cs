@@ -109,6 +109,11 @@ public class Enemigo : MonoBehaviour
         get { return _rigidbody2D.velocity.y != 0 /*&& !grounded*/; }
     }
 
+    protected virtual void OnEnable()
+    {
+        Update();
+    }
+
     protected virtual void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
@@ -215,14 +220,15 @@ public class Enemigo : MonoBehaviour
 
     protected void UpdateStats()
     {
-        float var = (100 + (_nivel * (_nivel - 1) * GLOBAL.AUMENTO_NV) / 4) / 100f;
+        int hm = GLOBAL.HARD_MODE ? 50 : 0;
+        float var = (100 + hm + (_nivel * (_nivel - 1) * GLOBAL.AUMENTO_NV) / 4) / 100f;
         float oldMHP = MaxHP;
         MaxHP = baseHP * var;
         HP = HP / oldMHP * MaxHP;
         Attack = baseAttack * var;
         Defense = baseDefense * var;
-        MovSpeed = baseMovSpeed * (0.99f + _nivel / 100f);
-        AttSpeed = baseAttSpeed * (0.99f + _nivel / 100f);
+        MovSpeed = baseMovSpeed * (GLOBAL.AUMENTO_NV + _nivel / 100f);
+        AttSpeed = baseAttSpeed * (GLOBAL.AUMENTO_NV + _nivel / 100f);
     }
 
     protected void ShowDamageDeal(int dmg)

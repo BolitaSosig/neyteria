@@ -10,11 +10,13 @@ public class GLOBAL : MonoBehaviour
     public GameObject player;
     public int d = 0;
     public PauseMenu pauseMenu;
+    public bool hard_mode;
 
     public static string zona = "Nivel1-1";
 
     // ENEMIGO
     public static float AUMENTO_NV = 0.99f;
+    public static bool HARD_MODE = false;
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +29,12 @@ public class GLOBAL : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        AUMENTO_NV = hard_mode ? 0.99f : 1.49f;
+        if(hard_mode != HARD_MODE)
+        {
+            hard_mode = HARD_MODE;
+            StartCoroutine(ChangeMode());
+        }
     }
 
     public void StartPos()
@@ -40,4 +47,11 @@ public class GLOBAL : MonoBehaviour
     {
         zona = z;
     }*/
+
+    IEnumerator ChangeMode()
+    {
+        foreach (Enemigo e in FindObjectsOfType<Enemigo>())
+            e.SendMessage("UpdateStats");
+        yield return null;
+    }
 }

@@ -161,7 +161,7 @@ public class PlayerController : MonoBehaviour
             coyoteTimeCounter = 0f;
         }
 
-        _animator.SetBool("on_air", !grounded);
+        _animator.SetBool("on_air", onAir);
     }
 
     ////// EVASION //////
