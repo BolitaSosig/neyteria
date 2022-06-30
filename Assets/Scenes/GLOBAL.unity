@@ -1987,7 +1987,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &132984828
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4589,7 +4589,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &364066546
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5813,8 +5813,8 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 0.23759341, g: 0.8867924, b: 0.88049346, a: 1}
     m_HighlightedColor: {r: 0.2584905, g: 1, b: 0.5558952, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.1633855, g: 0.6320754, b: 0.35185337, a: 1}
+    m_SelectedColor: {r: 0.2392157, g: 0.8862746, b: 0.882353, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -5833,7 +5833,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 531112142}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 836723576}
+        m_TargetAssemblyTypeName: UnityEngine.Component, UnityEngine
+        m_MethodName: SendMessage
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: TeleportTp4
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &531112142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9012,7 +9024,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &809903427
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9116,7 +9128,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 812571613}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 836723576}
+        m_TargetAssemblyTypeName: UnityEngine.Component, UnityEngine
+        m_MethodName: SendMessage
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: TeleportTp2
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &812571613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9603,41 +9627,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 836723574}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c714da4e6ccc7ec4398d9ea934537fd8, type: 3}
+  m_Script: {fileID: 11500000, guid: d503da64c5b8f234ba8201e65d878dbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedEquip: {fileID: 0}
-  armasViewport: {fileID: 0}
-  trajesViewport: {fileID: 0}
-  modulosViewport: {fileID: 0}
-  espadasContent: {fileID: 0}
-  mazasContent: {fileID: 0}
-  laserContent: {fileID: 0}
-  trajesContent: {fileID: 0}
-  modulosContent: {fileID: 0}
-  estadoInfo: {fileID: 0}
-  itemInfo: {fileID: 0}
-  _items: {fileID: 207203768}
-  _player: {fileID: 0}
-  _itemPrefab: {fileID: 2285609462491146767, guid: 5e2c037162a9d1e448441cbb6f4b681d, type: 3}
-  _itemName: {fileID: 0}
-  _itemIcon: {fileID: 0}
-  _itemRareza: {fileID: 0}
-  _label1: {fileID: 0}
-  _label2: {fileID: 0}
-  _label3: {fileID: 0}
-  _itemDescripcion: {fileID: 0}
-  _hp: {fileID: 0}
-  _stamina: {fileID: 0}
-  _attack: {fileID: 0}
-  _defense: {fileID: 0}
-  _weight: {fileID: 0}
-  _movSpeed: {fileID: 0}
-  _attSpeed: {fileID: 0}
-  _jumpCap: {fileID: 0}
-  _gastoDash: {fileID: 0}
-  _dmgReduc: {fileID: 0}
-  _equiparOpcion: {fileID: 0}
+  maps:
+  - {fileID: 364066545}
+  - {fileID: 809903426}
+  - {fileID: 132984827}
+  - {fileID: 1431865229}
+  - {fileID: 1787846927}
 --- !u!1 &845413161
 GameObject:
   m_ObjectHideFlags: 0
@@ -10460,7 +10458,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 905819422}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 836723576}
+        m_TargetAssemblyTypeName: UnityEngine.Component, UnityEngine
+        m_MethodName: SendMessage
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: TeleportTp1
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &905819422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16887,7 +16897,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1431865230
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19942,7 +19952,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1787846928
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20542,8 +20552,8 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 0.23759341, g: 0.8867924, b: 0.88049346, a: 1}
     m_HighlightedColor: {r: 0.2584905, g: 1, b: 0.5558952, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.16504091, g: 0.5754717, b: 0.33008182, a: 1}
+    m_SelectedColor: {r: 0.3882768, g: 0.8862745, b: 0.23921566, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -20562,7 +20572,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1859680199}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 836723576}
+        m_TargetAssemblyTypeName: UnityEngine.Component, UnityEngine
+        m_MethodName: SendMessage
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: TeleportTp32
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1859680199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20817,7 +20839,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1887421079}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 836723576}
+        m_TargetAssemblyTypeName: UnityEngine.Component, UnityEngine
+        m_MethodName: SendMessage
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: TeleportTp3
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1887421079
 MonoBehaviour:
   m_ObjectHideFlags: 0

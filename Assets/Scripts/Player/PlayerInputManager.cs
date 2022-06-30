@@ -20,6 +20,7 @@ public class PlayerInputManager : MonoBehaviour
     public bool _isEquipment;
     public bool _isEquipmentNexo;
     public bool _isStatsUpgrade;
+    public bool _isMap;
     public bool _isShop;
     public bool _isConsole;
 
@@ -27,7 +28,7 @@ public class PlayerInputManager : MonoBehaviour
 
     public bool CanPause
     {
-        get { return !_isConsole && !_isInventory && !_isEquipment && !_isEquipmentNexo && !_isStatsUpgrade && !_isShop 
+        get { return !_isMap && !_isConsole && !_isInventory && !_isEquipment && !_isEquipmentNexo && !_isStatsUpgrade && !_isShop 
                 && Input.GetButtonDown("Pause") ; }
     }
     public bool CanModulo
@@ -120,6 +121,8 @@ public class PlayerInputManager : MonoBehaviour
                 SetShop();
             if (_isStatsUpgrade)
                 SetStatsUpgrade();
+            if (_isMap)
+                QuitMap();
         }
     }
 
@@ -192,5 +195,11 @@ public class PlayerInputManager : MonoBehaviour
     {
         _isEquipmentNexo = !_isEquipmentNexo;
         SetEquipment();
+    }
+
+    void QuitMap()
+    {
+        _isMap = false;
+        FindObjectOfType<MapController>().Show = false;
     }
 }

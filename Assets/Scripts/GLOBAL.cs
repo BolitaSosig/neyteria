@@ -13,6 +13,7 @@ public class GLOBAL : MonoBehaviour
     public bool hard_mode;
 
     public static string zona = "Nivel1-1";
+    public static NexoCentralController.Nexo lastNexo = NexoCentralController.Nexo.Nexo_0;
 
     // ENEMIGO
     public static float AUMENTO_NV = 0.99f;

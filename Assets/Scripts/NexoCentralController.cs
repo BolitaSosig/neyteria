@@ -16,9 +16,11 @@ public class NexoCentralController : MonoBehaviour
 
     public enum Nexo
     {
+        Nexo_0,
         Nexo_1_2,
         Nexo_2_3,
         Nexo_3_3,
+        Nexo_3_4,
         Nexo_4_4
     }
 
@@ -36,10 +38,10 @@ public class NexoCentralController : MonoBehaviour
         animator.SetBool("discovered", discovered);
         animator.SetBool("teleporting", teleporting);
 
-        /*if(colisionando && discovered && !teleporting && Input.GetKeyDown(KeyCode.T))
+        if(colisionando && Input.GetButtonDown("Interact") && !discovered)
         {
-            StartCoroutine(Teleport());
-        }*/
+            ActivateTp();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -47,8 +49,9 @@ public class NexoCentralController : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             colisionando = true;
-            canvas.gameObject.SetActive(true);
-            collision.GetComponent<PlayerAttack>().canAttack = true;
+            canvas.gameObject.SetActive(discovered);
+            collision.GetComponent<PlayerAttack>().canAttack = false;
+            GLOBAL.lastNexo = nexo;
         }
     }
 
@@ -58,37 +61,18 @@ public class NexoCentralController : MonoBehaviour
         {
             colisionando = false;
             canvas.gameObject.SetActive(false);
-            collision.GetComponent<PlayerAttack>().canAttack = false;
+            collision.GetComponent<PlayerAttack>().canAttack = true;
             collision.GetComponent<PlayerInputManager>()._isEquipmentNexo = false;
         }
     }
 
-    IEnumerator Teleport()
+    void ShowMap()
     {
-        Nexo end = Nexo.Nexo_1_2;
-        switch(nexo)
-        {
-            case Nexo.Nexo_1_2:
-                yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow));
-                if (Input.GetKeyDown(KeyCode.UpArrow))
-                    end = Nexo.Nexo_2_3;
-                else if (Input.GetKeyDown(KeyCode.DownArrow))
-                    end = Nexo.Nexo_4_4;
-                break;
-            case Nexo.Nexo_2_3:
-                yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow));
-                if (Input.GetKeyDown(KeyCode.UpArrow))
-                    end = Nexo.Nexo_3_3;
-                else if (Input.GetKeyDown(KeyCode.DownArrow))
-                    end = Nexo.Nexo_1_2;
-                break;
-            case Nexo.Nexo_3_3:
-                end = Nexo.Nexo_2_3;
-                break;
-            case Nexo.Nexo_4_4:
-                end = Nexo.Nexo_1_2;
-                break;
-        }
+        FindObjectOfType<MapController>().Show = true;
+    }
+
+    void Teleport(Nexo end)
+    {
         FindObjectOfType<TeleportController>().Teleport(nexo, end);
     }
 
@@ -107,5 +91,30 @@ public class NexoCentralController : MonoBehaviour
         ShopController s = FindObjectOfType<ShopController>();
         s.SetShop(tienda);
         s.isShown = true;
+    }
+
+    void ActivateTp()
+    {
+        discovered = true;
+        canvas.gameObject.SetActive(true);
+        var map = FindObjectOfType<MapController>();
+        switch(nexo)
+        {
+            case Nexo.Nexo_1_2:
+                map.ActivateTp1();
+                break;
+            case Nexo.Nexo_2_3:
+                map.ActivateTp2();
+                break;
+            case Nexo.Nexo_3_3:
+                map.ActivateTp3();
+                break;
+            case Nexo.Nexo_3_4:
+                map.ActivateTp32();
+                break;
+            case Nexo.Nexo_4_4:
+                map.ActivateTp4();
+                break;
+        }
     }
 }

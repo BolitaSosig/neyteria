@@ -3613,12 +3613,21 @@ MonoBehaviour:
   nexo1_nexo2:
   - {fileID: 1099345587}
   - {fileID: 1510131498}
+  nexo1_nexo3:
+  - {fileID: 1099345587}
+  - {fileID: 1806299727}
   nexo2_nexo3:
   - {fileID: 1510131498}
   - {fileID: 1806299727}
   nexo4_nexo1:
   - {fileID: 511536227}
   - {fileID: 1099345587}
+  nexo4_nexo2:
+  - {fileID: 511536227}
+  - {fileID: 1510131498}
+  nexo4_nexo3:
+  - {fileID: 511536227}
+  - {fileID: 1806299727}
 --- !u!1001 &316816516
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21585,11 +21594,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9030351668465215418, guid: 3710bd849444a364fa326cddcad05284, type: 3}
       propertyPath: nexo
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9030351668465215418, guid: 3710bd849444a364fa326cddcad05284, type: 3}
       propertyPath: discovered
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3710bd849444a364fa326cddcad05284, type: 3}
@@ -31576,11 +31585,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9030351668465215418, guid: 3710bd849444a364fa326cddcad05284, type: 3}
       propertyPath: nexo
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9030351668465215418, guid: 3710bd849444a364fa326cddcad05284, type: 3}
       propertyPath: discovered
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3710bd849444a364fa326cddcad05284, type: 3}
@@ -34590,11 +34599,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9030351668465215418, guid: 3710bd849444a364fa326cddcad05284, type: 3}
       propertyPath: nexo
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9030351668465215418, guid: 3710bd849444a364fa326cddcad05284, type: 3}
       propertyPath: discovered
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3710bd849444a364fa326cddcad05284, type: 3}
@@ -132090,10 +132099,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1482463427589058049, guid: 3710bd849444a364fa326cddcad05284, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1482463427589058050, guid: 3710bd849444a364fa326cddcad05284, type: 3}
       propertyPath: m_Name
       value: nexo_central_1-2
@@ -132103,8 +132108,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9030351668465215418, guid: 3710bd849444a364fa326cddcad05284, type: 3}
-      propertyPath: discovered
+      propertyPath: nexo
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9030351668465215418, guid: 3710bd849444a364fa326cddcad05284, type: 3}
+      propertyPath: discovered
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3710bd849444a364fa326cddcad05284, type: 3}

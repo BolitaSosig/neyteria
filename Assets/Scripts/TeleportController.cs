@@ -6,8 +6,11 @@ using UnityEngine;
 public class TeleportController : MonoBehaviour
 {
     public Transform[] nexo1_nexo2;
+    public Transform[] nexo1_nexo3;
     public Transform[] nexo2_nexo3;
     public Transform[] nexo4_nexo1;
+    public Transform[] nexo4_nexo2;
+    public Transform[] nexo4_nexo3;
 
     private CameraController cam;
     private MovePlatformScript pointer;
@@ -31,13 +34,18 @@ public class TeleportController : MonoBehaviour
         switch(from)
         {
             case NexoCentralController.Nexo.Nexo_1_2:
-                switch(to)
+                switch (to)
                 {
                     case NexoCentralController.Nexo.Nexo_2_3:
-                        StartCoroutine(Teleport(nexo1_nexo2, GameObject.Find("Tubos_1-2").transform));
+                        StartCoroutine(Teleport(nexo1_nexo2, new Transform[] { GameObject.Find("Tubos_1-2").transform}));
                         break;
                     case NexoCentralController.Nexo.Nexo_4_4:
-                        TeleportReverse(nexo4_nexo1, GameObject.Find("Tubos_4-1").transform);
+                        TeleportReverse(nexo4_nexo1, new Transform[] { GameObject.Find("Tubos_4-1").transform });
+                        break;
+                    case NexoCentralController.Nexo.Nexo_3_3:
+                        StartCoroutine(Teleport(nexo1_nexo3, new Transform[] { 
+                            GameObject.Find("Tubos_1-2").transform,
+                            GameObject.Find("Tubos_2-3").transform}));
                         break;
                 }
                 break;
@@ -45,10 +53,15 @@ public class TeleportController : MonoBehaviour
                 switch (to)
                 {
                     case NexoCentralController.Nexo.Nexo_1_2:
-                       TeleportReverse(nexo1_nexo2, GameObject.Find("Tubos_1-2").transform);
+                        TeleportReverse(nexo1_nexo2, new Transform[] { GameObject.Find("Tubos_1-2").transform });
                         break;
                     case NexoCentralController.Nexo.Nexo_3_3:
-                       StartCoroutine(Teleport(nexo2_nexo3, GameObject.Find("Tubos_2-3").transform));
+                        StartCoroutine(Teleport(nexo2_nexo3, new Transform[] { GameObject.Find("Tubos_2-3").transform }));
+                        break;
+                    case NexoCentralController.Nexo.Nexo_4_4:
+                        TeleportReverse(nexo4_nexo2, new Transform[] { 
+                            GameObject.Find("Tubos_1-2").transform,
+                            GameObject.Find("Tubos_4-1").transform});
                         break;
                 }
                 break;
@@ -56,7 +69,18 @@ public class TeleportController : MonoBehaviour
                 switch (to)
                 {
                     case NexoCentralController.Nexo.Nexo_2_3:
-                        TeleportReverse(nexo2_nexo3, GameObject.Find("Tubos_2-3").transform);
+                        TeleportReverse(nexo2_nexo3, new Transform[] { GameObject.Find("Tubos_2-3").transform });
+                        break;
+                    case NexoCentralController.Nexo.Nexo_1_2:
+                        TeleportReverse(nexo1_nexo3, new Transform[] { 
+                            GameObject.Find("Tubos_2-3").transform,
+                            GameObject.Find("Tubos_1-2").transform});
+                        break;
+                    case NexoCentralController.Nexo.Nexo_4_4:
+                        TeleportReverse(nexo4_nexo3, new Transform[] { 
+                            GameObject.Find("Tubos_2-3").transform,
+                            GameObject.Find("Tubos_1-2").transform,
+                            GameObject.Find("Tubos_4-1").transform});
                         break;
                 }
                 break;
@@ -64,14 +88,25 @@ public class TeleportController : MonoBehaviour
                 switch (to)
                 {
                     case NexoCentralController.Nexo.Nexo_1_2:
-                        StartCoroutine(Teleport(nexo4_nexo1, GameObject.Find("Tubos_4-1").transform));
+                        StartCoroutine(Teleport(nexo4_nexo1, new Transform[] { GameObject.Find("Tubos_4-1").transform }));
+                        break;
+                    case NexoCentralController.Nexo.Nexo_2_3:
+                        StartCoroutine(Teleport(nexo4_nexo2, new Transform[] { 
+                            GameObject.Find("Tubos_4-1").transform,
+                            GameObject.Find("Tubos_1-2").transform}));
+                        break;
+                    case NexoCentralController.Nexo.Nexo_3_3:
+                        StartCoroutine(Teleport(nexo4_nexo3, new Transform[] { 
+                            GameObject.Find("Tubos_4-1").transform,
+                            GameObject.Find("Tubos_1-2").transform,
+                            GameObject.Find("Tubos_2-3").transform}));
                         break;
                 }
                 break;
         }
     }
 
-    private IEnumerator Teleport(Transform[] t, Transform tubos)
+    private IEnumerator Teleport(Transform[] t, Transform[] tubos)
     {
         if (!teleporting)
         {
@@ -105,7 +140,7 @@ public class TeleportController : MonoBehaviour
         }
     }
     
-    private void TeleportReverse(Transform[] t, Transform tubos)
+    private void TeleportReverse(Transform[] t, Transform[] tubos)
     {
         ArrayList l = new ArrayList(t);
         l.Reverse();
@@ -114,12 +149,13 @@ public class TeleportController : MonoBehaviour
         StartCoroutine(Teleport(tr, tubos));
     }
 
-    IEnumerator ActivateTubos(Transform parent)
+    IEnumerator ActivateTubos(Transform[] parent)
     {
-        foreach(Animator a in parent.GetComponentsInChildren<Animator>())
-        {
-            a.SetBool("teleporting", teleporting);
-            yield return null;
-        }
+        foreach(Transform t in parent)
+            foreach(Animator a in t.GetComponentsInChildren<Animator>())
+            {
+                a.SetBool("teleporting", teleporting);
+                yield return null;
+            }
     }
 }
