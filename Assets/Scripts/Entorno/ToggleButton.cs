@@ -133,4 +133,9 @@ public class ToggleButton : MonoBehaviour
         _togglePlatform.SetActive(false);
         Activated = false;
     }
+
+    void Pause(bool p)
+    {
+        GetComponent<Animator>().enabled = !p;
+    }
 }

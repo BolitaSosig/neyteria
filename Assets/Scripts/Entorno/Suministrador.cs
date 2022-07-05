@@ -101,4 +101,9 @@ public class Suministrador : MonoBehaviour
             }
         }
     }
+
+    void Pause(bool p)
+    {
+        GetComponent<Animator>().enabled = !p;
+    }
 }

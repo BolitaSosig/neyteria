@@ -20,7 +20,7 @@ public class EnemyCheckEnemy : Enemigo
     protected override void Update()
     {
         base.Update();
-        if (HP > 0) CheckEnemy();
+        if (HP > 0 && !pause) CheckEnemy();
     }
 
     protected virtual void CheckEnemy()

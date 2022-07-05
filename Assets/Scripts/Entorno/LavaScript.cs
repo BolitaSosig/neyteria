@@ -40,4 +40,10 @@ public class LavaScript : MonoBehaviour
             yield return new WaitForSecondsRealtime(DMGrate);
         }
     }
+
+    void Pause(bool p)
+    {
+        foreach(Animator a in transform)
+            a.enabled = !p;
+    }
 }

@@ -30,4 +30,9 @@ public class SciFiController : MonoBehaviour
             _audioSource.PlayAudioOneShot(15);
         }
     }
+
+    void Pause(bool p)
+    {
+        _animator.enabled = !p;
+    }
 }

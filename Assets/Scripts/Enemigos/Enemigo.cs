@@ -55,6 +55,8 @@ public class Enemigo : MonoBehaviour
 
     protected int _weatherVarNivel = 0;
 
+    [SerializeField] protected bool pause;
+
     public bool levelHasChanged
     {
         get { return _nivel != _oldNivel; }
@@ -129,12 +131,15 @@ public class Enemigo : MonoBehaviour
 
     protected virtual void Update()
     {
-        CheckWeatherChange();
-        if (levelHasChanged)
-            Nivel = _nivel;
-        if (!PauseMenu.GameIsPaused)
-            StartCoroutine(Moverse());
-        HealthBarUpdate();
+        if (!pause)
+        {
+            CheckWeatherChange();
+            if (levelHasChanged)
+                Nivel = _nivel;
+            if (!PauseMenu.GameIsPaused)
+                StartCoroutine(Moverse());
+            HealthBarUpdate();
+        }
     }
 
     protected IEnumerator Moverse()
@@ -291,5 +296,11 @@ public class Enemigo : MonoBehaviour
     {
         _nivel = _nivel - _weatherVarNivel + 10;
         _weatherVarNivel = 10;
+    }
+
+    void Pause(bool p)
+    {
+        _animator.enabled = !p;
+        pause = p;
     }
 }

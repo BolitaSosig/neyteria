@@ -239,7 +239,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.CompareTag("ZoneLoader")) // regiones de carga de escenas
         {
-            _sceneController.LoadLevel(collision.name);
+            StartCoroutine(_sceneController.LoadLevel(collision.name));
         }
     }
 

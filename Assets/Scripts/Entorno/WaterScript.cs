@@ -51,4 +51,10 @@ public class WaterScript : MonoBehaviour
             yield return new WaitForSecondsRealtime(ForceRate);
         }
     }
+
+    void Pause(bool p)
+    {
+        foreach(Animator a in transform)
+            a.enabled = !p;
+    }
 }
