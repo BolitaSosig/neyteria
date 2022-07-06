@@ -57,6 +57,9 @@ public class Item : ScriptableObject
     public static Item GOTAS_DE_SLIME;
     public static Item GOTAS_DE_SLIME_FURIOSO;
     public static Item GOTAS_DE_SLIME_DE_LAVA;
+    public static Item TROZO_DE_HUESO;
+    public static Item TROZO_DE_HUESO_EXTRANO;
+    public static Item HUESO_CONTAMINADO;
 
     public static Modulo MODULO_DE_SUPERSALTO_1;
     public static Modulo MODULO_DE_SUPERSALTO_2;
@@ -111,6 +114,9 @@ public class Item : ScriptableObject
         GOTAS_DE_SLIME = Resources.Load<Item>("Data\\Item\\014-Gotas_de_slime");
         GOTAS_DE_SLIME_FURIOSO = Resources.Load<Item>("Data\\Item\\015-Gotas_de_slime_furioso");
         GOTAS_DE_SLIME_DE_LAVA = Resources.Load<Item>("Data\\Item\\016-Gotas_de_slime_de_lava");
+        TROZO_DE_HUESO = Resources.Load<Item>("Data\\Item\\017-Trozo_de_hueso");
+        TROZO_DE_HUESO_EXTRANO = Resources.Load<Item>("Data\\Item\\018-Trozo_de_hueso_extrano");
+        HUESO_CONTAMINADO = Resources.Load<Item>("Data\\Item\\019-Hueso_contaminado");
 
         MODULO_DE_SUPERSALTO_1 = Resources.Load<Modulo>("Data\\Modulo\\100-Modulo_de_supersalto_1");
         MODULO_DE_SUPERSALTO_2 = Resources.Load<Modulo>("Data\\Modulo\\101-Modulo_de_supersalto_2");
@@ -163,9 +169,9 @@ public class Item : ScriptableObject
             GOTAS_DE_SLIME,
             GOTAS_DE_SLIME_FURIOSO,
             GOTAS_DE_SLIME_DE_LAVA, 
-            null, 
-            null, 
-            null, 
+            TROZO_DE_HUESO, 
+            TROZO_DE_HUESO_EXTRANO, 
+            HUESO_CONTAMINADO, 
             null, 
             null, 
             null, 
