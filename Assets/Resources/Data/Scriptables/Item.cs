@@ -48,7 +48,7 @@ public class Item : ScriptableObject
     public static Item SUERO_FORTALECEDOR;
     public static Item SUERO_PROTECTOR;
     public static Item MINERAL_FRAGMENTADO;
-    public static Item NEXOTEK;
+    public static Item NEXOTERIO;
     public static Item MINERAL_COMPACTO;
     public static Item PIEDRAS_DE_LAVA;
     public static Item ROCA_DE_MAGMA;
@@ -102,7 +102,7 @@ public class Item : ScriptableObject
         SUERO_FORTALECEDOR = Resources.Load<Item>("Data\\Item\\005-Suero_fortalecedor");
         SUERO_PROTECTOR = Resources.Load<Item>("Data\\Item\\006-Suero_protector");
         MINERAL_FRAGMENTADO = Resources.Load<Item>("Data\\Item\\007-Mineral_fragmentado");
-        NEXOTEK = Resources.Load<Item>("Data\\Item\\008-Nexotek");
+        NEXOTERIO = Resources.Load<Item>("Data\\Item\\008-Nexoterio");
         MINERAL_COMPACTO = Resources.Load<Item>("Data\\Item\\009-Mineral_compacto");
         PIEDRAS_DE_LAVA = Resources.Load<Item>("Data\\Item\\010-Piedras_de_lava");
         ROCA_DE_MAGMA = Resources.Load<Item>("Data\\Item\\011-Roca_de_magma");
@@ -154,7 +154,7 @@ public class Item : ScriptableObject
             SUERO_FORTALECEDOR, 
             SUERO_PROTECTOR, 
             MINERAL_FRAGMENTADO,
-            NEXOTEK, 
+            NEXOTERIO, 
             MINERAL_COMPACTO, 
             PIEDRAS_DE_LAVA, 
             ROCA_DE_MAGMA, 

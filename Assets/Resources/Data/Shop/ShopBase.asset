@@ -13,13 +13,15 @@ MonoBehaviour:
   m_Name: ShopBase
   m_EditorClassIdentifier: 
   item:
+  - {fileID: 11400000, guid: ea0793d2275069c42bdb997eca6b1f5d, type: 2}
   - {fileID: 11400000, guid: de23963cf12cf28498daf9950b58d670, type: 2}
   - {fileID: 11400000, guid: 6dd6d37f8504c454eb131b39aa2112c1, type: 2}
   - {fileID: 11400000, guid: e78f9677f697a3c4092bf478f72a2264, type: 2}
   - {fileID: 11400000, guid: 9ca40a993cd4b974890dfca9916173e3, type: 2}
   - {fileID: 11400000, guid: ef20bd628f450dd42a503f40b8560b3f, type: 2}
-  cantidad: 0100000001000000010000000100000001000000
+  cantidad: 010000000100000001000000010000000100000001000000
   costeItem:
+  - {fileID: 11400000, guid: 3d209bd4399f9f343a23bc87c0221dd1, type: 2}
   - {fileID: 11400000, guid: db53870e595a2264ba1c178a916de1cc, type: 2}
   - {fileID: 11400000, guid: db53870e595a2264ba1c178a916de1cc, type: 2}
   - {fileID: 11400000, guid: 3d209bd4399f9f343a23bc87c0221dd1, type: 2}

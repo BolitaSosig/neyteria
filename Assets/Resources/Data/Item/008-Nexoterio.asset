@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce7d44e0dd811ba4cbb082c6eddb2802, type: 3}
-  m_Name: 008-Nexotek
+  m_Name: 008-Nexoterio
   m_EditorClassIdentifier: 
   ID: 8
-  icono: {fileID: 0}
+  nombre: Nexoterio
+  descripcion: "C\xE1psula que permite la uni\xF3n con el Gran Nexo Central. \n\nCons\xFAmelo
+    para teletransportarte al \xFAltimo Nexo que te conectaste."
+  icono: {fileID: 4533227004153260592, guid: 7d41805254e404743b71b2f565e06775, type: 3}
   rareza: 5
   usable: 1
   maxCant: 999
-  nombre: Nexotek
-  descripcion: "C\xE1psula que permite la uni\xF3n con el Gran Nexo Central. \nCons\xFAmelo
-    para teletransportarte al \xFAltimo Nexo que te conectaste."
+  visible: 1

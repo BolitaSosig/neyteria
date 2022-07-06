@@ -279,10 +279,24 @@ public class PlayerController : MonoBehaviour
 
             HP = MaxHP;
 
-            SceneManager.LoadScene("MenuV2", LoadSceneMode.Single);
+            TeleportLastNexo();
+            //SceneManager.LoadScene("MenuV2", LoadSceneMode.Single);
             Time.timeScale = 1f;
             muerto = false;
+            canMove = true;
         }
 
+    }
+
+    void TeleportLastNexo()
+    {
+        foreach(NexoCentralController nc in FindObjectsOfType<NexoCentralController>())
+        {
+            if(nc.nexo.Equals(GLOBAL.lastNexo))
+            {
+                transform.position = nc.transform.position;
+                return;
+            }
+        }
     }
 }

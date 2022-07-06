@@ -166,6 +166,9 @@ public class PlayerItems : MonoBehaviour
             case 6:
                 StartCoroutine(SueroProteccion_Effect());
                 break;
+            case 8:
+                StartCoroutine(Nexoterio_Effect());
+                break;
             default:
                 used = false;
                 break;
@@ -199,5 +202,11 @@ public class PlayerItems : MonoBehaviour
             yield return new WaitForSecondsRealtime(60f);
             player.AumDefense -= 0.1f;
         }
+    }
+
+    private IEnumerator Nexoterio_Effect()
+    {
+        FindObjectOfType<PlayerController>().SendMessage("TeleportLastNexo");
+        yield return null;
     }
 }

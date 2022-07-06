@@ -53,10 +53,13 @@ public class InventoryController : MonoBehaviour
         else */if (Input.GetKeyDown(KeyCode.E) && isShown)
         {
             Item i = _items.getByID(_selectedItemID).Item1;
-            if (_items.rapidos.Contains(i))
-                _items.RemoveQuickItem(i);
-            else
-                _items.AddQuickItem(i);
+            if (i.usable)
+            {
+                if (_items.rapidos.Contains(i))
+                    _items.RemoveQuickItem(i);
+                else
+                    _items.AddQuickItem(i);
+            }
         }
     }
 
