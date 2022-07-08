@@ -84,6 +84,10 @@ PrefabInstance:
       value: -0.97901934
       objectReference: {fileID: 0}
     - target: {fileID: 7473112679399394118, guid: 2cef720cec841814aa8f8c81fedce432, type: 3}
+      propertyPath: drop
+      value: 
+      objectReference: {fileID: 11400000, guid: bb969ddb3b8cb5d43b835872ef429f56, type: 2}
+    - target: {fileID: 7473112679399394118, guid: 2cef720cec841814aa8f8c81fedce432, type: 3}
       propertyPath: baseHP
       value: 70
       objectReference: {fileID: 0}

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce7d44e0dd811ba4cbb082c6eddb2802, type: 3}
+  m_Name: 019-Hueso_contaminado 1
+  m_EditorClassIdentifier: 
+  ID: 19
+  nombre: Hueso contaminado
+  descripcion: "Parte de un hueso mec\xE1nico que perteneci\xF3 a alg\xFAn HAO4 Contaminado.
+    \n\nA diferencia de los huesos de otros HAO4, los huesos contaminados permiten
+    el aislamiento total de la electricidad."
+  icono: {fileID: -4058434812019303673, guid: 7d41805254e404743b71b2f565e06775, type: 3}
+  rareza: 4
+  usable: 0
+  maxCant: 999
+  visible: 1

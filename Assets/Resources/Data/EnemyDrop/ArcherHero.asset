@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 869be8ed682c999478b3ef25ff9cbb55, type: 3}
+  m_Name: ArcherHero
+  m_EditorClassIdentifier: 
+  drop:
+  - {fileID: 11400000, guid: b5b257f7e8204e745bd50fa997665ea2, type: 2}
+  - {fileID: 11400000, guid: c3abc2f8885f9584797dedcd720a568f, type: 2}
+  - {fileID: 11400000, guid: c4ed25b42484d00488b6996494910834, type: 2}
+  cant: 0f0000000300000001000000
+  rate:
+  - 0.6
+  - 0.05
+  - 0.4
+  asegurado: 000000

@@ -112,7 +112,7 @@ public class PlayerInputManager : MonoBehaviour
         if (CanEquipment)
             SetEquipment();
         if (CanUseItem)
-            SetUseItem();
+            SetUseItem(); 
         if (Input.GetButtonDown("Cancel"))
         {
             if (_isEquipmentNexo)
@@ -122,7 +122,7 @@ public class PlayerInputManager : MonoBehaviour
             if (_isStatsUpgrade)
                 SetStatsUpgrade();
             if (_isMap)
-                QuitMap();
+                SetMap();
         }
     }
 
@@ -197,9 +197,9 @@ public class PlayerInputManager : MonoBehaviour
         SetEquipment();
     }
 
-    void QuitMap()
+    void SetMap()
     {
-        _isMap = false;
-        FindObjectOfType<MapController>().Show = false;
+        _isMap = !_isMap;
+        FindObjectOfType<MapController>().Show = _isMap;
     }
 }

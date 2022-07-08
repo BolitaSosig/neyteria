@@ -19,7 +19,7 @@ MonoBehaviour:
     falta de resistencia. Pues para ello se desarroll\xF3 este m\xF3dulo, que permite
     extender sorprendentemente el aguante de su portador.\n\nDurante el periodo del
     efecto, la resistencia no decrece."
-  icono: {fileID: 21300000, guid: 81b8848839c73bb499ffabb4b4df464e, type: 3}
+  icono: {fileID: 5696728825703754897, guid: a781889b5a95019488829b4be2279e25, type: 3}
   rareza: 4
   usable: 0
   maxCant: 1

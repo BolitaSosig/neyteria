@@ -68,7 +68,7 @@ public class NexoCentralController : MonoBehaviour
 
     void ShowMap()
     {
-        FindObjectOfType<MapController>().Show = true;
+        input.SendMessage("SetMap");
     }
 
     void Teleport(Nexo end)
@@ -83,14 +83,14 @@ public class NexoCentralController : MonoBehaviour
 
     void Stats()
     {
-        FindObjectOfType<MejoraNexoController>().Show();
+        input.SendMessage("SetStatsUpgrade");
+        //FindObjectOfType<MejoraNexoController>().Show();
     }
 
     void OpenShop()
     {
-        ShopController s = FindObjectOfType<ShopController>();
-        s.SetShop(tienda);
-        s.isShown = true;
+        FindObjectOfType<ShopController>().SetShop(tienda);
+        input.SendMessage("SetShop");
     }
 
     void ActivateTp()

@@ -48,8 +48,6 @@ public class MejoraNexoController : MonoBehaviour
     {
         if(_isShow)
         {
-            if (Input.GetButtonDown("Cancel"))
-                Show();
             UpdateNiveles();
             UpdateStats();
         }

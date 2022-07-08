@@ -31588,6 +31588,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9030351668465215418, guid: 3710bd849444a364fa326cddcad05284, type: 3}
+      propertyPath: tienda
+      value: 
+      objectReference: {fileID: 11400000, guid: 92c492bf75bd7b14098e14779814a698, type: 2}
+    - target: {fileID: 9030351668465215418, guid: 3710bd849444a364fa326cddcad05284, type: 3}
       propertyPath: discovered
       value: 0
       objectReference: {fileID: 0}
@@ -132111,6 +132115,10 @@ PrefabInstance:
       propertyPath: nexo
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9030351668465215418, guid: 3710bd849444a364fa326cddcad05284, type: 3}
+      propertyPath: tienda
+      value: 
+      objectReference: {fileID: 11400000, guid: 6d525cef0ce37e6459c832fe35304f03, type: 2}
     - target: {fileID: 9030351668465215418, guid: 3710bd849444a364fa326cddcad05284, type: 3}
       propertyPath: discovered
       value: 0

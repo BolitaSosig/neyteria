@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce7d44e0dd811ba4cbb082c6eddb2802, type: 3}
-  m_Name: 019-Hueso_contaminado
+  m_Name: 022-Aguja_cortavientos
   m_EditorClassIdentifier: 
-  ID: 19
-  nombre: Hueso contaminado
-  descripcion: "Parte de un hueso mec\xE1nico que perteneci\xF3 a alg\xFAn HAO4 Contaminado.
-    \n\nA diferencia de los huesos de otros HAO4, los huesos contaminados permiten
-    el aislamiento total de la electricidad."
-  icono: {fileID: -4058434812019303673, guid: 7d41805254e404743b71b2f565e06775, type: 3}
+  ID: 22
+  nombre: Aguja cortavientos
+  descripcion: "Flecha que acompa\xF1a al arco de los Arqueros Malditos que utilizan
+    para defenderse. \n\nAlbergan incle\xEDbles capacidades para provocar cortes
+    incluso en las paredes rocosas m\xE1s duras."
+  icono: {fileID: 6355480216337973169, guid: 7d41805254e404743b71b2f565e06775, type: 3}
   rareza: 4
   usable: 0
   maxCant: 999

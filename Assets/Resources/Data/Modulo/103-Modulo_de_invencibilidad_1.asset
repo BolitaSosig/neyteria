@@ -20,7 +20,7 @@ MonoBehaviour:
     de dicha batalla, se desarrollo este m\xF3dulo capaz de resistir cualquier tipo
     de ataque durante un corto periodo de tiempo.\r\n\nDurante el periodo del efecto,
     los puntos de salud no decrecen."
-  icono: {fileID: 21300000, guid: 3de4360d267c44b49ac5635bba9c249d, type: 3}
+  icono: {fileID: -5293400342951632328, guid: a781889b5a95019488829b4be2279e25, type: 3}
   rareza: 4
   usable: 0
   maxCant: 1

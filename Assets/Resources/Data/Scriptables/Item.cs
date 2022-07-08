@@ -60,6 +60,9 @@ public class Item : ScriptableObject
     public static Item TROZO_DE_HUESO;
     public static Item TROZO_DE_HUESO_EXTRANO;
     public static Item HUESO_CONTAMINADO;
+    public static Item FLECHA_SINIESTRA;
+    public static Item DARDO_SINIESTRO;
+    public static Item AGUJA_CORTAVIENTOS;
 
     public static Modulo MODULO_DE_SUPERSALTO_1;
     public static Modulo MODULO_DE_SUPERSALTO_2;
@@ -117,6 +120,9 @@ public class Item : ScriptableObject
         TROZO_DE_HUESO = Resources.Load<Item>("Data\\Item\\017-Trozo_de_hueso");
         TROZO_DE_HUESO_EXTRANO = Resources.Load<Item>("Data\\Item\\018-Trozo_de_hueso_extrano");
         HUESO_CONTAMINADO = Resources.Load<Item>("Data\\Item\\019-Hueso_contaminado");
+        FLECHA_SINIESTRA = Resources.Load<Item>("Data\\Item\\020-Flecha_siniestra");
+        DARDO_SINIESTRO = Resources.Load<Item>("Data\\Item\\021-Dardo_siniestro");
+        AGUJA_CORTAVIENTOS = Resources.Load<Item>("Data\\Item\\022-Aguja_cortavientos");
 
         MODULO_DE_SUPERSALTO_1 = Resources.Load<Modulo>("Data\\Modulo\\100-Modulo_de_supersalto_1");
         MODULO_DE_SUPERSALTO_2 = Resources.Load<Modulo>("Data\\Modulo\\101-Modulo_de_supersalto_2");
@@ -172,9 +178,9 @@ public class Item : ScriptableObject
             TROZO_DE_HUESO, 
             TROZO_DE_HUESO_EXTRANO, 
             HUESO_CONTAMINADO, 
-            null, 
-            null, 
-            null, 
+            FLECHA_SINIESTRA, 
+            DARDO_SINIESTRO, 
+            AGUJA_CORTAVIENTOS, 
             null, 
             null, 
             null, 

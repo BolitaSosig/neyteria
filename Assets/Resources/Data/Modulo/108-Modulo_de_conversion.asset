@@ -16,7 +16,7 @@ MonoBehaviour:
   nombre: "M\xF3dulo de conversi\xF3n"
   descripcion: "Durante el periodo de efecto, aumenta el ataque y la defensa en un
     3% de los puntos m\xE1ximos de salud."
-  icono: {fileID: 21300000, guid: 2a35e59a70dd50a429fdae1bee6fbb86, type: 3}
+  icono: {fileID: -1121874296740918487, guid: a781889b5a95019488829b4be2279e25, type: 3}
   rareza: 3
   usable: 0
   maxCant: 1

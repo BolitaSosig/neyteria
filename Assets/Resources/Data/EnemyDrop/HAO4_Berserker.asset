@@ -14,9 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drop:
   - {fileID: 11400000, guid: b5b257f7e8204e745bd50fa997665ea2, type: 2}
+  - {fileID: 11400000, guid: c3abc2f8885f9584797dedcd720a568f, type: 2}
   - {fileID: 11400000, guid: d9cde859406cf2040b7ef6579b9fcda5, type: 2}
-  cant: 0c00000002000000
+  cant: 0c0000000100000002000000
   rate:
   - 0.6
+  - 0.05
   - 0.2
-  asegurado: 0000
+  asegurado: 000000

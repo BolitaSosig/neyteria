@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bdb2d5670e1ecd4ab19f3941f39018d, type: 3}
+  m_Name: ShopNexo2
+  m_EditorClassIdentifier: 
+  item:
+  - {fileID: 11400000, guid: ea0793d2275069c42bdb997eca6b1f5d, type: 2}
+  - {fileID: 11400000, guid: de23963cf12cf28498daf9950b58d670, type: 2}
+  - {fileID: 11400000, guid: 6dd6d37f8504c454eb131b39aa2112c1, type: 2}
+  - {fileID: 11400000, guid: e78f9677f697a3c4092bf478f72a2264, type: 2}
+  - {fileID: 11400000, guid: 9ca40a993cd4b974890dfca9916173e3, type: 2}
+  - {fileID: 11400000, guid: f483a55a7d17c134d8a330f24bbdad30, type: 2}
+  - {fileID: 11400000, guid: a47262bcd6ce77f458581815354130e5, type: 2}
+  - {fileID: 11400000, guid: ef20bd628f450dd42a503f40b8560b3f, type: 2}
+  cantidad: 0100000001000000010000000100000001000000010000000100000001000000
+  costeItem:
+  - {fileID: 11400000, guid: 3d209bd4399f9f343a23bc87c0221dd1, type: 2}
+  - {fileID: 11400000, guid: db53870e595a2264ba1c178a916de1cc, type: 2}
+  - {fileID: 11400000, guid: db53870e595a2264ba1c178a916de1cc, type: 2}
+  - {fileID: 11400000, guid: 942daa137ac7d6841a985b694bbf8253, type: 2}
+  - {fileID: 11400000, guid: 942daa137ac7d6841a985b694bbf8253, type: 2}
+  - {fileID: 11400000, guid: 002c9fcf2f3c9ae4e8f373c4a8ae64ee, type: 2}
+  - {fileID: 11400000, guid: 605b4419dd7f90c4c99ab4d1b01c6812, type: 2}
+  - {fileID: 11400000, guid: e576cd24a5e27094f9d4c36cd523afdc, type: 2}

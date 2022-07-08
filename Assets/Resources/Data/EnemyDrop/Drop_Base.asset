@@ -9,9 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35feb985ca3a9da42a926f24a6e355ab, type: 3}
-  m_Name: x50_Degiterio 1
+  m_Script: {fileID: 11500000, guid: 869be8ed682c999478b3ef25ff9cbb55, type: 3}
+  m_Name: Drop_Base
   m_EditorClassIdentifier: 
-  items:
+  drop:
   - {fileID: 11400000, guid: b5b257f7e8204e745bd50fa997665ea2, type: 2}
-  cant: 32000000
+  - {fileID: 11400000, guid: c3abc2f8885f9584797dedcd720a568f, type: 2}
+  cant: 0a00000002000000
+  rate:
+  - 0.6
+  - 0.1
+  asegurado: 0100
