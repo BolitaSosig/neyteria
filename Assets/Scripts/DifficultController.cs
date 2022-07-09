@@ -9,6 +9,11 @@ public class DifficultController : MonoBehaviour
     [SerializeField] Image hardButtonImage;
 
     [SerializeField] int difficultValue;
+
+    /*  0 es dificultad normal
+     *  1 es dificultad dificil
+     */
+
     // Start is called before the first frame update
     void Start()
     {

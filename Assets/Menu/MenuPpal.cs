@@ -17,6 +17,7 @@ public class MenuPpal : MonoBehaviour
     Vector3 rotationEuler = new Vector3(0, 0, 0);
 
     SoundController soundController;
+    MusicLevelController musicLevelController;
 
     GameObject player;
     bool firstTime = true;
@@ -88,6 +89,9 @@ public class MenuPpal : MonoBehaviour
         SceneManager.LoadScene("Nivel1-1", LoadSceneMode.Single);
         _playerController.canMove = true;
         _rigidbody2D.simulated = true;
+
+        musicLevelController = GameObject.Find("SoundManager").GetComponent<MusicLevelController>();
+        musicLevelController.act = 0;
     }
 
     IEnumerator WaitCoroutine2()
