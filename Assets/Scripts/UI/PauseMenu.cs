@@ -55,6 +55,9 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene("MenuV2", LoadSceneMode.Single);
         pauseMenuUI.SetActive(false);
         _playerController.canMove = false;
+
+        MusicLevelController musicLevelController = GameObject.Find("SoundManager").GetComponent<MusicLevelController>();
+        musicLevelController.act = -1;
     }
 
     public void QuitGame()
