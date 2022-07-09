@@ -5,13 +5,17 @@ using UnityEngine;
 public class MusicLevelController : MonoBehaviour
 {
 
-    GameObject[] GameObjectsMusic= new GameObject[5];
+    
 
     public int id = -1;
     public int act = 0;
+
+    public int numMusicas = 5;
+    GameObject[] GameObjectsMusic;
     // Start is called before the first frame update
     void Start()
     {
+        GameObjectsMusic = new GameObject[numMusicas];
         Actualizar(0);
     }
 
@@ -33,12 +37,12 @@ public class MusicLevelController : MonoBehaviour
     public void Actualizar(int v)
     {
         FindGameObjectsMusic();
-        foreach (GameObject Imusic in GameObjectsMusic) { if (Imusic != null) Imusic.SetActive(false); }
+        foreach (GameObject Imusic in GameObjectsMusic) { if (Imusic != null) Imusic.GetComponent<AudioSource>().mute = true; }
 
 
-        if (GameObjectsMusic[v] != null)
+        if (v >= 0 && v < numMusicas && GameObjectsMusic[v] != null)
         {
-            GameObjectsMusic[v].SetActive(true); id = act;
+            GameObjectsMusic[v].GetComponent<AudioSource>().mute = false; id = act;
         }
         else
         {
