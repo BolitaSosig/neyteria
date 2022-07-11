@@ -11,6 +11,10 @@ public class TeleportController : MonoBehaviour
     public Transform[] nexo4_nexo1;
     public Transform[] nexo4_nexo2;
     public Transform[] nexo4_nexo3;
+    [Space]
+    public Transform tubos_1_2;
+    public Transform tubos_2_3;
+    public Transform tubos_4_1;
 
     private CameraController cam;
     private MovePlatformScript pointer;
@@ -37,15 +41,13 @@ public class TeleportController : MonoBehaviour
                 switch (to)
                 {
                     case NexoCentralController.Nexo.Nexo_2_3:
-                        StartCoroutine(Teleport(nexo1_nexo2, new Transform[] { GameObject.Find("Tubos_1-2").transform}));
+                        StartCoroutine(Teleport(nexo1_nexo2, new Transform[] { tubos_1_2 }));
                         break;
                     case NexoCentralController.Nexo.Nexo_4_4:
-                        TeleportReverse(nexo4_nexo1, new Transform[] { GameObject.Find("Tubos_4-1").transform });
+                        TeleportReverse(nexo4_nexo1, new Transform[] { tubos_4_1 });
                         break;
                     case NexoCentralController.Nexo.Nexo_3_3:
-                        StartCoroutine(Teleport(nexo1_nexo3, new Transform[] { 
-                            GameObject.Find("Tubos_1-2").transform,
-                            GameObject.Find("Tubos_2-3").transform}));
+                        StartCoroutine(Teleport(nexo1_nexo3, new Transform[] { tubos_1_2, tubos_2_3}));
                         break;
                 }
                 break;
@@ -53,15 +55,13 @@ public class TeleportController : MonoBehaviour
                 switch (to)
                 {
                     case NexoCentralController.Nexo.Nexo_1_2:
-                        TeleportReverse(nexo1_nexo2, new Transform[] { GameObject.Find("Tubos_1-2").transform });
+                        TeleportReverse(nexo1_nexo2, new Transform[] { tubos_1_2 });
                         break;
                     case NexoCentralController.Nexo.Nexo_3_3:
-                        StartCoroutine(Teleport(nexo2_nexo3, new Transform[] { GameObject.Find("Tubos_2-3").transform }));
+                        StartCoroutine(Teleport(nexo2_nexo3, new Transform[] { tubos_2_3 }));
                         break;
                     case NexoCentralController.Nexo.Nexo_4_4:
-                        TeleportReverse(nexo4_nexo2, new Transform[] { 
-                            GameObject.Find("Tubos_1-2").transform,
-                            GameObject.Find("Tubos_4-1").transform});
+                        TeleportReverse(nexo4_nexo2, new Transform[] { tubos_1_2, tubos_4_1});
                         break;
                 }
                 break;
@@ -69,18 +69,13 @@ public class TeleportController : MonoBehaviour
                 switch (to)
                 {
                     case NexoCentralController.Nexo.Nexo_2_3:
-                        TeleportReverse(nexo2_nexo3, new Transform[] { GameObject.Find("Tubos_2-3").transform });
+                        TeleportReverse(nexo2_nexo3, new Transform[] { tubos_2_3 });
                         break;
                     case NexoCentralController.Nexo.Nexo_1_2:
-                        TeleportReverse(nexo1_nexo3, new Transform[] { 
-                            GameObject.Find("Tubos_2-3").transform,
-                            GameObject.Find("Tubos_1-2").transform});
+                        TeleportReverse(nexo1_nexo3, new Transform[] { tubos_2_3, tubos_1_2 });
                         break;
                     case NexoCentralController.Nexo.Nexo_4_4:
-                        TeleportReverse(nexo4_nexo3, new Transform[] { 
-                            GameObject.Find("Tubos_2-3").transform,
-                            GameObject.Find("Tubos_1-2").transform,
-                            GameObject.Find("Tubos_4-1").transform});
+                        TeleportReverse(nexo4_nexo3, new Transform[] { tubos_2_3, tubos_1_2, tubos_4_1 });
                         break;
                 }
                 break;
@@ -88,18 +83,13 @@ public class TeleportController : MonoBehaviour
                 switch (to)
                 {
                     case NexoCentralController.Nexo.Nexo_1_2:
-                        StartCoroutine(Teleport(nexo4_nexo1, new Transform[] { GameObject.Find("Tubos_4-1").transform }));
+                        StartCoroutine(Teleport(nexo4_nexo1, new Transform[] { tubos_4_1 }));
                         break;
                     case NexoCentralController.Nexo.Nexo_2_3:
-                        StartCoroutine(Teleport(nexo4_nexo2, new Transform[] { 
-                            GameObject.Find("Tubos_4-1").transform,
-                            GameObject.Find("Tubos_1-2").transform}));
+                        StartCoroutine(Teleport(nexo4_nexo2, new Transform[] { tubos_4_1, tubos_1_2 }));
                         break;
                     case NexoCentralController.Nexo.Nexo_3_3:
-                        StartCoroutine(Teleport(nexo4_nexo3, new Transform[] { 
-                            GameObject.Find("Tubos_4-1").transform,
-                            GameObject.Find("Tubos_1-2").transform,
-                            GameObject.Find("Tubos_2-3").transform}));
+                        StartCoroutine(Teleport(nexo4_nexo3, new Transform[] { tubos_4_1, tubos_1_2, tubos_2_3 }));
                         break;
                 }
                 break;

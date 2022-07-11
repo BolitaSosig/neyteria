@@ -176,7 +176,7 @@ public class PlayerInputManager : MonoBehaviour
     void SetStatsUpgrade()
     {
         _isStatsUpgrade = !_isStatsUpgrade;
-        _statsUpgradeController._isShow = _isStatsUpgrade;
+        _statsUpgradeController.Show();
     }
 
     void SetUseItem()

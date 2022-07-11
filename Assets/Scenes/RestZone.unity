@@ -2413,7 +2413,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &217027130
 Transform:
   m_ObjectHideFlags: 0
@@ -3628,6 +3628,9 @@ MonoBehaviour:
   nexo4_nexo3:
   - {fileID: 511536227}
   - {fileID: 1806299727}
+  tubos_1_2: {fileID: 217027130}
+  tubos_2_3: {fileID: 1957242608}
+  tubos_4_1: {fileID: 1363836372}
 --- !u!1001 &316816516
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30082,7 +30085,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1363836372
 Transform:
   m_ObjectHideFlags: 0
@@ -36611,7 +36614,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1957242608
 Transform:
   m_ObjectHideFlags: 0

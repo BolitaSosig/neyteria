@@ -176,16 +176,16 @@ public class EquipmentController : MonoBehaviour
 
     void UpdateStats()
     {
-        _hp.text = "Salud: " + (int)_player.HP + "/" + (int)_player.MaxHP + "p";
-        _stamina.text = "Resistencia: " + (int)_player.Stamina + "/" + (int)_player.MaxStamina + "p";
-        _attack.text = "Ataque: " + FormatFloat(_player.Attack) + "p";
-        _defense.text = "Defensa: " + FormatFloat(_player.Defense) + "p";
-        _weight.text = "Peso: " + FormatFloat(_player.Weight) + "p";
-        _movSpeed.text = "Velocidad: " + FormatPerc(_player.MovSpeed) + "%";
-        _attSpeed.text = "Vel. ataque: " + FormatPerc(_player.AttSpeed) + "%";
-        _jumpCap.text = "Cap. salto: " + FormatPerc(_player.JumpCap) + "%";  
-        _gastoDash.text = "Gasto evasión: " + (int)_player.gastoDash + "p";
-        _dmgReduc.text = "Reducc. daño: " + FormatPerc(_player.dmgReduc) + "%";
+        _hp.text = (int)_player.HP + "/" + (int)_player.MaxHP;
+        _stamina.text = (int)_player.Stamina + "/" + (int)_player.MaxStamina;
+        _attack.text = "" + FormatFloat(_player.Attack);
+        _defense.text = "" + FormatFloat(_player.Defense);
+        _weight.text = "" + FormatFloat(_player.Weight);
+        _movSpeed.text = FormatPerc(_player.MovSpeed) + "%";
+        _attSpeed.text = FormatPerc(_player.AttSpeed) + "%";
+        _jumpCap.text = FormatPerc(_player.JumpCap) + "%";  
+        _gastoDash.text = "" + (int)_player.gastoDash;
+        _dmgReduc.text = FormatPerc(_player.dmgReduc) + "%";
     }
 
     string FormatFloat(float v)

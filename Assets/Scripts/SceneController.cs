@@ -34,6 +34,7 @@ public class SceneController : MonoBehaviour
         {
             case "RestZoneLoadLevel1":
                 //SceneManager.LoadSceneAsync("Nivel2-1", LoadSceneMode.Additive);
+                FindObjectOfType<TeleportController>().tubos_1_2.gameObject.SetActive(true);
                 SceneManager.GetSceneByName("Nivel2-1").GetRootGameObjects()[0].GetComponent<ZoneOptimizer>().ZonePaused = false;
                 SceneManager.GetSceneByName("Nivel1-1").GetRootGameObjects()[0].GetComponent<ZoneOptimizer>().ZonePaused = true;
                 if (SceneManager.GetSceneByName("RestZone").name == null)
@@ -50,6 +51,7 @@ public class SceneController : MonoBehaviour
                 break;
             case "RestZoneToLevel1":
                 //SceneManager.UnloadSceneAsync("Nivel2-1");
+                FindObjectOfType<TeleportController>().tubos_1_2.gameObject.SetActive(false);
                 SceneManager.GetSceneByName("Nivel2-1").GetRootGameObjects()[0].GetComponent<ZoneOptimizer>().ZonePaused = true;
                 SceneManager.GetSceneByName("Nivel1-1").GetRootGameObjects()[0].GetComponent<ZoneOptimizer>().ZonePaused = false;
                 GameObject.FindObjectOfType<Luz>().ChangeLightBetweenZones();

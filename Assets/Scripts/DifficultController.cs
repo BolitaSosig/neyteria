@@ -58,6 +58,7 @@ public class DifficultController : MonoBehaviour
     private void Save()
     {
         PlayerPrefs.SetInt("difficultValue", difficultValue);
+        GLOBAL.HARD_MODE = PlayerPrefs.GetInt("difficultValue") == 1;
         Load();
     }
 }
