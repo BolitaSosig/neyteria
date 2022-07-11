@@ -118,8 +118,11 @@ public class PlayerAttack : MonoBehaviour
             {
                 //enemy.GetComponent<Enemy1Controller>().GetDamage(swordDMG);
                 //Debug.Log("colision con Enemy");
-                float supAtt = _playerController.oneHitKill ? 999999f : 0f;
-                enemy.SendMessage("GetDamageByPlayer", _playerController.Attack + supAtt);
+                if (enemy.GetType().IsEquivalentTo(typeof(PolygonCollider2D)))
+                {
+                    float supAtt = _playerController.oneHitKill ? 999999f : 0f;
+                    enemy.SendMessage("GetDamageByPlayer", _playerController.Attack + supAtt);
+                }
             }
             _playerController.Atacar();
 
@@ -139,8 +142,11 @@ public class PlayerAttack : MonoBehaviour
             {
                 //enemy.GetComponent<Enemy1Controller>().GetDamage(mazeDMG);
                 //Debug.Log("colision con Enemy");
-                float supAtt = _playerController.oneHitKill ? 999999f : 0f;
-                enemy.SendMessage("GetDamageByPlayer", _playerController.Attack + supAtt);
+                if (enemy.GetType().IsEquivalentTo(typeof(PolygonCollider2D)))
+                {
+                    float supAtt = _playerController.oneHitKill ? 999999f : 0f;
+                    enemy.SendMessage("GetDamageByPlayer", _playerController.Attack + supAtt);
+                }
             }
             _playerController.Atacar();
 
