@@ -12,7 +12,7 @@ public class GLOBAL : MonoBehaviour
     public PauseMenu pauseMenu;
     public bool hard_mode;
 
-    public static string zona = "Nivel1-1";
+    public static string zona = "CollisionNivel1";
     public static NexoCentralController.Nexo lastNexo = NexoCentralController.Nexo.Nexo_0;
 
     // ENEMIGO

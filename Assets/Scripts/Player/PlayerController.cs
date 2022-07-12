@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour
         {
             var (corner1, corner2) = getGroundCheckCorners();
             Collider2D hit = Physics2D.OverlapArea(corner1, corner2);
-            return (hit != null);
+            return (hit != null && !hit.gameObject.name.Equals("CM vcam1"));
         }
     }
 
@@ -101,6 +101,7 @@ public class PlayerController : MonoBehaviour
         _audioSource = GameObject.Find("SoundManager").GetComponent<SoundManager>();
 
         HasMuertoTexto.SetActive(false);
+        Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), GameObject.Find("CM vcam1").GetComponent<BoxCollider2D>());
     }
 
     public void SeleccionarEventSystem()

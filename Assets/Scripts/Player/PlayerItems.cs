@@ -79,8 +79,8 @@ public class PlayerItems : MonoBehaviour
 
     public void Remove(Item i)
     {
-        items.Remove(i);
         RemoveQuickItem(i);
+        items.Remove(i);
         if (i.GetType().IsEquivalentTo(typeof(Modulo)) && GetComponent<PlayerModulos>().IsEquiped((Modulo)i))
             GetComponent<PlayerModulos>().EquipModulo((Modulo)i);
         _inventoryController.SendMessage("FillItems");

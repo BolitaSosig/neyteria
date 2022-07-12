@@ -22,7 +22,7 @@ public class CameraController : MonoBehaviour
         _cam = GetComponent<CinemachineVirtualCamera>();
         _playerBody = GameObject.Find("Player").GetComponent<Rigidbody2D>();
 
-        
+        Physics2D.IgnoreCollision(_playerBody.GetComponent<BoxCollider2D>(), GetComponent<BoxCollider2D>());
     }
 
     void Update()
