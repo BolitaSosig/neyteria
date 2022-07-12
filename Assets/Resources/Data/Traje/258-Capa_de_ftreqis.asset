@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9f347324e4280d44dabdb387911a3c76, type: 3}
-  m_Name: 258-Armadura_de_ftreqis
+  m_Name: 258-Capa_de_ftreqis
   m_EditorClassIdentifier: 
   ID: 258
-  nombre: Armadura de Ftreqis
+  nombre: Capa de Ftreqis
   descripcion: Cuando la salud del personaje se encuentra por debajo del 20%, el
     ataque aumenta un 50%.
-  icono: {fileID: 6761164967045977113, guid: 7d41805254e404743b71b2f565e06775, type: 3}
+  icono: {fileID: 6400121538354756220, guid: b2ff0cef95daec749956f8b2fd5a705b, type: 3}
   rareza: 3
   usable: 0
   maxCant: 1

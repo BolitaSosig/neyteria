@@ -15,7 +15,7 @@ MonoBehaviour:
   ID: 260
   nombre: "Bendici\xF3n de las nubes"
   descripcion: Aumenta la probabilidad de que haya tormenta.
-  icono: {fileID: 6761164967045977113, guid: 7d41805254e404743b71b2f565e06775, type: 3}
+  icono: {fileID: -584927725241366727, guid: b2ff0cef95daec749956f8b2fd5a705b, type: 3}
   rareza: 3
   usable: 0
   maxCant: 1

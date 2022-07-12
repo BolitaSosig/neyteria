@@ -16,7 +16,7 @@ MonoBehaviour:
   nombre: Conjunto volador
   descripcion: "Cuando el personaje se encuentra en el aire, hay un 30% de probabilidad
     de recuperar instant\xE1neamente la resistencia consumida."
-  icono: {fileID: 6761164967045977113, guid: 7d41805254e404743b71b2f565e06775, type: 3}
+  icono: {fileID: -4738217907399371124, guid: b2ff0cef95daec749956f8b2fd5a705b, type: 3}
   rareza: 3
   usable: 0
   maxCant: 1

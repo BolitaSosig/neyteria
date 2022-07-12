@@ -155,6 +155,12 @@ public class EquipmentController : MonoBehaviour
                     "" + (_player.GetComponent<PlayerModulos>().FindModule(m) + 1);
                 //go.GetComponent<InventoryItemSelect>().equiped.SetActive(_items.gameObject.GetComponent<PlayerModulos>().IsEquiped(m));
             }
+            else if (i.GetType().IsEquivalentTo(typeof(Traje)))  // MODULOS
+            {
+                Traje t = (Traje)i;
+                go.transform.parent = trajesContent.transform;
+                //go.GetComponent<InventoryItemSelect>().equiped.SetActive(_items.gameObject.GetComponent<PlayerModulos>().IsEquiped(m));
+            }
             else
                 Destroy(go);
         }

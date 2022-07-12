@@ -19,7 +19,7 @@ MonoBehaviour:
     se reduce en un 5%. Este efecto se puede acumular hasta 3 veces como m\xE1ximo
     y cada efecto desaparecer\xE1 cuando se pueda volver a usar cada M\xF3dulo del
     Ocaso."
-  icono: {fileID: 6761164967045977113, guid: 7d41805254e404743b71b2f565e06775, type: 3}
+  icono: {fileID: 1967765532809354438, guid: b2ff0cef95daec749956f8b2fd5a705b, type: 3}
   rareza: 3
   usable: 0
   maxCant: 1

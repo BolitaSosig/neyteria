@@ -17,7 +17,7 @@ MonoBehaviour:
   descripcion: "Ropa que sol\xEDa pertenecer a la raza de los Rauvnir, quienes ten\xEDan
     una brutal agilidad en combate con las armas.\r\n\nAumenta la velocidad de ataque
     en un 15%."
-  icono: {fileID: 6761164967045977113, guid: 7d41805254e404743b71b2f565e06775, type: 3}
+  icono: {fileID: 2941230583155441993, guid: b2ff0cef95daec749956f8b2fd5a705b, type: 3}
   rareza: 2
   usable: 0
   maxCant: 1

@@ -91,7 +91,7 @@ public class Item : ScriptableObject
     public static Traje TUNICA_LIGERA;
     public static Traje VESTIDO_DEL_COSECHADOR;
     public static Traje CONJUNTO_VOLADOR;
-    public static Traje ARMADURA_DE_FTREQIS;
+    public static Traje CAPA_DE_FTREQIS;
     public static Traje SABANA_DEL_TIEMPO;
     public static Traje BENDICION_DE_LAS_NUBES;
     public static Traje MANTO_DE_LA_LOCURA;
@@ -151,7 +151,7 @@ public class Item : ScriptableObject
         TUNICA_LIGERA = Resources.Load<Traje>("Data\\Traje\\255-Tunica_ligera");
         VESTIDO_DEL_COSECHADOR = Resources.Load<Traje>("Data\\Traje\\256-Vestido_del_cosechador");
         CONJUNTO_VOLADOR = Resources.Load<Traje>("Data\\Traje\\257-Conjunto_volador");
-        ARMADURA_DE_FTREQIS = Resources.Load<Traje>("Data\\Traje\\258-Armadura_de_ftreqis");
+        CAPA_DE_FTREQIS = Resources.Load<Traje>("Data\\Traje\\258-Capa_de_ftreqis");
         SABANA_DEL_TIEMPO = Resources.Load<Traje>("Data\\Traje\\259-Sabana_del_tiempo");
         BENDICION_DE_LAS_NUBES = Resources.Load<Traje>("Data\\Traje\\260-Bendicion_de_las_nubes");
         MANTO_DE_LA_LOCURA = Resources.Load<Traje>("Data\\Traje\\261-Manto_de_la_locura");
@@ -416,7 +416,7 @@ public class Item : ScriptableObject
             TUNICA_LIGERA,
             VESTIDO_DEL_COSECHADOR,
             CONJUNTO_VOLADOR,
-            ARMADURA_DE_FTREQIS,
+            CAPA_DE_FTREQIS,
             SABANA_DEL_TIEMPO,
             BENDICION_DE_LAS_NUBES,
             MANTO_DE_LA_LOCURA

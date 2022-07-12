@@ -19,7 +19,7 @@ MonoBehaviour:
 
 
     Aumenta el ataque en un 12%.'
-  icono: {fileID: 6761164967045977113, guid: 7d41805254e404743b71b2f565e06775, type: 3}
+  icono: {fileID: 6153058052163378728, guid: b2ff0cef95daec749956f8b2fd5a705b, type: 3}
   rareza: 2
   usable: 0
   maxCant: 1

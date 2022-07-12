@@ -9,6 +9,7 @@ public class PlayerTrajes : MonoBehaviour
 
     private PlayerStats _stats;
     private PlayerController _player;
+
     
     public bool TrajeChanged
     {
@@ -45,6 +46,7 @@ public class PlayerTrajes : MonoBehaviour
         Traje.Pasiva(_traje.ID, true);
         _stats.BaseDefense += _traje.defensa;
         _stats.BaseWeight += _traje.peso;
+        transform.Find("Traje").GetComponent<SpriteRenderer>().sprite = _traje.icono;
     }
 
     public void PasiveChecker(int id)

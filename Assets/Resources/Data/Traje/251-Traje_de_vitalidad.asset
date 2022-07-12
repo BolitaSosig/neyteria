@@ -16,7 +16,7 @@ MonoBehaviour:
   nombre: Traje de vitalidad
   descripcion: "Un traje tejido con plantas m\xEDsticas que cura las heridas de los
     guerreros m\xE1s d\xE9biles.\n\nAumenta los puntos de salud en 20p."
-  icono: {fileID: 6761164967045977113, guid: 7d41805254e404743b71b2f565e06775, type: 3}
+  icono: {fileID: 4595169146289013391, guid: b2ff0cef95daec749956f8b2fd5a705b, type: 3}
   rareza: 2
   usable: 0
   maxCant: 1
