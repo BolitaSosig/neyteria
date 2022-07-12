@@ -100,7 +100,7 @@ MonoBehaviour:
   _damageDealTMP: {fileID: 1931263843719411576, guid: 9eb9ec5f41b3bb945bd9dfe9fedef7fe, type: 3}
   _weather: {fileID: 0}
   healthBarEnemy: {fileID: 757757706578032882}
-  baseHP: 80
+  baseHP: 67
   baseAttack: 7
   baseDefense: 1.4
   baseMovSpeed: 1

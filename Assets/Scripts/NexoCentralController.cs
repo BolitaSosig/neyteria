@@ -21,7 +21,8 @@ public class NexoCentralController : MonoBehaviour
         Nexo_2_3,
         Nexo_3_3,
         Nexo_3_4,
-        Nexo_4_4
+        Nexo_4_4,
+        Nexo_1
     }
 
 
