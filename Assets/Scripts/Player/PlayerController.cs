@@ -126,7 +126,7 @@ public class PlayerController : MonoBehaviour
     }
 
     ////// HORIZONTAL //////
-    void Walk()
+    /*void Walk()
     {
         //Mi versión reducida y optimizada (funciona cuando el escalado es distinto de 1)
         if (Input.GetAxisRaw("Horizontal") == 1 && transform.localScale.x < 0 || Input.GetAxisRaw("Horizontal") == -1 && transform.localScale.x > 0)
@@ -135,6 +135,20 @@ public class PlayerController : MonoBehaviour
         if (canDash || onAir || (!canDash && Stamina < gastoDash))
             _rigidbody2D.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * SPEED_MOV * MovSpeed, _rigidbody2D.velocity.y); // desplazamiento del personaje
         _animator.SetFloat("velocity_x", Mathf.Abs(_rigidbody2D.velocity.x)); // establece velocity_x en el animator
+    }*/
+
+    void Walk()
+    {
+        int v = 6, x =0, y = 0;
+
+        if (Input.GetKey(KeyCode.Q)) { v = 10; }
+
+        if (Input.GetKey(KeyCode.J)) { x = -v; }
+        if (Input.GetKey(KeyCode.L)) { x =  v; }
+        if (Input.GetKey(KeyCode.I)) { y =  v; }
+        if (Input.GetKey(KeyCode.K)) { y = -v; }
+
+        _rigidbody2D.velocity = new Vector2(x, y);
     }
 
     ////// SALTO //////
