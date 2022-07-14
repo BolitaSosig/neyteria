@@ -11,6 +11,7 @@ public class GLOBAL : MonoBehaviour
     public int d = 0;
     public PauseMenu pauseMenu;
     public bool hard_mode;
+    [SerializeField] private int FPS = 60;
 
     public static string zona = "CollisionNivel1";
     public static NexoCentralController.Nexo lastNexo = NexoCentralController.Nexo.Nexo_0;
@@ -25,6 +26,8 @@ public class GLOBAL : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
         startPosition = GameObject.Find("StartPos");
         StartPos();
+
+        Application.targetFrameRate = FPS;
     }
 
     // Update is called once per frame
@@ -36,6 +39,9 @@ public class GLOBAL : MonoBehaviour
             hard_mode = HARD_MODE;
             StartCoroutine(ChangeMode());
         }
+
+        if (Application.targetFrameRate != FPS)
+            Application.targetFrameRate = FPS;
     }
 
     public void StartPos()
