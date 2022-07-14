@@ -19,7 +19,8 @@ public class ZoneOptimizer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if(gameObject.name.Equals("level1"))
+            FindObjectOfType<SceneController>().SendMessage("Start");
     }
 
     // Update is called once per frame

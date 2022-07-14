@@ -22,7 +22,7 @@ public class Luz : MonoBehaviour
 
     public void ChangeLightBetweenZones()
     {
-        if(GLOBAL.zona.Equals("Nivel1-1"))
+        if(GLOBAL.zona.Equals("CollisionNivel1"))
         {
             _linterna.gameObject.SetActive(true);
             _globalLight.color = Color.black;

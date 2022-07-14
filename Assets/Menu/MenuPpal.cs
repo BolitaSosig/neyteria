@@ -87,6 +87,9 @@ public class MenuPpal : MonoBehaviour
 
 
         SceneManager.LoadScene("Nivel1-1", LoadSceneMode.Single);
+        SceneManager.LoadScene("Nivel2-1", LoadSceneMode.Additive);
+        SceneManager.LoadScene("Nivel3-1", LoadSceneMode.Additive);
+        SceneManager.LoadScene("Nivel4-1", LoadSceneMode.Additive);
         SceneManager.LoadScene("RestZone", LoadSceneMode.Additive);
         _playerController.canMove = true;
         _rigidbody2D.simulated = true;
