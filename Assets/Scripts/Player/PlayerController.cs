@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     // CONSTANTES
     private const float SPEED_MOV = 8f;
-    private const float JUMP_FORCE = 20f;
+    private const float JUMP_FORCE = 21f;
     private const float DASH_FORCE = 15f;
     private const float DMG_CD = 0.5f;
     private const float DASH_RANGE = 0.1f;

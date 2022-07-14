@@ -19,11 +19,12 @@ public class SceneController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        EnterCollisionNivel(GLOBAL.zona);
         SceneManager.GetSceneByName("Nivel1-1").GetRootGameObjects()[0].GetComponent<ZoneOptimizer>().ZonePaused = true;
         SceneManager.GetSceneByName("Nivel2-1").GetRootGameObjects()[0].GetComponent<ZoneOptimizer>().ZonePaused = true;
         SceneManager.GetSceneByName("Nivel3-1").GetRootGameObjects()[0].GetComponent<ZoneOptimizer>().ZonePaused = true;
         SceneManager.GetSceneByName("Nivel4-1").GetRootGameObjects()[0].GetComponent<ZoneOptimizer>().ZonePaused = true;
+        EnterCollisionNivel(GLOBAL.zona);
+        StartCoroutine(LoadLevel("RestZoneToLevel1"));
     }
 
     // Update is called once per frame
